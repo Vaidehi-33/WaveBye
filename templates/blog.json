@@ -12,10 +12,11 @@
     "main": {
       "type": "main-blog",
       "settings": {
-        "blog_heading": "Short heading goes here",
-        "heading_font_size": 41,
-        "heading_color": "#0a1f44",
-        "heading_alignment": "center",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
         "padding_top": 0,
         "padding_bottom": 0
       }
