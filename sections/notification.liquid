@@ -34,6 +34,12 @@
       "id": "button_text_color",
       "label": "Button Text Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "subscription_url",
+      "label": "Subscription Page URL",
+      "default": "https://yourwebsite.com/subscribe"
     }
   ],
   "blocks": [
@@ -84,7 +90,7 @@
         {% endfor %}
       </div>
       <div class="button-wrapper">
-        <a href="#subscribe-footer" class="dynamic-button" style="
+        <a href="{{ section.settings.subscription_url }}" class="dynamic-button" style="
           background-color: {{ section.settings.button_color }};
           color: {{ section.settings.button_text_color }};
         ">
@@ -94,16 +100,6 @@
     </div>
   </div>
 </div>
-
-<!-- Example Footer Section -->
-<footer id="subscribe-footer">
-  <h2>Subscribe to Our Emails</h2>
-  <form>
-    <!-- Include your subscription form or additional content here -->
-    <input type="email" placeholder="Enter your email" required>
-    <button type="submit">Subscribe</button>
-  </form>
-</footer>
 
 <style>
 .background-wrapper {
