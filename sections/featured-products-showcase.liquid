@@ -68,3 +68,64 @@
   ]
 }
 {% endschema %}
+
+<section class="product-showcase">
+  <div class="section-header">
+    <h2>{{ section.settings.section_title }}</h2>
+  </div>
+  <div class="products-grid">
+    <div class="product-item">
+      <img src="{{ section.settings.image_1 | image_url: 'medium' }}" alt="{{ section.settings.image_1_name }}">
+      <h3>{{ section.settings.image_1_name }}</h3>
+      <p>{{ section.settings.image_1_description }}</p>
+    </div>
+    <div class="product-item">
+      <img src="{{ section.settings.image_2 | image_url: 'medium' }}" alt="{{ section.settings.image_2_name }}">
+      <h3>{{ section.settings.image_2_name }}</h3>
+      <p>{{ section.settings.image_2_description }}</p>
+    </div>
+    <div class="product-item">
+      <img src="{{ section.settings.image_3 | image_url: 'medium' }}" alt="{{ section.settings.image_3_name }}">
+      <h3>{{ section.settings.image_3_name }}</h3>
+      <p>{{ section.settings.image_3_description }}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.product-showcase {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.product-showcase .section-header h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.products-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-item {
+  width: 30%;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.product-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-size: 14px;
+  color: #666;
+}
+</style>
