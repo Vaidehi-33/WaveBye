@@ -250,14 +250,14 @@
     "featured_products_showcase_fpgfeP": {
       "type": "featured-products-showcase",
       "settings": {
-        "section_title": "Our Featured Products",
-        "image_1": "shopify://shop_images/71ZOaLOUQtL._SX569__1.jpg",
+        "section_title": "Long heading is what you see here in this feature",
+        "image_1": "shopify://shop_images/image.png",
         "image_1_name": "Stronger than Other period pain products",
         "image_1_description": "Wave ingredients are more effective than Midol’s tylenol",
-        "image_2": "shopify://shop_images/81h32NQvVuL._SX569.jpg",
+        "image_2": "shopify://shop_images/Placeholder_Image.png",
         "image_2_name": "Easy to Remember",
         "image_2_description": "Wave products are packaged for your convenience",
-        "image_3": "shopify://shop_images/71rzKMArJZL._SX569.jpg",
+        "image_3": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
         "image_3_name": "Maximally Effective",
         "image_3_description": "Taking Wave before bleeding starts changes the entire period experience so you can feel normal"
       }
