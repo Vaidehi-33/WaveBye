@@ -34,12 +34,6 @@
       "id": "button_text_color",
       "label": "Button Text Color",
       "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "subscription_url",
-      "label": "Subscription Page URL",
-      "default": "https://yourwebsite.com/subscribe"
     }
   ],
   "blocks": [
@@ -90,7 +84,7 @@
         {% endfor %}
       </div>
       <div class="button-wrapper">
-        <a href="{{ section.settings.subscription_url }}" class="dynamic-button" style="
+        <a href="#newsletter-section" class="dynamic-button" style="
           background-color: {{ section.settings.button_color }};
           color: {{ section.settings.button_text_color }};
         ">
