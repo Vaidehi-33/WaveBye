@@ -267,6 +267,7 @@
     .image-with-text__content:after {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border: none;
   }
 
   .image-with-text.collapse-corners:not(.image-with-text--overlap)
