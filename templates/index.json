@@ -124,11 +124,47 @@
         "the_text": "",
         "desc_color": "#000000"
       }
+    },
+    "customer_testimonials_9j8yeR": {
+      "type": "customer-testimonials",
+      "blocks": {
+        "column_CCnUpD": {
+          "type": "column",
+          "settings": {
+            "title": "Customer Name",
+            "text": "<p>Testimonial text here</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true
+          }
+        },
+        "column_dWG4B8": {
+          "type": "column",
+          "settings": {
+            "title": "Customer Name",
+            "text": "<p>Testimonial text here</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true
+          }
+        }
+      },
+      "block_order": [
+        "column_CCnUpD",
+        "column_dWG4B8"
+      ],
+      "settings": {
+        "title": "Customer Testimonials",
+        "subtitle": "Get inspired by other customers",
+        "heading_alignment": "center",
+        "star_color": "#ff7474",
+        "testimonial_background": "#ffffff",
+        "testimonial_section_background": "#eaeaea"
+      }
     }
   },
   "order": [
     "image-with-text",
     "featured_collection",
-    "video_slider_CbpBwp"
+    "video_slider_CbpBwp",
+    "customer_testimonials_9j8yeR"
   ]
 }
