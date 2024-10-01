@@ -1,92 +1,67 @@
 {% schema %}
 {
-  "name": "Image Gallery Section",
+  "name": "Notification",
   "settings": [],
   "blocks": [
     {
-      "type": "image_block",
-      "name": "Image Block",
+      "type": "notification_block",
+      "name": "Notification Block",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
           "type": "text",
-          "id": "heading",
-          "label": "Heading"
+          "id": "title",
+          "label": "Title"
         },
         {
           "type": "textarea",
-          "id": "description",
-          "label": "Description"
+          "id": "message",
+          "label": "Message"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#f8d7da"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Image Gallery",
+      "name": "Notification",
       "category": "Custom"
     }
   ]
 }
 {% endschema %}
 
-<div class="image-gallery">
+<div class="notification-section">
   <div class="page-width">
-    <div class="grid grid--5-col">
-      {% for block in section.blocks %}
-        <div class="grid__item">
-          <div class="image-block">
-            {% if block.settings.image %}
-              <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.heading }}" />
-            {% endif %}
-            <h3>{{ block.settings.heading }}</h3>
-            <p>{{ block.settings.description }}</p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+    {% for block in section.blocks %}
+      <div class="notification-block" style="background-color: {{ block.settings.background_color }}">
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.message }}</p>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
 <style>
-.image-gallery {
+.notification-section {
   padding: 20px 0;
 }
 
-.image-block {
-  text-align: center;
-  margin: 0 15px;
+.notification-block {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-.image-block img {
-  max-width: 100%;
-  height: auto;
+.notification-block h3 {
+  margin: 0;
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.grid__item {
-  flex: 1 1 calc(20% - 30px); /* 5 columns with space */
-  margin: 10px;
-}
-
-@media (max-width: 768px) {
-  .grid__item {
-    flex: 1 1 calc(50% - 30px); /* 2 columns on small screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .grid__item {
-    flex: 1 1 100%; /* 1 column on extra small screens */
-  }
+.notification-block p {
+  margin: 5px 0 0;
 }
 </style>
