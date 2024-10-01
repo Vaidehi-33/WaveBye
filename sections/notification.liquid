@@ -16,6 +16,24 @@
       "min": 16,
       "max": 48,
       "step": 1
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#0A1F44"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
     }
   ],
   "blocks": [
@@ -65,11 +83,18 @@
           </div>
         {% endfor %}
       </div>
+      <div class="button-wrapper">
+        <a href="#" class="dynamic-button" style="
+          background-color: {{ section.settings.button_color }};
+          color: {{ section.settings.button_text_color }};
+        ">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-<style>
 <style>
 .background-wrapper {
   padding: 20px 0;
@@ -96,8 +121,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-    box-shadow: 2px 4px 10px #8E8E8E09; /* Add shadow to the entire section */
-
 }
 
 .notification-wrapper {
@@ -127,6 +150,23 @@
 .notification-block p {
   margin: 0;
 }
-</style>
 
+/* Button styling */
+.button-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dynamic-button {
+  padding: 10px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.dynamic-button:hover {
+  opacity: 0.85;
+}
 </style>
