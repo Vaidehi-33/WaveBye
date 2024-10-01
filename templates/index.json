@@ -19,6 +19,14 @@
             "heading_size": "h1"
           }
         },
+        "caption_3FXyUx": {
+          "type": "caption",
+          "settings": {
+            "caption": "Backed by Highest Levels of Scientific Evidence",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
         "button": {
           "type": "button",
           "settings": {
@@ -30,11 +38,12 @@
       },
       "block_order": [
         "heading",
+        "caption_3FXyUx",
         "button"
       ],
       "settings": {
         "image": "shopify://shop_images/wavee.png",
-        "height": "adapt",
+        "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
         "desktop_content_position": "middle",
