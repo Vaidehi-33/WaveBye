@@ -60,9 +60,9 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Medium length section heading goes here",
         "heading_size": "h2",
-        "description": "",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>",
         "show_description": false,
         "description_style": "body",
         "collection": "all",
