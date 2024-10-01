@@ -1,6 +1,99 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{%- comment -%}
+  This section creates a customizable heading for Shopify.
+{%- endcomment -%}
+
+{%- style -%}
+  .dynamic-heading {
+    text-align: {{ section.settings.heading_alignment }};
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_font_size }}px;
+    font-family: {{ section.settings.heading_font_type }};
+    padding-top: {{ section.settings.padding_top }}px; /* Add top padding */
+    padding-bottom: {{ section.settings.padding_bottom }}px; /* Add bottom padding */
   }
+{%- endstyle -%}
+
+<!-- Start of Dynamic Heading Section -->
+<div class="dynamic-heading">
+  <h2>{{ section.settings.heading_text }}</h2>
+</div>
+<!-- End of Dynamic Heading Section -->
+
+{% schema %}
+{
+  "name": "Dynamic Heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Your Dynamic Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "default": 24,
+      "min": 12,
+      "max": 60,
+      "step": 1
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "heading_font_type",
+      "label": "Font Type",
+      "default": "Helvetica, Arial, sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Heading",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
