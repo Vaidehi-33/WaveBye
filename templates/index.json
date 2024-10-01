@@ -135,6 +135,60 @@
         "desc_color": "#000000"
       }
     },
+    "notification_WM7nWP": {
+      "type": "notification",
+      "blocks": {
+        "notification_block_WWExGa": {
+          "type": "notification_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_58.png",
+            "title": "Convenience",
+            "message": "Shop in app for your convenience"
+          }
+        },
+        "notification_block_RNCAeW": {
+          "type": "notification_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_60.png",
+            "title": "Period Stories",
+            "message": "Listen to funny and embarrassing stories women tell about their periods"
+          }
+        },
+        "notification_block_dbUbjB": {
+          "type": "notification_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_59.png",
+            "title": "Period Tracking",
+            "message": "Track your period to know when to take your Wave products"
+          }
+        },
+        "notification_block_RL9aN7": {
+          "type": "notification_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_61.png",
+            "title": "Education",
+            "message": "Watch educational videos from our physicians"
+          }
+        },
+        "notification_block_7X7AQp": {
+          "type": "notification_block",
+          "settings": {
+            "image": "shopify://shop_images/Group_62.png",
+            "title": "Research",
+            "message": "Participate in research surveys to get discounts - give back to other women and yourself!"
+          }
+        }
+      },
+      "block_order": [
+        "notification_block_WWExGa",
+        "notification_block_RNCAeW",
+        "notification_block_dbUbjB",
+        "notification_block_RL9aN7",
+        "notification_block_7X7AQp"
+      ],
+      "settings": {
+      }
+    },
     "customer_testimonials_9j8yeR": {
       "type": "customer-testimonials",
       "blocks": {
@@ -192,72 +246,13 @@
         "testimonial_background": "#ffffff",
         "testimonial_section_background": "#fffef9"
       }
-    },
-    "notification_WM7nWP": {
-      "type": "notification",
-      "blocks": {
-        "notification_block_WWExGa": {
-          "type": "notification_block",
-          "settings": {
-            "image": "shopify://shop_images/Group_58.png",
-            "title": "Convenience",
-            "message": "Shop in app for your convenience",
-            "background_color": "#f8d7da"
-          }
-        },
-        "notification_block_RNCAeW": {
-          "type": "notification_block",
-          "settings": {
-            "image": "shopify://shop_images/Group_60.png",
-            "title": "Period Stories",
-            "message": "Listen to funny and embarrassing stories women tell about their periods",
-            "background_color": "#f8d7da"
-          }
-        },
-        "notification_block_dbUbjB": {
-          "type": "notification_block",
-          "settings": {
-            "image": "shopify://shop_images/Group_59.png",
-            "title": "Period Tracking",
-            "message": "Track your period to know when to take your Wave products",
-            "background_color": "#f8d7da"
-          }
-        },
-        "notification_block_RL9aN7": {
-          "type": "notification_block",
-          "settings": {
-            "image": "shopify://shop_images/Group_61.png",
-            "title": "Education",
-            "message": "Watch educational videos from our physicians",
-            "background_color": "#f8d7da"
-          }
-        },
-        "notification_block_7X7AQp": {
-          "type": "notification_block",
-          "settings": {
-            "image": "shopify://shop_images/Group_62.png",
-            "title": "Research",
-            "message": "Participate in research surveys to get discounts - give back to other women and yourself!",
-            "background_color": "#f8d7da"
-          }
-        }
-      },
-      "block_order": [
-        "notification_block_WWExGa",
-        "notification_block_RNCAeW",
-        "notification_block_dbUbjB",
-        "notification_block_RL9aN7",
-        "notification_block_7X7AQp"
-      ],
-      "settings": {
-      }
     }
   },
   "order": [
     "image-with-text",
     "featured_collection",
     "video_slider_CbpBwp",
-    "customer_testimonials_9j8yeR",
-    "notification_WM7nWP"
+    "notification_WM7nWP",
+    "customer_testimonials_9j8yeR"
   ]
 }
