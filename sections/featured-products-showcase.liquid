@@ -6,7 +6,7 @@
     <div class="product-item">
       {% if section.settings.image_1 %}
         <img 
-          src="{{ section.settings.image_1 | image_url: 'medium' }}" 
+          src="{{ section.settings.image_1 | img_url: 'medium' }}" 
           alt="{{ section.settings.image_1_name }}" 
           width="{{ section.settings.image_1 | image_width: 'medium' }}" 
           height="{{ section.settings.image_1 | image_height: 'medium' }}"
@@ -21,7 +21,7 @@
     <div class="product-item">
       {% if section.settings.image_2 %}
         <img 
-          src="{{ section.settings.image_2 | image_url: 'medium' }}" 
+          src="{{ section.settings.image_2 | img_url: 'medium' }}" 
           alt="{{ section.settings.image_2_name }}" 
           width="{{ section.settings.image_2 | image_width: 'medium' }}" 
           height="{{ section.settings.image_2 | image_height: 'medium' }}"
@@ -36,7 +36,7 @@
     <div class="product-item">
       {% if section.settings.image_3 %}
         <img 
-          src="{{ section.settings.image_3 | image_url: 'medium' }}" 
+          src="{{ section.settings.image_3 | img_url: 'medium' }}" 
           alt="{{ section.settings.image_3_name }}" 
           width="{{ section.settings.image_3 | image_width: 'medium' }}" 
           height="{{ section.settings.image_3 | image_height: 'medium' }}"
