@@ -50,29 +50,37 @@
 }
 {% endschema %}
 
-<div class="notification-section" style="background-color: #EEF1FF;">
-  <div class="page-width">
-    <h2 class="section-heading" style="font-size: {{ section.settings.heading_font_size }}px;">
-      {{ section.settings.heading_text }}
-    </h2>
-    <div class="notification-wrapper">
-      {% for block in section.blocks %}
-        <div class="notification-block">
-          <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.message }}</p>
-        </div>
-      {% endfor %}
+<div class="background-wrapper" style="background-color: #FFFEF9;">
+  <div class="notification-section" style="background-color: #EEF1FF;">
+    <div class="page-width">
+      <h2 class="section-heading" style="font-size: {{ section.settings.heading_font_size }}px;">
+        {{ section.settings.heading_text }}
+      </h2>
+      <div class="notification-wrapper">
+        {% for block in section.blocks %}
+          <div class="notification-block">
+            <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.message }}</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+.background-wrapper {
+  padding: 20px 0;
+  background-color: #FFFEF9; /* Background color behind the section */
+}
+
 .notification-section {
   padding: 20px 0;
   margin-left: 170px;
   margin-right: 170px;
   border-radius: 5px;
+  background-color: #EEF1FF; /* Section background color */
 }
 
 .section-heading {
