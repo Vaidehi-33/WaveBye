@@ -37,6 +37,18 @@
         <div class="page-width page-width--narrow">
           {% render block %}
         </div>
+
+      <header
+  class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <h1
+    class="article-template__title"
+    itemprop="headline"
+  >
+    {{ article.title | escape }}
+  </h1>
+</header>
       {%- when 'featured_image' -%}
         {%- if article.image -%}
           <div
@@ -121,6 +133,12 @@
     {%- endcase -%}
   {%- endfor -%}
 
+  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+      {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
+    </a>
+  </div>
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
