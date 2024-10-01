@@ -101,13 +101,20 @@
           "settings": {
             "bg_video": "https://cdn.shopify.com/videos/c/o/v/0ff1fa4c4cba474f802a2015dc459fb6.mp4"
           }
+        },
+        "video_ThfXCc": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/b33dfbe7d0ad4645b04cb65630153130.mp4"
+          }
         }
       },
       "block_order": [
         "video_mfki98",
         "video_ypTtb3",
         "video_3cyyJB",
-        "video_4AAAT9"
+        "video_4AAAT9",
+        "video_ThfXCc"
       ],
       "settings": {
         "bg_color": "",
