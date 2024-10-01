@@ -34,39 +34,44 @@
 }
 {% endschema %}
 
-<div class="notification-section" style="background-color: #EEF1FF;">
-  <div class="page-width">
-    <div class="notification-wrapper">
-      {% for block in section.blocks %}
-        <div class="notification-block">
-          <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.message }}</p>
-        </div>
-      {% endfor %}
+<div class="notification-wrapper" style="background-color: white;">
+  <div class="notification-section" style="background-color: #EEF1FF;">
+    <div class="page-width">
+      <div class="notification-wrapper">
+        {% for block in section.blocks %}
+          <div class="notification-block">
+            <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.message }}</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+.notification-wrapper {
+  background-color: inherit;
+  padding: 20px 0; /* Optional padding around the notification section */
+}
+
 .notification-section {
-  padding: 20px 0;
+  max-width: 600px; /* Make the section smaller */
+  background-color: #EEF1FF;
+  margin: 0 auto; /* Center the section */
+  padding: 20px;
+  border-radius: 10px; /* Optional: rounded corners */
 }
 
 .page-width {
-  max-width: 1200px; /* Set maximum width for the entire content */
-  margin: 0 auto; /* Center the content */
-  padding: 0 20px; /* Add padding to the left and right */
-}
-
-.notification-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .notification-block {
-  flex: 1 1 calc(20% - 10px);
+  flex: 1 1 calc(50% - 10px); /* Adjust based on the content */
   padding: 15px;
   border-radius: 5px;
   text-align: center;
