@@ -34,9 +34,12 @@
 }
 {% endschema %}
 
-<div class="notification-section" style="background-color: #EEF1FF;">
-  <div class="page-width">
-    <div class="notification-wrapper">
+<!-- Import Google Fonts for Titillium Web -->
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="notification-wrapper">
+  <div class="notification-section" style="background-color: #EEF1FF;">
+    <div class="page-width">
       {% for block in section.blocks %}
         <div class="notification-block">
           <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
@@ -49,11 +52,19 @@
 </div>
 
 <style>
-.notification-section {
-  padding: 20px 0;
+.notification-wrapper {
+  background-color: inherit; /* Set to inherit the background of the body */
+  padding: 0 20px; /* Optional, adjust for spacing around the section */
 }
 
-.notification-wrapper {
+.notification-section {
+  max-width: 900px; /* Set a smaller width for the section */
+  margin: 0 auto; /* Center the section */
+  padding: 20px;
+  border-radius: 10px; /* Optional, adds rounded corners */
+}
+
+.page-width {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -74,9 +85,13 @@
 
 .notification-block h3 {
   margin: 10px 0 5px;
+  font-family: 'Titillium Web', sans-serif; /* Applying Titillium Web font */
+  font-weight: 600; /* Set a bold weight */
 }
 
 .notification-block p {
   margin: 0;
+  font-family: 'Titillium Web', sans-serif; /* Applying Titillium Web font */
+  font-weight: 400; /* Normal font weight */
 }
 </style>
