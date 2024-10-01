@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Our latest",
-            "heading_size": "h0"
+            "heading": "Doctor Formulated",
+            "heading_size": "h1"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Shop all",
+            "button_label": "SHOP PRESALES NOW",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
@@ -33,6 +33,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/wavee.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
