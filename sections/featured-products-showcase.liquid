@@ -62,50 +62,9 @@
   ],
   "presets": [
     {
-      "name": "Custom Image Section",
+      "name": "Product Showcase",
       "category": "Custom Sections"
     }
   ]
 }
 {% endschema %}
-
-<section class="custom-image-section">
-  <div class="section-header">
-    <h2>{{ section.settings.section_title }}</h2>
-  </div>
-  <div class="image-container">
-    <div class="image-item">
-      <img src="{{ section.settings.image_1 | image_url }}" alt="{{ section.settings.image_1_name }}">
-      <h3>{{ section.settings.image_1_name }}</h3>
-      <p>{{ section.settings.image_1_description }}</p>
-    </div>
-    <div class="image-item">
-      <img src="{{ section.settings.image_2 | image_url }}" alt="{{ section.settings.image_2_name }}">
-      <h3>{{ section.settings.image_2_name }}</h3>
-      <p>{{ section.settings.image_2_description }}</p>
-    </div>
-    <div class="image-item">
-      <img src="{{ section.settings.image_3 | image_url }}" alt="{{ section.settings.image_3_name }}">
-      <h3>{{ section.settings.image_3_name }}</h3>
-      <p>{{ section.settings.image_3_description }}</p>
-    </div>
-  </div>
-</section>
-
-<style>
-.custom-image-section {
-  text-align: center;
-  padding: 20px;
-}
-.custom-image-section .image-container {
-  display: flex;
-  justify-content: space-between;
-}
-.custom-image-section .image-item {
-  width: 30%;
-}
-.custom-image-section img {
-  width: 100%;
-  height: auto;
-}
-</style>
