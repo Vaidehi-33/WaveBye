@@ -188,7 +188,10 @@
       ],
       "settings": {
         "heading_text": "Wave Bye Smart phone app is coming soon",
-        "heading_font_size": 36
+        "heading_font_size": 36,
+        "button_text": "GET NOTIFIED",
+        "button_color": "#dae55a",
+        "button_text_color": "#0a1f44"
       }
     },
     "customer_testimonials_9j8yeR": {
