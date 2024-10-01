@@ -299,7 +299,8 @@
   .image-with-text.collapse-borders:not(.image-with-text--overlap)
     .grid:not(.image-with-text__grid--reverse)
     .image-with-text__content {
-    border-left: 0;
+    /* border-left: 0; */
+      border: none;
   }
 
   .image-with-text.collapse-borders:not(.image-with-text--overlap)
