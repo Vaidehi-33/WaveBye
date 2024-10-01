@@ -21,12 +21,6 @@
           "type": "textarea",
           "id": "message",
           "label": "Message"
-        },
-        {
-          "type": "color",
-          "id": "background_color",
-          "label": "Background Color",
-          "default": "#f8d7da"
         }
       ]
     }
@@ -40,11 +34,11 @@
 }
 {% endschema %}
 
-<div class="notification-section">
+<div class="notification-section" style="background-color: #EEF1FF;">
   <div class="page-width">
     <div class="notification-wrapper">
       {% for block in section.blocks %}
-        <div class="notification-block" style="background-color: {{ block.settings.background_color }}">
+        <div class="notification-block">
           <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.message }}</p>
@@ -69,7 +63,6 @@
   flex: 1 1 calc(20% - 10px);
   padding: 15px;
   border-radius: 5px;
-  margin-bottom: 15px;
   text-align: center;
 }
 
