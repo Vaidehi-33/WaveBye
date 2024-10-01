@@ -15,7 +15,7 @@
         "heading_QHAgAN": {
           "type": "heading",
           "settings": {
-            "heading": "Blog title heading will go here",
+            "heading": "Short heading goes here",
             "heading_size": "h1"
           }
         }
@@ -24,8 +24,8 @@
         "heading_QHAgAN"
       ],
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
         "padding_top": 16,
