@@ -14,7 +14,147 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* CSS for simple filter links */
+  .blog-filter {
+    margin-bottom: -60px; /* Reduced distance */
+    text-align: center;
+  }
+
+  h1.title--primary {
+  font-size: 1px !important; /* Use !important to enforce the size */
+}
+  
+  .blog-filter ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: inline-flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .blog-filter ul li {
+    display: inline;
+  }
+
+  .blog-filter ul li a {
+    color: #333;
+    text-decoration: none; /* Removes underline */
+  }
+  
+  .blog-filter ul li a:hover {
+    text-decoration: underline; /* Optional: underline on hover for clarity */
+  }
+
+  /* CSS for the search box */
+  .blog-search {
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative; /* For positioning the search icon */
+  }
+
+  .blog-search input[type="text"] {
+    border: 1px solid blue; /* Blue outline */
+    padding: 8px 30px; /* Padding for space on the left */
+    width: 200px; /* Adjust width as needed */
+    border-radius: 4px; /* Optional: rounded corners */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease;
+  }
+
+  .blog-search input[type="text"]:focus {
+    border-color: darkblue; /* Darken the border on focus */
+  }
+
+  /* CSS for Blog Articles */
+  .blog-articles {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Default: 1 column on smaller screens */
+    grid-gap: 20px; /* Gap between blog cards */
+  }
+
+  /* 3 columns on medium and large screens */
+  @media screen and (min-width: 768px) {
+    .blog-articles {
+      grid-template-columns: repeat(3, 1fr); /* 3 blog cards per row */
+    }
+  }
+
+  /* Blog article styling */
+  .blog-articles__article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced */
+    height: 100%; /* Ensure the blog card fills available space */
+    padding: 20px;
+    background-color: white; /* Set background color to white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for depth */
+    transition: box-shadow 0.3s ease;
+  }
+
+  .blog-articles__article:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
+  }
+
+  /* Heading styling (Reduced font size) */
+  .article-card__title {
+    font-size: 6px; /* Reduce heading font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+.title--primary {
+  font-size: 1rem; /* Adjust to your preferred size */
+  font-weight: bold;
+}
+  /* Content styling (Reduced font size and line clamping) */
+  .article-card__excerpt {
+    font-size: 14px; /* Reduce content font size */
+    line-height: 1.4;
+    color: #555;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Display only 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3.2em; /* Controls the height based on font size and line-height */
+  }
+
+  /* Read More Link Styling */
+  .read-more-container {
+    margin-top: auto; /* Pushes the Read More link to the bottom of the card */
+    text-align: right; /* Aligns the link to the right */
+    padding-top: 10px;
+    border-top: 1px solid #ddd; /* Optional: add a top border to separate the content */
+  }
+
+  .read-more-link {
+    color: #000000; /* Link color */
+    text-decoration: none; /* No underline by default */
+    font-weight: bold;
+  }
+
+  .read-more-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #0056b3; /* Darken the link color on hover */
+  }
 {%- endstyle -%}
+
+<!-- Start of Tag-based Filter -->
+<div class="blog-filter section-{{ section.id }}-padding">
+  <ul>
+    <li><a href="/blogs/{{ blog.handle }}">All Posts</a></li>
+    <li><a href="/blogs/{{ blog.handle }}/tagged/Category-1">Category 1</a></li>
+    <li><a href="/blogs/{{ blog.handle }}/tagged/Category-2">Category 2</a></li>
+    <li><a href="/blogs/{{ blog.handle }}/tagged/Category-3">Category 3</a></li>
+  </ul>
+</div>
+<!-- End of Tag-based Filter -->
+
+<!-- Start of Search Box -->
+<div class="blog-search">
+  <input type="text" placeholder="Search blogs..." aria-label="Search blogs">
+</div>
+<!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
@@ -40,6 +180,11 @@
             show_author: section.settings.show_author,
             show_excerpt: true
           -%}
+
+          <!-- "Read More" Link inside the blog card -->
+          <div class="read-more-container">
+            <a href="{{ article.url }}" class="read-more-link">Read More &rarr;</a>
+          </div>
         </div>
       {%- endfor -%}
     </div>
