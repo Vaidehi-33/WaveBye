@@ -17,13 +17,14 @@
 
   /* CSS for simple filter links */
   .blog-filter {
+    margin-bottom: -30px;
     text-align: center;
   }
 
   h1.title--primary {
-  font-size: 1px !important; /* Use !important to enforce the size */
-}
-  
+    font-size: 1px !important;
+  }
+
   .blog-filter ul {
     list-style-type: none;
     padding-left: 0;
@@ -38,106 +39,101 @@
 
   .blog-filter ul li a {
     color: #333;
-    text-decoration: none; /* Removes underline */
+    text-decoration: none;
   }
-  
+
   .blog-filter ul li a:hover {
-    text-decoration: underline; /* Optional: underline on hover for clarity */
+    text-decoration: underline;
   }
 
   /* CSS for the search box */
   .blog-search {
     margin-bottom: 30px;
     text-align: center;
-    position: relative; /* For positioning the search icon */
+    position: relative;
   }
 
   .blog-search input[type="text"] {
-    border: 1px solid blue; /* Blue outline */
-    padding: 8px 30px; /* Padding for space on the left */
-    width: 200px; /* Adjust width as needed */
-    border-radius: 4px; /* Optional: rounded corners */
-    outline: none; /* Remove default outline */
+    border: 1px solid blue;
+    padding: 8px 30px;
+    width: 200px;
+    border-radius: 4px;
+    outline: none;
     transition: border-color 0.3s ease;
   }
 
   .blog-search input[type="text"]:focus {
-    border-color: darkblue; /* Darken the border on focus */
+    border-color: darkblue;
   }
 
   /* CSS for Blog Articles */
   .blog-articles {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* Default: 1 column on smaller screens */
-    grid-gap: 20px; /* Gap between blog cards */
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 
-  /* 3 columns on medium and large screens */
   @media screen and (min-width: 768px) {
     .blog-articles {
-      grid-template-columns: repeat(3, 1fr); /* 3 blog cards per row */
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  /* Blog article styling */
   .blog-articles__article {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensure content is spaced */
-    height: 100%; /* Ensure the blog card fills available space */
+    justify-content: space-between;
+    height: 100%;
     padding: 20px;
-    background-color: white; /* Set background color to white */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for depth */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
   }
 
   .blog-articles__article:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
-  /* Heading styling (Customizable font size, color, and alignment) */
-  .section-heading h2 {
-    font-size: {{ section.settings.heading_font_size }}px;
-    color: {{ section.settings.heading_color }};
-    text-align: {{ section.settings.heading_alignment }};
+  .article-card__title {
+    font-size: 6px;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
 
-  /* Content styling (Reduced font size and line clamping) */
   .article-card__excerpt {
-    font-size: 14px; /* Reduce content font size */
+    font-size: 14px;
     line-height: 1.4;
     color: #555;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Display only 2 lines */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 3.2em; /* Controls the height based on font size and line-height */
+    max-height: 3.2em;
   }
 
-  /* Read More Link Styling */
   .read-more-container {
-    margin-top: auto; /* Pushes the Read More link to the bottom of the card */
-    text-align: right; /* Aligns the link to the right */
+    margin-top: auto;
+    text-align: right;
     padding-top: 10px;
-    border-top: 1px solid #ddd; /* Optional: add a top border to separate the content */
+    border-top: 1px solid #ddd;
   }
 
   .read-more-link {
-    color: #000000; /* Link color */
-    text-decoration: none; /* No underline by default */
+    color: #000000;
+    text-decoration: none;
     font-weight: bold;
   }
 
   .read-more-link:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #0056b3; /* Darken the link color on hover */
+    text-decoration: underline;
+    color: #0056b3;
   }
 {%- endstyle -%}
 
 <!-- Start of Dynamic Heading -->
-<div class="section-heading section-{{ section.id }}-padding">
-  <h2 class="heading--primary">{{ section.settings.blog_heading }}</h2>
+<div class="dynamic-heading section-{{ section.id }}-padding" style="text-align: {{ section.settings.heading_alignment }}; color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px;">
+  <h2>{{ section.settings.heading_text }}</h2>
 </div>
 <!-- End of Dynamic Heading -->
 
