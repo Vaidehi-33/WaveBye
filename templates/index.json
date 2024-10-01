@@ -23,8 +23,8 @@
           "type": "caption",
           "settings": {
             "caption": "Backed by Highest Levels of Scientific Evidence",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "text_style": "subtitle",
+            "text_size": "small"
           }
         },
         "button": {
