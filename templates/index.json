@@ -141,8 +141,9 @@
         "column_dWG4B8": {
           "type": "column",
           "settings": {
-            "title": "Customer Name",
-            "text": "<p>Testimonial text here</p>",
+            "image": "shopify://shop_images/Variety_Wheels_Logo_-_C.svg",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
             "stars_count": "5",
             "toggle_review_stars": true
           }
