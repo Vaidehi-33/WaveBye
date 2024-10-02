@@ -9,6 +9,22 @@
       "min": 1,
       "max": 10,
       "default": 3
+    },
+    {
+      "type": "range",
+      "id": "gap_above",
+      "label": "Gap Above Products (in pixels)",
+      "min": 0,
+      "max": 100,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap_below",
+      "label": "Gap Below Products (in pixels)",
+      "min": 0,
+      "max": 100,
+      "default": 20
     }
   ],
   "blocks": [
@@ -68,7 +84,7 @@
 }
 {% endschema %}
 
-<div class="custom-products">
+<div class="custom-products" style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;">
   <div class="grid">
     {%- for block in section.blocks -%}
       {%- assign product = block.settings.product -%}
