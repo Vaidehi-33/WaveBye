@@ -209,18 +209,7 @@
       {%- endif -%}
     </div>
 
-    <!-- Submit Button Separated and Changed to Text -->
    
-      <button
-        type="submit"
-        class="newsletter-form__button field__button"
-        name="commit"
-        id="Subscribe"
-        aria-label="{{ 'newsletter.button_label' | t }}"
-      >
-        Submit
-      </button>
-    
 
     {%- if form.posted_successfully? -%}
       <h3
@@ -234,6 +223,18 @@
     {%- endif -%}
   {%- endform -%}
 </div>
+             <!-- Submit Button Separated and Changed to Text -->
+    <div class="newsletter-form__button-wrapper">
+      <button
+        type="submit"
+        class="newsletter-form__button field__button"
+        name="commit"
+        id="Subscribe"
+        aria-label="{{ 'newsletter.button_label' | t }}"
+      >
+        Submit
+      </button>
+    </div>
 
           {%- endif -%}
 
