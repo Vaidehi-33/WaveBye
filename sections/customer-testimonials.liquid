@@ -64,6 +64,17 @@
   .slick-dots li.slick-active button:before {
     color: #1d1d1d; /* Active dot color */
   }
+  .verified-buyer {
+    color: #5271FF; /* Verified buyer color */
+    font-style: italic; /* Italic style */
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+  .verified-buyer::before {
+    content: '✔'; /* Unicode character for a tick */
+    color: #5271FF; /* Tick color */
+    margin-right: 5px; /* Space between tick and text */
+  }
   @media only screen and (max-width: 800px) {
     .multicolumn-list__item.slider__slide {
       width: 90%; /* Adjust width for smaller screens */
@@ -111,6 +122,9 @@
                   {% endif %}
                   {% if block.settings.title != blank %}
                     <h3>{{ block.settings.title | escape }}</h3>
+                  {% endif %}
+                  {% if block.settings.verified_buyer %}
+                    <div class="verified-buyer">Verified Buyer</div>
                   {% endif %}
                 </div>
               </div>
@@ -167,7 +181,8 @@
         { "type": "text", "id": "title", "default": "Customer Name", "label": "Customer Name" },
         { "type": "richtext", "id": "text", "default": "<p>Testimonial text here</p>", "label": "Customer Testimonial" },
         { "type": "select", "id": "stars_count", "options": [{"value": "5","label": "5"},{"value": "4.5","label": "4.5"},{"value": "4","label": "4"},{"value": "3","label": "3"}], "default": "5", "label": "Stars Count" },
-        { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Show Review Stars" }
+        { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Show Review Stars" },
+        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" } // New setting for verified buyer
       ]
     }
   ],
