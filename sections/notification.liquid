@@ -84,7 +84,7 @@
         {% endfor %}
       </div>
       <div class="button-wrapper">
-        <a href="#newsletter-section" class="dynamic-button" style="
+        <a href="#end-of-page" class="dynamic-button" style="
           background-color: {{ section.settings.button_color }};
           color: {{ section.settings.button_text_color }};
         ">
@@ -171,9 +171,5 @@
 }
 </style>
 
-<!-- Newsletter Section -->
-<div id="newsletter-section" class="newsletter center">
-  <h2>Subscribe to Our Newsletter</h2>
-  <p>Be the first to know about new collections and exclusive offers!</p>
-  <!-- Add the email form or any other content here -->
-</div>
+<!-- Make sure to have an element with the id "end-of-page" at the end of your page -->
+<div id="end-of-page"></div>
