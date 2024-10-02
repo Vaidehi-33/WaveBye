@@ -32,9 +32,29 @@
           "label": "Subtitle"
         },
         {
-          "type": "textarea",
-          "id": "includes_points",
-          "label": "Includes Points (one point per line)"
+          "type": "text",
+          "id": "point_1",
+          "label": "Point 1"
+        },
+        {
+          "type": "text",
+          "id": "point_2",
+          "label": "Point 2"
+        },
+        {
+          "type": "text",
+          "id": "point_3",
+          "label": "Point 3"
+        },
+        {
+          "type": "text",
+          "id": "point_4",
+          "label": "Point 4"
+        },
+        {
+          "type": "text",
+          "id": "point_5",
+          "label": "Point 5"
         }
       ]
     }
@@ -63,9 +83,12 @@
           <h5>{{ block.settings.subtitle }}</h5>
           <p>Includes:</p>
           <ul class="includes-points">
-            {%- assign points = block.settings.includes_points | split: '\n' -%}
-            {%- for point in points -%}
-              <li><span class="tick-mark">✔️</span> {{ point }}</li>
+            {%- for i in (1..5) -%}
+              {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
+              {%- assign point = block.settings[point_key] -%}
+              {%- if point != blank -%}
+                <li><span class="tick-mark">✔️</span> {{ point }}</li>
+              {%- endif -%}
             {%- endfor -%}
           </ul>
           <button type="submit" style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 10px 20px; border: none;">
