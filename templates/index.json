@@ -303,41 +303,41 @@
             "point_5": ""
           }
         },
-        "product_card_8nnCNB": {
+        "product_card_Wn6L3P": {
           "type": "product_card",
           "settings": {
             "product": "bundle-1",
             "small_title": "Bye Cramps",
             "subtitle": "Hello, relief!",
-            "point_1": "",
-            "point_2": "",
-            "point_3": "",
+            "point_1": "Vit E box & Irregularity box",
+            "point_2": "Safe while trying to get pregnant",
+            "point_3": "Hormone-free",
             "point_4": "",
             "point_5": ""
           }
         },
-        "product_card_ynqpbg": {
+        "product_card_nT7HNd": {
           "type": "product_card",
           "settings": {
             "product": "bundle-1",
             "small_title": "Bye Cramps",
             "subtitle": "Hello, relief!",
-            "point_1": "",
-            "point_2": "",
-            "point_3": "",
+            "point_1": "Vit E box & Irregularity box",
+            "point_2": "Safe while trying to get pregnant",
+            "point_3": "Hormone-free",
             "point_4": "",
             "point_5": ""
           }
         },
-        "product_card_WDbRNt": {
+        "product_card_JW7Fbn": {
           "type": "product_card",
           "settings": {
             "product": "bundle-1",
             "small_title": "Bye Cramps",
             "subtitle": "Hello, relief!",
-            "point_1": "",
-            "point_2": "",
-            "point_3": "",
+            "point_1": "Vit E box & Irregularity box",
+            "point_2": "Safe while trying to get pregnant",
+            "point_3": "Hormone-free",
             "point_4": "",
             "point_5": ""
           }
@@ -345,9 +345,9 @@
       },
       "block_order": [
         "product_card_nwieGB",
-        "product_card_8nnCNB",
-        "product_card_ynqpbg",
-        "product_card_WDbRNt"
+        "product_card_Wn6L3P",
+        "product_card_nT7HNd",
+        "product_card_JW7Fbn"
       ],
       "settings": {
         "number_of_products": 4
