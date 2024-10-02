@@ -73,7 +73,7 @@
     {%- for block in section.blocks -%}
       {%- assign product = block.settings.product -%}
       <div class="product-card">
-        <form method="post" action="/cart/add">
+        <form method="post" action="/cart/add" class="ajax-add-to-cart">
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
           <h3 class="product-name">{{ product.title }}</h3>
@@ -167,3 +167,28 @@
   color: #6C86FE; /* Optional: color for tick mark */
 }
 </style>
+
+<script>
+  document.querySelectorAll('.ajax-add-to-cart').forEach(form => {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      const formData = new FormData(form);
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Product added:', data);
+        alert('Product added to cart!'); // Notify the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
