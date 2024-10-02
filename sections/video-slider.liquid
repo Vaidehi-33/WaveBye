@@ -7,6 +7,10 @@
 }
 
 .video-info {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Align children in a row */
+  justify-content: center; /* Center the items */
+  align-items: center; /* Center items vertically */
   position: absolute; /* Positioning over the video */
   bottom: 10px; /* Distance from the bottom */
   left: 50%; /* Center horizontally */
@@ -18,18 +22,19 @@
   border-radius: 5px; /* Optional: rounded corners */
 }
 
+.video-position,
+.video-company {
+  font-size: 15px; /* Adjust as necessary */
+  margin: 0 5px; /* Add margin for spacing between the two */
+  color: white; /* Ensure position and company name are white */
+}
+
 .video-name {
   font-size: 15px; /* Adjust as necessary */
   margin: 0; /* Remove margin */
   color: white; /* Ensure name is white */
 }
 
-.video-position,
-.video-company {
-  font-size: 15px; /* Adjust as necessary */
-  margin: 0; /* Remove margin */
-  color: white; /* Ensure position and company name are white */
-}
 
   #id-{{ section.id }}{
     background-color:{{ section.settings.bg_color }};
