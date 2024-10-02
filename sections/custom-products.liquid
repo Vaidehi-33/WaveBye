@@ -57,7 +57,7 @@
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
           <h3 class="product-name">{{ product.title }}</h3>
-          <p class="product-price">{{ product.price | money }}</p>
+          <p class="product-price"><strong>{{ product.price | money }}</strong></p>
           <hr class="divider">
           <h4>{{ block.settings.small_title }}</h4>
           <h5>{{ block.settings.subtitle }}</h5>
@@ -108,7 +108,7 @@
 }
 
 .product-name {
-  font-size: 20px; /* Set product name font size */
+  font-size: 18px; /* Set product name font size */
   margin: 10px 0; /* Adjust margin */
 }
 
