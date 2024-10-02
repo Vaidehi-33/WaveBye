@@ -29,11 +29,14 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
+    height: 100%; /* Make the card take the full height */
   }
   .multicolumn-card__info {
     display: flex;
     flex-direction: row; /* Align image and text horizontally */
     align-items: center; /* Vertically align items */
+    margin-top: auto; /* Push to the bottom */
   }
   .multicolumn-card__image-wrapper {
     margin-right: 20px; /* Space between image and text */
@@ -99,6 +102,23 @@
         {% for block in section.blocks %}
           <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item slider__slide">
             <div class="multicolumn-card">
+              {% if block.settings.toggle_review_stars %}
+                <div class="reviews">
+                  {% assign stars_count = block.settings.stars_count | plus: 0 %}
+                  {% for star in (1..5) %}
+                    {% if star <= stars_count %}
+                      <i class="fa fa-star"></i>
+                    {% else %}
+                      <i class="fa fa-star-o"></i>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="rte">{{ block.settings.text }}</div>
+              {% endif %}
+              
+              <!-- Moved the image, name, and verified buyer section to the bottom -->
               <div class="multicolumn-card__info">
                 <div class="multicolumn-card__image-wrapper">
                   {% if block.settings.image != blank %}
@@ -116,21 +136,6 @@
                   {% endif %}
                 </div>
               </div>
-              {% if block.settings.toggle_review_stars %}
-                <div class="reviews">
-                  {% assign stars_count = block.settings.stars_count | plus: 0 %}
-                  {% for star in (1..5) %}
-                    {% if star <= stars_count %}
-                      <i class="fa fa-star"></i>
-                    {% else %}
-                      <i class="fa fa-star-o"></i>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {% endif %}
-              {% if block.settings.text != blank %}
-                <div class="rte">{{ block.settings.text }}</div>
-              {% endif %}
             </div>
           </li>
         {% endfor %}
