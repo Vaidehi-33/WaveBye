@@ -143,7 +143,10 @@
 
 <!-- Start of Search Box -->
 <div class="blog-search">
-  <input type="text" placeholder="Search blogs..." aria-label="Search blogs">
+  <form action="/search" method="get">
+    <input type="text" name="q" placeholder="Search blogs..." aria-label="Search blogs">
+    <button type="submit">Search</button> <!-- Optional: Add a submit button -->
+  </form>
 </div>
 <!-- End of Search Box -->
 
