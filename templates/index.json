@@ -91,31 +91,51 @@
         "video_mfki98": {
           "type": "Video",
           "settings": {
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4"
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
           }
         },
         "video_ypTtb3": {
           "type": "Video",
           "settings": {
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/b33dfbe7d0ad4645b04cb65630153130.mp4"
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/b33dfbe7d0ad4645b04cb65630153130.mp4",
+            "name": "",
+            "surname": "",
+            "position": "",
+            "company_name": ""
           }
         },
         "video_3cyyJB": {
           "type": "Video",
           "settings": {
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/586244be79e24c48af06d2a602677bba.mp4"
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/586244be79e24c48af06d2a602677bba.mp4",
+            "name": "",
+            "surname": "",
+            "position": "",
+            "company_name": ""
           }
         },
         "video_4AAAT9": {
           "type": "Video",
           "settings": {
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/0ff1fa4c4cba474f802a2015dc459fb6.mp4"
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/0ff1fa4c4cba474f802a2015dc459fb6.mp4",
+            "name": "",
+            "surname": "",
+            "position": "",
+            "company_name": ""
           }
         },
         "video_ThfXCc": {
           "type": "Video",
           "settings": {
-            "bg_video": "https://cdn.shopify.com/videos/c/o/v/b33dfbe7d0ad4645b04cb65630153130.mp4"
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/b33dfbe7d0ad4645b04cb65630153130.mp4",
+            "name": "",
+            "surname": "",
+            "position": "",
+            "company_name": ""
           }
         }
       },
