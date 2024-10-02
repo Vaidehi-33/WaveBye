@@ -2520,22 +2520,15 @@ input[type='checkbox'] {
   overflow: hidden;
 }
 
-.header__icon {
+.header__icon:not(.header__icon--summary),
+.header__icon span {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4.4rem; /* Adjust height for the button */
-  width: 4.4rem; /* Adjust width for the button */
-  background-color: #6C86FE; /* Button background color */
-  color: #FFFEF9; /* Font color */
-  border-radius: 30px; /* Border radius for button */
-  padding: 0;
-  cursor: pointer; /* Change cursor to pointer for button */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.header__icon:hover {
-  background-color: #5B75E0; /* Darker shade on hover for effect */
+.header__icon {
+  color: rgb(var(--color-foreground));
 }
 
 .header__icon span {
@@ -2543,23 +2536,65 @@ input[type='checkbox'] {
 }
 
 .header__icon .svg-wrapper {
-  width: 2rem; /* Adjust icon size */
-  height: 2rem; /* Adjust icon size */
+  width: 44px;
+  height: 44px;
 }
 
 .header__icon::after {
   content: none;
 }
 
+.header__icon:hover .icon,
+.modal__close-button:hover .icon {
+  transform: scale(1.07);
+}
+
 .header__icon .icon {
-  fill: none; /* Keep original fill settings */
+  height: 2rem;
+  width: 2rem;
+  fill: none;
   vertical-align: middle;
 }
 
-/* Additional styles for account icon, cart icon, and menu icon */
+.header__icon,
+.header__icon--cart .icon {
+  height: 4.4rem;
+  width: 4.4rem;
+  padding: 0;
+}
+
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  
+  /* New button styles */
+  display: flex; /* Ensure the content is flex */
+  align-items: center; /* Center align vertically */
+  justify-content: center; /* Center align horizontally */
+  background-color: #6C86FE; /* Button background color */
+  border-radius: 30px; /* Rounded corners */
+  color: #FFFEF9; /* Font color */
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  text-decoration: none; /* Remove underline from link */
+  border: none; /* Remove border if present */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.header__icon--cart:hover {
+  background-color: #5a76d6; /* Darker shade for hover effect */
+}
+
+
+.header__icon--menu[aria-expanded='true']::before {
+  content: '';
+  top: 100%;
+  left: 0;
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+  width: 100%;
+  display: block;
+  position: absolute;
+  background: rgba(var(--color-foreground), 0.5);
 }
 
 .header__icon--account shop-user-avatar {
@@ -2574,7 +2609,7 @@ details[open] .header__icon-close {
   display: inline-block;
 }
 
-.account-icon {
+account-icon {
   display: flex;
 }
 
