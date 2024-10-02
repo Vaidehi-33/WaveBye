@@ -1,9 +1,7 @@
 {% if cart == empty %}
   <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-  <a id="cart-icon-bubble" href="#" class="cart-button">Cart</a> <!-- Button for empty cart -->
 {% else %}
   <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-  <a id="cart-icon-bubble" href="#" class="cart-button">Cart</a> <!-- Button for filled cart -->
 {% endif %}
 
 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
