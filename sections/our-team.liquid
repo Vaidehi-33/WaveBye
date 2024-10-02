@@ -1,44 +1,39 @@
 <section class="our-team">
   <div class="section-header">
-    <span class="tagline">{{ section.settings.tagline }}</span>
     <h2>{{ section.settings.section_title }}</h2>
     <p>{{ section.settings.section_description }}</p>
   </div>
-  
-  <div class="team-grid">
-    {% for member in section.blocks %}
+  <div class="team-members-grid">
+    {% for i in (1..section.settings.team_member_count) %}
+      {% capture member_image %}team_member_{{ i }}_image{% endcapture %}
+      {% capture member_name %}team_member_{{ i }}_name{% endcapture %}
+      {% capture member_job_title %}team_member_{{ i }}_job_title{% endcapture %}
+      {% capture member_description %}team_member_{{ i }}_description{% endcapture %}
+      
       <div class="team-member">
-        {% if member.settings.image %}
+        {% if section.settings[member_image] %}
           <img 
-            src="{{ member.settings.image | img_url: 'medium' }}" 
-            alt="{{ member.settings.name }}" 
-            class="team-photo"
+            src="{{ section.settings[member_image] | img_url: 'medium' }}" 
+            alt="{{ section.settings[member_name] }}" 
+            width="{{ section.settings[member_image] | image_width: 'medium' }}" 
+            height="{{ section.settings[member_image] | image_height: 'medium' }}"
           >
         {% else %}
-          <div class="no-image-placeholder"></div>
+          <p>No Image Available</p>
         {% endif %}
-        
-        <div class="team-details">
-          <h3>{{ member.settings.name }}</h3>
-          <p class="job-title">{{ member.settings.job_title }}</p>
-          <p class="description">{{ member.settings.description }}</p>
-          <div class="social-links">
-            {% if member.settings.linkedin_url %}
-              <a href="{{ member.settings.linkedin_url }}" target="_blank">
-                <i class="fab fa-linkedin"></i>
+        <h3>{{ section.settings[member_name] }}</h3>
+        <p class="job-title">{{ section.settings[member_job_title] }}</p>
+        <p class="member-description">{{ section.settings[member_description] }}</p>
+        <div class="social-icons">
+          {% for j in (1..3) %}
+            {% capture social_link %}team_member_{{ i }}_social_{{ j }}_link{% endcapture %}
+            {% capture social_icon %}team_member_{{ i }}_social_{{ j }}_icon{% endcapture %}
+            {% if section.settings[social_link] %}
+              <a href="{{ section.settings[social_link] }}" target="_blank">
+                <img src="{{ section.settings[social_icon] | img_url: 'small' }}" alt="Social Icon">
               </a>
             {% endif %}
-            {% if member.settings.twitter_url %}
-              <a href="{{ member.settings.twitter_url }}" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            {% endif %}
-            {% if member.settings.website_url %}
-              <a href="{{ member.settings.website_url }}" target="_blank">
-                <i class="fas fa-globe"></i>
-              </a>
-            {% endif %}
-          </div>
+          {% endfor %}
         </div>
       </div>
     {% endfor %}
@@ -48,88 +43,65 @@
 <style>
 .our-team {
   text-align: center;
-  padding: 40px 0;
+  padding: 3rem 12rem;
 }
 
-.section-header {
-  margin-bottom: 40px;
+.our-team .section-header h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #0A1F44;
+  font-weight: 800;
 }
 
-.tagline {
-  color: #8a6dff;
-  font-size: 14px;
-  font-weight: bold;
+.our-team .section-header p {
+  font-size: 16px;
+  color: #0A1F44;
 }
 
-.section-header h2 {
-  font-size: 32px;
-  margin: 10px 0;
-}
-
-.team-grid {
+.team-members-grid {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
 .team-member {
-  width: 45%;
-  display: flex;
-  margin-bottom: 30px;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border-radius: 8px;
-  transition: transform 0.2s;
+  width: 30%;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.team-member:hover {
-  transform: scale(1.05);
+.team-member img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Optional: Make images circular */
 }
 
-.team-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.no-image-placeholder {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #eee;
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.team-details h3 {
-  font-size: 18px;
-  margin: 0;
-}
-
-.job-title {
-  font-size: 14px;
-  color: #666;
+.team-member h3 {
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #6C86FE;
 }
 
-.description {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.social-links a {
-  margin-right: 10px;
-  color: #666;
-  text-decoration: none;
-}
-
-.social-links a i {
+.team-member .job-title {
   font-size: 16px;
+  font-weight: bold;
+  color: #0A1F44;
+}
+
+.team-member .member-description {
+  font-size: 14px;
+  color: #0A1F44;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
 }
 </style>
 
@@ -137,12 +109,6 @@
 {
   "name": "Our Team",
   "settings": [
-    {
-      "type": "text",
-      "id": "tagline",
-      "label": "Tagline",
-      "default": "TAGLINE"
-    },
     {
       "type": "text",
       "id": "section_title",
@@ -153,53 +119,172 @@
       "type": "textarea",
       "id": "section_description",
       "label": "Section Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    }
-  ],
-  "blocks": [
+      "default": "Meet our dedicated team members."
+    },
     {
-      "type": "team_member",
-      "name": "Team Member",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Team Member Image"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Full Name",
-          "default": "Full Name"
-        },
-        {
-          "type": "text",
-          "id": "job_title",
-          "label": "Job Title",
-          "default": "Job Title"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        {
-          "type": "url",
-          "id": "linkedin_url",
-          "label": "LinkedIn URL"
-        },
-        {
-          "type": "url",
-          "id": "twitter_url",
-          "label": "Twitter URL"
-        },
-        {
-          "type": "url",
-          "id": "website_url",
-          "label": "Website URL"
-        }
-      ]
+      "type": "number",
+      "id": "team_member_count",
+      "label": "Number of Team Members",
+      "default": 3
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_1_image",
+      "label": "Team Member 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "team_member_1_name",
+      "label": "Team Member 1 Name",
+      "default": "Team Member 1"
+    },
+    {
+      "type": "text",
+      "id": "team_member_1_job_title",
+      "label": "Team Member 1 Job Title",
+      "default": "Job Title"
+    },
+    {
+      "type": "textarea",
+      "id": "team_member_1_description",
+      "label": "Team Member 1 Description",
+      "default": "Short description about the team member."
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_1_social_1_icon",
+      "label": "Team Member 1 Social Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "team_member_1_social_1_link",
+      "label": "Team Member 1 Social Link 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_1_social_2_icon",
+      "label": "Team Member 1 Social Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "team_member_1_social_2_link",
+      "label": "Team Member 1 Social Link 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_1_social_3_icon",
+      "label": "Team Member 1 Social Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "team_member_1_social_3_link",
+      "label": "Team Member 1 Social Link 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_2_image",
+      "label": "Team Member 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "team_member_2_name",
+      "label": "Team Member 2 Name",
+      "default": "Team Member 2"
+    },
+    {
+      "type": "text",
+      "id": "team_member_2_job_title",
+      "label": "Team Member 2 Job Title",
+      "default": "Job Title"
+    },
+    {
+      "type": "textarea",
+      "id": "team_member_2_description",
+      "label": "Team Member 2 Description",
+      "default": "Short description about the team member."
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_2_social_1_icon",
+      "label": "Team Member 2 Social Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "team_member_2_social_1_link",
+      "label": "Team Member 2 Social Link 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_2_social_2_icon",
+      "label": "Team Member 2 Social Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "team_member_2_social_2_link",
+      "label": "Team Member 2 Social Link 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_2_social_3_icon",
+      "label": "Team Member 2 Social Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "team_member_2_social_3_link",
+      "label": "Team Member 2 Social Link 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_3_image",
+      "label": "Team Member 3 Image"
+    },
+    {
+      "type": "text",
+      "id": "team_member_3_name",
+      "label": "Team Member 3 Name",
+      "default": "Team Member 3"
+    },
+    {
+      "type": "text",
+      "id": "team_member_3_job_title",
+      "label": "Team Member 3 Job Title",
+      "default": "Job Title"
+    },
+    {
+      "type": "textarea",
+      "id": "team_member_3_description",
+      "label": "Team Member 3 Description",
+      "default": "Short description about the team member."
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_3_social_1_icon",
+      "label": "Team Member 3 Social Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "team_member_3_social_1_link",
+      "label": "Team Member 3 Social Link 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_3_social_2_icon",
+      "label": "Team Member 3 Social Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "team_member_3_social_2_link",
+      "label": "Team Member 3 Social Link 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_member_3_social_3_icon",
+      "label": "Team Member 3 Social Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "team_member_3_social_3_link",
+      "label": "Team Member 3 Social Link 3"
     }
   ],
   "presets": [
