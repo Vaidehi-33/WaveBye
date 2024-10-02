@@ -3613,6 +3613,7 @@ a#cart-icon-bubble {
     line-height: calc(1 + 0.3 / var(--font-body-scale));
     text-underline-offset: 0.3rem;
     transition: background-color 0.3s ease; /* Smooth background change on hover */
+    font-size: 16px; /* Adjust font size if necessary */
 }
 
 a#cart-icon-bubble:hover {
