@@ -68,6 +68,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px; /* Optional: Limit the width for better layout */
 }
 
 .team-member {
@@ -75,6 +77,14 @@
   display: flex;
   margin-bottom: 30px;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
 }
 
 .team-photo {
@@ -107,6 +117,7 @@
 .description {
   font-size: 14px;
   color: #666;
+  margin-bottom: 10px; /* Added margin for better spacing */
 }
 
 .social-links a {
@@ -169,7 +180,7 @@
           "type": "textarea",
           "id": "description",
           "label": "Description",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
           "type": "url",
