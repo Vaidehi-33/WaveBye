@@ -1,6 +1,137 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Products Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product Name"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Product Price"
+        },
+        {
+          "type": "text",
+          "id": "small_title",
+          "label": "Small Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "includes",
+          "label": "Includes (one point per line)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Products Section"
+    }
+  ]
+}
 {% endschema %}
+
+<style>
+.custom-products-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center cards */
+}
+
+.product-card {
+  background: #fff; /* Background for product card */
+  border: 1px solid #ddd; /* Optional: border around the card */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding inside card */
+  text-align: center; /* Center text */
+  width: 240px; /* Fixed width */
+}
+
+.product-image {
+  width: 240px;
+  height: 240px;
+  object-fit: cover; /* Ensure image covers the space without distortion */
+  border-radius: 5px; /* Optional: rounded corners for image */
+}
+
+.product-name {
+  font-size: 18px; /* Adjust font size as needed */
+  margin: 10px 0; /* Space above and below */
+}
+
+.product-price {
+  font-size: 16px; /* Adjust font size */
+  color: #6C86FE; /* Color for price */
+}
+
+.divider {
+  border: 0; /* Remove default border */
+  height: 1px; /* Set height of divider */
+  background-color: #6C86FE; /* Set color of divider */
+  margin: 10px 0; /* Space above and below */
+}
+
+.small-title {
+  font-size: 14px; /* Adjust font size */
+  margin: 5px 0; /* Space above and below */
+}
+
+.subtitle {
+  font-size: 12px; /* Adjust font size */
+  color: #555; /* Optional: subtitle color */
+  margin: 5px 0; /* Space above and below */
+}
+
+.includes-title {
+  font-weight: bold; /* Make title bold */
+}
+
+.includes-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 5px 0; /* Space above and below */
+}
+
+.includes-list li {
+  font-size: 12px; /* Adjust font size */
+  margin: 2px 0; /* Space between items */
+}
+</style>
+
+<section class="custom-products-section">
+  {% for block in section.blocks %}
+  <div class="product-card">
+    <img src="{{ block.settings.image | img_url: '240x240' }}" alt="{{ block.settings.name }}" class="product-image">
+    <h3 class="product-name">{{ block.settings.name }}</h3>
+    <p class="product-price">{{ block.settings.price }}</p>
+    <hr class="divider">
+    <h4 class="small-title">{{ block.settings.small_title }}</h4>
+    <p class="subtitle">{{ block.settings.subtitle }}</p>
+    <p class="includes-title">Includes:</p>
+    <ul class="includes-list">
+      {% assign points = block.settings.includes | split: '\n' %}
+      {% for point in points %}
+        <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
