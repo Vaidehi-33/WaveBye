@@ -5,42 +5,40 @@
     <p>{{ section.settings.section_description }}</p>
   </div>
   <div class="team-grid">
-    {% for block in section.blocks %}
-      {% if block.type == 'team_member' %}
-        <div class="team-member">
-          {% if block.settings.image %}
-            <img 
-              src="{{ block.settings.image | img_url: 'medium' }}" 
-              alt="{{ block.settings.name }}" 
-              class="team-photo"
-            >
-          {% else %}
-            <div class="no-image-placeholder"></div>
-          {% endif %}
-          <div class="team-details">
-            <h3>{{ block.settings.name }}</h3>
-            <p class="job-title">{{ block.settings.job_title }}</p>
-            <p class="description">{{ block.settings.description }}</p>
-            <div class="social-links">
-              {% if block.settings.linkedin_url %}
-                <a href="{{ block.settings.linkedin_url }}" target="_blank">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              {% endif %}
-              {% if block.settings.twitter_url %}
-                <a href="{{ block.settings.twitter_url }}" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              {% endif %}
-              {% if block.settings.website_url %}
-                <a href="{{ block.settings.website_url }}" target="_blank">
-                  <i class="fas fa-globe"></i>
-                </a>
-              {% endif %}
-            </div>
+    {% for member in section.blocks %}
+      <div class="team-member">
+        {% if member.settings.image %}
+          <img 
+            src="{{ member.settings.image | img_url: 'medium' }}" 
+            alt="{{ member.settings.name }}" 
+            class="team-photo"
+          >
+        {% else %}
+          <div class="no-image-placeholder"></div>
+        {% endif %}
+        <div class="team-details">
+          <h3>{{ member.settings.name }}</h3>
+          <p class="job-title">{{ member.settings.job_title }}</p>
+          <p class="description">{{ member.settings.description }}</p>
+          <div class="social-links">
+            {% if member.settings.linkedin_url %}
+              <a href="{{ member.settings.linkedin_url }}" target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            {% endif %}
+            {% if member.settings.twitter_url %}
+              <a href="{{ member.settings.twitter_url }}" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            {% endif %}
+            {% if member.settings.website_url %}
+              <a href="{{ member.settings.website_url }}" target="_blank">
+                <i class="fas fa-globe"></i>
+              </a>
+            {% endif %}
           </div>
         </div>
-      {% endif %}
+      </div>
     {% endfor %}
   </div>
 </section>
@@ -51,27 +49,27 @@
   padding: 40px 0;
 }
 
-.our-team .section-header {
+.section-header {
   margin-bottom: 40px;
 }
 
-.our-team .section-header .tagline {
+.tagline {
   color: #8a6dff;
   font-size: 14px;
   font-weight: bold;
 }
 
-.our-team .section-header h2 {
+.section-header h2 {
   font-size: 32px;
   margin: 10px 0;
 }
 
-.our-team .team-grid {
+.team-grid {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 1200px; /* Optional: Limit the width for better layout */
+  max-width: 1200px;
 }
 
 .team-member {
@@ -119,7 +117,7 @@
 .description {
   font-size: 14px;
   color: #666;
-  margin-bottom: 10px; /* Added margin for better spacing */
+  margin-bottom: 10px;
 }
 
 .social-links a {
@@ -156,52 +154,52 @@
       "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
   ],
- "blocks": [
-  {
-    "type": "team_member",
-    "name": "Team Member",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Team Member Image"
-      },
-      {
-        "type": "text",
-        "id": "name",
-        "label": "Full Name",
-        "default": "Full Name"
-      },
-      {
-        "type": "text",
-        "id": "job_title",
-        "label": "Job Title",
-        "default": "Job Title"
-      },
-      {
-        "type": "textarea",
-        "id": "description",
-        "label": "Description",
-        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-      },
-      {
-        "type": "url",
-        "id": "linkedin_url",
-        "label": "LinkedIn URL"
-      },
-      {
-        "type": "url",
-        "id": "twitter_url",
-        "label": "Twitter URL"
-      },
-      {
-        "type": "url",
-        "id": "website_url",
-        "label": "Website URL"
-      }
-    ]
-  }
-],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Team Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Full Name",
+          "default": "Full Name"
+        },
+        {
+          "type": "text",
+          "id": "job_title",
+          "label": "Job Title",
+          "default": "Job Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "url",
+          "id": "linkedin_url",
+          "label": "LinkedIn URL"
+        },
+        {
+          "type": "url",
+          "id": "twitter_url",
+          "label": "Twitter URL"
+        },
+        {
+          "type": "url",
+          "id": "website_url",
+          "label": "Website URL"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Our Team",
