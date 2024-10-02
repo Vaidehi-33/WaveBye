@@ -38,6 +38,7 @@
   .multicolumn-card__image-wrapper {
     margin-top: 20px;
     display: flex;
+    flex-direction: column; /* Ensure elements stack vertically */
   }
   .multicolumn-card__image {
     margin-right: 20px;
@@ -67,8 +68,6 @@
   .verified-buyer {
     color: #5271FF; /* Verified buyer color */
     font-style: italic; /* Italic style */
-    display: flex;
-    align-items: center; /* Center items vertically */
     margin-top: 5px; /* Space between name and verified buyer text */
   }
   .verified-buyer::before {
@@ -123,7 +122,9 @@
                   {% endif %}
                   {% if block.settings.title != blank %}
                     <h3>{{ block.settings.title | escape }}</h3>
-                    <div class="verified-buyer">Verified Buyer</div> <!-- Moved here to ensure it's below the name -->
+                  {% endif %}
+                  {% if block.settings.verified_buyer %}
+                    <div class="verified-buyer">Verified Buyer</div> <!-- This ensures it's below the name -->
                   {% endif %}
                 </div>
               </div>
