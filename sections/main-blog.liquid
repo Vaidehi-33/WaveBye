@@ -20,10 +20,6 @@
     text-align: center;
   }
 
-  h1.title--primary {
-  font-size: 1px !important; /* Use !important to enforce the size */
-}
-  
   .blog-filter ul {
     list-style-type: none;
     padding-left: 0;
@@ -40,9 +36,9 @@
     color: #333;
     text-decoration: none; /* Removes underline */
   }
-  
+
   .blog-filter ul li a:hover {
-    text-decoration: underline; /* Optional: underline on hover for clarity */
+    text-decoration: underline; /* Optional: underline on hover */
   }
 
   /* CSS for the search box */
@@ -95,16 +91,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
   }
 
-  /* Heading styling (Reduced font size) */
-  .article-card__title {
-    font-size: 6px; /* Reduce heading font size */
+  /* Heading styling (dynamic font size) */
+  h1.title--primary {
+    font-size: {{ section.settings.heading_font_size }}px;
     font-weight: bold;
-    margin-bottom: 10px;
   }
-.title--primary {
-  font-size: 1rem; /* Adjust to your preferred size */
-  font-weight: bold;
-}
+
   /* Content styling (Reduced font size and line clamping) */
   .article-card__excerpt {
     font-size: 14px; /* Reduce content font size */
@@ -193,7 +185,6 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
-
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
