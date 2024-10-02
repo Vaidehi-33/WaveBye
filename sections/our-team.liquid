@@ -5,40 +5,42 @@
     <p>{{ section.settings.section_description }}</p>
   </div>
   <div class="team-grid">
-    {% for member in section.blocks %}
-      <div class="team-member">
-        {% if member.settings.image %}
-          <img 
-            src="{{ member.settings.image | img_url: 'medium' }}" 
-            alt="{{ member.settings.name }}" 
-            class="team-photo"
-          >
-        {% else %}
-          <div class="no-image-placeholder"></div>
-        {% endif %}
-        <div class="team-details">
-          <h3>{{ member.settings.name }}</h3>
-          <p class="job-title">{{ member.settings.job_title }}</p>
-          <p class="description">{{ member.settings.description }}</p>
-          <div class="social-links">
-            {% if member.settings.linkedin_url %}
-              <a href="{{ member.settings.linkedin_url }}" target="_blank">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            {% endif %}
-            {% if member.settings.twitter_url %}
-              <a href="{{ member.settings.twitter_url }}" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            {% endif %}
-            {% if member.settings.website_url %}
-              <a href="{{ member.settings.website_url }}" target="_blank">
-                <i class="fas fa-globe"></i>
-              </a>
-            {% endif %}
+    {% for block in section.blocks %}
+      {% if block.type == 'team_member' %}
+        <div class="team-member">
+          {% if block.settings.image %}
+            <img 
+              src="{{ block.settings.image | img_url: 'medium' }}" 
+              alt="{{ block.settings.name }}" 
+              class="team-photo"
+            >
+          {% else %}
+            <div class="no-image-placeholder"></div>
+          {% endif %}
+          <div class="team-details">
+            <h3>{{ block.settings.name }}</h3>
+            <p class="job-title">{{ block.settings.job_title }}</p>
+            <p class="description">{{ block.settings.description }}</p>
+            <div class="social-links">
+              {% if block.settings.linkedin_url %}
+                <a href="{{ block.settings.linkedin_url }}" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              {% endif %}
+              {% if block.settings.twitter_url %}
+                <a href="{{ block.settings.twitter_url }}" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              {% endif %}
+              {% if block.settings.website_url %}
+                <a href="{{ block.settings.website_url }}" target="_blank">
+                  <i class="fas fa-globe"></i>
+                </a>
+              {% endif %}
+            </div>
           </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
