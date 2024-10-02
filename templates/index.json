@@ -120,7 +120,9 @@
         "product_card_JW7Fbn"
       ],
       "settings": {
-        "number_of_products": 4
+        "number_of_products": 4,
+        "gap_above": 67,
+        "gap_below": 15
       }
     },
     "featured_collection": {
