@@ -3,6 +3,52 @@
   "name": "Custom Products Section",
   "settings": [
     {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (px)",
+      "min": 16,
+      "max": 48,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "subheading_text",
+      "label": "Subheading Text",
+      "default": "Quality Products at Great Prices"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#777777"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "label": "Subheading Font Size (px)",
+      "min": 12,
+      "max": 36,
+      "default": 18
+    },
+    {
       "type": "range",
       "id": "number_of_products",
       "label": "Number of Product Cards",
@@ -85,6 +131,15 @@
 {% endschema %}
 
 <div class="custom-products" style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;">
+  <div class="stars" style="color: {{ section.settings.star_color }}">
+    ★★★★★
+  </div>
+  <h2 style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px;">
+    {{ section.settings.heading_text }}
+  </h2>
+  <h3 style="color: {{ section.settings.subheading_color }}; font-size: {{ section.settings.subheading_font_size }}px;">
+    {{ section.settings.subheading_text }}
+  </h3>
   <div class="grid">
     {%- for block in section.blocks -%}
       {%- assign product = block.settings.product -%}
@@ -127,7 +182,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  text-align: center;
+}
+
+.stars {
+  font-size: 30px; /* Custom font size for stars */
+  margin-bottom: 10px; /* Space below stars */
 }
 
 .grid {
