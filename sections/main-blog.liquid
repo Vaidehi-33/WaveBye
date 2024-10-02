@@ -142,12 +142,19 @@
 <!-- End of Tag-based Filter -->
 
 <!-- Start of Search Box -->
+<!-- Header Search -->
+<form action="/search" method="get">
+  <input type="text" name="q" placeholder="Search..." aria-label="Search">
+</form>
+
+<!-- Blog Search -->
 <div class="blog-search">
-  <form action="/search" method="get">
+  <form action="/blogs/{{ blog.handle }}" method="get">
     <input type="text" name="q" placeholder="Search blogs..." aria-label="Search blogs">
-    <button type="submit">Search</button> <!-- Optional: Add a submit button -->
+    <button type="submit">Search</button>
   </form>
 </div>
+
 <!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
