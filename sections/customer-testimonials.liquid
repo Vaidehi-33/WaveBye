@@ -50,6 +50,17 @@
     width: 100%;
     height: auto;
   }
+  .verified-buyer {
+    color: #5271FF; /* Color for Verified Buyer */
+    font-style: italic; /* Italic style */
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center vertically */
+  }
+  .verified-buyer::before {
+    content: "✔️"; /* Blue tick */
+    color: #5271FF; /* Color for tick */
+    margin-right: 5px; /* Space between tick and text */
+  }
   .slider__slide {
     margin: 0 15px; /* Space between slides */
   }
@@ -111,6 +122,7 @@
                   {% endif %}
                   {% if block.settings.title != blank %}
                     <h3>{{ block.settings.title | escape }}</h3>
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Verified Buyer label -->
                   {% endif %}
                 </div>
               </div>
