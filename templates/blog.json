@@ -14,7 +14,7 @@
       "settings": {
         "heading_text": "Short heading goes here",
         "heading_color": "#333333",
-        "heading_font_size": 49,
+        "heading_font_size": 60,
         "heading_alignment": "center",
         "heading_font_type": "Helvetica, Arial, sans-serif",
         "padding_top": 0,
@@ -30,7 +30,8 @@
         "show_date": true,
         "show_author": false,
         "padding_top": 0,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "heading_font_size": 24
       }
     }
   },

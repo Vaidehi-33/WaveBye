@@ -194,6 +194,21 @@
         "button_text_color": "#0a1f44"
       }
     },
+    "featured_products_showcase_fpgfeP": {
+      "type": "featured-products-showcase",
+      "settings": {
+        "section_title": "Long heading is what you see here in this feature",
+        "image_1": "shopify://shop_images/image.png",
+        "image_1_name": "Stronger than Other period pain products",
+        "image_1_description": "Wave ingredients are more effective than Midol’s tylenol",
+        "image_2": "shopify://shop_images/Placeholder_Image.png",
+        "image_2_name": "Easy to Remember",
+        "image_2_description": "Wave products are packaged for your convenience",
+        "image_3": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
+        "image_3_name": "Maximally Effective",
+        "image_3_description": "Taking Wave before bleeding starts changes the entire period experience so you can feel normal"
+      }
+    },
     "customer_testimonials_9j8yeR": {
       "type": "customer-testimonials",
       "blocks": {
@@ -251,21 +266,6 @@
         "testimonial_background": "#ffffff",
         "testimonial_section_background": "#fffef9"
       }
-    },
-    "featured_products_showcase_fpgfeP": {
-      "type": "featured-products-showcase",
-      "settings": {
-        "section_title": "Long heading is what you see here in this feature",
-        "image_1": "shopify://shop_images/image.png",
-        "image_1_name": "Stronger than Other period pain products",
-        "image_1_description": "Wave ingredients are more effective than Midol’s tylenol",
-        "image_2": "shopify://shop_images/Placeholder_Image.png",
-        "image_2_name": "Easy to Remember",
-        "image_2_description": "Wave products are packaged for your convenience",
-        "image_3": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
-        "image_3_name": "Maximally Effective",
-        "image_3_description": "Taking Wave before bleeding starts changes the entire period experience so you can feel normal"
-      }
     }
   },
   "order": [
@@ -273,7 +273,7 @@
     "featured_collection",
     "video_slider_CbpBwp",
     "notification_WM7nWP",
-    "customer_testimonials_9j8yeR",
-    "featured_products_showcase_fpgfeP"
+    "featured_products_showcase_fpgfeP",
+    "customer_testimonials_9j8yeR"
   ]
 }
