@@ -286,6 +286,12 @@
         "testimonial_background": "#ffffff",
         "testimonial_section_background": "#fffef9"
       }
+    },
+    "custom_products_hKmYiR": {
+      "type": "custom-products",
+      "settings": {
+        "number_of_products": 4
+      }
     }
   },
   "order": [
@@ -294,6 +300,7 @@
     "video_slider_CbpBwp",
     "notification_WM7nWP",
     "featured_products_showcase_fpgfeP",
-    "customer_testimonials_9j8yeR"
+    "customer_testimonials_9j8yeR",
+    "custom_products_hKmYiR"
   ]
 }
