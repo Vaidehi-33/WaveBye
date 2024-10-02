@@ -14,10 +14,10 @@
       "settings": {
         "heading_text": "Short heading goes here",
         "heading_color": "#333333",
-        "heading_font_size": 46,
+        "heading_font_size": 49,
         "heading_alignment": "center",
         "heading_font_type": "Helvetica, Arial, sans-serif",
-        "padding_top": 8,
+        "padding_top": 0,
         "padding_bottom": 6
       }
     },
