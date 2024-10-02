@@ -120,6 +120,13 @@
         "product_card_JW7Fbn"
       ],
       "settings": {
+        "star_color": "#fb86a0",
+        "heading_text": "Medium length section heading goes here",
+        "heading_color": "#333333",
+        "heading_font_size": 48,
+        "subheading_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "subheading_color": "#777777",
+        "subheading_font_size": 18,
         "number_of_products": 4,
         "gap_above": 67,
         "gap_below": 15
