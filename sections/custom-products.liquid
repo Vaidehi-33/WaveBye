@@ -56,9 +56,9 @@
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.price | money }}</p>
-          <hr style="border-top: 1px solid #6C86FE;">
+          <h3 class="product-name">{{ product.title }}</h3>
+          <p class="product-price">{{ product.price | money }}</p>
+          <hr class="divider">
           <h4>{{ block.settings.small_title }}</h4>
           <h5>{{ block.settings.subtitle }}</h5>
           <p>Includes:</p>
@@ -105,6 +105,21 @@
   margin: 0 auto 10px; /* Center the image */
   max-width: 100%; /* Ensure the image fits within the card */
   height: auto; /* Maintain the image aspect ratio */
+}
+
+.product-name {
+  font-size: 18px; /* Set product name font size */
+  margin: 10px 0; /* Adjust margin */
+}
+
+.product-price {
+  font-size: 48px; /* Set product price font size */
+  margin: 5px 0; /* Reduce gap above and below the line */
+}
+
+.divider {
+  border-top: 1px solid #6C86FE; 
+  margin: 5px 0; /* Reduce gap above and below the line */
 }
 
 .includes-points {
