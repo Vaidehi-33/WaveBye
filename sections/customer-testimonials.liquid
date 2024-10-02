@@ -123,9 +123,7 @@
                   {% endif %}
                   {% if block.settings.title != blank %}
                     <h3>{{ block.settings.title | escape }}</h3>
-                  {% endif %}
-                  {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div> <!-- Moved here -->
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Moved here to ensure it's below the name -->
                   {% endif %}
                 </div>
               </div>
