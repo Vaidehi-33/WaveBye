@@ -1,6 +1,94 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Products Section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "label": "Number of Product Cards",
+      "min": 1,
+      "max": 10,
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "small_title",
+          "label": "Small Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "includes_points",
+          "label": "Includes Points (one point per line)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Products",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="custom-products">
+  <div class="grid">
+    {%- for block in section.blocks -%}
+      {%- assign product = block.settings.product -%}
+      <div class="product-card">
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" style="width: 240px; height: 240px;">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+          <hr style="border-top: 1px solid #6C86FE;">
+          <h4>{{ block.settings.small_title }}</h4>
+          <h5>{{ block.settings.subtitle }}</h5>
+          <p>Includes:</p>
+          <ul>
+            {%- assign points = block.settings.includes_points | split: '\n' -%}
+            {%- for point in points -%}
+              <li>{{ point }}</li>
+            {%- endfor -%}
+          </ul>
+          <button type="submit" style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 10px 20px; border: none;">
+            Add to Cart
+          </button>
+        </form>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+.custom-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 240px;
+}
+</style>
