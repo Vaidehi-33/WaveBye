@@ -131,7 +131,7 @@
 {% endschema %}
 
 <div class="custom-products" style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;">
-  <div class="stars" style="color: {{ section.settings.star_color }}">
+  <div class="stars" style="color: {{ section.settings.star_color }};">
     ★★★★★
   </div>
   <h2 style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px;">
@@ -180,8 +180,8 @@
 <style>
 .custom-products {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
   text-align: center;
 }
 
