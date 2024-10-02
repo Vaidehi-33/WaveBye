@@ -3,18 +3,21 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 {% style %}
-  .slider-container{
-    width:80%;
+  .slider-container {
+    width: 80%; /* Set width for slider */
+    margin: 0 auto; /* Center the slider container */
   }
-  .multicolumn-card p{
-    font-size:15px;
+  .multicolumn-card p {
+    font-size: 15px;
   }
-  .multicolumn-card h3{
-    font-size:18px;
+  .multicolumn-card h3 {
+    font-size: 18px;
+    text-align: center; /* Center text in card */
   }
   .multicolumn {
     padding: 30px 0px;
     background: {{ section.settings.testimonial_section_background }};
+    text-align: center; /* Center all text in the section */
   }
   .reviews {
     color: {{ section.settings.star_color }};
@@ -27,17 +30,18 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center content in card */
   }
   .multicolumn-card__info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center; /* Center info content */
   }
   .multicolumn-card__image-wrapper {
     margin-top: 20px;
-    margin-right: 15px;
     display: flex;
-    align-items: center;
+    justify-content: center; /* Center the image wrapper */
   }
   .multicolumn-card__image {
     margin-right: 20px;
@@ -51,7 +55,7 @@
     height: auto;
   }
   .slider__slide {
-    margin: 0 15px;
+    margin: 0 15px; /* Space between slides */
   }
   .slick-dots {
     text-align: center;
@@ -66,7 +70,7 @@
   }
   @media only screen and (max-width: 800px) {
     .multicolumn-list__item.slider__slide {
-      width: 90%;
+      width: 90%; /* Adjust width for smaller screens */
     }
   }
 {% endstyle %}
