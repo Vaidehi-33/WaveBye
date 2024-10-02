@@ -2574,7 +2574,9 @@ input[type='checkbox'] {
   background-color: #6C86FE; /* Button background color */
   border-radius: 30px; /* Rounded corners */
   color: #FFFEF9; /* Font color */
-  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  width: 111px; /* Set button width */
+  height: 37px; /* Set button height */
+  padding: 0; /* Remove padding to fit the set dimensions */
   text-decoration: none; /* Remove underline from link */
   border: none; /* Remove border if present */
   cursor: pointer; /* Change cursor to pointer */
