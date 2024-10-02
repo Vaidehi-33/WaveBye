@@ -258,16 +258,17 @@
         {%- endcase -%}
       {%- endfor -%}
 
-<a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-  <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-  {% if cart.item_count > 0 %}
-    <div class="cart-count-bubble">
-      <span aria-hidden="true">{{ cart.item_count }}</span>
-      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-    </div>
-  {% endif %}
+<a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset cart-button" id="cart-icon-bubble">
+    <span class="cart-text">Cart </span>
+    <span class="cart-item-count">
+        {% if cart.item_count > 0 %}
+            ({{ cart.item_count }})
+        {% else %}
+            (0)
+        {% endif %}
+    </span>
 </a>
+
 
 
     </div>
