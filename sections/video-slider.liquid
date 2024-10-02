@@ -2,6 +2,24 @@
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <style>
+  .video-info {
+  text-align: center;
+  margin-top: 10px; /* Add spacing above the info */
+}
+
+.video-name {
+  font-size: 18px; /* Adjust as necessary */
+  font-weight: bold; /* Make the name bold */
+  margin: 0; /* Remove margin */
+}
+
+.video-position,
+.video-company {
+  font-size: 14px; /* Adjust as necessary */
+  color: #666; /* Change color to suit your design */
+  margin: 0; /* Remove margin */
+}
+
   #id-{{ section.id }}{
     background-color:{{ section.settings.bg_color }};
     background-image: {{ section.settings.background_gradient_color }};
@@ -123,22 +141,28 @@
       <div class="video-slider-inner">
         <div class="cstm-slider video-slider-block customer-video">
           {%- for block in section.blocks -%}
-          <div class="customer-video-wrapper">
-            <video
-              style="display:block;"
-              width="100%"
-              class="slick-video"
-              poster="{% if block.settings.video_poster != blank %} {{ block.settings.video_poster | img_url:'master' }} {% endif %}"
-              playsinline
-            >
-              <source src="{{ block.settings.bg_video }}" type="video/mp4">
-            </video>
-            <div class="play-button">
-            {% if section.settings.video_play_btn != blank %}
-              <img src="{{ section.settings.video_play_btn | img_url:'master' }}">
-              {% endif %}
-            </div>
-          </div>
+<div class="customer-video-wrapper">
+  <video
+    style="display:block;"
+    width="100%"
+    class="slick-video"
+    poster="{% if block.settings.video_poster != blank %} {{ block.settings.video_poster | img_url:'master' }} {% endif %}"
+    playsinline
+  >
+    <source src="{{ block.settings.bg_video }}" type="video/mp4">
+  </video>
+  <div class="play-button">
+    {% if section.settings.video_play_btn != blank %}
+      <img src="{{ section.settings.video_play_btn | img_url:'master' }}">
+    {% endif %}
+  </div>
+  <div class="video-info">
+    <h3 class="video-name">{{ block.settings.name }} {{ block.settings.surname }}</h3>
+    <p class="video-position">{{ block.settings.position }}</p>
+    <p class="video-company">{{ block.settings.company_name }}</p>
+  </div>
+</div>
+
           {% endfor %}
         </div>
       </div>
@@ -273,24 +297,45 @@
       "label": "Right arrow"
     }
   ],
-  "blocks": [
-    {
-      "name": "Block",
-      "type": "Video",
-      "settings": [
-          {
-            "type": "url",
-            "id": "bg_video",
-            "label": "Video"
-          },
-           {
-       "type": "image_picker",
-       "id": "video_poster",
-       "label": "Video Poster"
-     }
-        ]
+"blocks": [
+  {
+    "name": "Block",
+    "type": "Video",
+    "settings": [
+      {
+        "type": "url",
+        "id": "bg_video",
+        "label": "Video"
+      },
+      {
+        "type": "image_picker",
+        "id": "video_poster",
+        "label": "Video Poster"
+      },
+      {
+        "type": "text",
+        "id": "name",
+        "label": "Name"
+      },
+      {
+        "type": "text",
+        "id": "surname",
+        "label": "Surname"
+      },
+      {
+        "type": "text",
+        "id": "position",
+        "label": "Position"
+      },
+      {
+        "type": "text",
+        "id": "company_name",
+        "label": "Company Name"
       }
-  ],
+    ]
+  }
+],
+
     "presets":[
     {
       "name":"Video with slider"
