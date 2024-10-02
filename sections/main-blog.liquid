@@ -143,14 +143,14 @@
 
 <!-- Start of Search Box -->
 <!-- Header Search -->
-<form action="/search" method="get">
+<form action="/search" method="get" id="header-search">
   <input type="text" name="q" placeholder="Search..." aria-label="Search">
 </form>
 
 <!-- Blog Search -->
 <div class="blog-search">
-  <form action="/blogs/{{ blog.handle }}" method="get">
-    <input type="text" name="q" placeholder="Search blogs..." aria-label="Search blogs">
+  <form action="/blogs/{{ blog.handle }}" method="get" id="blog-search">
+    <input type="text" name="blog_search" placeholder="Search blogs..." aria-label="Search blogs">
     <button type="submit">Search</button>
   </form>
 </div>
