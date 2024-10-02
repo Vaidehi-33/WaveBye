@@ -32,16 +32,13 @@
   }
   .multicolumn-card__info {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row; /* Align image and text horizontally */
+    align-items: center; /* Vertically align items */
   }
   .multicolumn-card__image-wrapper {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column; /* Ensure elements stack vertically */
+    margin-right: 20px; /* Space between image and text */
   }
   .multicolumn-card__image {
-    margin-right: 20px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -50,6 +47,20 @@
   .multicolumn-card__image img {
     width: 100%;
     height: auto;
+  }
+  .multicolumn-card__text {
+    display: flex;
+    flex-direction: column; /* Stack name and verified buyer vertically */
+  }
+  .verified-buyer {
+    color: #5271FF; /* Verified buyer color */
+    font-style: italic; /* Italic style */
+    margin-top: 5px; /* Space between name and verified buyer text */
+  }
+  .verified-buyer::after {
+    content: ' ✔'; /* Unicode character for a tick */
+    color: #5271FF; /* Tick color */
+    margin-left: 5px; /* Space between text and tick */
   }
   .slider__slide {
     margin: 0 15px; /* Space between slides */
@@ -64,15 +75,6 @@
   }
   .slick-dots li.slick-active button:before {
     color: #1d1d1d; /* Active dot color */
-  }
-  .verified-buyer {
-    color: #5271FF; /* Verified buyer color */
-    font-style: italic; /* Italic style */
-  }
-  .verified-buyer::after {
-    content: ' ✔'; /* Unicode character for a tick */
-    color: #5271FF; /* Tick color */
-    margin-left: 5px; /* Space between text and tick */
   }
   @media only screen and (max-width: 800px) {
     .multicolumn-list__item.slider__slide {
@@ -98,35 +100,37 @@
           <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item slider__slide">
             <div class="multicolumn-card">
               <div class="multicolumn-card__info">
-                {% if block.settings.toggle_review_stars %}
-                  <div class="reviews">
-                    {% assign stars_count = block.settings.stars_count | plus: 0 %}
-                    {% for star in (1..5) %}
-                      {% if star <= stars_count %}
-                        <i class="fa fa-star"></i>
-                      {% else %}
-                        <i class="fa fa-star-o"></i>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-                {% if block.settings.text != blank %}
-                  <div class="rte">{{ block.settings.text }}</div>
-                {% endif %}
                 <div class="multicolumn-card__image-wrapper">
                   {% if block.settings.image != blank %}
                     <div class="multicolumn-card__image">
                       <img src="{{ block.settings.image | img_url: '275x' }}" alt="{{ block.settings.image.alt }}" loading="lazy">
                     </div>
                   {% endif %}
+                </div>
+                <div class="multicolumn-card__text">
                   {% if block.settings.title != blank %}
                     <h3>{{ block.settings.title | escape }}</h3>
                   {% endif %}
                   {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div> <!-- This ensures it's below the name -->
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Verified Buyer directly below name -->
                   {% endif %}
                 </div>
               </div>
+              {% if block.settings.toggle_review_stars %}
+                <div class="reviews">
+                  {% assign stars_count = block.settings.stars_count | plus: 0 %}
+                  {% for star in (1..5) %}
+                    {% if star <= stars_count %}
+                      <i class="fa fa-star"></i>
+                    {% else %}
+                      <i class="fa fa-star-o"></i>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="rte">{{ block.settings.text }}</div>
+              {% endif %}
             </div>
           </li>
         {% endfor %}
