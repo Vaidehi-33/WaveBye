@@ -55,17 +55,17 @@
       <div class="product-card">
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" style="width: 240px; height: 240px;">
+          <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
           <h3>{{ product.title }}</h3>
           <p>{{ product.price | money }}</p>
           <hr style="border-top: 1px solid #6C86FE;">
           <h4>{{ block.settings.small_title }}</h4>
           <h5>{{ block.settings.subtitle }}</h5>
           <p>Includes:</p>
-          <ul>
+          <ul class="includes-points">
             {%- assign points = block.settings.includes_points | split: '\n' -%}
             {%- for point in points -%}
-              <li>{{ point }}</li>
+              <li><span class="tick-mark">✔️</span> {{ point }}</li>
             {%- endfor -%}
           </ul>
           <button type="submit" style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 10px 20px; border: none;">
@@ -80,15 +80,44 @@
 <style>
 .custom-products {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .product-card {
-  border: 1px solid #ccc;
+  border: 1px solid #6C86FE;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   width: 240px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  display: block;
+  margin: 0 auto 10px; /* Center the image */
+}
+
+.includes-points {
+  list-style-type: none; /* Remove default list style */
+  padding: 0;
+  margin: 10px 0;
+}
+
+.includes-points li {
+  display: flex;
+  align-items: center; /* Align tick mark and text */
+}
+
+.tick-mark {
+  margin-right: 5px; /* Space between tick mark and text */
+  color: #6C86FE; /* Optional: color for tick mark */
 }
 </style>
