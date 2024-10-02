@@ -69,6 +69,7 @@
     font-style: italic; /* Italic style */
     display: flex;
     align-items: center; /* Center items vertically */
+    margin-top: 5px; /* Space between name and verified buyer text */
   }
   .verified-buyer::before {
     content: '✔'; /* Unicode character for a tick */
@@ -124,7 +125,7 @@
                     <h3>{{ block.settings.title | escape }}</h3>
                   {% endif %}
                   {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div>
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Moved here -->
                   {% endif %}
                 </div>
               </div>
