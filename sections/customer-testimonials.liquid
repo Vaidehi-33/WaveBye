@@ -3,25 +3,22 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 {% style %}
-  .slider-container {
-    width: 80%;
-    margin: 0 auto; /* Center the slider container */
+  .slider-container{
+    width:80%;
+    align-items:centre;
   }
-  .multicolumn-card p {
-    font-size: 15px;
+  .multicolumn-card p{
+    font-size:15px;
   }
-  .multicolumn-card h3 {
-    font-size: 18px;
-    text-align: center; /* Center text in card */
+  .multicolumn-card h3{
+    font-size:18px;
   }
   .multicolumn {
     padding: 30px 0px;
     background: {{ section.settings.testimonial_section_background }};
-    text-align: center; /* Center all text in the section */
   }
   .reviews {
     color: {{ section.settings.star_color }};
-    text-align: center; /* Center stars */
   }
   .multicolumn-card {
     background: {{ section.settings.testimonial_background }};
@@ -31,18 +28,17 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content in card */
   }
   .multicolumn-card__info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center; /* Center info content */
   }
   .multicolumn-card__image-wrapper {
     margin-top: 20px;
+    margin-right: 15px;
     display: flex;
-    justify-content: center; /* Center the image wrapper */
+    align-items: center;
   }
   .multicolumn-card__image {
     margin-right: 20px;
