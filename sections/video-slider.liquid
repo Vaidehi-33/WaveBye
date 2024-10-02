@@ -2,9 +2,20 @@
 <!-- Add the slick-theme.css if you want default styling -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <style>
-  .video-info {
-  text-align: center;
-  margin-top: 10px; /* Add spacing above the info */
+  .customer-video-wrapper {
+  position: relative; /* Ensure child elements can be positioned relative to this */
+}
+
+.video-info {
+  position: absolute; /* Positioning over the video */
+  bottom: 10px; /* Distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Centering adjustment */
+  text-align: center; /* Center the text */
+  color: white; /* Change color to make it visible on the video */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+  padding: 10px; /* Add some padding */
+  border-radius: 5px; /* Optional: rounded corners */
 }
 
 .video-name {
@@ -16,7 +27,6 @@
 .video-position,
 .video-company {
   font-size: 14px; /* Adjust as necessary */
-  color: #666; /* Change color to suit your design */
   margin: 0; /* Remove margin */
 }
 
@@ -141,7 +151,7 @@
       <div class="video-slider-inner">
         <div class="cstm-slider video-slider-block customer-video">
           {%- for block in section.blocks -%}
-<div class="customer-video-wrapper">
+         <div class="customer-video-wrapper">
   <video
     style="display:block;"
     width="100%"
@@ -162,6 +172,7 @@
     <p class="video-company">{{ block.settings.company_name }}</p>
   </div>
 </div>
+
 
           {% endfor %}
         </div>
