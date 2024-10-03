@@ -15,7 +15,7 @@
     position: absolute;
     transform: translateX(-100%);
     visibility: hidden;
-    z-index: 3;
+    z-index: 8;
     left: 0;
     top: 100%;
     width: 100%;
