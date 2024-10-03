@@ -3,6 +3,13 @@
 }
 h2 {
   margin-left: -70px;
+  //styleName: HL1 48pt;
+font-family: Outfit;
+font-size: 48px;
+font-weight: 600;
+line-height: 48px;
+text-align: left;
+
 }
 p {
   margin-left: -70px;
