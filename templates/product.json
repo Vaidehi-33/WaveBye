@@ -180,6 +180,28 @@
             "verified_buyer": true
           }
         },
+        "column_GgfTnz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        },
+        "column_HnaDGA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        },
         "column_JN67Jm": {
           "type": "column",
           "settings": {
@@ -216,15 +238,17 @@
       },
       "block_order": [
         "column_W7Vr68",
+        "column_GgfTnz",
+        "column_HnaDGA",
         "column_JN67Jm",
         "column_F6Wfnw",
         "column_z6Uzj6"
       ],
       "settings": {
-        "title": "Testimonials",
-        "subtitle": "Get inspired by other customers",
-        "heading_alignment": "left",
-        "star_color": "#ffcc33",
+        "title": "Customer Testimonials",
+        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "heading_alignment": "center",
+        "star_color": "#fb86a0",
         "testimonial_background": "#ffffff",
         "testimonial_section_background": "#eaeaea"
       }
