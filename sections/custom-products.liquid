@@ -151,8 +151,8 @@
           <h3 class="product-name">{{ product.title }}</h3>
           <p class="product-price"><strong>{{ product.price | money }}</strong></p>
           <hr class="divider">
-          <h4>{{ block.settings.small_title }}</h4>
-          <h5>{{ block.settings.subtitle }}</h5>
+          <h4 class= "small_title" >{{ block.settings.small_title }}</h4>
+          <h5 class= "subtitle">{{ block.settings.subtitle }}</h5>
           <p>Includes:</p>
           <ul class="includes-points">
             {%- for i in (1..5) -%}
