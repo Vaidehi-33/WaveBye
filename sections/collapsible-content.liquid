@@ -35,12 +35,16 @@
   }
 
   /* Remove border lines */
-  .collapsible-content-wrapper-narrow,
-  .collapsible-content {
+.collapsible-content-wrapper-narrow,
+.collapsible-content {
     border: none; /* Ensure there are no borders */
-        justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */ 
-  }
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    margin: 0 auto; /* Center the containers */
+    max-width: 1000px; /* Limit the width to ensure balanced layout */
+    display: flex; /* Ensure proper centering */
+}
+
 
   .contact-button {
     display: inline-block;
