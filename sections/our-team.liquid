@@ -9,37 +9,23 @@
 
     <!-- Team Members -->
     <div class="team-members">
-      <div class="team-member">
-        <img src="{{ section.settings.team_member_1_image | img_url: 'large' }}" alt="{{ section.settings.team_member_1_name }}">
-        <h3>{{ section.settings.team_member_1_name }}</h3>
-        <p>{{ section.settings.team_member_1_job_title }}</p>
-        <p>{{ section.settings.team_member_1_description }}</p>
-        <!-- Social Icons -->
-        <div class="social-icons">
-          {% if section.settings.team_member_1_linkedin %}
-            <a href="{{ section.settings.team_member_1_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_1_facebook %}
-            <a href="{{ section.settings.team_member_1_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
+      {% for member in section.blocks %}
+        <div class="team-member">
+          <img src="{{ member.settings.image | img_url: 'large' }}" alt="{{ member.settings.name }}">
+          <h3>{{ member.settings.name }}</h3>
+          <p>{{ member.settings.job_title }}</p>
+          <p>{{ member.settings.description }}</p>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            {% if member.settings.linkedin %}
+              <a href="{{ member.settings.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if member.settings.facebook %}
+              <a href="{{ member.settings.facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+          </div>
         </div>
-      </div>
-      <!-- Repeat for other members (up to 4) -->
-      <div class="team-member">
-        <img src="{{ section.settings.team_member_2_image | img_url: 'large' }}" alt="{{ section.settings.team_member_2_name }}">
-        <h3>{{ section.settings.team_member_2_name }}</h3>
-        <p>{{ section.settings.team_member_2_job_title }}</p>
-        <p>{{ section.settings.team_member_2_description }}</p>
-        <div class="social-icons">
-          {% if section.settings.team_member_2_linkedin %}
-            <a href="{{ section.settings.team_member_2_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_2_facebook %}
-            <a href="{{ section.settings.team_member_2_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
-        </div>
-      </div>
-      <!-- Add more members as needed -->
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -90,7 +76,6 @@
 .social-icons a:hover {
   color: #0077b5; /* LinkedIn color */
 }
-
 </style>
 
 <!-- Schema for Customization -->
@@ -108,79 +93,54 @@
       "type": "textarea",
       "id": "team_description",
       "label": "Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      "type": "image_picker",
-      "id": "team_member_1_image",
-      "label": "Team Member 1 Image"
-    },
-    {
-      "type": "text",
-      "id": "team_member_1_name",
-      "label": "Team Member 1 Name",
-      "default": "Full Name"
-    },
-    {
-      "type": "text",
-      "id": "team_member_1_job_title",
-      "label": "Team Member 1 Job Title",
-      "default": "Job Title"
-    },
-    {
-      "type": "textarea",
-      "id": "team_member_1_description",
-      "label": "Team Member 1 Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      "type": "url",
-      "id": "team_member_1_linkedin",
-      "label": "Team Member 1 LinkedIn"
-    },
-    {
-      "type": "url",
-      "id": "team_member_1_facebook",
-      "label": "Team Member 1 Facebook"
-    },
-    {
-      "type": "image_picker",
-      "id": "team_member_2_image",
-      "label": "Team Member 2 Image"
-    },
-    {
-      "type": "text",
-      "id": "team_member_2_name",
-      "label": "Team Member 2 Name",
-      "default": "Full Name"
-    },
-    {
-      "type": "text",
-      "id": "team_member_2_job_title",
-      "label": "Team Member 2 Job Title",
-      "default": "Job Title"
-    },
-    {
-      "type": "textarea",
-      "id": "team_member_2_description",
-      "label": "Team Member 2 Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      "type": "url",
-      "id": "team_member_2_linkedin",
-      "label": "Team Member 2 LinkedIn"
-    },
-    {
-      "type": "url",
-      "id": "team_member_2_facebook",
-      "label": "Team Member 2 Facebook"
+      "default": "Meet our team of professionals."
     }
-    // Add more team members as needed
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Team Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Full Name"
+        },
+        {
+          "type": "text",
+          "id": "job_title",
+          "label": "Job Title",
+          "default": "Job Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Short bio or description."
+        },
+        {
+          "type": "url",
+          "id": "linkedin",
+          "label": "LinkedIn URL"
+        },
+        {
+          "type": "url",
+          "id": "facebook",
+          "label": "Facebook URL"
+        }
+      ]
+    }
   ],
   "presets": [
     {
-      "name": "Our Team"
+      "name": "Our Team",
+      "category": "Team"
     }
   ]
 }
