@@ -71,11 +71,31 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "our_team_YCDqGy": {
+      "type": "our-team",
+      "settings": {
+        "team_title": "Our Team",
+        "team_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "team_member_1_image": "shopify://shop_images/61bOqUZRSPL._AC_UF1000_1000_QL80.jpg",
+        "team_member_1_name": "Full Name",
+        "team_member_1_job_title": "Job Title",
+        "team_member_1_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "team_member_1_linkedin": "",
+        "team_member_1_facebook": "",
+        "team_member_2_image": "shopify://shop_images/71ZOaLOUQtL._SX569__1.jpg",
+        "team_member_2_name": "Full Name",
+        "team_member_2_job_title": "Job Title",
+        "team_member_2_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "team_member_2_linkedin": "",
+        "team_member_2_facebook": ""
+      }
     }
   },
   "order": [
     "main",
     "image_with_text_xKD6Kd",
-    "featured_blog_p84hkH"
+    "featured_blog_p84hkH",
+    "our_team_YCDqGy"
   ]
 }
