@@ -13,8 +13,8 @@
         <div class="team-member">
           <img src="{{ block.settings.image | img_url: 'large' }}" alt="{{ block.settings.name }}">
           <h3>{{ block.settings.name }}</h3>
-          <p>{{ block.settings.job_title }}</p>
-          <p>{{ block.settings.description }}</p>
+          <p class="job-title">{{ block.settings.job_title }}</p>
+          <p class="description">{{ block.settings.description }}</p>
           <!-- Social Icons -->
           <div class="social-icons">
             {% if block.settings.linkedin %}
@@ -33,48 +33,80 @@
 <style>
 .our-team-section {
   padding: 50px 0;
+  background-color: #f9f9f9;
 }
 .section-header h2 {
   font-size: 36px;
   color: #222;
   font-weight: bold;
+  text-align: center;
 }
 .section-header p {
   font-size: 18px;
   color: #777;
+  text-align: center;
   margin-bottom: 40px;
 }
 .team-members {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 .team-member {
-  width: calc(50% - 10px);
+  width: calc(33.333% - 20px);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+.team-member:hover {
+  transform: translateY(-10px);
 }
 .team-member img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 15px;
 }
 .team-member h3 {
   font-size: 22px;
   margin: 10px 0;
+  color: #333;
 }
-.team-member p {
+.job-title {
   font-size: 16px;
+  font-weight: bold;
+  color: #0077b5; /* LinkedIn color */
+}
+.description {
+  font-size: 14px;
   color: #555;
+  margin-bottom: 20px;
 }
 .social-icons {
   margin-top: 15px;
 }
 .social-icons a {
-  margin: 0 5px;
+  margin: 0 10px;
   font-size: 18px;
   color: #333;
 }
 .social-icons a:hover {
   color: #0077b5; /* LinkedIn color */
+}
+@media (max-width: 992px) {
+  .team-member {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .team-member {
+    width: 100%;
+  }
 }
 </style>
 
