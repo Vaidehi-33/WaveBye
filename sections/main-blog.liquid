@@ -35,43 +35,43 @@
 
   .blog-filter ul li a {
     color: #333;
-    text-decoration: none; /* Removes underline */
+    text-decoration: none;
   }
 
   .blog-filter ul li a:hover {
-    text-decoration: underline; /* Optional: underline on hover */
+    text-decoration: underline;
   }
 
   /* Blog search box styling */
   .blog-search {
     margin-bottom: 30px;
     text-align: left;
-    position: relative; /* For positioning the search icon */
+    position: relative;
   }
 
   .blog-search input[type="text"] {
-    border: 1px solid blue; /* Blue outline */
-    padding: 8px 30px; /* Padding for space on the left */
-    width: 200px; /* Adjust width as needed */
-    border-radius: 4px; /* Optional: rounded corners */
-    outline: none; /* Remove default outline */
+    border: 1px solid blue;
+    padding: 8px 30px;
+    width: 200px;
+    border-radius: 4px;
+    outline: none;
     transition: border-color 0.3s ease;
   }
 
   .blog-search input[type="text"]:focus {
-    border-color: darkblue; /* Darken the border on focus */
+    border-color: darkblue;
   }
 
   /* Blog articles grid styling */
   .blog-articles {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* Default: 1 column on smaller screens */
-    grid-gap: 20px; /* Gap between blog cards */
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 
   @media screen and (min-width: 768px) {
     .blog-articles {
-      grid-template-columns: repeat(3, 1fr); /* 3 blog cards per row */
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -79,35 +79,35 @@
   .blog-articles__article {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures content is spaced */
-    align-items: flex-start; /* Aligns content to the left */
-    height: 100%; /* Ensure the blog card fills available space */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the left */
+    height: 100%;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    text-align: left; /* Align text content to the left */
+    text-align: left;
   }
 
   .blog-articles__article:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   /* Heading styling */
-  h1.title--primary {
-    font-size: {{ section.settings.heading_font_size }}px;
+  h2.article-card__title {
+    font-size: 20px; /* Adjust size as needed */
     font-weight: bold;
-    display: none;
-    text-align: left; /* Align the heading to the left */
-    align-items:left;
+    text-align: left; /* Ensure heading is aligned to the left */
+    margin-bottom: 10px; /* Space below heading */
+    color: #333;
   }
 
   /* Date styling */
   .article-card__date {
     font-size: 12px;
     color: #777;
-    text-align: left; /* Align the date to the left */
-    margin-bottom: 10px; /* Add space between date and content */
-    align-items: left;
+    text-align: left; /* Ensure date is aligned to the left */
+    margin-bottom: 10px;
+    display: block;
   }
 
   /* Excerpt content styling */
@@ -121,7 +121,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 3.2em;
-    text-align: left; /* Ensure the content is aligned to the left */
+    text-align: left;
   }
 
   /* "Read More" link styling */
@@ -129,18 +129,18 @@
     margin-top: auto;
     text-align: left; /* Align the "Read More" link to the left */
     padding-top: 10px;
-    border-top: 1px solid #ddd; /* Optional: add a top border to separate the content */
+    border-top: 1px solid #ddd;
   }
 
   .read-more-link {
-    color: #000000;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
   }
 
   .read-more-link:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #0056b3; /* Darken the link color on hover */
+    text-decoration: underline;
+    color: #0056b3;
   }
 {%- endstyle -%}
 
