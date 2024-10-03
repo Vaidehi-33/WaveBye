@@ -11,69 +11,85 @@
     <div class="team-members">
       <!-- Team Member 1 -->
       <div class="team-member">
-        <img src="{{ section.settings.team_member_1_image | img_url: 'large' }}" alt="{{ section.settings.team_member_1_name }}">
-        <h3>{{ section.settings.team_member_1_name }}</h3>
-        <p>{{ section.settings.team_member_1_job_title }}</p>
-        <p>{{ section.settings.team_member_1_description }}</p>
-        <!-- Social Icons -->
-        <div class="social-icons">
-          {% if section.settings.team_member_1_linkedin %}
-            <a href="{{ section.settings.team_member_1_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_1_facebook %}
-            <a href="{{ section.settings.team_member_1_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
+        <div class="member-image">
+          <img src="{{ section.settings.team_member_1_image | img_url: 'large' }}" alt="{{ section.settings.team_member_1_name }}">
+        </div>
+        <div class="member-details">
+          <h3>{{ section.settings.team_member_1_name }}</h3>
+          <p>{{ section.settings.team_member_1_job_title }}</p>
+          <p>{{ section.settings.team_member_1_description }}</p>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            {% if section.settings.team_member_1_linkedin %}
+              <a href="{{ section.settings.team_member_1_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_1_facebook %}
+              <a href="{{ section.settings.team_member_1_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+          </div>
         </div>
       </div>
 
       <!-- Team Member 2 -->
       <div class="team-member">
-        <img src="{{ section.settings.team_member_2_image | img_url: 'large' }}" alt="{{ section.settings.team_member_2_name }}">
-        <h3>{{ section.settings.team_member_2_name }}</h3>
-        <p>{{ section.settings.team_member_2_job_title }}</p>
-        <p>{{ section.settings.team_member_2_description }}</p>
-        <!-- Social Icons -->
-        <div class="social-icons">
-          {% if section.settings.team_member_2_linkedin %}
-            <a href="{{ section.settings.team_member_2_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_2_facebook %}
-            <a href="{{ section.settings.team_member_2_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
+        <div class="member-image">
+          <img src="{{ section.settings.team_member_2_image | img_url: 'large' }}" alt="{{ section.settings.team_member_2_name }}">
+        </div>
+        <div class="member-details">
+          <h3>{{ section.settings.team_member_2_name }}</h3>
+          <p>{{ section.settings.team_member_2_job_title }}</p>
+          <p>{{ section.settings.team_member_2_description }}</p>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            {% if section.settings.team_member_2_linkedin %}
+              <a href="{{ section.settings.team_member_2_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_2_facebook %}
+              <a href="{{ section.settings.team_member_2_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+          </div>
         </div>
       </div>
 
       <!-- Team Member 3 -->
       <div class="team-member">
-        <img src="{{ section.settings.team_member_3_image | img_url: 'large' }}" alt="{{ section.settings.team_member_3_name }}">
-        <h3>{{ section.settings.team_member_3_name }}</h3>
-        <p>{{ section.settings.team_member_3_job_title }}</p>
-        <p>{{ section.settings.team_member_3_description }}</p>
-        <!-- Social Icons -->
-        <div class="social-icons">
-          {% if section.settings.team_member_3_linkedin %}
-            <a href="{{ section.settings.team_member_3_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_3_facebook %}
-            <a href="{{ section.settings.team_member_3_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
+        <div class="member-image">
+          <img src="{{ section.settings.team_member_3_image | img_url: 'large' }}" alt="{{ section.settings.team_member_3_name }}">
+        </div>
+        <div class="member-details">
+          <h3>{{ section.settings.team_member_3_name }}</h3>
+          <p>{{ section.settings.team_member_3_job_title }}</p>
+          <p>{{ section.settings.team_member_3_description }}</p>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            {% if section.settings.team_member_3_linkedin %}
+              <a href="{{ section.settings.team_member_3_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_3_facebook %}
+              <a href="{{ section.settings.team_member_3_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+          </div>
         </div>
       </div>
 
-      <!-- Team Member 4 (New Member) -->
+      <!-- Team Member 4 -->
       <div class="team-member">
-        <img src="{{ section.settings.team_member_4_image | img_url: 'large' }}" alt="{{ section.settings.team_member_4_name }}">
-        <h3>{{ section.settings.team_member_4_name }}</h3>
-        <p>{{ section.settings.team_member_4_job_title }}</p>
-        <p>{{ section.settings.team_member_4_description }}</p>
-        <!-- Social Icons -->
-        <div class="social-icons">
-          {% if section.settings.team_member_4_linkedin %}
-            <a href="{{ section.settings.team_member_4_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-          {% endif %}
-          {% if section.settings.team_member_4_facebook %}
-            <a href="{{ section.settings.team_member_4_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
-          {% endif %}
+        <div class="member-image">
+          <img src="{{ section.settings.team_member_4_image | img_url: 'large' }}" alt="{{ section.settings.team_member_4_name }}">
+        </div>
+        <div class="member-details">
+          <h3>{{ section.settings.team_member_4_name }}</h3>
+          <p>{{ section.settings.team_member_4_job_title }}</p>
+          <p>{{ section.settings.team_member_4_description }}</p>
+          <!-- Social Icons -->
+          <div class="social-icons">
+            {% if section.settings.team_member_4_linkedin %}
+              <a href="{{ section.settings.team_member_4_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_4_facebook %}
+              <a href="{{ section.settings.team_member_4_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
@@ -101,14 +117,22 @@
 }
 .team-member {
   width: calc(50% - 10px); /* Adjusts to 50% width */
-  text-align: center;
+  display: flex; /* Use flex to manage image and details */
+  align-items: center;
+}
+.member-image {
+  flex: 0 0 auto; /* Fixed size for the image */
+  margin-right: 15px; /* Spacing between image and text */
 }
 .team-member img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 15px;
+}
+.member-details {
+  flex: 1; /* Allows the details to take the remaining space */
+  text-align: left; /* Align text to the left */
 }
 .team-member h3 {
   font-size: 22px;
