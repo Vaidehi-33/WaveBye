@@ -75,6 +75,7 @@
     "our_team_YCDqGy": {
       "type": "our-team",
       "settings": {
+        "tagline": "TAGLINE",
         "team_title": "Our Team",
         "team_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "team_member_1_image": "shopify://shop_images/61bOqUZRSPL._AC_UF1000_1000_QL80.jpg",
