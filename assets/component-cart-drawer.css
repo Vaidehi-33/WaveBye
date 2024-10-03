@@ -10,10 +10,7 @@
   background-color: rgba(var(--color-foreground), 0.5);
   transition: visibility var(--duration-default) ease;
 }
-.header__icon--cart {
-    position: relative;
-    margin-right: 10.2rem;
-}
+
 .drawer.active {
   visibility: visible;
 }
