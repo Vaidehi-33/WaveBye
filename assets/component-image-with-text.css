@@ -74,7 +74,7 @@ p {
 
 @media screen and (min-width: 750px) {
   .image-with-text__media--placeholder.image-with-text__media--adapt {
-    height: 30rem;
+    height: 50rem;
   }
 }
 .button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after {
