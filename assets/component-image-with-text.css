@@ -63,7 +63,17 @@
     height: 30rem;
   }
 }
-
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after {
+    content: "";
+    position: absolute;
+    top: var(--buttons-border-width);
+    right: var(--buttons-border-width);
+    bottom: var(--buttons-border-width);
+    left: var(--buttons-border-width);
+    z-index: 1;
+    border-radius: var(--buttons-radius);
+    box-shadow: none;
+}
 .image-with-text__media--placeholder > svg {
   position: absolute;
   left: 50%;
@@ -328,7 +338,8 @@
 
 .image-with-text__content {
   border-radius: var(--text-boxes-radius);
-
+  box-shadow: var(--text-boxes-shadow-horizontal-offset) var(--text-boxes-shadow-vertical-offset)
+    var(--text-boxes-shadow-blur-radius) rgba(var(--color-shadow), var(--text-boxes-shadow-opacity));
   word-break: break-word;
 }
 
