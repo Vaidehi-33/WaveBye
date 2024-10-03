@@ -1,5 +1,7 @@
 .image-with-text .grid {
   margin-bottom: 0;
+    border-radius:5px
+
 }
 h2 {
   margin-left: -70px;
