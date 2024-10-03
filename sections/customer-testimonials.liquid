@@ -56,35 +56,27 @@
     display: flex;
     flex-direction: column; /* Stack name and verified buyer vertically */
   }
-  .verified-buyer {
+.verified-buyer {
     color: #5271FF; /* Verified buyer color */
     font-style: italic; /* Italic style */
-    margin-top:-12px;
-  }
-.verified-buyer::after {
-    content: '';
-    display: inline-block;
-    width: 16px;              /* Adjust size */
-    height: 16px;             /* Adjust size */
-    background-color: #5271FF; /* Blue background */
-    border-radius: 50%;       /* Make it circular */
-    margin-left: 5px;         /* Space between text and badge */
-    position: relative;
+    margin-top: -12px;
 }
 
-.verified-buyer::after::before {
-    content: '✔';
-    color: white;             /* White tick */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the tick */
-    font-size: 12px;          /* Adjust tick size */
-    font-weight: bold;
-      color: #5271FF; /* Verified buyer color */
-    font-style: italic; /* Italic style */
-    margin-top:-12px;
+.verified-buyer::after {
+    content: '\2714';              /* Unicode character for the checkmark */
+    display: inline-block;
+    width: 16px;                   /* Circle size */
+    height: 16px;                  /* Circle size */
+    background-color: #5271FF;     /* Blue background */
+    border-radius: 50%;            /* Make it circular */
+    color: white;                  /* White tick */
+    font-size: 10px;               /* Tick size */
+    font-weight: bold;             /* Bold tick */
+    text-align: center;
+    line-height: 16px;             /* Vertically center the tick */
+    margin-left: 5px;              /* Space between text and badge */
 }
+
 
   .slider__slide {
     margin: 0 15px; /* Space between slides */
