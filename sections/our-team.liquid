@@ -23,6 +23,9 @@
             {% if section.settings.team_member_1_linkedin %}
               <a href="{{ section.settings.team_member_1_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             {% endif %}
+            {% if section.settings.team_member_1_instagram %}
+              <a href="{{ section.settings.team_member_1_instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {% endif %}
             {% if section.settings.team_member_1_facebook %}
               <a href="{{ section.settings.team_member_1_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
             {% endif %}
@@ -43,6 +46,9 @@
           <div class="social-icons">
             {% if section.settings.team_member_2_linkedin %}
               <a href="{{ section.settings.team_member_2_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_2_instagram %}
+              <a href="{{ section.settings.team_member_2_instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
             {% endif %}
             {% if section.settings.team_member_2_facebook %}
               <a href="{{ section.settings.team_member_2_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -65,6 +71,9 @@
             {% if section.settings.team_member_3_linkedin %}
               <a href="{{ section.settings.team_member_3_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             {% endif %}
+            {% if section.settings.team_member_3_instagram %}
+              <a href="{{ section.settings.team_member_3_instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {% endif %}
             {% if section.settings.team_member_3_facebook %}
               <a href="{{ section.settings.team_member_3_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
             {% endif %}
@@ -85,6 +94,9 @@
           <div class="social-icons">
             {% if section.settings.team_member_4_linkedin %}
               <a href="{{ section.settings.team_member_4_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if section.settings.team_member_4_instagram %}
+              <a href="{{ section.settings.team_member_4_instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
             {% endif %}
             {% if section.settings.team_member_4_facebook %}
               <a href="{{ section.settings.team_member_4_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -201,6 +213,11 @@
     },
     {
       "type": "url",
+      "id": "team_member_1_instagram",
+      "label": "Team Member 1 Instagram"
+    },
+    {
+      "type": "url",
       "id": "team_member_1_facebook",
       "label": "Team Member 1 Facebook"
     },
@@ -231,6 +248,11 @@
       "type": "url",
       "id": "team_member_2_linkedin",
       "label": "Team Member 2 LinkedIn"
+    },
+    {
+      "type": "url",
+      "id": "team_member_2_instagram",
+      "label": "Team Member 2 Instagram"
     },
     {
       "type": "url",
@@ -267,6 +289,11 @@
     },
     {
       "type": "url",
+      "id": "team_member_3_instagram",
+      "label": "Team Member 3 Instagram"
+    },
+    {
+      "type": "url",
       "id": "team_member_3_facebook",
       "label": "Team Member 3 Facebook"
     },
@@ -300,8 +327,19 @@
     },
     {
       "type": "url",
+      "id": "team_member_4_instagram",
+      "label": "Team Member 4 Instagram"
+    },
+    {
+      "type": "url",
       "id": "team_member_4_facebook",
       "label": "Team Member 4 Facebook"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Team",
+      "category": "Custom"
     }
   ]
 }
