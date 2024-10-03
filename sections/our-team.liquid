@@ -9,19 +9,19 @@
 
     <!-- Team Members -->
     <div class="team-members">
-      {% for member in section.blocks %}
+      {% for block in section.blocks %}
         <div class="team-member">
-          <img src="{{ member.settings.image | img_url: 'large' }}" alt="{{ member.settings.name }}">
-          <h3>{{ member.settings.name }}</h3>
-          <p>{{ member.settings.job_title }}</p>
-          <p>{{ member.settings.description }}</p>
+          <img src="{{ block.settings.image | img_url: 'large' }}" alt="{{ block.settings.name }}">
+          <h3>{{ block.settings.name }}</h3>
+          <p>{{ block.settings.job_title }}</p>
+          <p>{{ block.settings.description }}</p>
           <!-- Social Icons -->
           <div class="social-icons">
-            {% if member.settings.linkedin %}
-              <a href="{{ member.settings.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% if block.settings.linkedin %}
+              <a href="{{ block.settings.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             {% endif %}
-            {% if member.settings.facebook %}
-              <a href="{{ member.settings.facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+            {% if block.settings.facebook %}
+              <a href="{{ block.settings.facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
             {% endif %}
           </div>
         </div>
