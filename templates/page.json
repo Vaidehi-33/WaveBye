@@ -87,8 +87,20 @@
         "team_member_2_name": "Full Name",
         "team_member_2_job_title": "Job Title",
         "team_member_2_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-        "team_member_2_linkedin": "",
-        "team_member_2_facebook": ""
+        "team_member_2_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+        "team_member_2_facebook": "",
+        "team_member_3_image": "shopify://shop_images/wavee.png",
+        "team_member_3_name": "Full Name",
+        "team_member_3_job_title": "Job Title",
+        "team_member_3_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "team_member_3_linkedin": "",
+        "team_member_3_facebook": "",
+        "team_member_4_image": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
+        "team_member_4_name": "Full Name",
+        "team_member_4_job_title": "Job Title",
+        "team_member_4_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "team_member_4_linkedin": "",
+        "team_member_4_facebook": ""
       }
     }
   },
