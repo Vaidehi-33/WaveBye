@@ -1,270 +1,68 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff; /* Example background color */
+        }
 
-{%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
+        header-drawer {
+            margin-left: auto; /* Move hamburger drawer to the right */
+        }
 
-{%- if section.settings.menu_type_desktop == 'mega' -%}
-  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- endif -%}
+        .header__icons {
+            display: flex;
+            justify-content: space-between; /* Space between icons */
+            align-items: center; /* Center icons vertically */
+        }
 
-<style>
-  header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
-  }
+        .header__icon--search {
+            display: none; /* Hide the search icon */
+        }
+    </style>
+    <title>Header Example</title>
+</head>
+<body>
 
-  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
-    .scrolled-past-header .header__heading-logo-wrapper {
-      width: 75%;
-    }
-  {%- endif -%}
-
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
-      header-drawer {
-        display: none;
-      }
-    }
-  {%- endif -%}
-
-  .menu-drawer-container {
-    display: flex;
-  }
-
-  .list-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .list-menu--inline {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
-  }
-
-  .list-menu__item {
-    display: flex;
-    align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
-  }
-
-  .list-menu__item--link {
-    text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
-  }
-
-  @media screen and (min-width: 750px) {
-    .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
-    }
-  }
-</style>
-
-{%- style -%}
-  .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
-  }
-
-  .section-header {
-    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
-    }
-  }
-
-  @media screen and (min-width: 990px) {
-    .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-
-{%- liquid
-  for block in section.blocks
-    if block.type == '@app'
-      assign has_app_block = true
-    endif
-  endfor
--%}
-
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  {%- liquid
-    assign social_links = false
-    assign localization_forms = false
-
-    if settings.social_twitter_link != blank or settings.social_facebook_link != blank or settings.social_pinterest_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_vimeo_link != blank or settings.social_tiktok_link != blank or settings.social_tumblr_link != blank or settings.social_snapchat_link != blank
-      assign social_links = true
-    endif
-
-    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
-      assign localization_forms = true
-    endif
-  -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
-
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
-    -%}
-
-    {%- if section.settings.logo_position != 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
-
-    {%- if section.settings.logo_position == 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        {%- if section.settings.enable_country_selector or section.settings.enable_language_selector %}{% include 'header-localization' %}{% endif -%}
-      </div>
-
-      {%- if shop.customer_accounts_enabled -%}
-        <div class="header__icon header__icon--account">
-          <a href="{{ routes.account_url }}" class="link link--icon">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-account"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm0 18c-4.418 0-8-3.582-8-8 0-1.846.657-3.547 1.745-4.906.733-.713 1.539-1.084 2.699-1.084.59 0 1.153.145 1.648.415.721.36 1.18 1.077 1.375 1.846.219.863.046 1.748-.5 2.493C10.436 13.258 9.354 14 8 14h4c1.354 0 2.436-.742 3.125-1.937.547-.745.719-1.63.5-2.493-.195-.769-.654-1.487-1.375-1.846-.495-.27-1.058-.415-1.648-.415-.677 0-1.314.157-1.906.445-.78.433-1.33 1.049-1.605 1.72C7.121 12.16 7.479 14 10 14h1c-1.127 1.065-2.647 2-4 2z" fill="currentColor"></path></svg>
-          </a>
-        </div>
-      {%- endif -%}
-
-      <div class="header__icon header__icon--cart{% if settings.enable_cart_notifications %} header__icon--cart-notifications{% endif %}">
-        <a href="{{ routes.cart_url }}" class="link link--icon">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-cart"><path d="M7.5 15c.828 0 1.5.672 1.5 1.5S8.328 18 7.5 18 6 17.328 6 16.5 6.672 15 7.5 15zM12.5 15c.828 0 1.5.672 1.5 1.5S13.328 18 12.5 18 11 17.328 11 16.5 11.672 15 12.5 15zm2.006-9h-13c-.553 0-1 .447-1 1s.447 1 1 1h.173l2.227 10.45c.051.236.267.45.517.45h10.082c.297 0 .557-.244.557-.55 0-.003-.002-.008-.002-.008L19.325 5H14.506c-.021-.023-.034-.054-.061-.057l-1.365-1.434zM16 11H8l-1.2-5.5h8.4L16 11z" fill="currentColor"></path></svg>
-          <span class="cart-text">{{ 'general.cart' | t }}</span>
-          <span class="cart-item-count">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
-        </a>
-      </div>
-
-      {%- if social_links -%}
-        <div class="header__icon header__icon--social">
-          <ul class="social-icons">
-            {%- if settings.social_facebook_link != blank -%}
-              <li>
-                <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" aria-label="Facebook" class="link link--icon">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-facebook"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm1.25 10.5H9.75v5h-2V10.5H6.5V8.5h1.25V7c0-1.042.564-2.25 2.25-2.25h1.25v2.5h-1c-.25 0-.5.25-.5.75v1.25h2.25l-.25 2z" fill="currentColor"></path></svg>
-                </a>
-              </li>
-            {%- endif -%}
-
-            {%- if settings.social_twitter_link != blank -%}
-              <li>
-                <a href="{{ settings.social_twitter_link }}" target="_blank" rel="noopener" aria-label="Twitter" class="link link--icon">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-twitter"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.43 7.06c.004.092.004.184.004.277 0 2.817-2.148 6.062-6.062 6.062-1.197 0-2.314-.35-3.258-.942.168.02.334.03.502.03.979 0 1.895-.337 2.623-.906-.915-.017-1.688-.623-1.956-1.45.127.025.263.037.398.037.194 0 .388-.025.573-.075-.958-.192-1.676-1.043-1.676-2.062v-.026c.281.156.602.25.944.263-.558-.375-.928-1.012-.928-1.738 0-.384.1-.746.276-1.056 1.009 1.227 2.514 2.035 4.2 2.12-.025-.154-.037-.313-.037-.476 0-1.152.933-2.085 2.085-2.085.599 0 1.141.25 1.518.652.474-.094.925-.268 1.322-.508-.155.486-.484.895-.914 1.154.423-.046.826-.163 1.198-.325-.281.418-.637.785-1.043 1.078z" fill="currentColor"></path></svg>
-                </a>
-              </li>
-            {%- endif -%}
-
-            {%- if settings.social_instagram_link != blank -%}
-              <li>
-                <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram" class="link link--icon">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-instagram"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm5.207 14.043c-.05 1.292-.507 2.4-1.331 3.153-.824.754-1.93 1.144-3.177 1.144s-2.353-.39-3.177-1.144C4.291 16.486 3.734 15.378 3.684 14.043c-.051-1.291-.507-2.4-1.331-3.153-.823-.754-1.93-1.144-3.177-1.144 1.876-1.228 3.318-3.18 3.751-5.606.44-2.568 3.124-3.942 5.87-3.942s5.43 1.374 5.87 3.942c.433 2.426 1.875 4.378 3.751 5.606-.222.004-.445.016-.666.034-.05 1.335-.506 2.432-1.329 3.186-.823.754-1.93 1.144-3.177 1.144s-2.353-.39-3.177-1.144c-.825-.754-1.281-1.858-1.331-3.186zM10 5.546c-2.1 0-3.88 1.779-3.88 3.941 0 2.162 1.779 3.941 3.88 3.941 2.101 0 3.88-1.779 3.88-3.941s-1.779-3.941-3.88-3.941zm1.3 6.496c-.99.999-2.665.999-3.655 0-.99-.999-.99-2.622 0-3.621.99-.999 2.665-.999 3.655 0 .99.999.99 2.622 0 3.621z" fill="currentColor"></path></svg>
-                </a>
-              </li>
-            {%- endif -%}
-
-            {%- if settings.social_youtube_link != blank -%}
-              <li>
-                <a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener" aria-label="YouTube" class="link link--icon">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-youtube"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.9 10l-7.2 4V6l7.2 4z" fill="currentColor"></path></svg>
-                </a>
-              </li>
-            {%- endif -%}
-
-            {%- if settings.social_tiktok_link != blank -%}
-              <li>
-                <a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener" aria-label="TikTok" class="link link--icon">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" class="icon icon-tiktok"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm.108 3.75c.317 0 .634.04.943.116v3.5a3.668 3.668 0 0 1 2.348 3.51 3.75 3.75 0 0 1-3.496 3.748A3.744 3.744 0 0 1 6.75 10c0-2.073 1.577-3.742 3.363-3.742v-.499c0-.43.164-.823.458-1.083.293-.259.678-.398 1.1-.398z" fill="currentColor"></path></svg>
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        </div>
-      {%- endif -%}
+<header class="header">
+    <div class="header__heading-logo-wrapper">
+        <img src="logo.png" alt="Logo" class="header__logo"> <!-- Your logo image -->
     </div>
-  </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+
+    {%- if section.settings.menu != blank -%}
+        <header-drawer>
+            <!-- Hamburger icon rendering code goes here -->
+            <button class="hamburger-button">☰</button>
+        </header-drawer>
+    {%- endif -%}
+
+    <div class="header__icons">
+        {%- if shop.customer_accounts_enabled -%}
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+                <!-- Account icon rendering code -->
+                <span>Account</span>
+            </a>
+        {%- endif -%}
+
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset cart-button" id="cart-icon-bubble">
+            <span class="cart-text">Cart </span>
+            <span class="cart-item-count">
+                {% if cart.item_count > 0 %}
+                    ({{ cart.item_count }})
+                {% endif %}
+            </span>
+        </a>
+    </div>
+</header>
+
+</body>
+</html>
