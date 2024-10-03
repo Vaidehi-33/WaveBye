@@ -14,7 +14,6 @@ p {
 .image-with-text {
   padding: 0px;
   margin-left: 15rem;
-  border-radius:5px;
 }
 .image-with-text .grid__item {
   position: relative;
@@ -29,6 +28,8 @@ p {
 .image-with-text__media {
   min-height: 100%;
   overflow: visible;
+    border-radius:5px
+
 }
 
 .image-with-text__media--small {
@@ -69,12 +70,12 @@ p {
 }
 
 .image-with-text__media--placeholder.image-with-text__media--adapt {
-  height: 25rem;
+  height: 20rem;
 }
 
 @media screen and (min-width: 750px) {
   .image-with-text__media--placeholder.image-with-text__media--adapt {
-    height: 50rem;
+    height: 30rem;
   }
 }
 .button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after {
