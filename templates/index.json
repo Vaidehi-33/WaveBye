@@ -47,7 +47,7 @@
         "desktop_image_width": "medium",
         "layout": "image_first",
         "desktop_content_position": "middle",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1",
@@ -315,7 +315,8 @@
             "title": "Name Surname",
             "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
             "stars_count": "5",
-            "toggle_review_stars": true
+            "toggle_review_stars": true,
+            "verified_buyer": true
           }
         },
         "column_dWG4B8": {
@@ -325,7 +326,8 @@
             "title": "Name Surname",
             "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
             "stars_count": "5",
-            "toggle_review_stars": true
+            "toggle_review_stars": true,
+            "verified_buyer": true
           }
         },
         "column_AmizQR": {
@@ -335,7 +337,8 @@
             "title": "Name Surname",
             "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
             "stars_count": "4.5",
-            "toggle_review_stars": true
+            "toggle_review_stars": true,
+            "verified_buyer": true
           }
         },
         "column_3PDnH8": {
@@ -344,7 +347,8 @@
             "title": "Name Surname",
             "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
             "stars_count": "5",
-            "toggle_review_stars": true
+            "toggle_review_stars": true,
+            "verified_buyer": true
           }
         }
       },
