@@ -129,7 +129,7 @@
         "heading_font_size": 36,
         "subheading_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "subheading_color": "#0a1f44",
-        "subheading_font_size": 15,
+        "subheading_font_size": 14,
         "number_of_products": 4,
         "gap_above": 50,
         "gap_below": 47
