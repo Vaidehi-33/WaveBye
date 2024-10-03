@@ -28,6 +28,12 @@
   .collapsible-content {
     flex: 2; /* Takes more space on the right */
   }
+
+  /* Remove border lines */
+  .collapsible-content-wrapper-narrow,
+  .collapsible-content {
+    border: none; /* Ensure there are no borders */
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
