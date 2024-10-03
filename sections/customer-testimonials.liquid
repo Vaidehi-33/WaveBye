@@ -61,11 +61,30 @@
     font-style: italic; /* Italic style */
     margin-top:-12px;
   }
-  .verified-buyer::after {
-    content: ' ✔'; /* Unicode character for a tick */
-    color: #5271FF; /* Tick color */
-    margin-left: 5px; /* Space between text and tick */
-  }
+.verified-buyer::after {
+    content: '';
+    display: inline-block;
+    width: 16px;              /* Adjust size */
+    height: 16px;             /* Adjust size */
+    background-color: #5271FF; /* Blue background */
+    border-radius: 50%;       /* Make it circular */
+    margin-left: 5px;         /* Space between text and badge */
+    position: relative;
+}
+
+.verified-buyer::after::before {
+    content: '✔';
+    color: white;             /* White tick */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the tick */
+    font-size: 12px;          /* Adjust tick size */
+      color: #5271FF; /* Verified buyer color */
+    font-style: italic; /* Italic style */
+    margin-top:-12px;
+}
+
   .slider__slide {
     margin: 0 15px; /* Space between slides */
   }
