@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -79,6 +88,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -94,10 +104,136 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "collapsible_content_LNkVi9": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_NKnqdJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Question text goes here",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dczwYx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Question text goes here",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4JEeFa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Question text goes here",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_WAFd7n": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Question text goes here",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_NKnqdJ",
+        "collapsible_row_dczwYx",
+        "collapsible_row_4JEeFa",
+        "collapsible_row_WAFd7n"
+      ],
+      "settings": {
+        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "customer_testimonials_wbp37A": {
+      "type": "customer-testimonials",
+      "blocks": {
+        "column_W7Vr68": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        },
+        "column_JN67Jm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        },
+        "column_F6Wfnw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        },
+        "column_z6Uzj6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle6.png",
+            "title": "Name Surname",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.\"</p>",
+            "stars_count": "5",
+            "toggle_review_stars": true,
+            "verified_buyer": true
+          }
+        }
+      },
+      "block_order": [
+        "column_W7Vr68",
+        "column_JN67Jm",
+        "column_F6Wfnw",
+        "column_z6Uzj6"
+      ],
+      "settings": {
+        "title": "Testimonials",
+        "subtitle": "Get inspired by other customers",
+        "heading_alignment": "left",
+        "star_color": "#ffcc33",
+        "testimonial_background": "#ffffff",
+        "testimonial_section_background": "#eaeaea"
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "collapsible_content_LNkVi9",
+    "customer_testimonials_wbp37A"
   ]
 }
