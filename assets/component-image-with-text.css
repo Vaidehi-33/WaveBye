@@ -1,7 +1,19 @@
 .image-with-text .grid {
   margin-bottom: 0;
 }
-
+h2 {
+  margin-left: -70px;
+}
+p {
+  margin-left: -70px;
+}
+.button {
+  margin-left: -70px;
+}
+.image-with-text {
+  padding: 0px;
+  margin-left: 100px;
+}
 .image-with-text .grid__item {
   position: relative;
 }

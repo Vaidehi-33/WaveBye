@@ -42,10 +42,7 @@
         "button"
       ],
       "custom_css": [
-        "h2 {margin-left: -70px;}",
-        "p {margin-left: -70px;}",
-        ".button {margin-left: -70px;}",
-        ".image-with-text {padding: 0px; margin-left: 100px;}"
+
       ],
       "settings": {
         "image": "shopify://shop_images/wavee.png",
