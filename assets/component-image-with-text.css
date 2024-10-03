@@ -13,7 +13,7 @@ p {
 }
 .image-with-text {
   padding: 0px;
-  margin-left: 100px;
+  margin-left: 8rem;
 }
 .image-with-text .grid__item {
   position: relative;
