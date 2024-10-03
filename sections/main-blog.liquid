@@ -44,7 +44,7 @@
   /* CSS for the search box */
   .blog-search {
     margin-bottom: 30px;
-    text-align: left;
+    text-align: center;
     position: relative; /* For positioning the search icon */
   }
 
@@ -61,7 +61,7 @@
     border-color: darkblue; /* Darken the border on focus */
   }
 
-  /* CSS for Blog Articles */
+  /* Blog article styling */
   .blog-articles {
     display: grid;
     grid-template-columns: repeat(1, 1fr); /* Default: 1 column on smaller screens */
@@ -75,19 +75,15 @@
     }
   }
 
-  /* Blog article styling */
-/* Blog article styling */
-.blog-articles__article {
+  .blog-articles__article {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Ensure content is spaced */
     height: 100%; /* Ensure the blog card fills available space */
     padding: 20px;
-    /* background-color: white; /* Remove background color */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for depth */
     transition: box-shadow 0.3s ease;
-}
-
+  }
 
   .blog-articles__article:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a stronger shadow on hover */
@@ -153,7 +149,6 @@
   </form>
 </div> -->
 
-
 <!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
@@ -194,6 +189,7 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
+
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
@@ -305,4 +301,3 @@
   ]
 }
 {% endschema %}
-
