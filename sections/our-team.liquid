@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <!-- Team Member 3 (Example) -->
+      <!-- Team Member 3 -->
       <div class="team-member">
         <img src="{{ section.settings.team_member_3_image | img_url: 'large' }}" alt="{{ section.settings.team_member_3_name }}">
         <h3>{{ section.settings.team_member_3_name }}</h3>
@@ -60,7 +60,22 @@
         </div>
       </div>
 
-      <!-- Add more team members as needed -->
+      <!-- Team Member 4 (New Member) -->
+      <div class="team-member">
+        <img src="{{ section.settings.team_member_4_image | img_url: 'large' }}" alt="{{ section.settings.team_member_4_name }}">
+        <h3>{{ section.settings.team_member_4_name }}</h3>
+        <p>{{ section.settings.team_member_4_job_title }}</p>
+        <p>{{ section.settings.team_member_4_description }}</p>
+        <!-- Social Icons -->
+        <div class="social-icons">
+          {% if section.settings.team_member_4_linkedin %}
+            <a href="{{ section.settings.team_member_4_linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+          {% endif %}
+          {% if section.settings.team_member_4_facebook %}
+            <a href="{{ section.settings.team_member_4_facebook }}" target="_blank"><i class="fab fa-facebook"></i></a>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -89,9 +104,9 @@
   text-align: center;
 }
 .team-member img {
-  width: 150px; /* Adjust the width */
-  height: 150px; /* Adjust the height */
-  object-fit: cover; /* Ensures image is properly scaled */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
 }
@@ -115,7 +130,6 @@
   color: #0077b5; /* LinkedIn color */
 }
 </style>
-
 
 {% schema %}
 {
@@ -231,14 +245,40 @@
       "type": "url",
       "id": "team_member_3_facebook",
       "label": "Team Member 3 Facebook"
-    }
-    // Add more team members as needed
-  ],
-  "presets": [
+    },
     {
-      "name": "Our Team"
+      "type": "image_picker",
+      "id": "team_member_4_image",
+      "label": "Team Member 4 Image"
+    },
+    {
+      "type": "text",
+      "id": "team_member_4_name",
+      "label": "Team Member 4 Name",
+      "default": "Full Name"
+    },
+    {
+      "type": "text",
+      "id": "team_member_4_job_title",
+      "label": "Team Member 4 Job Title",
+      "default": "Job Title"
+    },
+    {
+      "type": "textarea",
+      "id": "team_member_4_description",
+      "label": "Team Member 4 Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "url",
+      "id": "team_member_4_linkedin",
+      "label": "Team Member 4 LinkedIn"
+    },
+    {
+      "type": "url",
+      "id": "team_member_4_facebook",
+      "label": "Team Member 4 Facebook"
     }
   ]
 }
 {% endschema %}
-
