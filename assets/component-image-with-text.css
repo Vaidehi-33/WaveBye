@@ -69,7 +69,7 @@ p {
 }
 
 .image-with-text__media--placeholder.image-with-text__media--adapt {
-  height: 20rem;
+  height: 25rem;
 }
 
 @media screen and (min-width: 750px) {
