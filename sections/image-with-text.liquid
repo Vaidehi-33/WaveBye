@@ -5,11 +5,14 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-.button--primary, .button--secondary {
-  box-shadow: none !important; /* This removes any box-shadow */
-}
+
 .button {
-  box-shadow: none !important;
+  width: 255px;
+  height: 37px;
+  padding: 12px 32px 12px 32px;
+  gap: 8px;
+  border-radius: 30px;
+  opacity: 0px;
 }
 
   @media screen and (min-width: 750px) {
