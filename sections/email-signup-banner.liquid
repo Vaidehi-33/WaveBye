@@ -4,6 +4,15 @@
 {{ 'section-email-signup-banner.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+    #Banner-{{ section.id }} {
+    border: none;
+  }
+
+  .email-signup-banner__box,
+  .banner__box,
+  .newsletter__wrapper {
+    border: none;
+  }
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
