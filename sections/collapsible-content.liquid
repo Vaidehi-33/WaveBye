@@ -22,7 +22,7 @@
 
   .collapsible-header {
     flex: 1;
-    text-align: left; /* Align heading and caption to the left */
+    text-align: left; /* Align heading to the left */
   }
 
   .collapsible-content {
@@ -34,6 +34,23 @@
   .collapsible-content {
     border: none; /* Ensure there are no borders */
   }
+
+  .contact-button {
+    display: inline-block;
+    margin-top: 10px; /* Space between caption and button */
+    padding: 10px 20px;
+    background-color: #6C86FE; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    cursor: pointer;
+  }
+
+  .contact-button:hover {
+    background-color: #4a66b2; /* Darken button on hover */
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -42,11 +59,6 @@
       <div class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}">
         <div class="collapsible-layout">
           <div class="collapsible-header">
-            {%- if section.settings.caption != blank -%}
-              <p class="caption-with-letter-spacing">
-                {{ section.settings.caption | escape }}
-              </p>
-            {% endif %}
             {%- if section.settings.heading != blank -%}
               <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
                 {{ section.settings.heading }}
@@ -54,6 +66,12 @@
             {%- else -%}
               <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
             {% endif %}
+            {%- if section.settings.caption != blank -%}
+              <p class="caption-with-letter-spacing">
+                {{ section.settings.caption | escape }}
+              </p>
+            {% endif %}
+            <a href="/contact" class="contact-button">Contact Us</a>
           </div>
           <div class="collapsible-content">
             <div class="grid grid--1-col grid--2-col-tablet collapsible-content__grid{% if section.settings.desktop_layout == 'image_second' %} collapsible-content__grid--reverse{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
