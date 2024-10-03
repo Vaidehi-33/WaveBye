@@ -13,7 +13,6 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-
 .collapsible-layout {
     width: 1200px;
     display: flex;
@@ -28,12 +27,11 @@
     margin-right: auto; /* Push the header to the left */
 }
 
-  .collapsible-content {
-    width:700px;
+.collapsible-content {
+    width: 700px;
     flex: 2; /* Takes more space on the right */
-  }
+}
 
-  /* Remove border lines */
 .collapsible-content-wrapper-narrow,
 .collapsible-content {
     border: none; /* Ensure there are no borders */
@@ -41,10 +39,26 @@
     align-items: center;     /* Center vertically */
     margin: 0 auto; /* Center the containers */
     max-width: 2500px; /* Limit the width to ensure balanced layout */
+    display: flex; /* Ensure proper centering */
 }
 
+/* Ensure consistent width for both expanded and closed states */
+details {
+    width: 100%;
+}
 
-  .contact-button {
+details summary {
+    width: 100%;
+    display: block;
+}
+
+/* Ensure content inside also stays within the defined width */
+details .accordion__content {
+    width: 100%;
+}
+
+/* Contact button styling */
+.contact-button {
     display: inline-block;
     margin-top: 10px; /* Space between caption and button */
     padding: 6px 30px;
@@ -55,11 +69,12 @@
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Bold text */
     cursor: pointer;
-  }
+}
 
-  .contact-button:hover {
+.contact-button:hover {
     background-color: #4a66b2; /* Darken button on hover */
-  }
+}
+
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
