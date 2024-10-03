@@ -55,10 +55,18 @@
             "image_width": 100,
             "alignment": ""
           }
+        },
+        "link_list_pzr7ha": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
         }
       },
       "block_order": [
-        "image_YRbU3H"
+        "image_YRbU3H",
+        "link_list_pzr7ha"
       ],
       "settings": {
         "color_scheme": "scheme-1",
