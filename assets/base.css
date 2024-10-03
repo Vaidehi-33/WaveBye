@@ -1582,7 +1582,7 @@ details[open] > .share-button__fallback {
   width: 100%;
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
-  border-radius: var(--inputs-radius);
+  border-radius: 1rem;
   height: 4.5rem;
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
