@@ -27,7 +27,7 @@ p {
 }
 
 .image-with-text__media {
-  min-height: 100%;
+  min-height: 110%;
   overflow: visible;
 }
 
