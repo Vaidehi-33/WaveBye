@@ -117,6 +117,15 @@
             "page": ""
           }
         },
+        "collapsible_row_6JMiYU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Question text goes here",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_dczwYx": {
           "type": "collapsible_row",
           "settings": {
@@ -147,6 +156,7 @@
       },
       "block_order": [
         "collapsible_row_NKnqdJ",
+        "collapsible_row_6JMiYU",
         "collapsible_row_dczwYx",
         "collapsible_row_4JEeFa",
         "collapsible_row_WAFd7n"
