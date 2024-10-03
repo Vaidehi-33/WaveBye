@@ -132,7 +132,7 @@
         "subheading_font_size": 14,
         "number_of_products": 4,
         "gap_above": 50,
-        "gap_below": 47
+        "gap_below": 0
       }
     },
     "featured_collection": {
