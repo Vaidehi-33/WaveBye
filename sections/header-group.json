@@ -37,6 +37,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        ".cart-button {margin-right: 150px;}"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
