@@ -10,7 +10,9 @@
   padding-bottom: 5rem;
   display: block;
 }
-
+.list-social{
+  flex-direction: column;
+}
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;
