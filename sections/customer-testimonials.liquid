@@ -9,14 +9,14 @@
   }
   .multicolumn-card p {
     font-size: 13px;
-    line-height: 16px;
-    font-family: Open Sans;
-    margin-bottom: 1.5rem;
+    line-height:16px;
+    font-family:Open Sans;
+    margin-bottom:1.5rem;
   }
   .multicolumn-card h3 {
     font-size: 13px;
-    font-family: Open Sans;
-    font-weight: bold;
+    font-family:Open Sans;
+font-weight: bold;
   }
   .multicolumn {
     padding: 30px 0px;
@@ -24,22 +24,20 @@
     text-align: left; /* Align all text in the section to the left */
   }
   .reviews {
-    margin-bottom: 1.5rem;
+    margin-bottom:1.5rem;
     color: {{ section.settings.star_color }};
   }
   .multicolumn-card {
-    width: 442px; /* Set width of the card */
-    height: 282.89px; /* Set height of the card */
-    padding: 32px 0px 0px 0px; /* Set padding */
-    gap: 24px; /* Set gap */
-    border-radius: 5px 0px 0px 0px; /* Set border-radius */
-    border: 1px solid transparent; /* Set border */
-    opacity: 0; /* Set opacity */
     background: {{ section.settings.testimonial_background }};
+    padding: 20px;
+    background-color:#FFFEF9;
+    border: 1px solid #6C86FE;
     box-shadow: none;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
+    height: 100%; /* Make the card take the full height */
   }
   .multicolumn-card__info {
     display: flex;
@@ -64,13 +62,13 @@
     display: flex;
     flex-direction: column; /* Stack name and verified buyer vertically */
   }
-  .verified-buyer {
+.verified-buyer {
     color: #5271FF; /* Verified buyer color */
     font-style: italic; /* Italic style */
     margin-top: -12px;
-  }
+}
 
-  .verified-buyer::after {
+.verified-buyer::after {
     content: '\2714';              /* Unicode character for the checkmark */
     display: inline-block;
     width: 17px;                   /* Circle size */
@@ -83,7 +81,8 @@
     text-align: center;
     line-height: 16px;             /* Vertically center the tick */
     margin-left: 5px;              /* Space between text and badge */
-  }
+}
+
 
   .slider__slide {
     margin: 0 15px; /* Space between slides */
