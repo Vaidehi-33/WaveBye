@@ -14,8 +14,8 @@
       {% else %}
         <p>No Image Available</p>
       {% endif %}
-      <h3>{{ section.settings.image_1_name }}</h3>
-      <p>{{ section.settings.image_1_description }}</p>
+      <h3 class="image-h3">{{ section.settings.image_1_name }}</h3>
+      <p class="image-p">{{ section.settings.image_1_description }}</p>
     </div>
 
     <div class="product-item">
@@ -79,7 +79,7 @@
   margin-bottom: 15px;
 }
 
-.product-item h3 {
+.image-h3 {
   font-size: 20px;
   margin-bottom: 10px;
   color: #6C86FE;
@@ -87,7 +87,7 @@
   max-width:400;
 }
 
-.product-item p {
+.image-p {
   font-size: 14px;
   color: #0A1F44;
   
