@@ -13,6 +13,11 @@
 .list-social{
   flex-direction: column;
 }
+.footer__social-heading {
+  margin-bottom: 0.5rem; /* Optional: Add some space below the heading */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  font-weight: bold; /* Make the heading bold */
+}
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;
