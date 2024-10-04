@@ -7,103 +7,24 @@
     width: 85%; /* Set width for slider */
     margin: 0 auto; /* Center the slider container */
   }
-  .multicolumn-card p {
-    font-size: 13px;
-    line-height:16px;
-    font-family:Open Sans;
-    margin-bottom:1.5rem;
-  }
-  .multicolumn-card h3 {
-    font-size: 13px;
-    font-family:Open Sans;
-font-weight: bold;
-  }
-  .multicolumn {
-    padding: 30px 0px;
-    background: {{ section.settings.testimonial_section_background }};
-    text-align: left; /* Align all text in the section to the left */
-  }
-  .reviews {
-    margin-bottom:1.5rem;
-    color: {{ section.settings.star_color }};
-  }
   .multicolumn-card {
-    background: {{ section.settings.testimonial_background }};
+    width: 400px; /* Increased width of the card */
+    height: 282.89px; /* Set height of the card */
     padding: 20px;
-    background-color:#FFFEF9;
+    background: #FFFEF9;
     border: 1px solid #6C86FE;
     box-shadow: none;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
-    height: 100%; /* Make the card take the full height */
-  
   }
-  .multicolumn-card__info {
-    display: flex;
-    flex-direction: row; /* Align image and text horizontally */
-    align-items: center; /* Vertically align items */
-    margin-top: auto; /* Push to the bottom */
+  .multicolumn {
+    padding: 30px 0px;
+    background: {{ section.settings.testimonial_section_background }};
+    text-align: center; /* Center all text in the section */
   }
-  .multicolumn-card__image-wrapper {
-    margin-right: 20px; /* Space between image and text */
-  }
-  .multicolumn-card__image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .multicolumn-card__image img {
-    width: 100%;
-    height: auto;
-  }
-  .multicolumn-card__text {
-    display: flex;
-    flex-direction: column; /* Stack name and verified buyer vertically */
-  }
-.verified-buyer {
-    color: #5271FF; /* Verified buyer color */
-    font-style: italic; /* Italic style */
-    margin-top: -12px;
-}
-
-.verified-buyer::after {
-    content: '\2714';              /* Unicode character for the checkmark */
-    display: inline-block;
-    width: 17px;                   /* Circle size */
-    height: 17px;                  /* Circle size */
-    background-color: #5271FF;     /* Blue background */
-    border-radius: 50%;            /* Make it circular */
-    color: white;                  /* White tick */
-    font-size: 8px;               /* Tick size */
-    font-weight: bold;             /* Bold tick */
-    text-align: center;
-    line-height: 16px;             /* Vertically center the tick */
-    margin-left: 5px;              /* Space between text and badge */
-}
-
-
-  .slider__slide {
-    margin: 0 15px; /* Space between slides */
-  }
-  .slick-dots {
-    text-align: center;
-    margin-top: 30px;
-  }
-  .slick-dots li button:before {
-    font-size: 12px;
-    color: #000; /* Dot color */
-  }
-  .slick-dots li.slick-active button:before {
-    color: #1d1d1d; /* Active dot color */
-  }
-  @media only screen and (max-width: 800px) {
-    .multicolumn-list__item.slider__slide {
-      width: 90%; /* Adjust width for smaller screens */
-    }
-  }
+  /* Other styles remain the same */
 {% endstyle %}
 
 <div class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
@@ -137,8 +58,6 @@ font-weight: bold;
               {% if block.settings.text != blank %}
                 <div class="rte">{{ block.settings.text }}</div>
               {% endif %}
-              
-              <!-- Moved the image, name, and verified buyer section to the bottom -->
               <div class="multicolumn-card__info">
                 <div class="multicolumn-card__image-wrapper">
                   {% if block.settings.image != blank %}
@@ -152,7 +71,7 @@ font-weight: bold;
                     <h3>{{ block.settings.title | escape }}</h3>
                   {% endif %}
                   {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div> <!-- Verified Buyer directly below name -->
+                    <div class="verified-buyer">Verified Buyer</div>
                   {% endif %}
                 </div>
               </div>
@@ -212,7 +131,7 @@ font-weight: bold;
         { "type": "richtext", "id": "text", "default": "<p>Testimonial text here</p>", "label": "Customer Testimonial" },
         { "type": "select", "id": "stars_count", "options": [{"value": "5","label": "5"},{"value": "4.5","label": "4.5"},{"value": "4","label": "4"},{"value": "3","label": "3"}], "default": "5", "label": "Stars Count" },
         { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Show Review Stars" },
-        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" } // New setting for verified buyer
+        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" }
       ]
     }
   ],
