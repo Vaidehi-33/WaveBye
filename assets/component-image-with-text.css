@@ -14,8 +14,8 @@
 }
 .image-with-text {
   padding: 0px;
+  margin-left: 5rem;
   border-radius:5px;
-  justify-content:space-between;
 }
 .image-with-text .grid__item {
   position: relative;
