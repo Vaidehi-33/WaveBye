@@ -36,6 +36,9 @@
     },
     "custom_newsletter_section_yL6H6k": {
       "type": "custom-newsletter-section",
+      "custom_css": [
+        ".newsletter-section{box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}"
+      ],
       "settings": {
         "title": "Subscribe to Our Newsletter",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
