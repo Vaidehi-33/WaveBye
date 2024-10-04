@@ -307,6 +307,10 @@
   font-family: "Outfit", sans-serif;
   color: #0A1F44;
 }
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 
 .card__heading:last-child {
   margin-bottom: 0;
