@@ -1,3 +1,6 @@
+header-drawer {
+            justify-self: end !important;
+}
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
