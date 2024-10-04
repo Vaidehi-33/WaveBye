@@ -12,6 +12,7 @@
 }
 .list-social{
   flex-direction: column;
+  margin-right:100px;
 }
 .footer__social-heading {
   margin-bottom: 0.5rem; /* Optional: Add some space below the heading */
