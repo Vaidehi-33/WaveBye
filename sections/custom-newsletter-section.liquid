@@ -1,5 +1,8 @@
 <!-- Newsletter Section -->
 {%- style -%}
+  .newsletter-section-container{
+    
+  }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -51,7 +54,7 @@
     font-size: 16px;
   }
 {%- endstyle -%}
-<div>
+<div class="newsletter-section-container">
 <div class="newsletter-section section-{{ section.id }}-padding">
   <h2 class="newsletter-title">{{ section.settings.title }}</h2>
   <p class="newsletter-description">{{ section.settings.description }}</p>
