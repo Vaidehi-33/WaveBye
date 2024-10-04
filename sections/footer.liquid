@@ -131,9 +131,12 @@
 {%- if section.settings.show_social and has_social_icons -%}
   <div class="footer__social-links">
     <h2 class="footer__social-heading">Follow Us</h2>
-    {%- render 'social-icons', class: 'footer__list-social' -%}
+    <ul class="footer__list-social">
+      {%- render 'social-icons', class: 'footer__list-social' -%}
+    </ul>
   </div>
 {%- endif -%}
+
 
                     </div>
                   {%- when 'image' -%}
