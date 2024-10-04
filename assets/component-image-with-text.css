@@ -15,6 +15,7 @@
 .image-with-text {
   padding: 0px;
   border-radius:5px;
+  justify-content:space-between;
 }
 .image-with-text .grid__item {
   position: relative;
