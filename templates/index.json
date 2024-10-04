@@ -369,6 +369,20 @@
         "testimonial_background": "#ffffff",
         "testimonial_section_background": "#fffef9"
       }
+    },
+    "custom_newsletter_section_yC7aUh": {
+      "type": "custom-newsletter-section",
+      "settings": {
+        "title": "Subscribe to Our Newsletter",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+        "button_text": "Subscribe",
+        "background_color": "#fffef9",
+        "button_color": "#6c86fe",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "title_font_size": 32,
+        "description_font_size": 16
+      }
     }
   },
   "order": [
@@ -378,6 +392,7 @@
     "video_slider_CbpBwp",
     "notification_WM7nWP",
     "featured_products_showcase_fpgfeP",
-    "customer_testimonials_9j8yeR"
+    "customer_testimonials_9j8yeR",
+    "custom_newsletter_section_yC7aUh"
   ]
 }
