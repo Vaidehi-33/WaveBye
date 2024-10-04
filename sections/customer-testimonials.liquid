@@ -170,11 +170,13 @@ font-weight: bold;
 <script>
   $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
-      slidesToShow: 2.5,  // Show 3 testimonials at once
+      slidesToShow: 2.5,  // Show 2.5 testimonials
       slidesToScroll: 1,
-      arrows: false,     // Remove next/prev buttons
-      dots: true,        // Enable dots
-      infinite: true,    // Infinite scrolling
+      arrows: false,       // Remove next/prev buttons
+      dots: true,          // Enable dots
+      infinite: true,      // Infinite scrolling
+      centerMode: true,    // Enable center mode
+      centerPadding: '40px', // Add padding to center slides
       responsive: [
         {
           breakpoint: 768, // Mobile settings
