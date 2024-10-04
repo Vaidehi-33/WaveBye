@@ -1,7 +1,9 @@
 <!-- Newsletter Section -->
 {%- style -%}
   .newsletter-section-container{
-    
+        padding: 4rem;
+    display: flex;
+    justify-content: center;
   }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -9,6 +11,8 @@
   }
 
   .newsletter-section {
+    height: 320px;
+    width: 1018px;
     display: flex;
     flex-direction: column;
     align-items: center;
