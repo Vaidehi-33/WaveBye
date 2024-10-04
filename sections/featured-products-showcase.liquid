@@ -29,8 +29,8 @@
       {% else %}
         <p>No Image Available</p>
       {% endif %}
-      <h3>{{ section.settings.image_2_name }}</h3>
-      <p>{{ section.settings.image_2_description }}</p>
+      <h3 class="image-h3">{{ section.settings.image_2_name }}</h3>
+      <p class="image-p">{{ section.settings.image_2_description }}</p>
     </div>
 
     <div class="product-item">
@@ -42,10 +42,10 @@
           height="{{ section.settings.image_3 | image_height: 'medium' }}"
         >
       {% else %}
-        <p>No Image Available</p>
+        <p class="image-p">No Image Available</p>
       {% endif %}
-      <h3>{{ section.settings.image_3_name }}</h3>
-      <p>{{ section.settings.image_3_description }}</p>
+      <h3 class="image-h3">{{ section.settings.image_3_name }}</h3>
+      <p class="image-p">{{ section.settings.image_3_description }}</p>
     </div>
   </div>
 </section>
