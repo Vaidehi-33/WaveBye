@@ -238,6 +238,7 @@
   .footer-block__newsletter {
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
 
   .footer-block__newsletter {
