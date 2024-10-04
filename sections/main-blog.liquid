@@ -199,7 +199,7 @@
             style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
-          {%- render 'article-card',
+          <!-- {%- render 'article-card',
             article: article,
             media_height: section.settings.image_height,
             media_aspect_ratio: article.image.aspect_ratio,
@@ -208,7 +208,7 @@
             show_author: section.settings.show_author,
             show_excerpt: true
           -%}
-
+ -->
           <!-- "Read More" Link inside the blog card -->
           <div class="read-more-container">
             <a href="{{ article.url }}" class="read-more-link">Read More </a><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
