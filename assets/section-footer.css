@@ -12,6 +12,7 @@
 }
 .list-social{
   flex-direction: column;
+  margin-right:50rem;
 }
 @media screen and (max-width: 749px) {
   .footer .grid {
