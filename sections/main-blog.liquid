@@ -192,38 +192,38 @@
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-         <!-- Add the new div here -->
-    <div class="card-category-container">
-      <div class="card-category">Category</div>
-      <div class="card-category-tag">5 min read</div>
-    </div>
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
-          
+<div
+  class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  {% if settings.animations_reveal_on_scroll %}
+    data-cascade
+    style="--animation-order: {{ forloop.index }};"
+  {% endif %}
+>
+  <!-- Article Image -->
+  {%- if section.settings.show_image and article.image -%}
+    <img src="{{ article.image | img_url: 'medium' }}" alt="{{ article.title }}" class="article-card__image">
+  {%- endif -%}
 
-          <!-- "Read More" Link inside the blog card -->
-          <div class="read-more-container">
-            <a href="{{ article.url }}" class="read-more-link">Read More </a><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.70697 17.7773L15.414 12.0703L9.70697 6.36328L8.29297 7.77728L12.586 12.0703L8.29297 16.3633L9.70697 17.7773Z" fill="#0A1F44"/>
-</svg>
+  <!-- Card Category Container: Place after the image -->
+  <div class="card-category-container">
+    <div class="card-category">Category</div>
+    <div class="card-category-tag">5 min read</div>
+  </div>
 
-          </div>
-        </div>
-      {%- endfor -%}
+  <!-- Card Information -->
+  <div class="article-card__info">
+    <h2 class="article-card__title">{{ article.title }}</h2>
+    <p class="article-card__date">{{ article.published_at | date: "%B %d, %Y" }}</p>
+    <p class="article-card__excerpt">{{ article.excerpt | truncatewords: 20 }}</p>
+  </div>
+
+  <!-- "Read More" Link -->
+  <div class="read-more-container">
+    <a href="{{ article.url }}" class="read-more-link">Read More </a>
+  </div>
+</div>
+{%- endfor -%}
+
     </div>
 
     {%- if paginate.pages > 1 -%}
