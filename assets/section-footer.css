@@ -128,7 +128,6 @@
 .footer-block--newsletter {
   display: flex;
   align-items: flex-end;
-
   gap: 1rem;
 }
 
@@ -219,7 +218,10 @@
     text-align: right;
   }
 }
+@media (prefers-reduced-motion: no-preference) {
+  margin-bottom:-4rem;
 
+}
 @media screen and (max-width: 749px) {
   /*
     On a small screen we want all the items to be centered
