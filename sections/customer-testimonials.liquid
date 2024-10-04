@@ -9,39 +9,35 @@
   }
   .multicolumn-card p {
     font-size: 13px;
-    line-height: 16px;
-    font-family: Open Sans;
-    margin-bottom: 1.5rem;
+    line-height:16px;
+    font-family:Open Sans;
+    margin-bottom:1.5rem;
   }
   .multicolumn-card h3 {
     font-size: 13px;
-    font-family: Open Sans;
-    font-weight: bold;
+    font-family:Open Sans;
+font-weight: bold;
   }
   .multicolumn {
     padding: 30px 0px;
     background: {{ section.settings.testimonial_section_background }};
-    text-align: center; /* Center all text in the section */
+    text-align: left; /* Align all text in the section to the left */
   }
   .reviews {
-    margin-bottom: 1.5rem;
+    margin-bottom:1.5rem;
     color: {{ section.settings.star_color }};
-    text-align: center; /* Center the reviews */
   }
   .multicolumn-card {
-    width: 442px; /* Set width of the card */
-    height: 282.89px; /* Set height of the card */
-    padding: 32px 0px 0px 0px; /* Set padding */
-    gap: 24px; /* Set gap */
-    border: 1px solid #6C86FE; /* Set border */
-    background: #FFFEF9; /* Set background color */
-    border-radius: 5px; /* Set border-radius */
+    background: {{ section.settings.testimonial_background }};
+    padding: 20px;
+    background-color:#FFFEF9;
+    border: 1px solid #6C86FE;
     box-shadow: none;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
-    opacity: 1; /* Set opacity to 1 */
-    margin: 0 auto; /* Center the card */
+    height: 100%; /* Make the card take the full height */
   }
   .multicolumn-card__info {
     display: flex;
@@ -65,27 +61,28 @@
   .multicolumn-card__text {
     display: flex;
     flex-direction: column; /* Stack name and verified buyer vertically */
-    text-align: left; /* Align text to the left */
   }
-  .verified-buyer {
+.verified-buyer {
     color: #5271FF; /* Verified buyer color */
     font-style: italic; /* Italic style */
-  }
+    margin-top: -12px;
+}
 
-  .verified-buyer::after {
-    content: '\2714'; /* Unicode character for the checkmark */
+.verified-buyer::after {
+    content: '\2714';              /* Unicode character for the checkmark */
     display: inline-block;
-    width: 17px; /* Circle size */
-    height: 17px; /* Circle size */
-    background-color: #5271FF; /* Blue background */
-    border-radius: 50%; /* Make it circular */
-    color: white; /* White tick */
-    font-size: 8px; /* Tick size */
-    font-weight: bold; /* Bold tick */
+    width: 17px;                   /* Circle size */
+    height: 17px;                  /* Circle size */
+    background-color: #5271FF;     /* Blue background */
+    border-radius: 50%;            /* Make it circular */
+    color: white;                  /* White tick */
+    font-size: 8px;               /* Tick size */
+    font-weight: bold;             /* Bold tick */
     text-align: center;
-    line-height: 16px; /* Vertically center the tick */
-    margin-left: 5px; /* Space between text and badge */
-  }
+    line-height: 16px;             /* Vertically center the tick */
+    margin-left: 5px;              /* Space between text and badge */
+}
+
 
   .slider__slide {
     margin: 0 15px; /* Space between slides */
@@ -140,6 +137,7 @@
                 <div class="rte">{{ block.settings.text }}</div>
               {% endif %}
               
+              <!-- Moved the image, name, and verified buyer section to the bottom -->
               <div class="multicolumn-card__info">
                 <div class="multicolumn-card__image-wrapper">
                   {% if block.settings.image != blank %}
@@ -153,7 +151,7 @@
                     <h3>{{ block.settings.title | escape }}</h3>
                   {% endif %}
                   {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div>
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Verified Buyer directly below name -->
                   {% endif %}
                 </div>
               </div>
@@ -194,8 +192,8 @@
   "name": "Testimonials",
   "class": "spaced-section spaced-section--full-width",
   "settings": [
-    { "type": "text", "id": "title", "default": "Customer testimonials", "label": "Title" },
-    { "type": "text", "id": "subtitle", "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "label": "Subtitle" },
+    { "type": "text", "id": "title", "default": "Testimonials", "label": "Title" },
+    { "type": "text", "id": "subtitle", "default": "Get inspired by other customers", "label": "Subtitle" },
     { "type": "select", "id": "heading_alignment", "options": [{"value": "left", "label": "Left"},{"value": "center", "label": "Center"}], "default": "left", "label": "Heading Alignment" },
     { "type": "color", "id": "star_color", "label": "Star Color", "default": "#ffcc33" },
     { "type": "color", "id": "testimonial_background", "label": "Testimonial Background", "default": "#ffffff" },
@@ -211,7 +209,7 @@
         { "type": "richtext", "id": "text", "default": "<p>Testimonial text here</p>", "label": "Customer Testimonial" },
         { "type": "select", "id": "stars_count", "options": [{"value": "5","label": "5"},{"value": "4.5","label": "4.5"},{"value": "4","label": "4"},{"value": "3","label": "3"}], "default": "5", "label": "Stars Count" },
         { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Show Review Stars" },
-        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" }
+        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" } // New setting for verified buyer
       ]
     }
   ],
