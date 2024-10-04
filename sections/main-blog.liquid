@@ -186,6 +186,10 @@
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
+  <div class="card-category-container">
+                        <div class="card-category">Category</div>
+                        <div class="card-category-tag">5 min read</div>
+                      </div>
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
