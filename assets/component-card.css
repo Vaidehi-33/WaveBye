@@ -308,7 +308,7 @@
   color: #0A1F44;
 }
 a:-webkit-any-link {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 
