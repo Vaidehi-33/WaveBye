@@ -129,52 +129,56 @@
   ]
 }
 {% endschema %}
+<div class="custom-products-wrapper" style="background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); width: 100vw; margin-left: calc(-50vw + 50%); padding: 60px 0;"> 
+  <!-- Wrapper with full-width background -->
+  
+  <div class="custom-products" style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;">
+    <div class="stars" style="color: {{ section.settings.star_color }};">
+      ★★★★★
+    </div>
+    <h2 style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px; margin: 5px auto; font-weight: 600; font-family: 'Outfit', sans-serif; text-align: center; max-width: 600px;">
+      {{ section.settings.heading_text }}
+    </h2>
 
-<div class="custom-products" style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;">
-  <div class="stars" style="color: {{ section.settings.star_color }};">
-    ★★★★★
-  </div>
-<h2 style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px; margin: 5px auto; font-weight: 600; font-family: 'Outfit', sans-serif; text-align: center; max-width: 600px;">
-  {{ section.settings.heading_text }}
-</h2>
-
-  <h3 style="color: {{ section.settings.subheading_color }}; font-size: {{ section.settings.subheading_font_size }}px;text-align:left; margin: 5px 0 20px 0;">
-    {{ section.settings.subheading_text }}
-  </h3>
-  <div class="grid">
-    {%- for block in section.blocks -%}
-      {%- assign product = block.settings.product -%}
-      <div class="product-card">
-        <form method="post" action="/cart/add" class="ajax-add-to-cart">
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
-          <h3 class="product-name">{{ product.title }}</h3>
-          <p class="product-price"><strong>{{ product.price | money }}</strong></p>
-          <hr class="divider">
-          <h4 class= "small_title" >{{ block.settings.small_title }}</h4>
-          <h5 class= "subtitle">{{ block.settings.subtitle }}</h5>
-          <p class="includes">Includes:</p>
-          <ul class="includes-points">
-            {%- for i in (1..5) -%}
-              {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
-              {%- assign point = block.settings[point_key] -%}
-              {%- if point != blank -%}
-                <li>
-                  {%- if i == 1 -%}
-                    {{ point }} <!-- No tick for the first point -->
-                  {%- else -%}
-<span class="tick-mark">✓</span> {{ point }} <!-- Black thin tick for other points -->
-                  {%- endif -%}
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-          <button class="addtocart" type="submit" style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none;">
-            Add to Cart
-          </button>
-        </form>
-      </div>
-    {%- endfor -%}
+    <h3 style="color: {{ section.settings.subheading_color }}; font-size: {{ section.settings.subheading_font_size }}px;text-align:left; margin: 5px 0 20px 0;">
+      {{ section.settings.subheading_text }}
+    </h3>
+    
+    <div class="grid">
+      {%- for block in section.blocks -%}
+        {%- assign product = block.settings.product -%}
+        <div class="product-card">
+          <form method="post" action="/cart/add" class="ajax-add-to-cart">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <img src="{{ product.featured_image | img_url: '240x240' }}" alt="{{ product.title }}" class="product-image">
+            <h3 class="product-name">{{ product.title }}</h3>
+            <p class="product-price"><strong>{{ product.price | money }}</strong></p>
+            <hr class="divider">
+            <h4 class="small_title">{{ block.settings.small_title }}</h4>
+            <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
+            <p class="includes">Includes:</p>
+            <ul class="includes-points">
+              {%- for i in (1..5) -%}
+                {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
+                {%- assign point = block.settings[point_key] -%}
+                {%- if point != blank -%}
+                  <li>
+                    {%- if i == 1 -%}
+                      {{ point }} <!-- No tick for the first point -->
+                    {%- else -%}
+                      <span class="tick-mark">✓</span> {{ point }} <!-- Black thin tick for other points -->
+                    {%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+            <button class="addtocart" type="submit" style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none;">
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 </div>
 
@@ -204,28 +208,15 @@ margin-top:-2rem;
     margin-left:-10rem;
   }
   
-.custom-products-wrapper {
-  width: 100vw; /* Full width of the viewport */
-  position: relative; /* Ensures the gradient stays within bounds */
-  left: 50%; /* Aligns content to the center */
-  right: 50%; /* Aligns content to the center */
-  margin-left: -50vw; /* Compensates for alignment */
-  margin-right: -50vw; /* Compensates for alignment */
-  background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
-  padding: 60px 0; /* Padding on top and bottom */
-}
-
 .custom-products {
   display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
   text-align: center;
-  padding: 0 60px; /* Padding for left and right */
+  background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
+  padding: 60px; /* Optional: add padding */
   border-radius: 10px; /* Optional: add rounded corners */
-  max-width: 1200px; /* Optional: to limit the width of content */
-  margin: 0 auto; /* Center the content inside the wrapper */
 }
-
 
 .stars {
   font-size: 30px; /* Custom font size for stars */
