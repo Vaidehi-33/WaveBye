@@ -23,8 +23,7 @@
   color: white; /* Ensure name is white */
 }
 
-.video-position,
-.video-company {
+.video-position-company {
   font-size: 15px; /* Adjust as necessary */
   margin: 0; /* Remove margin */
   color: white; /* Ensure position and company name are white */
@@ -173,8 +172,10 @@
   </div>
   <div class="video-info">
     <h3 class="video-name">{{ block.settings.name }} {{ block.settings.surname }}</h3>
+    <div class="video-position-company">
     <p class="video-position">{{ block.settings.position }}</p>
-    <p class="video-company">{{ block.settings.company_name }}</p>
+    <p class="video-company">{{ block.settings.company_name }}</p> 
+    </div>
   </div>
 </div>
 
