@@ -51,7 +51,7 @@
     font-size: 16px;
   }
 {%- endstyle -%}
-
+<div>
 <div class="newsletter-section section-{{ section.id }}-padding">
   <h2 class="newsletter-title">{{ section.settings.title }}</h2>
   <p class="newsletter-description">{{ section.settings.description }}</p>
@@ -61,6 +61,7 @@
     <button type="submit">{{ section.settings.button_text }}</button>
   </div>
 </div>
+  </div>
 
 {% schema %}
 {
