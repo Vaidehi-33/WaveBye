@@ -32,6 +32,7 @@
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
@@ -54,7 +55,7 @@
         "button_text": "Submit",
         "background_color": "#eef1ff",
         "button_color": "#6c86fe",
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 40,
         "title_font_size": 32,
         "description_font_size": 16
