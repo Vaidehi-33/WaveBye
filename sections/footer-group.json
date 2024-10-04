@@ -18,7 +18,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
         "button_text": "Submit",
         "background_color": "#eef1ff",
-        "button_color": "#333333",
+        "button_color": "#6c86fe",
         "padding_top": 40,
         "padding_bottom": 40,
         "title_font_size": 32,
