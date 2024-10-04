@@ -25,40 +25,6 @@
         "description_font_size": 16
       }
     },
-    "newsletter_cJAjU8": {
-      "type": "newsletter",
-      "blocks": {
-        "heading_TenLTK": {
-          "type": "heading",
-          "settings": {
-            "heading": "Subscribe to Our Newsletter",
-            "heading_size": "h1"
-          }
-        },
-        "paragraph_7GdHte": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>"
-          }
-        },
-        "email_form_PqRfnJ": {
-          "type": "email_form",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "heading_TenLTK",
-        "paragraph_7GdHte",
-        "email_form_PqRfnJ"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 64,
-        "padding_bottom": 52
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -100,7 +66,6 @@
   },
   "order": [
     "custom_newsletter_section_wceNDf",
-    "newsletter_cJAjU8",
     "footer"
   ]
 }
