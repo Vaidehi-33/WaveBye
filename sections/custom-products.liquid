@@ -204,15 +204,28 @@ margin-top:-2rem;
     margin-left:-10rem;
   }
   
+.custom-products-wrapper {
+  width: 100vw; /* Full width of the viewport */
+  position: relative; /* Ensures the gradient stays within bounds */
+  left: 50%; /* Aligns content to the center */
+  right: 50%; /* Aligns content to the center */
+  margin-left: -50vw; /* Compensates for alignment */
+  margin-right: -50vw; /* Compensates for alignment */
+  background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
+  padding: 60px 0; /* Padding on top and bottom */
+}
+
 .custom-products {
   display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
-  padding: 60px; /* Optional: add padding */
+  padding: 0 60px; /* Padding for left and right */
   border-radius: 10px; /* Optional: add rounded corners */
+  max-width: 1200px; /* Optional: to limit the width of content */
+  margin: 0 auto; /* Center the content inside the wrapper */
 }
+
 
 .stars {
   font-size: 30px; /* Custom font size for stars */
