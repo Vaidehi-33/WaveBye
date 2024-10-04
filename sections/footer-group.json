@@ -11,20 +11,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "custom_newsletter_section_wceNDf": {
-      "type": "custom-newsletter-section",
-      "settings": {
-        "title": "Subscribe to Our Newsletter",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-        "button_text": "Submit",
-        "background_color": "#eef1ff",
-        "button_color": "#6c86fe",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "title_font_size": 32,
-        "description_font_size": 16
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -65,7 +51,6 @@
     }
   },
   "order": [
-    "custom_newsletter_section_wceNDf",
     "footer"
   ]
 }
