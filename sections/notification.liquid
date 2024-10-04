@@ -79,7 +79,7 @@
           <div class="notification-block">
             <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
             <h3>{{ block.settings.title }}</h3>
-            <p>{{ block.settings.message }}</p>
+            <p class="notification-msg">{{ block.settings.message }}</p>
           </div>
         {% endfor %}
       </div>
@@ -127,6 +127,15 @@ line-height: 48px;
   margin: 0 auto 20px auto; /* Center the heading and keep bottom margin */
 }
 
+  .notification-msg{
+    //styleName: Text/Regular/Normal - Paragraph;
+font-family: Titillium Web;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+text-align: center;
+
+  }
 .page-width {
   max-width: 1500px;
   margin: 0 auto;
