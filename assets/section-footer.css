@@ -173,6 +173,7 @@
 
 .footer__list-social.list-social:only-child {
   justify-content: center;
+  flex-direction: column;
 }
 
 .footer-block__newsletter {
