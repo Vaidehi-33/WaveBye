@@ -37,7 +37,7 @@
     "custom_newsletter_section_yL6H6k": {
       "type": "custom-newsletter-section",
       "custom_css": [
-        ".newsletter-section{box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}"
+        ".newsletter-section {box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}"
       ],
       "settings": {
         "title": "Subscribe to Our Newsletter",
@@ -47,8 +47,8 @@
         "button_color": "#6c86fe",
         "padding_top": 40,
         "padding_bottom": 40,
-        "title_font_size": 45,
-        "description_font_size": 16
+        "title_font_size": 40,
+        "description_font_size": 14
       }
     }
   },
