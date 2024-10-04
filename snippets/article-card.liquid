@@ -75,12 +75,13 @@
         {%- endif -%}
         
         <div class="card__content">
-          <!-- Card Category Container: Inserted after the image -->
+          
+          <div class="card__information">
+            <!-- Card Category Container: Inserted after the image -->
         <div class="card-category-container">
           <div class="card-category">Category</div>
           <div class="card-category-tag">5 min read</div>
         </div>
-          <div class="card__information">
             <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
               <a href="{{ article.url }}" class="full-unstyled-link">
                 {{ article.title | truncate: 50 | escape }}
