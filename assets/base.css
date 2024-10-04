@@ -752,6 +752,7 @@ summary::-webkit-details-marker {
 .focus-none {
   box-shadow: none !important;
   outline: 0 !important;
+  padding: 2rem 10rem;
 }
 
 .focus-offset:focus-visible {
