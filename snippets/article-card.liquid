@@ -120,7 +120,11 @@
           <!-- Card Category Container: Inserted after the image -->
         <div class="card-category-container">
           <div class="card-category">Category</div>
-          <div class="card-category-tag">5 min read</div>
+          <div class="card-category-tag">{% if article.tags.size > 0 %}
+      {{ article.tags.first }}
+    {% else %}
+      No category
+    {% endif %}</div>
         </div>
           <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
             <a href="{{ article.url }}" class="full-unstyled-link">
