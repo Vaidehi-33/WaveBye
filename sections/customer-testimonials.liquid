@@ -7,28 +7,87 @@
     width: 85%; /* Set width for slider */
     margin: 0 auto; /* Center the slider container */
   }
+  .multicolumn-card p {
+    font-size: 13px;
+    line-height:16px;
+    font-family:Open Sans;
+    margin-bottom:1.5rem;
+  }
+  .multicolumn-card h3 {
+    font-size: 13px;
+    font-family:Open Sans;
+font-weight: bold;
+  }
+  .multicolumn {
+    padding: 30px 0px;
+    background: {{ section.settings.testimonial_section_background }};
+    text-align: left; /* Align all text in the section to the left */
+  }
+  .reviews {
+    margin-bottom:1.5rem;
+    color: {{ section.settings.star_color }};
+  }
   .multicolumn-card {
-    background-color: #FFFEF9;
+    background: {{ section.settings.testimonial_background }};
+    padding: 20px;
+    background-color:#FFFEF9;
     border: 1px solid #6C86FE;
     box-shadow: none;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    height: 100%;
-    width: calc(100% - 30px); /* Reduce width to allow spacing */
+    justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
+    height: 100%; /* Make the card take the full height */
+  
   }
+  .multicolumn-card__info {
+    display: flex;
+    flex-direction: row; /* Align image and text horizontally */
+    align-items: center; /* Vertically align items */
+    margin-top: auto; /* Push to the bottom */
+  }
+  .multicolumn-card__image-wrapper {
+    margin-right: 20px; /* Space between image and text */
+  }
+  .multicolumn-card__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .multicolumn-card__image img {
+    width: 100%;
+    height: auto;
+  }
+  .multicolumn-card__text {
+    display: flex;
+    flex-direction: column; /* Stack name and verified buyer vertically */
+  }
+.verified-buyer {
+    color: #5271FF; /* Verified buyer color */
+    font-style: italic; /* Italic style */
+    margin-top: -12px;
+}
+
+.verified-buyer::after {
+    content: '\2714';              /* Unicode character for the checkmark */
+    display: inline-block;
+    width: 17px;                   /* Circle size */
+    height: 17px;                  /* Circle size */
+    background-color: #5271FF;     /* Blue background */
+    border-radius: 50%;            /* Make it circular */
+    color: white;                  /* White tick */
+    font-size: 8px;               /* Tick size */
+    font-weight: bold;             /* Bold tick */
+    text-align: center;
+    line-height: 16px;             /* Vertically center the tick */
+    margin-left: 5px;              /* Space between text and badge */
+}
+
+
   .slider__slide {
     margin: 0 15px; /* Space between slides */
   }
-
-  /* Adjust slick track to center align */
-  .slick-list {
-    padding: 0 50px; /* Adjust padding to show half cards */
-  }
-
-  /* Center the slick-dots */
   .slick-dots {
     text-align: center;
     margin-top: 30px;
@@ -39,6 +98,11 @@
   }
   .slick-dots li.slick-active button:before {
     color: #1d1d1d; /* Active dot color */
+  }
+  @media only screen and (max-width: 800px) {
+    .multicolumn-list__item.slider__slide {
+      width: 90%; /* Adjust width for smaller screens */
+    }
   }
 {% endstyle %}
 
@@ -74,6 +138,7 @@
                 <div class="rte">{{ block.settings.text }}</div>
               {% endif %}
               
+              <!-- Moved the image, name, and verified buyer section to the bottom -->
               <div class="multicolumn-card__info">
                 <div class="multicolumn-card__image-wrapper">
                   {% if block.settings.image != blank %}
@@ -87,7 +152,7 @@
                     <h3>{{ block.settings.title | escape }}</h3>
                   {% endif %}
                   {% if block.settings.verified_buyer %}
-                    <div class="verified-buyer">Verified Buyer</div>
+                    <div class="verified-buyer">Verified Buyer</div> <!-- Verified Buyer directly below name -->
                   {% endif %}
                 </div>
               </div>
@@ -105,17 +170,16 @@
 <script>
   $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
-      slidesToShow: 2.5,  // Show 2.5 testimonials at once to show two full and two half cards
+      slidesToShow: 3,  // Show 3 testimonials at once
       slidesToScroll: 1,
-      arrows: false,      // Remove next/prev buttons
-      dots: true,         // Enable dots
-      infinite: true,     // Infinite scrolling
-      centerMode: true,   // Enables the centered half card on either side
+      arrows: false,     // Remove next/prev buttons
+      dots: true,        // Enable dots
+      infinite: true,    // Infinite scrolling
       responsive: [
         {
           breakpoint: 768, // Mobile settings
           settings: {
-            slidesToShow: 1,  // Show 1 testimonial on smaller screens
+            slidesToShow: 1, // Show 1 testimonial on smaller screens
             slidesToScroll: 1
           }
         }
@@ -123,7 +187,6 @@
     });
   });
 </script>
-
 
 {% schema %}
 {
