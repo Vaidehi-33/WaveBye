@@ -139,7 +139,7 @@
   .read-more-container {
     display: flex;
     align-items: flex-end;
-    gap: 10px;
+    
     margin-top: auto;
     text-align: left; /* Align the "Read More" link to the left */
     /* padding-top: 10px; */
@@ -186,14 +186,9 @@
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-  
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
-<div class="card-category-container">
-                        <div class="card-category">Category</div>
-                        <div class="card-category-tag">5 min read</div>
-                      </div>
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
