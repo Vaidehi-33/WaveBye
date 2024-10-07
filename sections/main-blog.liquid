@@ -80,17 +80,15 @@
     margin-bottom: 30px;
     text-align: left;
     position: relative;
-    width: 248px; /* Match the width of the input */
 }
 
 /* Input field styling */
 .blog-search input[type="text"] {
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
-    padding: 8px 12px;
-    padding-left: 36px; /* Leave space for the icon */
-    width: 100%; /* Fill the parent container */
-    height: 40px;
-    border-radius: 5px 0 0 0;
+    padding: 8px 12px; /* Use provided padding */
+    width: 248px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    border-radius: 5px 0 0 0; /* Border radius as per the request */
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -100,16 +98,10 @@
     border-color: darkblue;
 }
 
-/* Styling for the search icon */
-.search-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 18px; /* Adjust size as needed */
-    color: var(--Soft-Periwinkle-Blue, #6C86FE);
+/* Button styling (optional if needed) */
+.blog-search button {
+    display: none; /* Hide the submit button if only using input for search */
 }
-
 
 
   /* Blog articles grid styling */
@@ -222,13 +214,11 @@
 </div> -->
 <!-- Start of Search Box -->
 <div class="blog-search">
-  <form id="blog-search">
-    <input type="text" name="q" placeholder="Search" aria-label="Search blogs" id="blog-search-input">
-    <span class="search-icon">&#x1F50E;&#xFE0E;</span> <!-- Unicode for a magnifying glass -->
+  <form action="/search" method="get" id="blog-search">
+    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs">
+    <button type="submit">Search</button>
   </form>
 </div>
-<div id="search-results"></div> <!-- Container for dynamic search results -->
-
 <!-- End of Search Box -->
 
 
