@@ -285,33 +285,28 @@
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
   </div>
-{%- endpaginate -%}
 
 <script>
- // Sample data for demonstration
-const blogPosts = [
-  "How to Learn JavaScript",
-  "Understanding CSS Grid",
-  "Tips for HTML Semantics",
-  "JavaScript Best Practices",
-  "CSS Flexbox Explained",
-  "A Guide to Responsive Design",
-  "Debugging JavaScript",
-];
-
 // Function to filter and display search results
 function searchBlogs(query) {
   const resultsContainer = document.getElementById('search-results');
   resultsContainer.innerHTML = ''; // Clear previous results
 
+  // Get all blog articles dynamically
+  const blogArticles = Array.from(document.querySelectorAll('.blog-articles__article'));
+  
   // Filter blog posts based on the query
-  const filteredPosts = blogPosts.filter(post => post.toLowerCase().includes(query.toLowerCase()));
+  const filteredPosts = blogArticles.filter(article => {
+    const title = article.querySelector('.article-card__title').textContent.toLowerCase();
+    const excerpt = article.querySelector('.article-card__excerpt').textContent.toLowerCase();
+    return title.includes(query.toLowerCase()) || excerpt.includes(query.toLowerCase());
+  });
 
   // Display filtered results
   if (filteredPosts.length > 0) {
-    filteredPosts.forEach(post => {
+    filteredPosts.forEach(article => {
       const resultItem = document.createElement('div');
-      resultItem.textContent = post;
+      resultItem.innerHTML = `<a href="${article.querySelector('.read-more-link').href}">${article.querySelector('.article-card__title').textContent}</a>`;
       resultsContainer.appendChild(resultItem);
     });
   } else {
@@ -324,8 +319,11 @@ document.getElementById('blog-search-input').addEventListener('input', function(
   const query = this.value;
   searchBlogs(query); // Call the search function with the current input
 });
-
 </script>
+
+{%- endpaginate -%}
+
+
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
