@@ -231,12 +231,11 @@
 <!-- Start of Search Box -->
 <div class="blog-search">
   <form id="blog-search">
-    <span class="search-icon">&#x1F50D;</span> <!-- Left-pointing arrow or use custom SVG -->
-    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
+    <input type="text" name="q" placeholder="Search" aria-label="Search blogs" id="blog-search-input">
+    <span class="search-icon">&#x1F50D;</span> <!-- Unicode for a magnifying glass -->
   </form>
 </div>
 <div id="search-results"></div> <!-- Container for dynamic search results -->
-
 
 
 <!-- End of Search Box -->
@@ -282,6 +281,46 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
+
+<script>
+  // Sample data for demonstration
+const blogPosts = [
+  "How to Learn JavaScript",
+  "Understanding CSS Grid",
+  "Tips for HTML Semantics",
+  "JavaScript Best Practices",
+  "CSS Flexbox Explained",
+  "A Guide to Responsive Design",
+  "Debugging JavaScript",
+];
+
+// Function to filter and display search results
+function searchBlogs(query) {
+  const resultsContainer = document.getElementById('search-results');
+  resultsContainer.innerHTML = ''; // Clear previous results
+
+  // Filter blog posts based on the query
+  const filteredPosts = blogPosts.filter(post => post.toLowerCase().includes(query.toLowerCase()));
+
+  // Display filtered results
+  if (filteredPosts.length > 0) {
+    filteredPosts.forEach(post => {
+      const resultItem = document.createElement('div');
+      resultItem.textContent = post;
+      resultsContainer.appendChild(resultItem);
+    });
+  } else {
+    resultsContainer.textContent = 'No results found';
+  }
+}
+
+// Event listener for the input field
+document.getElementById('blog-search-input').addEventListener('input', function() {
+  const query = this.value;
+  searchBlogs(query); // Call the search function with the current input
+});
+
+</script>
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
