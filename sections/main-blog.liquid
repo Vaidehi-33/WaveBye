@@ -77,21 +77,19 @@
   } */
 .blog-search {
     margin-bottom: 30px;
-    text-align: center; /* Center the text */
+    text-align: left;
     position: relative;
-    width: 100%; /* Full width for centering */
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center content horizontally */
+    width: 248px; /* Match the width of the input */
 }
 
 /* Input field styling */
 .blog-search input[type="text"] {
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
-    padding: 8px 12px; /* Top/Bottom: 8px, Left/Right: 12px */
+    padding: 8px 12px;
     padding-left: 36px; /* Leave space for the icon */
-    width: 248px; /* Set a fixed width for the input */
-    height: 40px; /* Maintain the height */
-    border-radius: 5px; /* Uniform corner rounding */
+    width: 100%; /* Fill the parent container */
+    height: 40px;
+    border-radius: 5px 0 0 0;
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -104,15 +102,12 @@
 /* Styling for the search icon */
 .search-icon {
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 12px; /* Leave space from the left */
-    transform: translateY(-50%); /* Adjust position to truly center */
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
-    pointer-events: none; /* Prevent click events on the icon */
 }
-
-
 
 
   /* Blog articles grid styling */
@@ -224,11 +219,10 @@
   </form>
 </div> -->
 <!-- Start of Search Box -->
-<!-- Start of Search Box -->
 <div class="blog-search">
   <form action="/search" method="get" id="blog-search">
+ <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
     <span class="search-icon">&#x1F50E;&#xFE0E;</span> <!-- Unicode for a magnifying glass -->
-    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
   </form>
 </div>
 
