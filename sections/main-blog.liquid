@@ -228,8 +228,9 @@
 <h6 class="blog-title">BLOG</h6>
 <!-- Dynamic Heading -->
 <h2 class="dynamic-heading">
-  Articles in {{ blog.title | escape }}
+  {{ section.settings.dynamic_heading }}
 </h2>
+
 
 <!-- Start of Tag-based Filter -->
 <div class="blog-filter section-{{ section.id }}-padding">
@@ -310,6 +311,16 @@
   "tag": "section",
   "class": "section",
   "settings": [
+        {
+      "type": "header",
+      "content": "Dynamic Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "dynamic_heading",
+      "label": "Dynamic Heading",
+      "default": "Articles in {{ blog.title | escape }}"
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"
