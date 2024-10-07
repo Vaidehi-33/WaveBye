@@ -72,6 +72,11 @@
 .article-template__title:not(:only-child) {
   margin-bottom: 5rem;
   font-family: "Outfit", sans-serif;
+  font-size: 48px;
+font-weight: 600;
+line-height: 48px;
+text-align: left;
+background: var(--Midnight-Blue, #0A1F44);
 }
 
 .article-template__link {
