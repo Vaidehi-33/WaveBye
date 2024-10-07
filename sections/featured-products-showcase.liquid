@@ -14,8 +14,10 @@
       {% else %}
         <p>No Image Available</p>
       {% endif %}
+      <div class="product-content">
       <h3 class="image-h3">{{ section.settings.image_1_name }}</h3>
-      <p class="image-p">{{ section.settings.image_1_description }}</p>
+      <p class="image-p">{{ section.settings.image_1_description }}</p> </div>
+      
     </div>
 
     <div class="product-item">
@@ -29,8 +31,9 @@
       {% else %}
         <p>No Image Available</p>
       {% endif %}
+      <div class="product-content">
       <h3 class="image-h3">{{ section.settings.image_2_name }}</h3>
-      <p class="image-p">{{ section.settings.image_2_description }}</p>
+      <p class="image-p">{{ section.settings.image_2_description }}</p></div>
     </div>
 
     <div class="product-item">
@@ -44,13 +47,20 @@
       {% else %}
         <p class="image-p">No Image Available</p>
       {% endif %}
+      <div class="product-content">
       <h3 class="image-h3">{{ section.settings.image_3_name }}</h3>
-      <p class="image-p">{{ section.settings.image_3_description }}</p>
+      <p class="image-p">{{ section.settings.image_3_description }}</p></div>
     </div>
   </div>
 </section>
 
 <style>
+
+.product-content{
+  align-items:center;
+  margin-left:100px;
+}
+
 .product-showcase {
   text-align: center;
   /* padding: 3rem 12rem; */
@@ -75,7 +85,7 @@
 }
 
 .product-item img {
-  width: 75%;
+  width: 70%;
   height: auto;
   margin-bottom: 15px;
 }
