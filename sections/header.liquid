@@ -13,9 +13,24 @@
 
 
 <style>
+  .header__heading-logo {
+    height: auto;
+    max-width: 100%;
+    margin-left: 8.2rem;
+}
+  .header__icon--cart {
+    position: relative;
+    margin-right: 12.2rem;
+  }
+  .header-container {
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Space out children */
+    align-items: center; /* Center items vertically */
+  }
+
   header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
+    margin-left: auto; /* Move it to the right end */
+    /* Add any other styles needed */
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -27,13 +42,13 @@
   {%- if section.settings.menu_type_desktop != "drawer" -%}
     @media screen and (min-width: 990px) {
       header-drawer {
-        display: none;
+        display: none; /* Hide on desktop if menu type is not drawer */
       }
     }
   {%- endif -%}
 
   .menu-drawer-container {
-    display: flex;
+    display: flex; /* Ensure the container is also using flex */
   }
 
   .list-menu {
@@ -64,6 +79,10 @@
     line-height: calc(1 + 0.8 / var(--font-body-scale));
   }
 
+  .header__icon .svg-wrapper {
+    display: none; /* Hide SVG icon wrapper */
+  }
+
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
       padding-bottom: 0.5rem;
@@ -71,6 +90,7 @@
     }
   }
 </style>
+
 
 {%- style -%}
   .header {
@@ -224,7 +244,7 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
@@ -258,22 +278,18 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
-          {% else %}
-            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
-          {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
+<a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset cart-button" id="cart-icon-bubble">
+    <span class="cart-text">Cart </span>
+    <span class="cart-item-count">
+        {% if cart.item_count > 0 %}
+            ({{ cart.item_count }})
+          
+        {% endif %}
+    </span>
+</a>
+
+
+
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
