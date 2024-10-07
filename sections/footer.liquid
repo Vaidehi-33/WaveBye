@@ -181,7 +181,13 @@
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <p class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</p>
+                <p class="footer-block__heading inline-richtext" style="max-width: 480px; margin-top: 20px; styleName: Body 16pt;
+font-family: Open Sans;
+font-size: 12px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+color: #0A1F44D9;">{{ section.settings.newsletter_heading }}</p>
               {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
