@@ -130,8 +130,7 @@
                       {%- if settings.brand_description != blank -%}
                         <div class="rte">{{ settings.brand_description }}</div>
                       {%- endif -%}
-                                <h2 class="footer__social-heading">Follow Us</h2>
-
+                      
 {%- if section.settings.show_social and has_social_icons -%}
   
   <div class="footer__social-links">
@@ -247,13 +246,13 @@
               {%- endform -%}
             </div>
           {%- endif -%}
+          <h2 class="footer__social-heading">Follow Us</h2>
 
           {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
             <div class="footer__follow-on-shop">
               {{ shop | login_button: action: 'follow' }}
             </div>
           {%- endif -%}
-          <h2 class="footer__social-heading">Follow Us</h2>
           {%- if section.settings.show_social and has_social_icons -%}
             
             {%- render 'social-icons', class: 'footer__list-social' -%}
