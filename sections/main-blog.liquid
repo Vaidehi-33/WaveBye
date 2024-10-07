@@ -242,9 +242,6 @@
   </form>
 </div>
 <div id="search-results"></div> <!-- Container for dynamic search results -->
-
-
-
 <!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
@@ -277,7 +274,6 @@
             <a href="{{ article.url }}" class="read-more-link">Read More </a><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.70697 17.7773L15.414 12.0703L9.70697 6.36328L8.29297 7.77728L12.586 12.0703L8.29297 16.3633L9.70697 17.7773Z" fill="#0A1F44"/>
 </svg>
-
           </div>
         </div>
       {%- endfor -%}
@@ -287,42 +283,41 @@
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
   </div>
-
-
 {%- endpaginate -%}
+
 <script>
-// Function to filter and display search results
-function searchBlogs(query) {
-  const resultsContainer = document.getElementById('search-results');
-  resultsContainer.innerHTML = ''; // Clear previous results
+  // Assuming you want to get the blog article titles dynamically
+  const blogPosts = [
+    {% for article in blog.articles %}
+      "{{ article.title | escape }}"{% if forloop.last == false %}, {% endif %}
+    {% endfor %}
+  ];
 
-  // Get all blog articles dynamically
-  const blogArticles = Array.from(document.querySelectorAll('.blog-articles__article'));
-  
-  // Filter blog posts based on the query
-  const filteredPosts = blogArticles.filter(article => {
-    const title = article.querySelector('.article-card__title').textContent.toLowerCase();
-    const excerpt = article.querySelector('.article-card__excerpt').textContent.toLowerCase();
-    return title.includes(query.toLowerCase()) || excerpt.includes(query.toLowerCase());
-  });
+  // Function to filter and display search results
+  function searchBlogs(query) {
+    const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = ''; // Clear previous results
 
-  // Display filtered results
-  if (filteredPosts.length > 0) {
-    filteredPosts.forEach(article => {
-      const resultItem = document.createElement('div');
-      resultItem.innerHTML = `<a href="${article.querySelector('.read-more-link').href}">${article.querySelector('.article-card__title').textContent}</a>`;
-      resultsContainer.appendChild(resultItem);
-    });
-  } else {
-    resultsContainer.textContent = 'No results found';
+    // Filter blog posts based on the query
+    const filteredPosts = blogPosts.filter(post => post.toLowerCase().includes(query.toLowerCase()));
+
+    // Display filtered results
+    if (filteredPosts.length > 0) {
+      filteredPosts.forEach(post => {
+        const resultItem = document.createElement('div');
+        resultItem.textContent = post;
+        resultsContainer.appendChild(resultItem);
+      });
+    } else {
+      resultsContainer.textContent = 'No results found';
+    }
   }
-}
 
-// Event listener for the input field
-document.getElementById('blog-search-input').addEventListener('input', function() {
-  const query = this.value;
-  searchBlogs(query); // Call the search function with the current input
-});
+  // Event listener for the input field
+  document.getElementById('blog-search-input').addEventListener('input', function() {
+    const query = this.value;
+    searchBlogs(query); // Call the search function with the current input
+  });
 </script>
 
 
