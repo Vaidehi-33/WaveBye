@@ -31,6 +31,12 @@
 
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <h1
+            class="article-template__title"
+            itemprop="headline"
+          >
+            {{ article.title | escape }}
+          </h1>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
