@@ -76,17 +76,11 @@
     border-color: darkblue;
   } */
 .blog-search {
+    margin: 0 auto; /* Center the container horizontally */
     margin-bottom: 30px;
-    text-align: center; /* Center the text */
+    text-align: center; /* Center the form content */
     position: relative;
-    width: 100%; /* Full width for centering */
-}
-
-/* Centering the form inside the blog-search */
-.blog-search form {
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center items vertically */
+    width: 248px; /* Fixed width for the input field */
 }
 
 /* Input field styling */
@@ -94,11 +88,12 @@
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
     padding: 8px 12px;
     padding-left: 36px; /* Leave space for the icon */
-    width: 248px; /* Set a fixed width for the input */
+    width: 100%; /* Fill the parent container */
     height: 40px;
-    border-radius: 5px; /* Uniform corner rounding */
+    border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
+    text-align: left; /* Align text inside input to the left */
 }
 
 /* Focus state styling for the input */
@@ -108,18 +103,18 @@
 
 /* Styling for the search icon */
 .search-icon {
-    position: absolute; /* Position the icon absolutely within the form */
-    top: 50%; /* Center vertically */
-    left: 12px; /* Adjust space from the left */
-    transform: translateY(-50%); /* Adjust position to truly center */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
-    pointer-events: none; /* Prevent click events on the icon */
 }
 
-/* Ensure the container has relative positioning */
-.blog-search {
-    position: relative; /* Ensure the parent is relative for absolute positioning of the icon */
+/* Container for the dynamic search results */
+#search-results {
+    margin-top: 10px;
+    text-align: center;
 }
 
 
