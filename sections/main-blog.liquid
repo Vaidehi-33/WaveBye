@@ -91,7 +91,7 @@
     padding-left: 36px; /* Leave space for the icon */
     width: 248px; /* Set a fixed width for the input */
     height: 40px;
-    border-radius: 5px; /* Remove corner rounding on only one side */
+    border-radius: 5px; /* Uniform corner rounding */
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -104,12 +104,14 @@
 /* Styling for the search icon */
 .search-icon {
     position: absolute;
-    top: 50%;
-    left: 12px; /* Adjust for better centering */
-    transform: translateY(-50%);
+    top: 50%; /* Position it to the center vertically */
+    left: 12px; /* Adjust for better spacing */
+    transform: translateY(-50%); /* Adjust position to truly center */
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
+    pointer-events: none; /* Prevent click events on the icon */
 }
+
 
 
   /* Blog articles grid styling */
