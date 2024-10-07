@@ -70,7 +70,8 @@
 }
 
 .article-template__title:not(:only-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  font-family: "Outfit", sans-serif;
 }
 
 .article-template__link {
