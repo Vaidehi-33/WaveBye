@@ -57,7 +57,7 @@
   }
 
   /* Blog search box styling */
-  .blog-search {
+  /* .blog-search {
     margin-bottom: 30px;
     text-align: left;
     position: relative;
@@ -74,7 +74,35 @@
 
   .blog-search input[type="text"]:focus {
     border-color: darkblue;
-  }
+  } */
+  /* Blog search box styling */
+.blog-search {
+    margin-bottom: 30px;
+    text-align: left;
+    position: relative;
+}
+
+/* Input field styling */
+.blog-search input[type="text"] {
+    border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
+    padding: 8px 12px; /* Use provided padding */
+    width: 248px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    border-radius: 5px 0 0 0; /* Border radius as per the request */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state styling for the input */
+.blog-search input[type="text"]:focus {
+    border-color: darkblue;
+}
+
+/* Button styling (optional if needed) */
+.blog-search button {
+    display: none; /* Hide the submit button if only using input for search */
+}
+
 
   /* Blog articles grid styling */
   .blog-articles {
@@ -184,6 +212,14 @@
     <button type="submit">Search</button>
   </form>
 </div> -->
+<!-- Start of Search Box -->
+<div class="blog-search">
+  <form action="/search" method="get" id="blog-search">
+    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs">
+    <button type="submit">Search</button>
+  </form>
+</div>
+<!-- End of Search Box -->
 
 
 <!-- End of Search Box -->
