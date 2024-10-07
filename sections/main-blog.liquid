@@ -75,20 +75,21 @@
   .blog-search input[type="text"]:focus {
     border-color: darkblue;
   } */
-/* Blog search box styling */
 .blog-search {
     margin-bottom: 30px;
     text-align: left;
     position: relative;
+    width: 248px; /* Match the width of the input */
 }
 
 /* Input field styling */
 .blog-search input[type="text"] {
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
-    padding: 8px 12px; /* Use provided padding */
-    width: 248px; /* Fixed width */
-    height: 40px; /* Fixed height */
-    border-radius: 5px 0 0 0; /* Border radius as per the request */
+    padding: 8px 12px;
+    padding-left: 36px; /* Leave space for the icon */
+    width: 100%; /* Fill the parent container */
+    height: 40px;
+    border-radius: 5px 0 0 0;
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -98,9 +99,14 @@
     border-color: darkblue;
 }
 
-/* Button styling (optional if needed) */
-.blog-search button {
-    display: none; /* Hide the submit button if only using input for search */
+/* Styling for the search icon */
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 18px; /* Adjust size as needed */
+    color: var(--Soft-Periwinkle-Blue, #6C86FE);
 }
 
 
