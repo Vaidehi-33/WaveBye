@@ -27,9 +27,10 @@
   }
 .article-meta {
   display: flex;
-  gap: 20px; /* Adds some space between the two sections */
-  margin-bottom: 10px;
+  gap: 35px; /* Adds some space between the two sections */
+  margin-bottom: 70px;
 }
+
 
 .article-author,
 .article-date {
@@ -43,17 +44,18 @@
 
 .article-author .caption-with-letter-spacing,
 .article-date .caption-with-letter-spacing {
-  font-weight: bold; /* Makes the labels bold */
-  font-size: 14px; /* Adjust font size as needed */
-  font-family: "Open Sans", system-ui;
+ font-family: "Open Sans";
+  font-size: 10px; /* Adjust font size as needed */
+  margin-bottom:18px;
 }
 
 .article-author span[itemprop="name"],
 .article-date span {
   font-size: 13px; /* Adjust the font size for the author name and date */
   color: #333; /* Change color if needed */
+  font-weight: Bold;
+  font-family: "Open Sans";
 }
-
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="back-to-all-posts-container">
