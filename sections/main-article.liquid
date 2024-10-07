@@ -1,12 +1,23 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 <style>
   /* Flex container to align "Written by" and "Published on" side by side */
+  .back-to-all-posts-container{
+    color: #0A1F44;
+    font-family: "Open Sans", sans-serif;
+        margin-bottom: 3rem;
+    
+  }
+  .back-to-all-posts-link{
+    text-decoration: none;
+    color: #0A1F44;
+    
+  }
   .card-category-container{
     display: flex !important;
     gap: 1rem;
     margin-bottom: 1.5rem;
      font-family: "Open Sans", sans-serif;
-    font-size: 14px;
+    font-size: 12px;
   }
   .card-category{
     background-color: #6C86FE;
@@ -32,9 +43,8 @@
 
 .article-author .caption-with-letter-spacing,
 .article-date .caption-with-letter-spacing {
- font-family: "Open Sans";
-  font-size: 10px; /* Adjust font size as needed */
-  margin-bottom:18px;
+  font-weight: bold; /* Makes the labels bold */
+  font-size: 14px; /* Adjust font size as needed */
 }
 
 .article-author span[itemprop="name"],
@@ -47,6 +57,18 @@
 
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="back-to-all-posts-container">
+    <a href="{{ blog.url }}" class="back-to-all-posts-link">
+      <span class="back-to-all-posts-icon"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.29294 0.292969L0.585938 5.99997L6.29294 11.707L7.70694 10.293L3.41394 5.99997L7.70694 1.70697L6.29294 0.292969Z" fill="#0A1F44"/>
+</svg>
+</span>
+    All Posts
+    </a>
+  </div>
+
+
+  
   <div class="card-category-container">
   <div class="card-category">Category</div>
   <div class="card-category-tag">
@@ -149,11 +171,7 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-    </a>
-  </div>
+  
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
@@ -315,7 +333,7 @@
                 {% endif %}
                 placeholder="{{ 'blogs.article.message' | t }}"
               >{{ form.body }}</textarea>
-              <label class="form__label field__label" for="CommentForm-body">
+              <label class="form_label field_label" for="CommentForm-body">
                 {{- 'blogs.article.message' | t }}
                 <span aria-hidden="true">*</span></label
               >
