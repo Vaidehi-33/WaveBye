@@ -286,6 +286,8 @@
     {%- endif -%}
   </div>
 
+
+{%- endpaginate -%}
 <script>
 // Function to filter and display search results
 function searchBlogs(query) {
@@ -320,8 +322,6 @@ document.getElementById('blog-search-input').addEventListener('input', function(
   searchBlogs(query); // Call the search function with the current input
 });
 </script>
-
-{%- endpaginate -%}
 
 
 {% schema %}
