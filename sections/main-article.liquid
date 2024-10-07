@@ -31,6 +31,17 @@
 
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="card-category-container">
+  <div class="card-category">Category</div>
+  <div class="card-category-tag">
+    {% if article.tags.size > 0 %}
+      {{ article.tags.first }}
+    {% else %}
+      No category
+    {% endif %}
+  </div>
+</div>
+
   <h1
             class="article-template__title"
             itemprop="headline"
