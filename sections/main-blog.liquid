@@ -25,6 +25,15 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  /* Dynamic heading styling */
+  .dynamic-heading {
+    font-family: 'Outfit', sans-serif; /* Ensure the font is available */
+    font-size: 48px; /* Font size */
+    font-weight: 600; /* Font weight */
+    line-height: 48px; /* Line height */
+    text-align: center; /* Center alignment */
+    margin: 20px 0; /* Margin for spacing */
+  }
 
   /* Blog Filter styling */
   .blog-filter {
@@ -208,7 +217,10 @@
   }
 {%- endstyle -%}
 
-
+<!-- Dynamic Heading -->
+<h2 class="dynamic-heading">
+  Articles in {{ blog.title | escape }}
+</h2>
 
 <!-- Start of Tag-based Filter -->
 <div class="blog-filter section-{{ section.id }}-padding">
