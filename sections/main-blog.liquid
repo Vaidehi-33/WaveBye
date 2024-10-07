@@ -35,6 +35,15 @@
     margin: 20px 0; /* Margin for spacing */
   }
 
+  .blog-title{
+    font-family: 'Outfit', sans-serif; /* Ensure the font is available */
+    font-size: 12px; /* Font size */
+    font-weight: 600; /* Font weight */
+    line-height: 48px; /* Line height */
+    text-align: center; /* Center alignment */
+    margin: 20px 0; /* Margin for spacing */
+  }
+
   /* Blog Filter styling */
   .blog-filter {
     text-align: center;
@@ -217,7 +226,7 @@
   }
 {%- endstyle -%}
 
-<h6>BLOG</h6>
+<h6 class="blog-title">BLOG</h6>
 <!-- Dynamic Heading -->
 <h2 class="dynamic-heading">
   Articles in {{ blog.title | escape }}
