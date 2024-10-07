@@ -246,10 +246,11 @@
                   </h3>
                 {%- endif -%}
               {%- endform -%}
+              <h2>Wave</h2>
             </div>
           {%- endif -%}
-          <!-- <h2 class="footer__social-heading">Follow Us</h2>
- -->
+          <h2 class="footer__social-heading">Follow Us</h2>
+
           {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
             <div class="footer__follow-on-shop">
               {{ shop | login_button: action: 'follow' }}
