@@ -87,10 +87,10 @@
 /* Input field styling */
 .blog-search input[type="text"] {
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
-    padding: 8px 12px;
+    padding: 8px 12px; /* Top/Bottom: 8px, Left/Right: 12px */
     padding-left: 36px; /* Leave space for the icon */
     width: 248px; /* Set a fixed width for the input */
-    height: 40px;
+    height: 40px; /* Maintain the height */
     border-radius: 5px; /* Uniform corner rounding */
     outline: none;
     transition: border-color 0.3s ease;
@@ -104,13 +104,14 @@
 /* Styling for the search icon */
 .search-icon {
     position: absolute;
-    top: 50%; /* Position it to the center vertically */
-    left: 12px; /* Adjust for better spacing */
+    top: 50%; /* Center vertically */
+    left: 12px; /* Leave space from the left */
     transform: translateY(-50%); /* Adjust position to truly center */
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
     pointer-events: none; /* Prevent click events on the icon */
 }
+
 
 
 
