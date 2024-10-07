@@ -88,7 +88,6 @@
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
-                      
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
@@ -247,6 +246,9 @@
                   </h3>
                 {%- endif -%}
               {%- endform -%}
+<h2 class="footer-block__heading inline-richtext">
+  By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
+</h2>
             </div>
           {%- endif -%}
           <h2 class="footer__social-heading">Follow Us</h2>
@@ -319,9 +321,7 @@
         </small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}
-           
           <ul class="policies list-unstyled">
-           
             {%- for policy in shop.policies -%}
               {%- if policy != blank -%}
                 <li>
