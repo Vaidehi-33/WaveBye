@@ -11,6 +11,7 @@
   "sections": {
     "dynamic_heading_NRqNGH": {
       "type": "dynamic-heading",
+      "disabled": true,
       "settings": {
         "heading_text": "Short heading goes here",
         "heading_color": "#333333",
