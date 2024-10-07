@@ -111,19 +111,13 @@
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
 }
+
+/* Container for the dynamic search results */
 #search-results {
-  margin-top: 10px;
-  text-align: center;
-  display: none; /* Initially hide results until search occurs */
+    margin-top: 10px;
+    text-align: center;
 }
 
-/* Show the results when there's something to show */
-#search-results.show {
-  display: block; /* You can toggle this class when there are results */
-  border: 1px solid #ccc; /* Optional border */
-  padding: 10px; /* Optional padding */
-  background-color: #fff; /* Optional background */
-}
 
 
   /* Blog articles grid styling */
@@ -236,12 +230,14 @@
 </div> -->
 <!-- Start of Search Box -->
 <div class="blog-search">
-  <form id="blog-search" onsubmit="return false;"> <!-- Prevent default form submission -->
-    <input type="text" name="q" placeholder="Search" aria-label="Search blogs" id="blog-search-input">
+  <form id="blog-search">
+    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
     <span class="search-icon">&#x1F50D;</span> <!-- Unicode for a magnifying glass -->
   </form>
 </div>
 <div id="search-results"></div> <!-- Container for dynamic search results -->
+
+
 <!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
@@ -274,6 +270,7 @@
             <a href="{{ article.url }}" class="read-more-link">Read More </a><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.70697 17.7773L15.414 12.0703L9.70697 6.36328L8.29297 7.77728L12.586 12.0703L8.29297 16.3633L9.70697 17.7773Z" fill="#0A1F44"/>
 </svg>
+
           </div>
         </div>
       {%- endfor -%}
@@ -284,43 +281,6 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
-
-<script>
-  // Assuming you want to get the blog article titles dynamically
-  const blogPosts = [
-    {% for article in blog.articles %}
-      "{{ article.title | escape }}"{% if forloop.last == false %}, {% endif %}
-    {% endfor %}
-  ];
-
-  // Function to filter and display search results
-  function searchBlogs(query) {
-    const resultsContainer = document.getElementById('search-results');
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    // Filter blog posts based on the query
-    const filteredPosts = blogPosts.filter(post => post.toLowerCase().includes(query.toLowerCase()));
-
-    // Display filtered results
-    if (filteredPosts.length > 0) {
-      filteredPosts.forEach(post => {
-        const resultItem = document.createElement('div');
-        resultItem.textContent = post;
-        resultsContainer.appendChild(resultItem);
-      });
-    } else {
-      resultsContainer.textContent = 'No results found';
-    }
-  }
-
-  // Event listener for the input field
-  document.getElementById('blog-search-input').addEventListener('input', function() {
-    const query = this.value;
-    searchBlogs(query); // Call the search function with the current input
-  });
-</script>
-
-
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
