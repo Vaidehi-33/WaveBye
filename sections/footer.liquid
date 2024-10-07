@@ -181,7 +181,7 @@
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                <p class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</p>
               {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
@@ -246,9 +246,9 @@
                   </h3>
                 {%- endif -%}
               {%- endform -%}
-<h2 class="footer-block__heading inline-richtext" style="max-width: 480px; margin-top: 20px;">
+<p> class="footer-block__heading inline-richtext" style="max-width: 480px; margin-top: 20px;">
   By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
-</h2>
+</p>
 
             </div>
           {%- endif -%}
