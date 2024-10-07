@@ -112,12 +112,16 @@
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
 }
 
-/* Container for the dynamic search results */
 #search-results {
     margin-top: 10px;
     text-align: center;
+    display: none; /* Initially hide results until search occurs */
 }
 
+/* Show the results when there's something to show */
+#search-results.show {
+    display: block;
+}
 
 
   /* Blog articles grid styling */
