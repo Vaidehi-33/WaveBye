@@ -219,12 +219,15 @@
   </form>
 </div> -->
 <!-- Start of Search Box -->
+
 <div class="blog-search">
-  <form action="/search" method="get" id="blog-search">
-    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs">
-    <button type="submit">Search</button>
+  <form id="blog-search">
+    <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
+    <span class="search-icon">&#x1F50D;</span> <!-- Unicode for a magnifying glass -->
   </form>
 </div>
+<div id="search-results"></div> <!-- Container for dynamic search results -->
+
 <!-- End of Search Box -->
 
 
