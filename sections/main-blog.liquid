@@ -111,16 +111,18 @@
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
 }
-
 #search-results {
-    margin-top: 10px;
-    text-align: center;
-    display: none; /* Initially hide results until search occurs */
+  margin-top: 10px;
+  text-align: center;
+  display: none; /* Initially hide results until search occurs */
 }
 
 /* Show the results when there's something to show */
 #search-results.show {
-    display: block;
+  display: block; /* You can toggle this class when there are results */
+  border: 1px solid #ccc; /* Optional border */
+  padding: 10px; /* Optional padding */
+  background-color: #fff; /* Optional background */
 }
 
 
