@@ -25,6 +25,7 @@
     "main": {
       "type": "main-blog",
       "settings": {
+        "dynamic_heading": "Short heading goes here",
         "layout": "grid",
         "show_image": true,
         "image_height": "medium",
