@@ -27,10 +27,9 @@
   }
 .article-meta {
   display: flex;
-  gap: 35px; /* Adds some space between the two sections */
-  margin-bottom: 70px;
+  gap: 20px; /* Adds some space between the two sections */
+  margin-bottom: 10px;
 }
-
 
 .article-author,
 .article-date {
@@ -44,18 +43,17 @@
 
 .article-author .caption-with-letter-spacing,
 .article-date .caption-with-letter-spacing {
- font-family: "Open Sans";
-  font-size: 10px; /* Adjust font size as needed */
-  margin-bottom:18px;
+  font-weight: bold; /* Makes the labels bold */
+  font-size: 14px; /* Adjust font size as needed */
+  font-family: "Open Sans", system-ui;
 }
 
 .article-author span[itemprop="name"],
 .article-date span {
   font-size: 13px; /* Adjust the font size for the author name and date */
   color: #333; /* Change color if needed */
-  font-weight: Bold;
-  font-family: "Open Sans";
 }
+
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="back-to-all-posts-container">
@@ -149,6 +147,24 @@
     </div>
   {%- endif -%}
 </div>
+<div class="icon-container">
+  <div class="icon-wrapper">
+    <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.828125" width="32" height="32" rx="16" fill="#EEEEEE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 8.07031C7.67157 8.07031 7 8.74188 7 9.57031V24.5703C7 25.3987 7.67157 26.0703 8.5 26.0703H23.5C24.3284 26.0703 25 25.3987 25 24.5703V9.57031C25 8.74188 24.3284 8.07031 23.5 8.07031H8.5ZM12.5208 12.073C12.5264 13.0293 11.8106 13.6185 10.9612 13.6143C10.1611 13.6101 9.46357 12.973 9.46779 12.0744C9.47201 11.2293 10.14 10.5501 11.0076 10.5698C11.8879 10.5894 12.5264 11.2349 12.5208 12.073ZM16.2797 14.8321H13.7597H13.7583V23.3919H16.4217V23.1922C16.4217 22.8123 16.4214 22.4323 16.4211 22.0522C16.4203 21.0384 16.4194 20.0235 16.4246 19.01C16.426 18.7639 16.4372 18.508 16.5005 18.2731C16.7381 17.3956 17.5271 16.8289 18.4074 16.9682C18.9727 17.0567 19.3467 17.3844 19.5042 17.9174C19.6013 18.2506 19.6449 18.6092 19.6491 18.9566C19.6605 20.0042 19.6589 21.0518 19.6573 22.0995C19.6567 22.4693 19.6561 22.8393 19.6561 23.2091V23.3905H22.328V23.1852C22.328 22.7332 22.3278 22.2813 22.3275 21.8294C22.327 20.6999 22.3264 19.5704 22.3294 18.4405C22.3308 17.93 22.276 17.4266 22.1508 16.933C21.9638 16.1989 21.5771 15.5914 20.9485 15.1527C20.5027 14.8405 20.0133 14.6394 19.4663 14.6169C19.404 14.6143 19.3412 14.6109 19.2781 14.6075C18.9984 14.5924 18.7141 14.577 18.4467 14.631C17.6817 14.7843 17.0096 15.1344 16.5019 15.7517C16.4429 15.8225 16.3852 15.8944 16.2991 16.0017L16.2797 16.026V14.8321ZM9.68164 23.3947H12.3324V14.8376H9.68164V23.3947Z" fill="#0A1F44"/>
+</svg>
+  </div>
+  <div class="icon-wrapper">
+    <i class="icon icon-2"></i> <!-- Icon 2 -->
+  </div>
+  <div class="icon-wrapper">
+    <i class="icon icon-3"></i> <!-- Icon 3 -->
+  </div>
+  <div class="icon-wrapper">
+    <i class="icon icon-4"></i> <!-- Icon 4 -->
+  </div>
+</div>
+
 
         </header>
 
