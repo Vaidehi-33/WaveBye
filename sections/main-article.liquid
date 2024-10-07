@@ -1,7 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 <style>
   /* Flex container to align "Written by" and "Published on" side by side */
-  .back-to-all-posts-container{
+  /* .back-to-all-posts-container{
     color: #0A1F44;
     font-family: "Open Sans", sans-serif;
         margin-bottom: 3rem;
@@ -11,7 +11,7 @@
     text-decoration: none;
     color: #0A1F44;
     
-  }
+  } */
   .card-category-container{
     display: flex !important;
     gap: 1rem;
@@ -27,8 +27,8 @@
   }
 .article-meta {
   display: flex;
-  gap: 35px; /* Adds some space between the two sections */
-  margin-bottom: 70px;
+  gap: 20px; /* Adds some space between the two sections */
+  margin-bottom: 10px;
 }
 
 .article-author,
@@ -51,13 +51,11 @@
 .article-date span {
   font-size: 13px; /* Adjust the font size for the author name and date */
   color: #333; /* Change color if needed */
-  font-weight: Bold;
-  font-family: "Open Sans";
 }
 
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="back-to-all-posts-container">
+  <!-- <div class="back-to-all-posts-container">
     <a href="{{ blog.url }}" class="back-to-all-posts-link">
       <span class="back-to-all-posts-icon"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.29294 0.292969L0.585938 5.99997L6.29294 11.707L7.70694 10.293L3.41394 5.99997L7.70694 1.70697L6.29294 0.292969Z" fill="#0A1F44"/>
@@ -65,7 +63,7 @@
 </span>
     All Posts
     </a>
-  </div>
+  </div> -->
 
 
   
@@ -333,7 +331,7 @@
                 {% endif %}
                 placeholder="{{ 'blogs.article.message' | t }}"
               >{{ form.body }}</textarea>
-              <label class="form_label field_label" for="CommentForm-body">
+              <label class="form__label field__label" for="CommentForm-body">
                 {{- 'blogs.article.message' | t }}
                 <span aria-hidden="true">*</span></label
               >
