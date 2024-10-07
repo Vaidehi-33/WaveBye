@@ -3,12 +3,6 @@
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .dynamic-heading {
-    font-size: 24px; /* Adjust font size as needed */
-    color: #333; /* Change color as needed */
-    margin-top: 20px; /* Add spacing above */
-    margin-bottom: 10px; /* Add spacing below */
-}
   .title--primary{
     display:none;
   }
@@ -254,10 +248,30 @@
       {{ blog.title | escape }}
     </h1>
 
-    <!-- Dynamic Heading -->
+    <!-- Dynamic Heading placed above the filters -->
     <h2 class="dynamic-heading">
       Articles in {{ blog.title | escape }}
     </h2>
+
+    <!-- Start of Tag-based Filter -->
+    <div class="blog-filter section-{{ section.id }}-padding">
+      <ul>
+        <li><a href="/blogs/{{ blog.handle }}">All Posts</a></li>
+        <li><a href="/blogs/{{ blog.handle }}/tagged/Category-1">Category 1</a></li>
+        <li><a href="/blogs/{{ blog.handle }}/tagged/Category-2">Category 2</a></li>
+        <li><a href="/blogs/{{ blog.handle }}/tagged/Category-3">Category 3</a></li>
+      </ul>
+    </div>
+    <!-- End of Tag-based Filter -->
+
+    <!-- Start of Search Box -->
+    <div class="blog-search">
+      <form action="/search" method="get" id="blog-search">
+        <input type="text" name="q" placeholder="Search by title..." aria-label="Search blogs" id="blog-search-input">
+        <span class="search-icon">&#x1F50E;&#xFE0E;</span> <!-- Unicode for a magnifying glass -->
+      </form>
+    </div>
+    <!-- End of Search Box -->
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
