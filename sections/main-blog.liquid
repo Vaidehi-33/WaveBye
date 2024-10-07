@@ -87,7 +87,6 @@
     display: flex; /* Use flexbox for centering */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center items vertically */
-    width: 100%; /* Ensure the form takes full width */
 }
 
 /* Input field styling */
@@ -109,12 +108,18 @@
 
 /* Styling for the search icon */
 .search-icon {
-    position: absolute;
+    position: absolute; /* Position the icon absolutely within the form */
     top: 50%; /* Center vertically */
-    left: 10px; /* Adjust space from the left */
+    left: 12px; /* Adjust space from the left */
     transform: translateY(-50%); /* Adjust position to truly center */
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
+    pointer-events: none; /* Prevent click events on the icon */
+}
+
+/* Ensure the container has relative positioning */
+.blog-search {
+    position: relative; /* Ensure the parent is relative for absolute positioning of the icon */
 }
 
 
