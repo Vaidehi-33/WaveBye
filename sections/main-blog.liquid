@@ -11,17 +11,8 @@
   }
   .article-card__info{
         text-align:left;
-  }
-  /* Dynamic heading styling */
-  .dynamic-heading {
-    font-family: 'Outfit', sans-serif; /* Ensure the font is available */
-    font-size: 48px; /* Font size */
-    font-weight: 600; /* Font weight */
-    line-height: 48px; /* Line height */
-    text-align: center; /* Center alignment */
-    margin: 20px 0; /* Margin for spacing */
-  }
 
+  }
   /* Section padding for responsiveness */
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -38,9 +29,12 @@
   /* Blog Filter styling */
   .blog-filter {
     text-align: center;
+    text-align: center;
     font-family: "Open Sans", sans-serif;
     color: #0A1F44 !important;
+    
   }
+
 
   .blog-filter ul {
     list-style-type: none;
@@ -58,7 +52,7 @@
     font-size: 14px; /* Adjust this value to your desired font size */
     color: #333;
     text-decoration: none;
-    font-family: "Open Sans"; /* Corrected font-family key */
+    font-fs:"Open Sans";
   }
 
   .blog-filter ul li a:hover {
@@ -66,16 +60,34 @@
   }
 
   /* Blog search box styling */
-  .blog-search {
+  /* .blog-search {
+    margin-bottom: 30px;
+    text-align: left;
+    position: relative;
+  }
+
+  .blog-search input[type="text"] {
+    border: 1px solid blue;
+    padding: 8px 30px;
+    width: 200px;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .blog-search input[type="text"]:focus {
+    border-color: darkblue;
+  } */
+.blog-search {
     margin: 0 auto; /* Center the container horizontally */
     margin-bottom: 30px;
     text-align: center; /* Center the form content */
     position: relative;
     width: 248px; /* Fixed width for the input field */
-  }
+}
 
-  /* Input field styling */
-  .blog-search input[type="text"] {
+/* Input field styling */
+.blog-search input[type="text"] {
     border: 1px solid var(--Soft-Periwinkle-Blue, #6C86FE); /* Use the provided color */
     padding: 8px 12px;
     padding-left: 36px; /* Leave space for the icon */
@@ -85,28 +97,29 @@
     outline: none;
     transition: border-color 0.3s ease;
     text-align: left; /* Align text inside input to the left */
-  }
+}
 
-  /* Focus state styling for the input */
-  .blog-search input[type="text"]:focus {
+/* Focus state styling for the input */
+.blog-search input[type="text"]:focus {
     border-color: darkblue;
-  }
+}
 
-  /* Styling for the search icon */
-  .search-icon {
+/* Styling for the search icon */
+.search-icon {
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
     font-size: 18px; /* Adjust size as needed */
     color: var(--Soft-Periwinkle-Blue, #6C86FE);
-  }
+}
 
-  /* Container for the dynamic search results */
-  #search-results {
+/* Container for the dynamic search results */
+#search-results {
     margin-top: 10px;
     text-align: center;
-  }
+}
+
 
   /* Blog articles grid styling */
   .blog-articles {
@@ -129,8 +142,13 @@
     align-items: flex-start; /* Align items to the left */
     height: 100%;
     padding: 20px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     transition: box-shadow 0.3s ease;
     text-align: left;
+  }
+
+  .blog-articles__article:hover {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); */
   }
 
   /* Heading styling */
@@ -170,14 +188,18 @@
   .read-more-container {
     display: flex;
     align-items: flex-end;
+    
     margin-top: auto;
     text-align: left; /* Align the "Read More" link to the left */
+    /* padding-top: 10px; */
+    /* border-top: 1px solid #ddd; */
     font-family: "Open Sans", sans-serif;
   }
 
   .read-more-link {
     color: #000;
     text-decoration: none;
+    /* font-weight: bold; */
   }
 
   .read-more-link:hover {
@@ -186,10 +208,7 @@
   }
 {%- endstyle -%}
 
-<!-- Dynamic Heading -->
-<h2 class="dynamic-heading">
-  Articles in {{ blog.title | escape }}
-</h2>
+
 
 <!-- Start of Tag-based Filter -->
 <div class="blog-filter section-{{ section.id }}-padding">
@@ -203,12 +222,24 @@
 <!-- End of Tag-based Filter -->
 
 <!-- Start of Search Box -->
+<!-- Blog Search -->
+<!-- <div class="blog-search">
+  <form action="/search" method="get" id="blog-search">
+    <input type="text" name="q" placeholder="Search blogs..." aria-label="Search blogs">
+    <button type="submit">Search</button>
+  </form>
+</div> -->
+<!-- Start of Search Box -->
 <div class="blog-search">
   <form action="/search" method="get" id="blog-search">
-    <input type="text" name="q" placeholder="Search" aria-label="Search blogs" id="blog-search-input">
+ <input type="text" name="q" placeholder="Search" aria-label="Search blogs" id="blog-search-input">
     <span class="search-icon">&#x1F50E;&#xFE0E;</span> <!-- Unicode for a magnifying glass -->
   </form>
 </div>
+
+<!-- End of Search Box -->
+
+
 <!-- End of Search Box -->
 
 {%- paginate blog.articles by 6 -%}
@@ -238,42 +269,20 @@
 
           <!-- "Read More" Link inside the blog card -->
           <div class="read-more-container">
-            <a href="{{ article.url }}" class="read-more-link">Read More </a>
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.70697 17.7773L15.414 12.0703L9.70697 6.36328L8.29297 7.77728L12.586 12.0703L8.29297 16.3633L9.70697 17.7773Z" fill="black"/>
-              <path d="M12 0.5C5.372 0.5 0 5.872 0 12.5C0 19.128 5.372 24.5 12 24.5C18.628 24.5 24 19.128 24 12.5C24 5.872 18.628 0.5 12 0.5ZM12 22.5C6.631 22.5 3 18.868 3 12.5C3 6.132 6.631 2.5 12 2.5C17.369 2.5 21 6.132 21 12.5C21 18.868 17.369 22.5 12 22.5Z" fill="black"/>
-            </svg>
+            <a href="{{ article.url }}" class="read-more-link">Read More </a><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.70697 17.7773L15.414 12.0703L9.70697 6.36328L8.29297 7.77728L12.586 12.0703L8.29297 16.3633L9.70697 17.7773Z" fill="#0A1F44"/>
+</svg>
+
           </div>
         </div>
       {%- endfor -%}
     </div>
 
-    {% if paginate.pages > 1 %}
-      <div class="pagination">
-        {% if paginate.previous %}
-          <a href="{{ paginate.previous.url }}" class="pagination__item" aria-label="Previous page">
-            Previous
-          </a>
-        {% endif %}
-
-        {%- for part in paginate.parts -%}
-          {%- if part.is_link -%}
-            <a href="{{ part.url }}" class="pagination__item">{{ part.title }}</a>
-          {%- else -%}
-            <span class="pagination__item pagination__item--current">{{ part.title }}</span>
-          {%- endif -%}
-        {%- endfor -%}
-
-        {% if paginate.next %}
-          <a href="{{ paginate.next.url }}" class="pagination__item" aria-label="Next page">
-            Next
-          </a>
-        {% endif %}
-      </div>
-    {% endif %}
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
   </div>
 {%- endpaginate -%}
-
 {% schema %}
 {
   "name": "t:sections.main-blog.name",
