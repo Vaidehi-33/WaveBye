@@ -28,3 +28,9 @@
   width: 10rem;
   padding: 0.5rem;
 }
+
+.footer-block.grid__item {
+  width: 50%; /* Adjust the percentage or use a fixed width like '300px' */
+  max-width: 300px; /* You can use this to set a max-width if needed */
+  margin: 0 auto; /* This will center the block if it's a block element */
+}
