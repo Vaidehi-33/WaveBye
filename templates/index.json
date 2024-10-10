@@ -114,13 +114,27 @@
             "point_4": "",
             "point_5": ""
           }
+        },
+        "product_card_wQJpqU": {
+          "type": "product_card",
+          "settings": {
+            "product": "10-semi-embroidered-portrait",
+            "small_title": "Bye Cramps",
+            "subtitle": "Hello jfberbge jehbffje hjewhbf",
+            "point_1": "dthsrthth tgh rt rty rtyrt yrtyr",
+            "point_2": "ftyrturtu rty rtyu try rtyty",
+            "point_3": "rtyrty ty rty rytrtyt t t t yrty",
+            "point_4": "",
+            "point_5": ""
+          }
         }
       },
       "block_order": [
         "product_card_nwieGB",
         "product_card_Wn6L3P",
         "product_card_nT7HNd",
-        "product_card_JW7Fbn"
+        "product_card_JW7Fbn",
+        "product_card_wQJpqU"
       ],
       "settings": {
         "star_color": "#fb86a0",
