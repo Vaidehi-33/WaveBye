@@ -1705,6 +1705,8 @@ details[open] > .share-button__fallback {
   padding: 0 calc(var(--inputs-border-width) + 3rem) 0 2rem;
   margin: var(--inputs-border-width);
   min-height: calc(var(--inputs-border-width) * 2);
+  height: 3rem;
+    border-radius: 5px;
 }
 
 /* Field */
