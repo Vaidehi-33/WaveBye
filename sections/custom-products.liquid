@@ -138,11 +138,17 @@
     style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;"
   >
     <div class="stars" style="color: {{ section.settings.star_color }};">★★★★★</div>
-    <h2 style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px; margin: 5px auto; font-weight: 600; font-family: 'Outfit', sans-serif; text-align: center; max-width: 600px;">
+    <h2
+      class="custom-card-heading"
+      style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px"
+    >
       {{ section.settings.heading_text }}
     </h2>
 
-    <h3 style="color: {{ section.settings.subheading_color }}; font-size: {{ section.settings.subheading_font_size }}px;text-align:left; margin: 5px 0 20px 0;">
+    <h3
+      class="custom-subheading"
+      style="color: {{ section.settings.subheading_color }}; font-size: {{ section.settings.subheading_font_size }}px"
+    >
       {{ section.settings.subheading_text }}
     </h3>
 
@@ -157,12 +163,13 @@
               alt="{{ product.title }}"
               class="product-image"
             >
-            <h3 class="product-name">{{ product.title }}</h3>
+
+            <h3 class="product-name">{{ block.settings.small_title }}</h3>
             <p class="product-price">
               <strong>{{ product.price | money }}</strong>
             </p>
             <hr class="divider">
-            <h4 class="small_title">{{ block.settings.small_title }}</h4>
+            <h4 class="small_title">{{ product.title }}</h4>
             <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
             <p class="includes">Includes:</p>
             <ul class="includes-points">
@@ -197,121 +204,153 @@
 </div>
 
 <style>
+          .custom-subheading{
+          text-align:left;
+          margin: 5px 0 20px 0;
+           font-family: "Open Sans", sans-serif;
+                  font-weight: 400;
 
-  .small_title {
-  //styleName: Hl2 24pt;
-  font-family: Outfit;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 29.73px;
-  text-align: left;
 
-  }
-    .subtitle{
-      //styleName: Body Small 14pt;
-  font-family: Open Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
-  text-align: left;
-  margin-top:-2rem;
-    }
+          }
 
-    .includes{
-      margin-left:-10rem;
-    }
+            .custom-card-heading{
+              margin: 5px auto;
+              font-weight: 600;
+              font-family: 'Outfit', sans-serif;
+              text-align: center;
+              max-width: 600px;
+            }
 
-  .custom-products {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    text-align: center;
-    background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
-    padding: 60px; /* Optional: add padding */
-    border-radius: 10px; /* Optional: add rounded corners */
-  }
+          .small_title {
+          //styleName: Hl2 24pt;
+          font-family: 'Outfit', sans-serif;
+          font-weight: 550;
+          line-height: 25px;
+          text-align: left;
+            font-size:18px;
+            height:50px;
 
-  .stars {
-    font-size: 30px; /* Custom font size for stars */
-    margin-bottom: 5px; /* Reduced space below stars */
-  }
+          }
+            .subtitle{
+              //styleName: Body Small 14pt;
+          font-family: "Open Sans", sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 21px;
+          text-align: left;
+          margin-top:-2rem;
+            }
 
-  .grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+            .includes{
+              font-family:"Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
 
-  .product-card {
-    background-color: #FFFEF9; /* Solid background color for cards */
-    border: 1px solid #6C86FE;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    width: 240px;
-  }
+            }
 
-  .product-image {
-    display: block;
-    margin: 0 auto 10px; /* Center the image */
-    max-width: 100%; /* Ensure the image fits within the card */
-    height: auto; /* Maintain the image aspect ratio */
-  }
+          .custom-products {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
+            padding: 60px; /* Optional: add padding */
+            border-radius: 10px; /* Optional: add rounded corners */
+          }
 
-  .product-name {
-    font-size: 18px; /* Set product name font size */
-    margin: 2px 0; /* Adjust margin */
-    text-align:left;
-  }
+          .stars {
+            font-size: 30px; /* Custom font size for stars */
+            margin-bottom: 5px; /* Reduced space below stars */
+          }
 
-  .product-price {
-    font-size: 38px; /* Set product price font size */
-    margin: 2px 0; /* Reduce gap above and below the line */
-      text-align:left;
-    font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
+          .grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
 
-  }
+          .product-card {
+            background-color: #FFFEF9; /* Solid background color for cards */
+            border: 1px solid #6C86FE;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            width: 240px;
+          }
 
-  .divider {
-    border-top: 1px solid #6C86FE;
-    margin: 2px 0; /* Reduce gap above and below the line */
-  }
+          .product-image {
+            display: block;
+            margin: 0 auto 10px; /* Center the image */
+            max-width: 100%; /* Ensure the image fits within the card */
+            height: auto; /* Maintain the image aspect ratio */
+          }
 
-  .includes-points {
-    list-style-type: none; /* Remove default list style */
-    padding: 0;
-    margin-top:-1rem;
-      align-items: left; /* Align tick mark and text */
-    //styleName: Body 16pt;
-  font-family: Open Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
+          .product-name {
+            font-size: 16px; /* Set product name font size */
+            margin: 2px 0; /* Adjust margin */
+            text-align:left;
+            font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;  /* Use 700 for bold */
+        font-style: normal;
+        text-transform: uppercase;
+      line-height: 29.73px;
+      letter-spacing: 0.2em;
+  height:35px;
 
-  }
+          }
 
-  .includes-points li {
-    display: flex;
-    align-items: left; /* Align tick mark and text */
-    //styleName: Body 16pt;
-  font-family: Open Sans;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
+          .product-price {
+            font-size: 38px; /* Set product price font size */
+            margin: 2px 0; /* Reduce gap above and below the line */
+            text-align:left;
+          font-family: 'Outfit', regular;
+         font-weight: 600;
+         line-height: 48px;
+         text-align: left;
 
-  }
 
-  .tick-mark {
-    color: black;
-    font-size: 16px; /* Adjust the size if needed */
-    font-weight: normal; /* Ensure the tick is thin */
-    margin-right: 5px; /* Add some spacing between tick and text */
-  }
+          }
+
+          .divider {
+            border-top: 1px solid #6C86FE;
+            margin: 2px 0; /* Reduce gap above and below the line */
+          }
+
+          .includes-points {
+            list-style-type: none; /* Remove default list style */
+            padding: 0;
+            margin-top:-1rem;
+              align-items: left; /* Align tick mark and text */
+            //styleName: Body 16pt;
+          font-family: "Open Sans", sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 24px;
+          text-align: left;
+          height:100px;
+          }
+
+          .includes-points li {
+            display: flex;
+            align-items: left; /* Align tick mark and text */
+            //styleName: Body 16pt;
+          font-family: "Open Sans", sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 24px;
+          text-align: left;
+
+          }
+
+          .tick-mark {
+            color: black;
+            font-size: 16px; /* Adjust the size if needed */
+            font-weight: normal; /* Ensure the tick is thin */
+            margin-right: 5px; /* Add some spacing between tick and text */
+          }
 </style>
 
 <script>
