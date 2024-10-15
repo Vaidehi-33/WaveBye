@@ -129,6 +129,7 @@
 
     <div class="popup-left">
       <!-- Step 1: Headings -->
+      <img src="path/to/your/logo.png" alt="Website Logo" class="popup-logo">
       <div id="quizStep1" class="quiz-step">
         <h1 class="doctorfor">Doctor Formulated</h1>
         <h3 class="subheadevidence">Backed by Highest Levels of Scientific Evidence</h3>
@@ -261,117 +262,122 @@
 </script>
 
 <style>
-  .doctorfor{
-    font-size: 36px;
-        font-family: "Outfit", sans-serif;
-        color: #0a1f44 !important;
-        font-weight: 600;
-  }
-  .subheadevidence{
-          font-family: "Open Sans", sans-serif;
-      font-size: 13px;
-      font-weight:400px;
-  }
-  /* Popup Background */
-  .popup-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    .doctorfor{
+      font-size: 36px;
+          font-family: "Outfit", sans-serif;
+          color: #0a1f44 !important;
+          font-weight: 600;
+    }
+    .subheadevidence{
+            font-family: "Open Sans", sans-serif;
+        font-size: 13px;
+        font-weight:400px;
+    }
+    /* Popup Background */
+    .popup-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Popup Content */
+    .popup-content {
+      display: flex; /* Use flexbox for side-by-side layout */
+      background-color: white;
+      /* padding: 20px; */
+      border-radius: 8px;
+      width: 80%;
+      max-width: 800px; /* Increased max-width for better layout */
+      min-height: 400px; /* Set minimum height for consistency */
+      position: relative;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  .popup-logo {
+    width: 150px; /* Adjust as necessary */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between logo and quiz content */
   }
 
-  /* Popup Content */
-  .popup-content {
-    display: flex; /* Use flexbox for side-by-side layout */
-    background-color: white;
-    /* padding: 20px; */
-    border-radius: 8px;
-    width: 80%;
-    max-width: 800px; /* Increased max-width for better layout */
-    min-height: 400px; /* Set minimum height for consistency */
-    position: relative;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
+    /* Left Section */
+    .popup-left {
+      padding-left: 3rem;
+      flex: 0 0 70%; /* Takes up the left 70% */
+      padding-right: 3rem; /* Spacing between left and right */
+    }
 
-  /* Left Section */
-  .popup-left {
-    padding-left: 3rem;
-    flex: 0 0 70%; /* Takes up the left 70% */
-    padding-right: 3rem; /* Spacing between left and right */
-  }
+    /* Right Section */
+    .popupright {
+      border-radius: 0 8px 8px 0;
+      display: block !important;
+      flex: 0 0 30%; /* Solid color section on the right */
+      background-color: #D9D9D9;
+      /* Set a consistent height */
+      min-height: 100%; /* Make sure it spans the full height */
+    }
 
-  /* Right Section */
-  .popupright {
-    border-radius: 0 8px 8px 0;
-    display: block !important;
-    flex: 0 0 30%; /* Solid color section on the right */
-    background-color: #D9D9D9;
-    /* Set a consistent height */
-    min-height: 100%; /* Make sure it spans the full height */
-  }
+    /* Close Button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
 
-  /* Close Button */
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-  }
+    /* Quiz Step Buttons and Radio Inputs */
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
 
-  /* Quiz Step Buttons and Radio Inputs */
-  label {
-    display: block;
-    margin: 10px 0;
-    font-size: 16px;
-  }
+    label input {
+      margin-right: 10px;
+    }
 
-  label input {
-    margin-right: 10px;
-  }
+    /* Next Button */
+    .next-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #6C86FE;
+      color: white;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-  /* Next Button */
-  .next-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #6C86FE;
-    color: white;
-    border: none;
-    border-radius: 60px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+    .next-button:hover {
+      background-color: #5b74de;
+    }
 
-  .next-button:hover {
-    background-color: #5b74de;
-  }
+    /* General Button */
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-  /* General Button */
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    /* Shop Now Button */
+    #shopNowBtn {
+      background-color: #28a745;
+      color: white;
+    }
 
-  /* Shop Now Button */
-  #shopNowBtn {
-    background-color: #28a745;
-    color: white;
-  }
-
-  #shopNowBtn:hover {
-    background-color: #218838;
-  }
+    #shopNowBtn:hover {
+      background-color: #218838;
+    }
 </style>
 
 {% schema %}
