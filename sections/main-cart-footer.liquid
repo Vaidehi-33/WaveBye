@@ -15,7 +15,74 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Styles for the popup windows */
+  .popup-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .popup-content h2 {
+    margin-bottom: 15px;
+  }
+
+  .popup-content button {
+    background-color: #6C86FE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 {%- endstyle -%}
+
+<!-- First Popup: Phone Number for SMS Reminders -->
+<div id="smsReminderPopup" class="popup-background">
+  <div class="popup-content">
+    <h2>Sign Up for SMS Reminders</h2>
+    <p>Please enter your phone number:</p>
+    <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+    <button id="submitPhoneNumber">Submit</button>
+  </div>
+</div>
+
+<!-- Second Popup: Bundle Suggestion -->
+<div id="bundleSuggestionPopup" class="popup-background">
+  <div class="popup-content">
+    <h2>Consider the 3-Month Bundle</h2>
+    <p>
+      If you have never tracked your period before, consider purchasing the 3-month pre-paid bundle for better accuracy.
+    </p>
+    <button id="continueCheckout">Continue to Checkout</button>
+  </div>
+</div>
 
 <div
   class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
@@ -106,14 +173,13 @@
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <button
-                  type="submit"
+                  type="button"
                   id="checkout"
                   class="cart__checkout-button button"
                   name="checkout"
                   {% if cart == empty %}
                     disabled
                   {% endif %}
-                  form="cart"
                 >
                   {{ 'sections.cart.checkout' | t }}
                 </button>
@@ -133,7 +199,42 @@
   </div>
 </div>
 
+<script>
+  document.getElementById('checkout').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent checkout action
+
+    // Show the first popup (Phone number entry)
+    document.getElementById('smsReminderPopup').style.display = 'block';
+  });
+
+  document.getElementById('submitPhoneNumber').addEventListener('click', function() {
+    const phoneNumber = document.getElementById('phoneNumber').value;
+
+    if (phoneNumber) {
+      // Hide the first popup
+      document.getElementById('smsReminderPopup').style.display = 'none';
+
+      // Show the second popup
+      document.getElementById('bundleSuggestionPopup').style.display = 'block';
+    } else {
+      alert('Please enter a valid phone number.');
+    }
+  });
+
+  document.getElementById('continueCheckout').addEventListener('click', function() {
+    // Hide the second popup
+    document.getElementById('bundleSuggestionPopup').style.display = 'none';
+
+    // Continue to checkout
+    document.getElementById('checkout').removeAttribute('disabled');
+    document.getElementById('checkout').setAttribute('type', 'submit');
+    document.getElementById('checkout').click(); // Proceed with the checkout action
+  });
+</script>
+
 {% schema %}
+
+
 {
   "name": "t:sections.main-cart-footer.name",
   "class": "cart__footer-wrapper",
