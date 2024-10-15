@@ -90,30 +90,25 @@
           placeholder="{{ 'newsletter.label' | t }}"
           required
         >
-
-        <button
-          type="submit"
-          class="newsletter-form__button field__button"
-          name="commit"
-          id="Subscribe"
-          aria-label="{{ 'newsletter.button_label' | t }}"
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-arrow.svg' | inline_asset_content -}}
-          </span>
-          {{ section.settings.button_text }}
-        </button>
-
-        {%- if form.errors -%}
-          <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-            <span class="svg-wrapper">
-              {{- 'icon-error.svg' | inline_asset_content -}}
-            </span>
-            {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email -}}
-          </small>
-        {%- endif -%}
       </div>
+      <button
+        type="submit"
+        class="newsletter-form__button field__button"
+        name="commit"
+        id="Subscribe"
+        aria-label="{{ 'newsletter.button_label' | t }}"
+      >
+        {{ section.settings.button_text }}
+      </button>
+      {%- if form.errors -%}
+        <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+          <span class="svg-wrapper">
+            {{- 'icon-error.svg' | inline_asset_content -}}
+          </span>
+          {{- form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email -}}
+        </small>
+      {%- endif -%}
       {%- if form.posted_successfully? -%}
         <h3
           class="newsletter-form__message newsletter-form__message--success form__message"
