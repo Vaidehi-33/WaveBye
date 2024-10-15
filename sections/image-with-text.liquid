@@ -295,133 +295,146 @@ function showRecommendations() {
 </script>
 
 <style>
-    .doctorfor{
-      font-size: 30px;
-          font-family: "Outfit", sans-serif;
-          color: #0a1f44 !important;
-          font-weight: 600;
-    }
-    .subheadevidence{
+    .viewProductBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6C86FE;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Remove underline from the link */
+    display: inline-block;
+  }
+
+      .doctorfor{
+        font-size: 30px;
             font-family: "Outfit", sans-serif;
+            color: #0a1f44 !important;
+            font-weight: 600;
+      }
+      .subheadevidence{
+              font-family: "Outfit", sans-serif;
+          font-size: 16px;
+          font-weight:400px;
+      }
+    .question{
+          font-family: "Open Sans", sans-serif;
+          font-size: 13px;
+          font-weight:400px;
+
+    }
+    .label{
+              font-family: "Open Sans", sans-serif;
+          font-size: 13px;
+          font-weight:400px;
+          line-height: 0;
+    }
+      /* Popup Background */
+      .popup-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      /* Popup Content */
+      .popup-content {
+        display: flex; /* Use flexbox for side-by-side layout */
+        background-color: white;
+        /* padding: 20px; */
+        border-radius: 8px;
+        width: 80%;
+        max-width: 800px; /* Increased max-width for better layout */
+        min-height: 510px; /* Set minimum height for consistency */
+        position: relative;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+    .popup-logo {
+      width: 10rem; /* Adjust as necessary */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 20px; /* Space between logo and quiz content */
+    }
+
+      /* Left Section */
+      .popup-left {
+        padding: 3rem;
+        flex: 0 0 60%; /* Takes up the left 70% */
+      }
+
+      /* Right Section */
+      .popupright {
+        border-radius: 0 8px 8px 0;
+        display: block !important;
+        flex: 0 0 40%; /* Solid color section on the right */
+        background-color: #D9D9D9;
+        /* Set a consistent height */
+        min-height: 100%; /* Make sure it spans the full height */
+      }
+
+      /* Close Button */
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+      }
+
+      /* Quiz Step Buttons and Radio Inputs */
+      label {
+        display: block;
+        margin: 10px 0;
         font-size: 16px;
-        font-weight:400px;
-    }
-  .question{
-        font-family: "Open Sans", sans-serif;
-        font-size: 13px;
-        font-weight:400px;
+      }
 
-  }
-  .label{
-            font-family: "Open Sans", sans-serif;
-        font-size: 13px;
-        font-weight:400px;
-        line-height: 0;
-  }
-    /* Popup Background */
-    .popup-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
+      label input {
+        margin-right: 10px;
+      }
 
-    /* Popup Content */
-    .popup-content {
-      display: flex; /* Use flexbox for side-by-side layout */
-      background-color: white;
-      /* padding: 20px; */
-      border-radius: 8px;
-      width: 80%;
-      max-width: 800px; /* Increased max-width for better layout */
-      min-height: 510px; /* Set minimum height for consistency */
-      position: relative;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  .popup-logo {
-    width: 10rem; /* Adjust as necessary */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Space between logo and quiz content */
-  }
+      /* Next Button */
+      .next-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #6C86FE;
+        color: white;
+        border: none;
+        border-radius: 60px;
+        cursor: pointer;
+        font-size: 16px;
+      }
 
-    /* Left Section */
-    .popup-left {
-      padding: 3rem;
-      flex: 0 0 60%; /* Takes up the left 70% */
-    }
+      .next-button:hover {
+        background-color: #5b74de;
+      }
 
-    /* Right Section */
-    .popupright {
-      border-radius: 0 8px 8px 0;
-      display: block !important;
-      flex: 0 0 40%; /* Solid color section on the right */
-      background-color: #D9D9D9;
-      /* Set a consistent height */
-      min-height: 100%; /* Make sure it spans the full height */
-    }
+      /* General Button */
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
-    /* Close Button */
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      color: #333;
-      cursor: pointer;
-    }
+      /* Shop Now Button */
+      #shopNowBtn {
+        background-color: #28a745;
+        color: white;
+      }
 
-    /* Quiz Step Buttons and Radio Inputs */
-    label {
-      display: block;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-
-    label input {
-      margin-right: 10px;
-    }
-
-    /* Next Button */
-    .next-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #6C86FE;
-      color: white;
-      border: none;
-      border-radius: 60px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .next-button:hover {
-      background-color: #5b74de;
-    }
-
-    /* General Button */
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* Shop Now Button */
-    #shopNowBtn {
-      background-color: #28a745;
-      color: white;
-    }
-
-    #shopNowBtn:hover {
-      background-color: #218838;
-    }
+      #shopNowBtn:hover {
+        background-color: #218838;
+      }
 </style>
 
 {% schema %}
