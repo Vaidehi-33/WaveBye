@@ -107,7 +107,12 @@
                       {{ block.settings.button_label | escape }}
                     </a>
                     <!-- New "Take a Quiz" Button -->
-                    <button id="takeQuizBtn" class="button button--secondary">Take a Quiz</button>
+                    <button
+                      id="takeQuizBtn"
+                      style="margin: 20px auto; display: block; padding: 10px 20px; background-color: #6C86FE; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;"
+                    >
+                      Take a Quiz
+                    </button>
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
@@ -122,18 +127,30 @@
 <div id="quizPopup" class="popup-background" style="display:none;">
   <div class="popup-content">
     <span class="close-button" id="closeQuizPopup">&times;</span>
+
+    <!-- Common Headings for Each Quiz Step -->
+    <div class="popup-header">
+      <h1 class="big-heading">Doctor Formulated</h1>
+      <h3 class="small-heading">Backed by Highest Levels of Scientific Evidence</h3>
+    </div>
+
+    <!-- Step 1: Product Type -->
     <div id="quizStep1" class="quiz-step">
       <h2>What type of product are you looking for?</h2>
       <button class="quiz-answer" data-answer="skin-care">Skin Care</button>
       <button class="quiz-answer" data-answer="hair-care">Hair Care</button>
       <button class="quiz-answer" data-answer="makeup">Makeup</button>
     </div>
+
+    <!-- Step 2: Skin Type -->
     <div id="quizStep2" class="quiz-step" style="display:none;">
       <h2>What is your skin type?</h2>
       <button class="quiz-answer" data-answer="dry">Dry</button>
       <button class="quiz-answer" data-answer="oily">Oily</button>
       <button class="quiz-answer" data-answer="combination">Combination</button>
     </div>
+
+    <!-- Results: Recommendations -->
     <div id="quizResults" class="quiz-step" style="display:none;">
       <h2>We recommend:</h2>
       <div id="productRecommendations"></div>
@@ -145,7 +162,7 @@
 <script>
   // Open Quiz Popup
   document.getElementById('takeQuizBtn').addEventListener('click', function() {
-    document.getElementById('quizPopup').style.display = 'block';
+    document.getElementById('quizPopup').style.display = 'flex';
   });
 
   // Close Quiz Popup
@@ -153,7 +170,7 @@
     document.getElementById('quizPopup').style.display = 'none';
   });
 
-  // Quiz Logic (same as before)
+  // Quiz Logic
   let answers = {};
   document.querySelectorAll('.quiz-answer').forEach(function(button) {
     button.addEventListener('click', function() {
@@ -264,6 +281,19 @@
 
   #shopNowBtn:hover {
     background-color: #218838;
+  }
+
+  /* Big Heading */
+  .big-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  /* Small Heading */
+  .small-heading {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 20px;
   }
 </style>
 
