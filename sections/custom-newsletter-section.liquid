@@ -1,132 +1,143 @@
 <!-- Newsletter Section -->
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
-{{ 'section-email-signup-banner.css' | asset_url | stylesheet_tag }}
-
 {%- style -%}
-  .newsletter-section-container {
-      padding: 4rem;
-      display: flex;
-      justify-content: center;
+  .newsletter-section-container{
+        padding: 4rem;
+    display: flex;
+    justify-content: center;
   }
   .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+
   .newsletter-section {
-      height: 270px;
-      width: 900px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: {{ section.settings.background_color }};
-      padding: 30px;
+    height: 270px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ section.settings.background_color }};
+    padding: 30px;
+    /* border-radius: 10px; */
+
   }
+
   .newsletter-title {
-      font-size: {{ section.settings.title_font_size }}px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      text-align: center;
-      font-family: "Outfit", sans-serif;
+    font-size: {{ section.settings.title_font_size }}px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
   }
+
   .newsletter-description {
-      font-size: {{ section.settings.description_font_size }}px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-family: "Open Sans", sans-serif;
+    font-size: {{ section.settings.description_font_size }}px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
   }
+
   .newsletter-form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-direction: row !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: row !important;
   }
+
   .newsletter-form input {
-      border: 2px solid #6C86FE;
-      padding: 10px;
-      font-size: 16px;
-      width: 300px;
+    border: 2px solid #6C86FE;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
   }
+
   .newsletter-form button {
-      padding: 10px 20px;
-      background-color: {{ section.settings.button_color }};
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 50px;
+    padding: 10px 20px;
+    background-color: {{ section.settings.button_color }};
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50px;
   }
 {%- endstyle -%}
-
 <div class="newsletter-section-container" id="newsletter-section">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
-    <form class="newsletter-form" onsubmit="handleSubmit(event)">
-      <input
-        type="email"
-        placeholder="{{ 'newsletter.label' | t }}"
-        required
-        aria-required="true"
-        autocorrect="off"
-        autocapitalize="off"
-        autocomplete="email"
-      >
-      <button
-        type="submit"
-        class="newsletter-form__button field__button"
-        id="Subscribe"
-        aria-label="{{ 'newsletter.button_label' | t }}"
-      >
-        <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-      </button>
-    </form>
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="newsletter-form__field-wrapper">
+        <div class="field">
+          <input
+            id="NewsletterForm--{{ section.id }}"
+            type="email"
+            name="contact[email]"
+            class="field__input"
+            value="{{ form.email }}"
+            aria-required="true"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            {% if form.errors %}
+              autofocus
+              aria-invalid="true"
+              aria-describedby="Newsletter-error--{{ section.id }}"
+            {% elsif form.posted_successfully? %}
+              aria-describedby="Newsletter-success--{{ section.id }}"
+            {% endif %}
+            placeholder="{{ 'newsletter.label' | t }}"
+            required
+          >
+          <label class="field__label" for="NewsletterForm--{{ section.id }}">
+            {{ 'newsletter.label' | t }}
+          </label>
+          <button
+            type="submit"
+            class="newsletter-form__button field__button"
+            name="commit"
+            id="Subscribe"
+            aria-label="{{ 'newsletter.button_label' | t }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+        {%- if form.errors -%}
+          <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+            <span class="svg-wrapper">
+              {{- 'icon-error.svg' | inline_asset_content -}}
+            </span>
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </small>
+        {%- endif -%}
+      </div>
+      {%- if form.posted_successfully? -%}
+        <h3
+          class="newsletter-form__message newsletter-form__message--success form__message"
+          id="Newsletter-success--{{ section.id }}"
+          tabindex="-1"
+          autofocus
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-success.svg' | inline_asset_content -}}
+          </span>
+          {{- 'newsletter.success' | t }}
+        </h3>
+      {%- endif -%}
+    {% endform %}
   </div>
 </div>
-
-<script>
-  async function handleSubmit(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      const emailInput = event.target.querySelector('input[type="email"]');
-      const email = emailInput.value;
-
-      try {
-          // Replace 'your_api_endpoint' with your actual API endpoint to handle subscriptions
-          const response = await fetch('https://your_api_endpoint/subscribe', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ email: email })
-          });
-
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-
-          const result = await response.json();
-          console.log('Subscription successful:', result);
-
-          // Clear the input field after submission
-          emailInput.value = '';
-          alert('Thank you for subscribing!'); // Optional: Show a thank you message
-
-      } catch (error) {
-          console.error('Error during subscription:', error);
-          alert('There was an error subscribing. Please try again later.'); // Optional: Error handling
-      }
-  }
-</script>
 
 {% schema %}
 {
   "name": "Custom Newsletter Section",
-  "settings": [
+ "settings": [
     {
       "type": "text",
       "id": "title",
