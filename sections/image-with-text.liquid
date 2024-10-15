@@ -190,13 +190,78 @@
 </div>
 
 <script>
+<!-- Quiz Popup -->
+<div id="quizPopup" class="popup-background" style="display:none;">
+  <div class="popup-content">
+    <span class="close-button" id="closeQuizPopup">&times;</span>
+
+    <div class="popup-left">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0639/1404/9687/files/Vector.png?v=1727759882"
+        alt="Website Logo"
+        class="popup-logo"
+      >
+
+      <!-- Step 2: Pregnancy Question -->
+      <div id="quizStep2" class="quiz-step">
+        <h1 class="doctorfor">Doctor Formulated</h1>
+        <h3 class="subheadevidence">Backed by Highest Levels of Scientific Evidence</h3>
+        <p class="question">Are you trying to get pregnant right now?</p>
+        <label><input type="radio" name="pregnant" value="yes"> Yes</label>
+        <label><input type="radio" name="pregnant" value="no"> No</label>
+        <button id="nextToStep3" class="next-button">Next</button>
+      </div>
+
+      <!-- Step 3: Period Pain Scale -->
+      <div id="quizStep3" class="quiz-step" style="display:none;">
+        <h1 class="doctorfor">Doctor Formulated</h1>
+        <h3 class="subheadevidence">Backed by Highest Levels of Scientific Evidence</h3>
+        <p class="question">
+          How bad is your period pain on a scale of 1 - 3 with 1 being not so bad and 3 being I miss work or school?
+        </p>
+        <label><input type="radio" name="pain" value="0"> 0</label>
+        <label><input type="radio" name="pain" value="1"> 1</label>
+        <label><input type="radio" name="pain" value="2"> 2</label>
+        <label><input type="radio" name="pain" value="3"> 3</label>
+        <button id="nextToStep4" class="next-button">Next</button>
+      </div>
+
+      <!-- Step 4: Period Tracking Question -->
+      <div id="quizStep4" class="quiz-step" style="display:none;">
+        <h1 class="doctorfor">Doctor Formulated</h1>
+        <h3 class="subheadevidence">Backed by Highest Levels of Scientific Evidence</h3>
+        <p class="question">Do you track your period?</p>
+        <label><input type="radio" name="track" value="yes"> Yes</label>
+        <label><input type="radio" name="track" value="no"> No</label>
+        <button id="nextToResults" class="next-button">Next</button>
+      </div>
+
+      <!-- Step 5: Thank You -->
+      <div id="quizResults" class="quiz-step" style="display:none;">
+        <h1>Thank You!</h1>
+        <div id="productRecommendations">
+          <p class="question">Click here for product recommendations:</p>
+          <button id="shopNowBtn">Shop Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popupright"></div>
+    <!-- Solid color on the right -->
+  </div>
+</div>
+
+<script>
 // Open Quiz Popup
 document.getElementById('takeQuizBtn').addEventListener('click', function() {
-  // Reset quiz steps to start from the first step
+  // Reset quiz steps to start from the second step (skip step 1)
   resetQuiz();
 
   // Show the quiz popup
   document.getElementById('quizPopup').style.display = 'flex'; // Ensure it's displayed with flex
+
+  // Skip step 1 and directly show step 2
+  document.getElementById('quizStep2').style.display = 'block';
 });
 
 // Close Quiz Popup
@@ -207,8 +272,7 @@ document.getElementById('closeQuizPopup').addEventListener('click', function() {
 // Function to reset the quiz
 function resetQuiz() {
   // Reset visibility of all steps
-  document.getElementById('quizStep1').style.display = 'block';  // Show step 1
-  document.getElementById('quizStep2').style.display = 'none';   // Hide step 2
+  document.getElementById('quizStep2').style.display = 'block';  // Show step 2
   document.getElementById('quizStep3').style.display = 'none';   // Hide step 3
   document.getElementById('quizStep4').style.display = 'none';   // Hide step 4
   document.getElementById('quizResults').style.display = 'none'; // Hide the results
@@ -224,12 +288,6 @@ function resetQuiz() {
 
 // Quiz Logic
 let answers = {};
-
-// Step 1 Next Button
-document.getElementById('nextToStep2').addEventListener('click', function() {
-  document.getElementById('quizStep1').style.display = 'none';
-  document.getElementById('quizStep2').style.display = 'block';
-});
 
 // Step 2 Logic
 document.querySelectorAll('input[name="pregnant"]').forEach(function(input) {
@@ -302,6 +360,7 @@ function showRecommendations() {
     <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
   `;
 }
+</script>
 </script>
 
 <style>
