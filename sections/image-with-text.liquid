@@ -260,8 +260,25 @@
   });
 
   function showRecommendations() {
+    let recommendedProductUrl = '';
+
+    // Determine recommendations based on user answers
+    if (answers.pregnant === 'yes' && answers.pain === '1') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-mild-pain-and-pregnancy';
+    } else if (answers.pregnant === 'no' && answers.pain === '2') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-moderate-pain';
+    } else if (answers.pregnant === 'no' && answers.pain === '3') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-severe-pain';
+    } else {
+      recommendedProductUrl = 'https://varietywheels.com/products/general-product'; // Default recommendation
+    }
+
     document.getElementById('quizStep4').style.display = 'none';
     document.getElementById('quizResults').style.display = 'block';
+    document.getElementById('productRecommendations').innerHTML = `
+      <p class="question">Based on your answers, we recommend:</p>
+      <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
+    `;
   }
 </script>
 
