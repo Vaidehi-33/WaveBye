@@ -68,77 +68,33 @@
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
-    {% form 'customer', class: 'newsletter-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter">
-      <div class="newsletter-form__field-wrapper">
-        <div class="field">
-          <input
-            id="NewsletterForm--{{ section.id }}"
-            type="email"
-            name="contact[email]"
-            class="field__input"
-            value="{{ form.email }}"
-            aria-required="true"
-            autocorrect="off"
-            autocapitalize="off"
-            autocomplete="email"
-            {% if form.errors %}
-              autofocus
-              aria-invalid="true"
-              aria-describedby="Newsletter-error--{{ section.id }}"
-            {% elsif form.posted_successfully? %}
-              aria-describedby="Newsletter-success--{{ section.id }}"
-            {% endif %}
-            placeholder="{{ 'newsletter.label' | t }}"
-            required
-          >
-          <label class="field__label" for="NewsletterForm--{{ section.id }}">
-            {{ 'newsletter.label' | t }}
-          </label>
-          <button
-            type="submit"
-            class="newsletter-form__button field__button"
-            name="commit"
-            id="Subscribe"
-            aria-label="{{ 'newsletter.button_label' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </span>
-            {{ section.settings.button_text }}
-          </button>
-        </div>
-        {%- if form.errors -%}
-          <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-            <span class="svg-wrapper">
-              {{- 'icon-error.svg' | inline_asset_content -}}
-            </span>
-            {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email -}}
-          </small>
-        {%- endif -%}
-      </div>
-      {%- if form.posted_successfully? -%}
-        <h3
-          class="newsletter-form__message newsletter-form__message--success form__message"
-          id="Newsletter-success--{{ section.id }}"
-          tabindex="-1"
-          autofocus
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-success.svg' | inline_asset_content -}}
-          </span>
-          {{- 'newsletter.success' | t }}
-        </h3>
-      {%- endif -%}
-    {% endform %}
+    <form class="newsletter-form" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="{{ 'newsletter.label' | t }}" required>
+      <button type="submit">{{ section.settings.button_text }}</button>
+    </form>
   </div>
 </div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const emailInput = event.target.querySelector('input[type="email"]');
+    const email = emailInput.value;
+
+    // Here you can add your logic to handle the email subscription, e.g., sending to your backend
+    console.log('Email submitted:', email);
+
+    // Optionally, you can clear the input field after submission
+    emailInput.value = '';
+    alert('Thank you for subscribing!'); // Optional: Show a thank you message
+  }
+</script>
 
 {% schema %}
 {
   "name": "Custom Newsletter Section",
- "settings": [
+  "settings": [
     {
       "type": "text",
       "id": "title",
