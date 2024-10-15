@@ -11,29 +11,28 @@
   }
 
   .newsletter-section {
-    height: 270px;
-    width: 900px;
+    height: 320px;
+    width: 1018px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: {{ section.settings.background_color }};
-    padding: 30px;
+    padding: 40px;
     /* border-radius: 10px; */
 
   }
 
   .newsletter-title {
-    font-size: 36px;
-    font-weight: 600;
+    font-size: {{ section.settings.title_font_size }}px;
+    font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
     font-family: "Outfit", sans-serif;
   }
 
   .newsletter-description {
-    font-size: 12px;
-    font-weight:600;
+    font-size: {{ section.settings.description_font_size }}px;
     margin-bottom: 20px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
@@ -50,49 +49,31 @@
   .newsletter-form input {
     border: 2px solid #6C86FE;
     padding: 10px;
-    font-size: 14px;
-    width: 400px;
+    font-size: 16px;
+    width: 300px;
   }
 
   .newsletter-form button {
-    font-family: "Open Sans", sans-serif;
     padding: 10px 20px;
     background-color: {{ section.settings.button_color }};
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 50px;
-    font-weight:700;
+        border-radius: 50px;
   }
 {%- endstyle -%}
-<div id="newsletter-section" class="newsletter-section-container">
+<div class="newsletter-section-container">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
-    <form class="newsletter-form" onsubmit="handleSubmit(event)">
+    <div class="newsletter-form">
       <input type="email" placeholder="{{ 'newsletter.label' | t }}" required>
       <button type="submit">{{ section.settings.button_text }}</button>
-    </form>
+    </div>
   </div>
 </div>
-
-<script>
-  function handleSubmit(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const emailInput = event.target.querySelector('input[type="email"]');
-    const email = emailInput.value;
-
-    // Here you can add your logic to handle the email subscription, e.g., sending to your backend
-    console.log('Email submitted:', email);
-
-    // Optionally, you can clear the input field after submission
-    emailInput.value = '';
-    alert('Thank you for subscribing!'); // Optional: Show a thank you message
-  }
-</script>
 
 {% schema %}
 {
