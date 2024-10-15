@@ -417,24 +417,46 @@
     <!-- Add some basic CSS to style the popups -->
   </body>
 </html>
-document.addEventListener('DOMContentLoaded', function () { // Get checkout button and popups const checkoutButton =
-document.querySelector('button[name="checkout"]'); const smsPopup = document.getElementById('sms-reminder-popup'); const
-bundlePopup = document.getElementById('bundle-suggestion-popup'); // Buttons inside popups const smsSubmitButton =
-document.getElementById('sms-submit'); const smsSkipButton = document.getElementById('sms-skip'); const
-continueCheckoutButton = document.getElementById('continue-checkout');
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Get checkout button and popups
+      const checkoutButton = document.querySelector('button[name="checkout"]');
+      const smsPopup = document.getElementById('sms-reminder-popup');
+      const bundlePopup = document.getElementById('bundle-suggestion-popup');
 
-// Checkout button click triggers the first popup if (checkoutButton) { checkoutButton.addEventListener('click',
-function (event) { event.preventDefault(); // Prevents default checkout action smsPopup.style.display = 'flex'; // Show
-SMS popup }); }
+      // Buttons inside popups
+      const smsSubmitButton = document.getElementById('sms-submit');
+      const smsSkipButton = document.getElementById('sms-skip');
+      const continueCheckoutButton = document.getElementById('continue-checkout');
 
-// SMS Submit or Skip: Show the second popup after either action smsSubmitButton.addEventListener('click', function () {
-// Validate phone number if needed const phoneNumber = document.getElementById('phone-number').value; if (phoneNumber) {
-console.log('Phone number submitted:', phoneNumber); // Send to backend or use accordingly } smsPopup.style.display =
-'none'; // Close the SMS popup bundlePopup.style.display = 'flex'; // Show the bundle suggestion popup });
+      // Checkout button click triggers the first popup
+      if (checkoutButton) {
+          checkoutButton.addEventListener('click', function (event) {
+              event.preventDefault();  // Prevents default checkout action
+              smsPopup.style.display = 'flex';  // Show SMS popup
+          });
+      }
 
-smsSkipButton.addEventListener('click', function () { smsPopup.style.display = 'none'; // Close the SMS popup
-bundlePopup.style.display = 'flex'; // Show the bundle suggestion popup });
+      // SMS Submit or Skip: Show the second popup after either action
+      smsSubmitButton.addEventListener('click', function () {
+          // Validate phone number if needed
+          const phoneNumber = document.getElementById('phone-number').value;
+          if (phoneNumber) {
+              console.log('Phone number submitted:', phoneNumber);  // Send to backend or use accordingly
+          }
+          smsPopup.style.display = 'none';  // Close the SMS popup
+          bundlePopup.style.display = 'flex';  // Show the bundle suggestion popup
+      });
 
-// Continue checkout button triggers the actual checkout process continueCheckoutButton.addEventListener('click',
-function () { bundlePopup.style.display = 'none'; // Close the bundle suggestion popup checkoutButton.click(); //
-Proceed with the checkout action }); });
+      smsSkipButton.addEventListener('click', function () {
+          smsPopup.style.display = 'none';  // Close the SMS popup
+          bundlePopup.style.display = 'flex';  // Show the bundle suggestion popup
+      });
+
+      // Continue checkout button triggers the actual checkout process
+      continueCheckoutButton.addEventListener('click', function () {
+          bundlePopup.style.display = 'none';  // Close the bundle suggestion popup
+          checkoutButton.click();  // Proceed with the checkout action
+      });
+  });
+</script>
