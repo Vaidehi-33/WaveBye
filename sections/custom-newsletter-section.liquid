@@ -1,7 +1,7 @@
 <!-- Newsletter Section -->
 {%- style -%}
-  .newsletter-section-container{
-        padding: 4rem;
+  .newsletter-section-container {
+    padding: 4rem;
     display: flex;
     justify-content: center;
   }
@@ -11,14 +11,14 @@
   }
 
   .newsletter-section {
-    height: 270px;
-    width: 900px;
+    height: 320px;
+    width: 1018px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: {{ section.settings.background_color }};
-    padding: 30px;
+    padding: 40px;
     /* border-radius: 10px; */
 
   }
@@ -63,7 +63,7 @@
     border-radius: 50px;
   }
 {%- endstyle -%}
-<div class="newsletter-section-container" id="newsletter-section">
+<div class="newsletter-section-container">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
@@ -114,23 +114,14 @@
               {{- 'icon-error.svg' | inline_asset_content -}}
             </span>
             {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email -}}
+            {{ form.errors.email | capitalize }}
+          </small>
+        {%- elsif form.posted_successfully? -%}
+          <small class="newsletter-form__message form__message" id="Newsletter-success--{{ section.id }}">
+            {{ 'newsletter.success_message' | t }}
           </small>
         {%- endif -%}
       </div>
-      {%- if form.posted_successfully? -%}
-        <h3
-          class="newsletter-form__message newsletter-form__message--success form__message"
-          id="Newsletter-success--{{ section.id }}"
-          tabindex="-1"
-          autofocus
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-success.svg' | inline_asset_content -}}
-          </span>
-          {{- 'newsletter.success' | t }}
-        </h3>
-      {%- endif -%}
     {% endform %}
   </div>
 </div>
@@ -138,7 +129,7 @@
 {% schema %}
 {
   "name": "Custom Newsletter Section",
- "settings": [
+  "settings": [
     {
       "type": "text",
       "id": "title",
@@ -162,14 +153,12 @@
       "id": "background_color",
       "label": "Background Color",
       "default": "#f7f7f7"
-    },
-    {
+    }, {
       "type": "color",
       "id": "button_color",
       "label": "Button Color",
       "default": "#333333"
-    },
-    {
+    }, {
       "type": "range",
       "id": "padding_top",
       "label": "Padding Top",
@@ -178,8 +167,7 @@
       "step": 5,
       "unit": "px",
       "default": 40
-    },
-    {
+    }, {
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding Bottom",
@@ -188,8 +176,7 @@
       "step": 5,
       "unit": "px",
       "default": 40
-    },
-    {
+    }, {
       "type": "range",
       "id": "title_font_size",
       "label": "Title Font Size",
@@ -198,8 +185,7 @@
       "step": 1,
       "unit": "px",
       "default": 32
-    },
-    {
+    }, {
       "type": "range",
       "id": "description_font_size",
       "label": "Description Font Size",
