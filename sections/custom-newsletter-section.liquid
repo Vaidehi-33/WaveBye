@@ -32,20 +32,6 @@
       {{ block.settings.heading }}
     {%- when 'paragraph' -%}
       {{ block.settings.text }}
-    {%- when 'email_form' -%}
-      {% form 'customer', class: 'newsletter-form' %}
-        {{ 'newsletter.label' | t }}
-        {{- 'icon-arrow.svg' | inline_asset_content -}}
-        {%- if form.errors -%}
-          {{- 'icon-error.svg' | inline_asset_content -}}
-          {{- form.errors.translated_fields.email | capitalize }}
-          {{ form.errors.messages.email -}}
-        {%- endif -%}
-        {%- if form.posted_successfully? -%}
-          {{- 'icon-success.svg' | inline_asset_content -}}
-          {{- 'newsletter.success' | t }}
-        {%- endif -%}
-      {% endform %}
   {%- endcase -%}
 {%- endfor -%}
 
