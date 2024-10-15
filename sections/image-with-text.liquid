@@ -153,10 +153,8 @@
     document.getElementById('quizPopup').style.display = 'none';
   });
 
-  // Quiz Logic (Already provided in the previous example)
+  // Quiz Logic (same as before)
   let answers = {};
-
-  // Handle quiz answers
   document.querySelectorAll('.quiz-answer').forEach(function(button) {
     button.addEventListener('click', function() {
       const step = this.closest('.quiz-step').id;
@@ -164,34 +162,110 @@
       if (step === 'quizStep1') {
         answers.productType = this.dataset.answer;
         document.getElementById('quizStep1').style.display = 'none';
-        document.getElementById('quizStep2').style.display = 'block'; // Move to next step
+        document.getElementById('quizStep2').style.display = 'block';
       } else if (step === 'quizStep2') {
         answers.skinType = this.dataset.answer;
-        showRecommendations(); // Show results based on user choices
+        showRecommendations();
       }
     });
   });
 
-  // Function to show product recommendations
   function showRecommendations() {
     const productRecommendations = document.getElementById('productRecommendations');
     productRecommendations.innerHTML = '';
 
     let recommendations = '';
-
-    // Map answers to products
     if (answers.productType === 'skin-care' && answers.skinType === 'dry') {
       recommendations = '<p>We recommend Product A for dry skin care.</p>';
     } else if (answers.productType === 'skin-care' && answers.skinType === 'oily') {
       recommendations = '<p>We recommend Product B for oily skin care.</p>';
     }
-    // Add more conditions based on the product types and skin types
 
     productRecommendations.innerHTML = recommendations;
     document.getElementById('quizStep2').style.display = 'none';
     document.getElementById('quizResults').style.display = 'block';
   }
 </script>
+
+<style>
+  /* Popup Background */
+  .popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  /* Popup Content */
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Close Button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    color: #ff0000;
+  }
+
+  /* Quiz Step Buttons */
+  .quiz-answer {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #6C86FE;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .quiz-answer:hover {
+    background-color: #5b74de;
+  }
+
+  /* General Button */
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Shop Now Button */
+  #shopNowBtn {
+    background-color: #28a745;
+    color: white;
+  }
+
+  #shopNowBtn:hover {
+    background-color: #218838;
+  }
+</style>
 
 {% schema %}
 {
