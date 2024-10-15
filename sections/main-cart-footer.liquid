@@ -81,6 +81,8 @@
       If you have never tracked your period before, consider purchasing the 3-month pre-paid bundle for better accuracy.
     </p>
     <button id="continueCheckout">Continue to Checkout</button>
+    <button id="viewProducts">View Products</button>
+    <!-- New button to view products -->
   </div>
 </div>
 
@@ -227,6 +229,15 @@
 
     // Redirect to checkout page
     window.location.href = '/checkout'; // Adjust this URL based on your store's checkout URL
+  });
+
+  // Add event listener for the new button to view products
+  document.getElementById('viewProducts').addEventListener('click', function() {
+    // Hide the second popup
+    document.getElementById('bundleSuggestionPopup').style.display = 'none';
+
+    // Redirect to products page
+    window.location.href = '/products'; // Adjust this URL based on your store's products page URL
   });
 </script>
 
