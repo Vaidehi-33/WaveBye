@@ -481,30 +481,6 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_popup",
-      "default": false,
-      "label": "Enable Popup"
-    },
-    {
-      "type": "text",
-      "id": "popup_title",
-      "default": "Sign up for SMS Reminders",
-      "label": "Popup Title"
-    },
-    {
-      "type": "richtext",
-      "id": "popup_message",
-      "default": "<p>Enter your phone number to receive SMS updates!</p>",
-      "label": "Popup Message"
-    },
-    {
-      "type": "text",
-      "id": "popup_button_label",
-      "default": "Submit",
-      "label": "Popup Button Label"
     }
   ],
   "blocks": [
@@ -557,8 +533,73 @@
         {
           "type": "text",
           "id": "caption",
-          "default": "t:sections.image-with-text.blocks.caption.settings.caption.default",
-          "label": "t:sections.image-with-text.blocks.caption.settings.caption.label"
+          "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "subtitle",
+              "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"
+            }
+          ],
+          "default": "caption-with-letter-spacing",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"
+            }
+          ],
+          "default": "medium",
+          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-with-text.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.image-with-text.blocks.text.settings.text.default",
+          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.image-with-text.blocks.text.settings.text_style.options__2.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.image-with-text.blocks.text.settings.text_style.label"
         }
       ]
     },
@@ -568,31 +609,38 @@
       "limit": 1,
       "settings": [
         {
-          "type": "url",
-          "id": "link",
-          "label": "t:sections.image-with-text.blocks.button.settings.link.label"
-        },
-        {
           "type": "text",
-          "id": "label",
-          "default": "t:sections.image-with-text.blocks.button.settings.label.default",
-          "label": "t:sections.image-with-text.blocks.button.settings.label.label"
+          "id": "button_label",
+          "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+          "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+          "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
         },
         {
-          "type": "select",
-          "id": "style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "t:sections.image-with-text.blocks.button.settings.style.options__1.label"
-            },
-            {
-              "value": "secondary",
-              "label": "t:sections.image-with-text.blocks.button.settings.style.options__2.label"
-            }
-          ],
-          "default": "primary",
-          "label": "t:sections.image-with-text.blocks.button.settings.style.label"
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-with-text.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
         }
       ]
     }
