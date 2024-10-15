@@ -3327,6 +3327,7 @@ details-disclosure > details {
     animation: var(--animation-slide-in);
     animation-delay: calc(var(--animation-order) * 75ms);
     padding: 0;
+    margin-top: 1rem;
   }
 
   .scroll-trigger.scroll-trigger--design-mode.animate--fade-in,
