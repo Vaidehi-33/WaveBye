@@ -78,18 +78,20 @@
 {%- endstyle -%}
 
 <!-- First Popup: Phone Number for SMS Reminders -->
-<div id="smsReminderPopup" class="popup-background">
-  <div class="popup-content">
-    <span class="close-button" id="closeSmsPopup">&times;</span>
-    <h2>Sign Up for SMS Reminders</h2>
-    <p>Please enter your phone number:</p>
-    <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
-    <button id="submitPhoneNumber">Submit</button>
+<!--
+  <div id="smsReminderPopup" class="popup-background">
+    <div class="popup-content">
+      <span class="close-button" id="closeSmsPopup">&times;</span>
+      <h2>Sign Up for SMS Reminders</h2>
+      <p>Please enter your phone number:</p>
+      <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+      <button id="submitPhoneNumber">Submit</button>
+    </div>
   </div>
-</div>
+-->
 
 <!-- Second Popup: Bundle Suggestion -->
-<!-- <div id="bundleSuggestionPopup" class="popup-background">
+<div id="bundleSuggestionPopup" class="popup-background">
   <div class="popup-content">
     <span class="close-button" id="closeBundlePopup">&times;</span>
     <h2>Consider the 3-Month Bundle</h2>
@@ -100,9 +102,8 @@
       <button id="continueCheckout">Continue to Checkout</button>
       <button id="viewProducts">View Products</button>
     </div>
-    <!-- New button to view products -->
   </div>
-</div> -->
+</div>
 
 <div
   class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
