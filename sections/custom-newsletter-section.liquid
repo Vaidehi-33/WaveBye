@@ -1,7 +1,7 @@
 <!-- Newsletter Section -->
 {%- style -%}
-  .newsletter-section-container {
-    padding: 4rem;
+  .newsletter-section-container{
+        padding: 4rem;
     display: flex;
     justify-content: center;
   }
@@ -11,14 +11,14 @@
   }
 
   .newsletter-section {
-    height: 320px;
-    width: 1018px;
+    height: 270px;
+    width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: {{ section.settings.background_color }};
-    padding: 40px;
+    padding: 30px;
     /* border-radius: 10px; */
 
   }
@@ -63,7 +63,7 @@
     border-radius: 50px;
   }
 {%- endstyle -%}
-<div class="newsletter-section-container">
+<div class="newsletter-section-container" id="newsletter-section">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
@@ -71,57 +71,66 @@
     {% form 'customer', class: 'newsletter-form' %}
       <input type="hidden" name="contact[tags]" value="newsletter">
       <div class="newsletter-form__field-wrapper">
-        <div class="field">
-          <input
-            id="NewsletterForm--{{ section.id }}"
-            type="email"
-            name="contact[email]"
-            class="field__input"
-            value="{{ form.email }}"
-            aria-required="true"
-            autocorrect="off"
-            autocapitalize="off"
-            autocomplete="email"
-            {% if form.errors %}
-              autofocus
-              aria-invalid="true"
-              aria-describedby="Newsletter-error--{{ section.id }}"
-            {% elsif form.posted_successfully? %}
-              aria-describedby="Newsletter-success--{{ section.id }}"
-            {% endif %}
-            placeholder="{{ 'newsletter.label' | t }}"
-            required
-          >
-          <label class="field__label" for="NewsletterForm--{{ section.id }}">
-            {{ 'newsletter.label' | t }}
-          </label>
-          <button
-            type="submit"
-            class="newsletter-form__button field__button"
-            name="commit"
-            id="Subscribe"
-            aria-label="{{ 'newsletter.button_label' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </span>
-            {{ section.settings.button_text }}
-          </button>
-        </div>
+        <!-- <div class="field"> -->
+        <input
+          id="NewsletterForm--{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          class="field__input"
+          value="{{ form.email }}"
+          aria-required="true"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            autofocus
+            aria-invalid="true"
+            aria-describedby="Newsletter-error--{{ section.id }}"
+          {% elsif form.posted_successfully? %}
+            aria-describedby="Newsletter-success--{{ section.id }}"
+          {% endif %}
+          placeholder="{{ 'newsletter.label' | t }}"
+          required
+        >
+        <label class="field__label" for="NewsletterForm--{{ section.id }}">
+          {{ 'newsletter.label' | t }}
+        </label>
+        <button
+          type="submit"
+          class="newsletter-form__button field__button"
+          name="commit"
+          id="Subscribe"
+          aria-label="{{ 'newsletter.button_label' | t }}"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </span>
+          {{ section.settings.button_text }}
+        </button>
+        <!-- </div> -->
         {%- if form.errors -%}
           <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
             <span class="svg-wrapper">
               {{- 'icon-error.svg' | inline_asset_content -}}
             </span>
             {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.email | capitalize }}
-          </small>
-        {%- elsif form.posted_successfully? -%}
-          <small class="newsletter-form__message form__message" id="Newsletter-success--{{ section.id }}">
-            {{ 'newsletter.success_message' | t }}
+            {{ form.errors.messages.email -}}
           </small>
         {%- endif -%}
       </div>
+      {%- if form.posted_successfully? -%}
+        <h3
+          class="newsletter-form__message newsletter-form__message--success form__message"
+          id="Newsletter-success--{{ section.id }}"
+          tabindex="-1"
+          autofocus
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-success.svg' | inline_asset_content -}}
+          </span>
+          {{- 'newsletter.success' | t }}
+        </h3>
+      {%- endif -%}
     {% endform %}
   </div>
 </div>
@@ -129,7 +138,7 @@
 {% schema %}
 {
   "name": "Custom Newsletter Section",
-  "settings": [
+ "settings": [
     {
       "type": "text",
       "id": "title",
@@ -153,12 +162,14 @@
       "id": "background_color",
       "label": "Background Color",
       "default": "#f7f7f7"
-    }, {
+    },
+    {
       "type": "color",
       "id": "button_color",
       "label": "Button Color",
       "default": "#333333"
-    }, {
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "label": "Padding Top",
@@ -167,7 +178,8 @@
       "step": 5,
       "unit": "px",
       "default": 40
-    }, {
+    },
+    {
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding Bottom",
@@ -176,7 +188,8 @@
       "step": 5,
       "unit": "px",
       "default": 40
-    }, {
+    },
+    {
       "type": "range",
       "id": "title_font_size",
       "label": "Title Font Size",
@@ -185,7 +198,8 @@
       "step": 1,
       "unit": "px",
       "default": 32
-    }, {
+    },
+    {
       "type": "range",
       "id": "description_font_size",
       "label": "Description Font Size",
