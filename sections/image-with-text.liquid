@@ -190,96 +190,118 @@
 </div>
 
 <script>
-  // Open Quiz Popup
-  document.getElementById('takeQuizBtn').addEventListener('click', function() {
-    document.getElementById('quizPopup').style.display = 'flex'; // Ensure it's displayed with flex
+// Open Quiz Popup
+document.getElementById('takeQuizBtn').addEventListener('click', function() {
+  // Reset quiz steps to start from the first step
+  resetQuiz();
+
+  // Show the quiz popup
+  document.getElementById('quizPopup').style.display = 'flex'; // Ensure it's displayed with flex
+});
+
+// Close Quiz Popup
+document.getElementById('closeQuizPopup').addEventListener('click', function() {
+  document.getElementById('quizPopup').style.display = 'none';
+});
+
+// Function to reset the quiz
+function resetQuiz() {
+  // Reset visibility of all steps
+  document.getElementById('quizStep1').style.display = 'block';  // Show step 1
+  document.getElementById('quizStep2').style.display = 'none';   // Hide step 2
+  document.getElementById('quizStep3').style.display = 'none';   // Hide step 3
+  document.getElementById('quizStep4').style.display = 'none';   // Hide step 4
+  document.getElementById('quizResults').style.display = 'none'; // Hide the results
+
+  // Reset the answers object
+  answers = {};
+
+  // Clear all radio inputs
+  document.querySelectorAll('input[type="radio"]').forEach(function(input) {
+    input.checked = false;
   });
+}
 
-  // Close Quiz Popup
-  document.getElementById('closeQuizPopup').addEventListener('click', function() {
-    document.getElementById('quizPopup').style.display = 'none';
+// Quiz Logic
+let answers = {};
+
+// Step 1 Next Button
+document.getElementById('nextToStep2').addEventListener('click', function() {
+  document.getElementById('quizStep1').style.display = 'none';
+  document.getElementById('quizStep2').style.display = 'block';
+});
+
+// Step 2 Logic
+document.querySelectorAll('input[name="pregnant"]').forEach(function(input) {
+  input.addEventListener('click', function() {
+    answers.pregnant = this.value;
   });
+});
 
-  // Quiz Logic
-  let answers = {};
-
-  // Step 1 Next Button
-  document.getElementById('nextToStep2').addEventListener('click', function() {
-    document.getElementById('quizStep1').style.display = 'none';
-    document.getElementById('quizStep2').style.display = 'block';
-  });
-
-  // Step 2 Logic
-  document.querySelectorAll('input[name="pregnant"]').forEach(function(input) {
-    input.addEventListener('click', function() {
-      answers.pregnant = this.value;
-    });
-  });
-
-  // Step 2 Next Button
-  document.getElementById('nextToStep3').addEventListener('click', function() {
-    if (answers.pregnant) {
-      document.getElementById('quizStep2').style.display = 'none';
-      document.getElementById('quizStep3').style.display = 'block';
-    } else {
-      alert("Please select an answer.");
-    }
-  });
-
-  // Step 3 Logic
-  document.querySelectorAll('input[name="pain"]').forEach(function(input) {
-    input.addEventListener('click', function() {
-      answers.pain = this.value;
-    });
-  });
-
-  // Step 3 Next Button
-  document.getElementById('nextToStep4').addEventListener('click', function() {
-    if (answers.pain !== undefined) {
-      document.getElementById('quizStep3').style.display = 'none';
-      document.getElementById('quizStep4').style.display = 'block';
-    } else {
-      alert("Please select an answer.");
-    }
-  });
-
-  // Step 4 Logic
-  document.querySelectorAll('input[name="track"]').forEach(function(input) {
-    input.addEventListener('click', function() {
-      answers.track = this.value;
-    });
-  });
-
-  // Step 4 Next Button
-  document.getElementById('nextToResults').addEventListener('click', function() {
-    if (answers.track) {
-      showRecommendations();
-    } else {
-      alert("Please select an answer.");
-    }
-  });
-
-  function showRecommendations() {
-    let recommendedProductUrl = '';
-
-    // Determine recommendations based on user answers
-    if (answers.pregnant === 'yes' && answers.pain === '1') {
-      recommendedProductUrl = 'https://varietywheels.com/products/product-for-mild-pain-and-pregnancy';
-    } else if (answers.pregnant === 'no' && answers.pain === '2') {
-      recommendedProductUrl = 'https://varietywheels.com/products/product-for-moderate-pain';
-    } else if (answers.pregnant === 'no' && answers.pain === '3') {
-      recommendedProductUrl = 'https://varietywheels.com/products/product-for-severe-pain';
-    } else {
-      recommendedProductUrl = 'https://varietywheels.com/products/general-product'; // Default recommendation
-    }
-
-    document.getElementById('quizStep4').style.display = 'none';
-    document.getElementById('quizResults').style.display = 'block';
-    document.getElementById('productRecommendations').innerHTML = `
-      <p class="question">Based on your answers, we recommend:</p>
-      <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
-    `;
+// Step 2 Next Button
+document.getElementById('nextToStep3').addEventListener('click', function() {
+  if (answers.pregnant) {
+    document.getElementById('quizStep2').style.display = 'none';
+    document.getElementById('quizStep3').style.display = 'block';
+  } else {
+    alert("Please select an answer.");
   }
+});
+
+// Step 3 Logic
+document.querySelectorAll('input[name="pain"]').forEach(function(input) {
+  input.addEventListener('click', function() {
+    answers.pain = this.value;
+  });
+});
+
+// Step 3 Next Button
+document.getElementById('nextToStep4').addEventListener('click', function() {
+  if (answers.pain !== undefined) {
+    document.getElementById('quizStep3').style.display = 'none';
+    document.getElementById('quizStep4').style.display = 'block';
+  } else {
+    alert("Please select an answer.");
+  }
+});
+
+// Step 4 Logic
+document.querySelectorAll('input[name="track"]').forEach(function(input) {
+  input.addEventListener('click', function() {
+    answers.track = this.value;
+  });
+});
+
+// Step 4 Next Button
+document.getElementById('nextToResults').addEventListener('click', function() {
+  if (answers.track) {
+    showRecommendations();
+  } else {
+    alert("Please select an answer.");
+  }
+});
+
+function showRecommendations() {
+  let recommendedProductUrl = '';
+
+  // Determine recommendations based on user answers
+  if (answers.pregnant === 'yes' && answers.pain === '1') {
+    recommendedProductUrl = 'https://varietywheels.com/products/product-for-mild-pain-and-pregnancy';
+  } else if (answers.pregnant === 'no' && answers.pain === '2') {
+    recommendedProductUrl = 'https://varietywheels.com/products/product-for-moderate-pain';
+  } else if (answers.pregnant === 'no' && answers.pain === '3') {
+    recommendedProductUrl = 'https://varietywheels.com/products/product-for-severe-pain';
+  } else {
+    recommendedProductUrl = 'https://varietywheels.com/products/general-product'; // Default recommendation
+  }
+
+  document.getElementById('quizStep4').style.display = 'none';
+  document.getElementById('quizResults').style.display = 'block';
+  document.getElementById('productRecommendations').innerHTML = `
+    <p class="question">Based on your answers, we recommend:</p>
+    <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
+  `;
+}
 </script>
 
 <style>
