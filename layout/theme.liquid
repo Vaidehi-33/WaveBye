@@ -392,6 +392,7 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     <!-- Popup 1: Enter Phone Number -->
+    <!-- Popup 1: Enter Phone Number -->
     <div id="sms-reminder-popup" class="popup" style="display:none;">
       <div class="popup-content">
         <h2>Sign up for SMS Reminders</h2>
@@ -414,15 +415,39 @@
       </div>
     </div>
 
-    <!-- Add some basic CSS to style the popups -->
+    <!-- Basic Popup Styling -->
+    <style>
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;  /* Ensure popup appears above all other content */
+      }
+
+      .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+    </style>
   </body>
 </html>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
       // Get checkout button and popups
       const checkoutButton = document.querySelector('button[name="checkout"]');
       const smsPopup = document.getElementById('sms-reminder-popup');
       const bundlePopup = document.getElementById('bundle-suggestion-popup');
+      let phoneNumberSubmitted = false;  // Track if the phone number has been submitted
 
       // Buttons inside popups
       const smsSubmitButton = document.getElementById('sms-submit');
@@ -432,8 +457,10 @@
       // Checkout button click triggers the first popup
       if (checkoutButton) {
           checkoutButton.addEventListener('click', function (event) {
-              event.preventDefault();  // Prevents default checkout action
-              smsPopup.style.display = 'flex';  // Show SMS popup
+              if (!phoneNumberSubmitted) {
+                  event.preventDefault();  // Prevent default checkout action the first time
+                  smsPopup.style.display = 'flex';  // Show SMS popup
+              }
           });
       }
 
@@ -446,11 +473,13 @@
           }
           smsPopup.style.display = 'none';  // Close the SMS popup
           bundlePopup.style.display = 'flex';  // Show the bundle suggestion popup
+          phoneNumberSubmitted = true;  // Mark as submitted
       });
 
       smsSkipButton.addEventListener('click', function () {
           smsPopup.style.display = 'none';  // Close the SMS popup
           bundlePopup.style.display = 'flex';  // Show the bundle suggestion popup
+          phoneNumberSubmitted = true;  // Allow to proceed even if skipped
       });
 
       // Continue checkout button triggers the actual checkout process
