@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image-with-text": {
@@ -383,6 +383,40 @@
         "title_font_size": 32,
         "description_font_size": 16
       }
+    },
+    "newsletter_RpiVdx": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_iDfWdb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_yRjdhh": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_QrDUfz": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "heading_iDfWdb",
+        "paragraph_yRjdhh",
+        "email_form_QrDUfz"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -393,6 +427,7 @@
     "notification_WM7nWP",
     "featured_products_showcase_fpgfeP",
     "customer_testimonials_9j8yeR",
-    "custom_newsletter_section_yC7aUh"
+    "custom_newsletter_section_yC7aUh",
+    "newsletter_RpiVdx"
   ]
 }
