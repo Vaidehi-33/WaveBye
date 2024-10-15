@@ -69,7 +69,7 @@
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
     {% form 'customer', class: 'newsletter-form' %}
-      <div class="newsletter-form">
+      <div class="newsletter-form__field-wrapper">
         <input
           id="NewsletterForm--{{ section.id }}"
           type="email"
@@ -90,6 +90,7 @@
           placeholder="{{ 'newsletter.label' | t }}"
           required
         >
+
         <button
           type="submit"
           class="newsletter-form__button field__button"
@@ -97,6 +98,9 @@
           id="Subscribe"
           aria-label="{{ 'newsletter.button_label' | t }}"
         >
+          <span class="svg-wrapper">
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </span>
           {{ section.settings.button_text }}
         </button>
 
