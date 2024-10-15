@@ -10,7 +10,7 @@
 {% endcomment %}
 
 <ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
-   <h2 class="footer__social-heading">Follow Us</h2>
+  <h2 class="footer__social-heading">Follow Us</h2>
   {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
@@ -104,12 +104,11 @@
 </ul>
 
 <style>
-.list-unstyled.list-social {
-  display: flex; /* Makes the icons align horizontally */
-  justify-content: center; /* Centers the icons horizontally */
-  gap: 15px; /* Adds space between the icons */
-  padding: 10px; /* Adds padding around the icons */
-  border-radius: 8px; /* Rounds the edges of the background */
-}
-
+  .list-unstyled.list-social {
+    display: flex; /* Makes the icons align horizontally */
+    justify-content: center; /* Centers the icons horizontally */
+    gap: 7px; /* Adds space between the icons */
+    padding: 10px; /* Adds padding around the icons */
+    border-radius: 8px; /* Rounds the edges of the background */
+  }
 </style>
