@@ -27,7 +27,14 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 999;
     }
-
+  .close-button {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #333; /* Change this color as needed */
+  }
     .popup-content {
       background-color: #fff;
       padding: 20px;
@@ -73,6 +80,7 @@
 <!-- First Popup: Phone Number for SMS Reminders -->
 <div id="smsReminderPopup" class="popup-background">
   <div class="popup-content">
+    <span class="close-button" id="closeSmsPopup">&times;</span>
     <h2>Sign Up for SMS Reminders</h2>
     <p>Please enter your phone number:</p>
     <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
@@ -83,6 +91,7 @@
 <!-- Second Popup: Bundle Suggestion -->
 <div id="bundleSuggestionPopup" class="popup-background">
   <div class="popup-content">
+    <span class="close-button" id="closeBundlePopup">&times;</span>
     <h2>Consider the 3-Month Bundle</h2>
     <p>
       If you have never tracked your period before, consider purchasing the 3-month pre-paid bundle for better accuracy.
@@ -247,6 +256,15 @@
 
     // Redirect to products page
     window.location.href = '/products'; // Adjust this URL based on your store's products page URL
+  });
+
+  // Close buttons functionality
+  document.getElementById('closeSmsPopup').addEventListener('click', function() {
+    document.getElementById('smsReminderPopup').style.display = 'none'; // Hide first popup
+  });
+
+  document.getElementById('closeBundlePopup').addEventListener('click', function() {
+    document.getElementById('bundleSuggestionPopup').style.display = 'none'; // Hide second popup
   });
 </script>
 
