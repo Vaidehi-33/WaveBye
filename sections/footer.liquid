@@ -227,29 +227,31 @@
           {%- if section.settings.show_social and has_social_icons -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
+        </div>
 
-          <!-- The moved block -->
-          <div
-            class="footer-block grid__item footer-block--menu scroll-trigger animate--slide-in"
-            data-cascade
-            style="--animation-order: 0;"
-          >
-            <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-            <ul class="footer-block__details-content list-unstyled">
-              {%- for link in block.settings.menu.links -%}
-                <li>
-                  <a
-                    href="{{ link.url }}"
-                    class="footer-link"
-                    title="{{ link.title }}"
-                    style="text-decoration: none;"
-                  >
-                    {{ link.title }}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
+        <!--
+          The moved quick links block is now placed outside the newsletter block but still inside the flex container
+        -->
+        <div
+          class="footer-block grid__item footer-block--menu scroll-trigger animate--slide-in"
+          data-cascade
+          style="--animation-order: 0; flex: 1;"
+        >
+          <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
+          <ul class="footer-block__menu list-unstyled">
+            {%- for link in block.settings.links -%}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  class="footer-link"
+                  title="{{ link.title }}"
+                  style="text-decoration: none;"
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
       </div>
     {%- endunless -%}
