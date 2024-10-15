@@ -1,27 +1,26 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-.button {
-padding: 1px 30px;
-  padding-top:-20px;
-gap: 8px;
-border-radius: 30px;
-border: 1px 0px 0px 0px;
-opacity: 0px;
-
-}
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+
+  .button {
+  padding: 1px 30px;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+
   }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
 {%- endstyle -%}
 
 {%- liquid
@@ -94,22 +93,23 @@ opacity: 0px;
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
                   </div>
-{%- when 'button' -%}
-  {%- if block.settings.button_label != blank -%}
-    <a
-      {% if block.settings.button_link == blank %}
-        role="link" aria-disabled="true"
-      {% else %}
-        href="{{ block.settings.button_link }}"
-      {% endif %}
-      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
-      {{ block.shopify_attributes }}
-    >
-      {{ block.settings.button_label | escape }}
-    </a>
-  {%- endif -%}
-{%- endcase -%}
-
+                {%- when 'button' -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                    <!-- New "Take a Quiz" Button -->
+                    <button id="takeQuizBtn" class="button button--secondary">Take a Quiz</button>
+                  {%- endif -%}
+              {%- endcase -%}
             {%- endfor -%}
           </div>
         </div>
@@ -117,6 +117,81 @@ opacity: 0px;
     </div>
   </div>
 </div>
+
+<!-- Quiz Popup -->
+<div id="quizPopup" class="popup-background" style="display:none;">
+  <div class="popup-content">
+    <span class="close-button" id="closeQuizPopup">&times;</span>
+    <div id="quizStep1" class="quiz-step">
+      <h2>What type of product are you looking for?</h2>
+      <button class="quiz-answer" data-answer="skin-care">Skin Care</button>
+      <button class="quiz-answer" data-answer="hair-care">Hair Care</button>
+      <button class="quiz-answer" data-answer="makeup">Makeup</button>
+    </div>
+    <div id="quizStep2" class="quiz-step" style="display:none;">
+      <h2>What is your skin type?</h2>
+      <button class="quiz-answer" data-answer="dry">Dry</button>
+      <button class="quiz-answer" data-answer="oily">Oily</button>
+      <button class="quiz-answer" data-answer="combination">Combination</button>
+    </div>
+    <div id="quizResults" class="quiz-step" style="display:none;">
+      <h2>We recommend:</h2>
+      <div id="productRecommendations"></div>
+      <button id="shopNowBtn">Shop Now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Open Quiz Popup
+  document.getElementById('takeQuizBtn').addEventListener('click', function() {
+    document.getElementById('quizPopup').style.display = 'block';
+  });
+
+  // Close Quiz Popup
+  document.getElementById('closeQuizPopup').addEventListener('click', function() {
+    document.getElementById('quizPopup').style.display = 'none';
+  });
+
+  // Quiz Logic (Already provided in the previous example)
+  let answers = {};
+
+  // Handle quiz answers
+  document.querySelectorAll('.quiz-answer').forEach(function(button) {
+    button.addEventListener('click', function() {
+      const step = this.closest('.quiz-step').id;
+
+      if (step === 'quizStep1') {
+        answers.productType = this.dataset.answer;
+        document.getElementById('quizStep1').style.display = 'none';
+        document.getElementById('quizStep2').style.display = 'block'; // Move to next step
+      } else if (step === 'quizStep2') {
+        answers.skinType = this.dataset.answer;
+        showRecommendations(); // Show results based on user choices
+      }
+    });
+  });
+
+  // Function to show product recommendations
+  function showRecommendations() {
+    const productRecommendations = document.getElementById('productRecommendations');
+    productRecommendations.innerHTML = '';
+
+    let recommendations = '';
+
+    // Map answers to products
+    if (answers.productType === 'skin-care' && answers.skinType === 'dry') {
+      recommendations = '<p>We recommend Product A for dry skin care.</p>';
+    } else if (answers.productType === 'skin-care' && answers.skinType === 'oily') {
+      recommendations = '<p>We recommend Product B for oily skin care.</p>';
+    }
+    // Add more conditions based on the product types and skin types
+
+    productRecommendations.innerHTML = recommendations;
+    document.getElementById('quizStep2').style.display = 'none';
+    document.getElementById('quizResults').style.display = 'block';
+  }
+</script>
 
 {% schema %}
 {
