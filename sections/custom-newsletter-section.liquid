@@ -102,7 +102,10 @@
             id="Subscribe"
             aria-label="{{ 'newsletter.button_label' | t }}"
           >
-            Submit
+            <span class="svg-wrapper">
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            </span>
+            {{ section.settings.button_text }}
           </button>
         </div>
         {%- if form.errors -%}
