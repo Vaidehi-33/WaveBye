@@ -221,52 +221,55 @@
 </div>
 
 <script>
-  document.getElementById('checkout').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent checkout action
+  // Open Quiz Popup (Commented Out)
+  /*
+  document.getElementById('takeQuizBtn').addEventListener('click', function() {
+    // document.getElementById('quizPopup').style.display = 'flex'; // Commented out to disable the first popup
+  });
+  */
 
-    // Show the first popup (Phone number entry)
-    document.getElementById('smsReminderPopup').style.display = 'block';
+  // Close Quiz Popup
+  document.getElementById('closeQuizPopup').addEventListener('click', function() {
+    document.getElementById('quizPopup').style.display = 'none';
   });
 
-  document.getElementById('submitPhoneNumber').addEventListener('click', function() {
-    const phoneNumber = document.getElementById('phoneNumber').value;
+  // Logic to show the second popup (Bundle Suggestion Popup)
+  function showBundleSuggestionPopup() {
+    document.getElementById('bundleSuggestionPopup').style.display = 'block';
+  }
 
-    if (phoneNumber) {
-      // Hide the first popup
-      document.getElementById('smsReminderPopup').style.display = 'none';
+  // Example trigger for the second popup
+  // You can use any trigger to call this function, like a button click or specific condition after the quiz
+  document.getElementById('showBundlePopupBtn').addEventListener('click', function() {
+    showBundleSuggestionPopup();
+  });
 
-      // Show the second popup
-      document.getElementById('bundleSuggestionPopup').style.display = 'block';
+  // Function for showing recommendations in the quiz (if needed)
+  function showRecommendations() {
+    let recommendedProductUrl = '';
+
+    // Determine recommendations based on user answers
+    if (answers.pregnant === 'yes' && answers.pain === '1') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-mild-pain-and-pregnancy';
+    } else if (answers.pregnant === 'no' && answers.pain === '2') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-moderate-pain';
+    } else if (answers.pregnant === 'no' && answers.pain === '3') {
+      recommendedProductUrl = 'https://varietywheels.com/products/product-for-severe-pain';
     } else {
-      alert('Please enter a valid phone number.');
+      recommendedProductUrl = 'https://varietywheels.com/products/general-product'; // Default recommendation
     }
-  });
 
-  document.getElementById('continueCheckout').addEventListener('click', function() {
-    // Hide the second popup
-    document.getElementById('bundleSuggestionPopup').style.display = 'none';
+    document.getElementById('quizStep4').style.display = 'none';
+    document.getElementById('quizResults').style.display = 'block';
+    document.getElementById('productRecommendations').innerHTML = `
+      <p class="question">Based on your answers, we recommend:</p>
+      <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
+    `;
 
-    // Redirect to checkout page
-    window.location.href = '/checkout'; // Adjust this URL based on your store's checkout URL
-  });
-
-  // Add event listener for the new button to view products
-  document.getElementById('viewProducts').addEventListener('click', function() {
-    // Hide the second popup
-    document.getElementById('bundleSuggestionPopup').style.display = 'none';
-
-    // Redirect to products page
-    window.location.href = '/products'; // Adjust this URL based on your store's products page URL
-  });
-
-  // Close buttons functionality
-  document.getElementById('closeSmsPopup').addEventListener('click', function() {
-    document.getElementById('smsReminderPopup').style.display = 'none'; // Hide first popup
-  });
-
-  document.getElementById('closeBundlePopup').addEventListener('click', function() {
-    document.getElementById('bundleSuggestionPopup').style.display = 'none'; // Hide second popup
-  });
+    // Comment out first popup and show bundle suggestion popup instead
+    // document.getElementById('quizPopup').style.display = 'none'; // Commented out
+    showBundleSuggestionPopup(); // Show the second popup after recommendations
+  }
 </script>
 
 {% schema %}
