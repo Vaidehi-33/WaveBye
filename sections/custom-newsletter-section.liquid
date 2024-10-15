@@ -11,14 +11,14 @@
   }
 
   .newsletter-section {
-    height: 320px;
-    width: 1018px;
+    height: 270px;
+    width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: {{ section.settings.background_color }};
-    padding: 40px;
+    padding: 30px;
     /* border-radius: 10px; */
 
   }
@@ -60,20 +60,36 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
-        border-radius: 50px;
+    border-radius: 50px;
   }
 {%- endstyle -%}
-<div class="newsletter-section-container">
+<div class="newsletter-section-container" id="newsletter-section">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
-    <div class="newsletter-form">
+    <form class="newsletter-form" onsubmit="handleSubmit(event)">
       <input type="email" placeholder="{{ 'newsletter.label' | t }}" required>
       <button type="submit">{{ section.settings.button_text }}</button>
-    </div>
+    </form>
   </div>
 </div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const emailInput = event.target.querySelector('input[type="email"]');
+    const email = emailInput.value;
+
+    // Here you can add your logic to handle the email subscription, e.g., sending to your backend
+    console.log('Email submitted:', email);
+
+    // Optionally, you can clear the input field after submission
+    emailInput.value = '';
+    alert('Thank you for subscribing!'); // Optional: Show a thank you message
+  }
+</script>
 
 {% schema %}
 {
