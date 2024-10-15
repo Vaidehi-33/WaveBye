@@ -227,31 +227,31 @@
           {%- if section.settings.show_social and has_social_icons -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
-        </div>
 
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'link_list' -%}
-            <div
-              class="footer-block grid__item footer-block--menu scroll-trigger animate--slide-in"
-              data-cascade
-              style="--animation-order: 2;"
-            >
-              <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-              <ul class="footer-block__details-content list-unstyled">
-                {%- for link in block.settings.menu.links -%}
-                  <li>
-                    <a
-                      href="{{ link.url }}"
-                      class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                    >
-                      {{ link.title | escape }}
-                    </a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link_list' -%}
+              <div
+                class="footer-block grid__item footer-block--menu scroll-trigger animate--slide-in"
+                data-cascade
+                style="--animation-order: 2;"
+              >
+                <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                <ul class="footer-block__details-content list-unstyled">
+                  {%- for link in block.settings.menu.links -%}
+                    <li>
+                      <a
+                        href="{{ link.url }}"
+                        class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                      >
+                        {{ link.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
     {%- endunless -%}
   {%- endif -%}
