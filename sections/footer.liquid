@@ -67,124 +67,76 @@
             {% endif %}
           >
             {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-                {%- endif -%}
+              {%- if block.type != 'link_list' -%}
+                <div
+                  class="footer-block grid__item{% if block.type == 'brand_information' %} footer-block--brand{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  {%- endif -%}
 
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
-                  {%- when 'text' -%}
-                    <div class="footer-block__details-content rte">
-                      {{ block.settings.subtext }}
-                    </div>
-                  {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- when 'brand_information' -%}
-                    <div class="footer-block__brand-info">
-                      {%- if settings.brand_image != blank -%}
-                        {%- assign brand_image_height = settings.brand_image_width
-                          | divided_by: settings.brand_image.aspect_ratio
-                        -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ settings.brand_image_width }}px);"
-                        >
-                          {{
-                            settings.brand_image
-                            | image_url: width: 1100
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                              height: brand_image_height,
-                              width: settings.brand_image_width
-                          }}
-                        </div>
-                      {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-                      {%- endif -%}
-                      {%- if settings.brand_description != blank -%}
-                        <div class="rte">{{ settings.brand_description }}</div>
-                      {%- endif -%}
-                      
-{%- if section.settings.show_social and has_social_icons -%}
- -->
-  <div class="footer__social-links">
-    
-    <ul class="footer__list-social">
-
-      {%- render 'social-icons', class: 'footer__list-social' -%}
-    </ul>
-  </div>
-{%- endif -%}
-
-
-                    </div>
-                  {%- when 'image' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                      {%- if block.settings.image != blank -%}
-                        {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                        >
-                          <img
-                            srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                            src="{{ block.settings.image | image_url: width: 760 }}"
-                            alt="{{ block.settings.image.alt | escape }}"
-                            loading="lazy"
-                            width="{{ block.settings.image.width }}"
-                            height="{{ block.settings.image.height }}"
+                  {%- case block.type -%}
+                    {%- when '@app' -%}
+                      {% render block %}
+                    {%- when 'text' -%}
+                      <div class="footer-block__details-content rte">
+                        {{ block.settings.subtext }}
+                      </div>
+                    {%- when 'image' -%}
+                      <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
+                        {%- if block.settings.image != blank -%}
+                          {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
+                          <div
+                            class="footer-block__image-wrapper"
+                            style="max-width: min(100%, {{ block.settings.image_width }}px);"
                           >
-                        </div>
-                      {%- else -%}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                      {%- endif -%}
-                    </div>
-                {%- endcase -%}
-              </div>
+                            <img
+                              srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+                              src="{{ block.settings.image | image_url: width: 760 }}"
+                              alt="{{ block.settings.image.alt | escape }}"
+                              loading="lazy"
+                              width="{{ block.settings.image.width }}"
+                              height="{{ block.settings.image.height }}"
+                            >
+                          </div>
+                        {%- else -%}
+                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                        {%- endif -%}
+                      </div>
+                  {%- endcase -%}
+                </div>
+              {%- endif -%}
             {%- endfor -%}
           </div>
         {%- endif -%}
 
         <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
+          class="footer-block--newsletter scroll-trigger animate--slide-in"
+          data-cascade
+          style="--animation-order: 3;"
         >
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <p class="footer-block__heading inline-richtext" style="max-width: 480px; margin-top: 20px; styleName: Body 16pt;
-font-family: Open Sans;
-font-size: 12px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-color: #0A1F44D9;">{{ section.settings.newsletter_heading }}</p>
+                <p
+                  class="footer-block__heading inline-richtext"
+                  style="
+                    max-width: 480px; margin-top: 20px; styleName: Body 16pt;
+                    font-family: Open Sans;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    text-align: left;
+                    color: #0A1F44D9;
+                  "
+                >
+                  {{ section.settings.newsletter_heading }}
+                </p>
               {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
@@ -222,7 +174,7 @@ color: #0A1F44D9;">{{ section.settings.newsletter_heading }}</p>
                     >
                       <span class="svg-wrapper">
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
-                    </span>
+                      </span>
                     </button>
                   </div>
                   {%- if form.errors -%}
@@ -249,17 +201,21 @@ color: #0A1F44D9;">{{ section.settings.newsletter_heading }}</p>
                   </h3>
                 {%- endif -%}
               {%- endform -%}
-<p class="footer-block__heading inline-richtext" style="max-width: 480px; margin-top: 20px; styleName: Body 16pt;
-font-family: Open Sans;
-font-size: 12px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-color: #0A1F44D9;
-">
-  By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
-</p>
-
+              <p
+                class="footer-block__heading inline-richtext"
+                style="
+                  max-width: 480px; margin-top: 20px; styleName: Body 16pt;
+                  font-family: Open Sans;
+                  font-size: 12px;
+                  font-weight: 400;
+                  line-height: 24px;
+                  text-align: left;
+                  color: #0A1F44D9;
+                "
+              >
+                By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our
+                company.
+              </p>
             </div>
           {%- endif -%}
 
@@ -269,10 +225,33 @@ color: #0A1F44D9;
             </div>
           {%- endif -%}
           {%- if section.settings.show_social and has_social_icons -%}
-            
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
         </div>
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'link_list' -%}
+            <div
+              class="footer-block grid__item footer-block--menu scroll-trigger animate--slide-in"
+              data-cascade
+              style="--animation-order: 2;"
+            >
+              <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+              <ul class="footer-block__details-content list-unstyled">
+                {%- for link in block.settings.menu.links -%}
+                  <li>
+                    <a
+                      href="{{ link.url }}"
+                      class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                    >
+                      {{ link.title | escape }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -347,7 +326,6 @@ color: #0A1F44D9;
     </div>
   </div>
 </footer>
-
 {% schema %}
 {
   "name": "t:sections.footer.name",
