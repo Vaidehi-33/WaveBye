@@ -20,7 +20,7 @@
     background-color: {{ section.settings.background_color }};
     padding: 30px;
     /* border-radius: 10px; */
-    
+
   }
 
   .newsletter-title {
@@ -63,13 +63,13 @@
     border-radius: 50px;
   }
 {%- endstyle -%}
-<div class="newsletter-section-container">
+<div class="newsletter-section-container" id="newsletter-section">
   <div class="newsletter-section section-{{ section.id }}-padding">
     <h2 class="newsletter-title">{{ section.settings.title }}</h2>
     <p class="newsletter-description">{{ section.settings.description }}</p>
 
     <form class="newsletter-form" onsubmit="handleSubmit(event)">
-      <input type="email" placeholder="{{ 'newsletter.label' | t }}" required />
+      <input type="email" placeholder="{{ 'newsletter.label' | t }}" required>
       <button type="submit">{{ section.settings.button_text }}</button>
     </form>
   </div>
