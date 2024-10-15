@@ -128,43 +128,33 @@
   <div class="popup-content">
     <span class="close-button" id="closeQuizPopup">&times;</span>
 
-    <!-- Step 1: Just two headings -->
+    <!-- Common Headings for Each Quiz Step -->
+    <div class="popup-header">
+      <h1 class="big-heading">Doctor Formulated</h1>
+      <h3 class="small-heading">Backed by Highest Levels of Scientific Evidence</h3>
+    </div>
+
+    <!-- Step 1: Product Type -->
     <div id="quizStep1" class="quiz-step">
-      <h1>Doctor Formulated</h1>
-      <h3>Backed by Highest Levels of Scientific Evidence</h3>
+      <h2>What type of product are you looking for?</h2>
+      <button class="quiz-answer" data-answer="skin-care">Skin Care</button>
+      <button class="quiz-answer" data-answer="hair-care">Hair Care</button>
+      <button class="quiz-answer" data-answer="makeup">Makeup</button>
     </div>
 
-    <!-- Step 2: Pregnancy Question -->
+    <!-- Step 2: Skin Type -->
     <div id="quizStep2" class="quiz-step" style="display:none;">
-      <h2>Are you trying to get pregnant right now?</h2>
-      <label><input type="radio" name="pregnant" value="yes"> Yes</label>
-      <label><input type="radio" name="pregnant" value="no"> No</label>
+      <h2>What is your skin type?</h2>
+      <button class="quiz-answer" data-answer="dry">Dry</button>
+      <button class="quiz-answer" data-answer="oily">Oily</button>
+      <button class="quiz-answer" data-answer="combination">Combination</button>
     </div>
 
-    <!-- Step 3: Period Pain Scale -->
-    <div id="quizStep3" class="quiz-step" style="display:none;">
-      <h2>How bad is your period pain on a scale of 1 - 3?</h2>
-      <p>(1 = Not so bad, 3 = I miss work or school)</p>
-      <label><input type="radio" name="pain" value="0"> 0</label>
-      <label><input type="radio" name="pain" value="1"> 1</label>
-      <label><input type="radio" name="pain" value="2"> 2</label>
-      <label><input type="radio" name="pain" value="3"> 3</label>
-    </div>
-
-    <!-- Step 4: Period Tracking Question -->
-    <div id="quizStep4" class="quiz-step" style="display:none;">
-      <h2>Do you track your period?</h2>
-      <label><input type="radio" name="track" value="yes"> Yes</label>
-      <label><input type="radio" name="track" value="no"> No</label>
-    </div>
-
-    <!-- Step 5: Thank You -->
+    <!-- Results: Recommendations -->
     <div id="quizResults" class="quiz-step" style="display:none;">
-      <h1>Thank You!</h1>
-      <div id="productRecommendations">
-        <p>Click here for product recommendations:</p>
-        <button id="shopNowBtn">Shop Now</button>
-      </div>
+      <h2>We recommend:</h2>
+      <div id="productRecommendations"></div>
+      <button id="shopNowBtn">Shop Now</button>
     </div>
   </div>
 </div>
@@ -172,7 +162,7 @@
 <script>
   // Open Quiz Popup
   document.getElementById('takeQuizBtn').addEventListener('click', function() {
-    document.getElementById('quizPopup').style.display = 'block';
+    document.getElementById('quizPopup').style.display = 'flex';
   });
 
   // Close Quiz Popup
@@ -182,30 +172,34 @@
 
   // Quiz Logic
   let answers = {};
-  document.querySelectorAll('input[name="pregnant"], input[name="pain"], input[name="track"]').forEach(function(input) {
-    input.addEventListener('click', function() {
+  document.querySelectorAll('.quiz-answer').forEach(function(button) {
+    button.addEventListener('click', function() {
       const step = this.closest('.quiz-step').id;
 
       if (step === 'quizStep1') {
+        answers.productType = this.dataset.answer;
         document.getElementById('quizStep1').style.display = 'none';
         document.getElementById('quizStep2').style.display = 'block';
       } else if (step === 'quizStep2') {
-        answers.pregnant = this.value;
-        document.getElementById('quizStep2').style.display = 'none';
-        document.getElementById('quizStep3').style.display = 'block';
-      } else if (step === 'quizStep3') {
-        answers.pain = this.value;
-        document.getElementById('quizStep3').style.display = 'none';
-        document.getElementById('quizStep4').style.display = 'block';
-      } else if (step === 'quizStep4') {
-        answers.track = this.value;
+        answers.skinType = this.dataset.answer;
         showRecommendations();
       }
     });
   });
 
   function showRecommendations() {
-    document.getElementById('quizStep4').style.display = 'none';
+    const productRecommendations = document.getElementById('productRecommendations');
+    productRecommendations.innerHTML = '';
+
+    let recommendations = '';
+    if (answers.productType === 'skin-care' && answers.skinType === 'dry') {
+      recommendations = '<p>We recommend Product A for dry skin care.</p>';
+    } else if (answers.productType === 'skin-care' && answers.skinType === 'oily') {
+      recommendations = '<p>We recommend Product B for oily skin care.</p>';
+    }
+
+    productRecommendations.innerHTML = recommendations;
+    document.getElementById('quizStep2').style.display = 'none';
     document.getElementById('quizResults').style.display = 'block';
   }
 </script>
@@ -247,15 +241,26 @@
     cursor: pointer;
   }
 
-  /* Quiz Step Buttons and Radio Inputs */
-  label {
+  .close-button:hover {
+    color: #ff0000;
+  }
+
+  /* Quiz Step Buttons */
+  .quiz-answer {
     display: block;
+    width: 100%;
     margin: 10px 0;
+    padding: 10px;
+    background-color: #6C86FE;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     font-size: 16px;
   }
 
-  label input {
-    margin-right: 10px;
+  .quiz-answer:hover {
+    background-color: #5b74de;
   }
 
   /* General Button */
@@ -276,6 +281,19 @@
 
   #shopNowBtn:hover {
     background-color: #218838;
+  }
+
+  /* Big Heading */
+  .big-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  /* Small Heading */
+  .small-heading {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 20px;
   }
 </style>
 
