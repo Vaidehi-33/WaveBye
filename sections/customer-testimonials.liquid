@@ -209,34 +209,37 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-    $(document).ready(function(){
-     $('#Slider-{{ section.id }}').slick({
-    slidesToShow: 3,  // Show 3 testimonials at once
-    slidesToScroll: 1,
-    arrows: false,     // Remove next/prev buttons
-    dots: true,        // Enable dots
-    infinite: true,    // Infinite scrolling
-    centerMode: true,  // Ensure centering of items
-    centerPadding: '0px', // Disable extra padding for centering
-    responsive: [
-      {
-        breakpoint: 1489,
-        settings: {
-          slidesToShow: 2, // Show 2 testimonials at a slightly smaller width
-          slidesToScroll: 1
+      $(document).ready(function(){
+      $(window).on('load', function() {
+    $('#Slider-{{ section.id }}').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: true,
+      infinite: true,
+      centerMode: true,
+      centerPadding: '0px',
+      responsive: [
+        {
+          breakpoint: 1489,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1, // Show 1 testimonial on smaller screens
-          slidesToScroll: 1
-        }
-      }
-    ]
+      ]
+    });
   });
 
-    });
+
+      });
 </script>
 
 {% schema %}
