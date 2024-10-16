@@ -129,14 +129,17 @@
   ]
 }
 {% endschema %}
-<div
-  class="custom-products-wrapper"
->
+<head>
+  <!-- Add this inside the <head> section -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<div class="custom-products-wrapper">
   <div
     class="custom-products"
     style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;"
   >
-    <!-- <div class="stars" style="color: {{ section.settings.star_color }};">★★★★★</div> -->
     <h2
       class="custom-card-heading"
       style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px"
@@ -151,219 +154,256 @@
       {{ section.settings.subheading_text }}
     </h3>
 
-    <div class="grid">
-      {%- for block in section.blocks -%}
-        {%- assign product = block.settings.product -%}
-        <div class="product-card">
-          <!-- Wrap product image and name with a link to the product page -->
-          <a href="{{ product.url }}" class="product-link" style="text-decoration: none; color: inherit;">
-            <img
-              src="{{ product.featured_image | img_url: '240x240' }}"
-              alt="{{ product.title }}"
-              class="product-image"
-            >
-            <h3 class="product-name">{{ block.settings.small_title }}</h3>
-          </a>
-          <p class="product-price">
-            <strong>{{ product.price | money }}</strong>
-          </p>
-          <hr class="divider">
-          <h4 class="small_title">{{ product.title }}</h4>
-          <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
-          <p class="includes">Includes:</p>
-          <ul class="includes-points">
-            {%- for i in (1..5) -%}
-              {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
-              {%- assign point = block.settings[point_key] -%}
-              {%- if point != blank -%}
-                <li>
-                  {%- if i == 1 -%}
-                    {{ point }}
-                    <!-- No tick for the first point -->
-                  {%- else -%}
-                    <span class="tick-mark">✓</span> {{ point }}
-                    <!-- Black thin tick for other points -->
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- assign product = block.settings.product -%}
+          <div class="swiper-slide">
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-link" style="text-decoration: none; color: inherit;">
+                <img
+                  src="{{ product.featured_image | img_url: '240x240' }}"
+                  alt="{{ product.title }}"
+                  class="product-image"
+                >
+                <h3 class="product-name">{{ block.settings.small_title }}</h3>
+              </a>
+              <p class="product-price">
+                <strong>{{ product.price | money }}</strong>
+              </p>
+              <hr class="divider">
+              <h4 class="small_title">{{ product.title }}</h4>
+              <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
+              <p class="includes">Includes:</p>
+              <ul class="includes-points">
+                {%- for i in (1..5) -%}
+                  {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
+                  {%- assign point = block.settings[point_key] -%}
+                  {%- if point != blank -%}
+                    <li>
+                      {%- if i == 1 -%}
+                        {{ point }}
+                      {%- else -%}
+                        <span class="tick-mark">✓</span> {{ point }}
+                      {%- endif -%}
+                    </li>
                   {%- endif -%}
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-          <form method="post" action="/cart/add" class="ajax-add-to-cart">
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            <button
-              class="addtocart"
-              type="submit"
-              style="
-                font-family: Open Sans, sans-serif;
-                font-weight: 700;background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none; margin:1rem;
-              "
-            >
-              Add to Cart
-            </button>
-          </form>
-        </div>
-      {%- endfor -%}
+                {%- endfor -%}
+              </ul>
+              <form method="post" action="/cart/add" class="ajax-add-to-cart">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <button
+                  class="addtocart"
+                  type="submit"
+                  style="font-family: Open Sans, sans-serif; font-weight: 700; background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none; margin:1rem;"
+                >
+                  Add to Cart
+                </button>
+              </form>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </div>
 </div>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 2, // Show 2 slides at a time
+    spaceBetween: 20, // Space between slides
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      // When the screen width is less than or equal to 1160px
+      1160: {
+        slidesPerView: 1, // Show 1 slide at a time
+        spaceBetween: 10, // Space between slides
+      },
+      // Add more breakpoints if needed
+    },
+  });
+</script>
 
 <style>
-  .custom-products-wrapper{
-    background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); width: 99.4vw; margin-left: calc(-50vw + 50%);
+    .swiper-container {
+    width: 100%;
+    padding: 20px 0; /* Add padding as needed */
   }
-          .custom-subheading{
-            color:#0A1F44D9;
-          text-align:left;
-          margin: 5px 0 20px 0;
-        font-family: 'Outfit', sans-serif;
-  font-weight: 500;
-          }
 
-            .custom-card-heading{
-              margin: 5px auto;
-              font-weight: 600;
-              font-family: 'Outfit', sans-serif;
-              color:#0A1F44;
-              text-align: center;
-              max-width: 600px;
-            }
+  .swiper-slide {
+    display: flex; /* Center contents in slide */
+    justify-content: center; /* Center contents */
+    align-items: flex-start; /* Align top */
+  }
 
-          .small_title {
-            color:#0A1F44;
-          //styleName: Hl2 24pt;
-          font-family: 'Outfit', sans-serif;
-          font-weight: 550;
-          line-height: 25px;
-          text-align: left;
-            font-size:18px;
-            height:50px;
-
-          }
-            .subtitle{
-              color:#0A1F44;
-              //styleName: Body Small 14pt;
-          font-family: "Open Sans", sans-serif;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 21px;
-          text-align: left;
-          margin-top:-2rem;
-            }
-
-            .includes{
-              color:#0A1F44;
-              font-family:"Open Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: left;
-
-            }
-
-          .custom-products {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center items horizontally */
-            text-align: center;
-            background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
-            padding: 60px; /* Optional: add padding */
-            border-radius: 10px; /* Optional: add rounded corners */
-          }
-
-          .stars {
-            font-size: 30px; /* Custom font size for stars */
-            margin-bottom: 5px; /* Reduced space below stars */
-          }
-
-          .grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-          }
-
-          .product-card {
-            background-color: #FFFEF9; /* Solid background color for cards */
-            border: 1px solid #6C86FE;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: center;
-            width: 240px;
-          }
-
-          .product-image {
-            display: block;
-            margin: 0 auto 10px; /* Center the image */
-            max-width: 100%; /* Ensure the image fits within the card */
-            height: auto; /* Maintain the image aspect ratio */
-          }
-
-          .product-name {
-            font-size: 16px; /* Set product name font size */
-            margin: 2px 0; /* Adjust margin */
+    .custom-products-wrapper{
+      background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); width: 99.4vw; margin-left: calc(-50vw + 50%);
+    }
+            .custom-subheading{
+              color:#0A1F44D9;
             text-align:left;
+            margin: 5px 0 20px 0;
+          font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+            }
+
+              .custom-card-heading{
+                margin: 5px auto;
+                font-weight: 600;
+                font-family: 'Outfit', sans-serif;
+                color:#0A1F44;
+                text-align: center;
+                max-width: 600px;
+              }
+
+            .small_title {
+              color:#0A1F44;
+            //styleName: Hl2 24pt;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 550;
+            line-height: 25px;
+            text-align: left;
+              font-size:18px;
+              height:50px;
+
+            }
+              .subtitle{
+                color:#0A1F44;
+                //styleName: Body Small 14pt;
             font-family: "Open Sans", sans-serif;
-            color:#0A1F44;
-        font-optical-sizing: auto;
-        font-weight: 700;  /* Use 700 for bold */
-        font-style: normal;
-        text-transform: uppercase;
-      line-height: 29.73px;
-      letter-spacing: 0.2em;
-  height:35px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            margin-top:-2rem;
+              }
 
-          }
+              .includes{
+                color:#0A1F44;
+                font-family:"Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
 
-          .product-price {
-            font-size: 34px; /* Set product price font size */
-            margin: 2px 0; /* Reduce gap above and below the line */
-            text-align:left;
-          font-family: 'Outfit', sans-serif;
-            color:#0A1F44;
-         font-weight: 600;
-         line-height: 48px;
-         text-align: left;
+              }
+
+            .custom-products {
+              display: flex;
+              flex-direction: column;
+              align-items: center; /* Center items horizontally */
+              text-align: center;
+              background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
+              padding: 60px; /* Optional: add padding */
+              border-radius: 10px; /* Optional: add rounded corners */
+            }
+
+            .stars {
+              font-size: 30px; /* Custom font size for stars */
+              margin-bottom: 5px; /* Reduced space below stars */
+            }
+
+            .grid {
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+            }
+
+            .product-card {
+              background-color: #FFFEF9; /* Solid background color for cards */
+              border: 1px solid #6C86FE;
+              border-radius: 5px;
+              padding: 20px;
+              text-align: center;
+              width: 240px;
+            }
+
+            .product-image {
+              display: block;
+              margin: 0 auto 10px; /* Center the image */
+              max-width: 100%; /* Ensure the image fits within the card */
+              height: auto; /* Maintain the image aspect ratio */
+            }
+
+            .product-name {
+              font-size: 16px; /* Set product name font size */
+              margin: 2px 0; /* Adjust margin */
+              text-align:left;
+              font-family: "Open Sans", sans-serif;
+              color:#0A1F44;
+          font-optical-sizing: auto;
+          font-weight: 700;  /* Use 700 for bold */
+          font-style: normal;
+          text-transform: uppercase;
+        line-height: 29.73px;
+        letter-spacing: 0.2em;
+    height:35px;
+
+            }
+
+            .product-price {
+              font-size: 34px; /* Set product price font size */
+              margin: 2px 0; /* Reduce gap above and below the line */
+              text-align:left;
+            font-family: 'Outfit', sans-serif;
+              color:#0A1F44;
+           font-weight: 600;
+           line-height: 48px;
+           text-align: left;
 
 
-          }
+            }
 
-          .divider {
-            border-top: 1px solid #6C86FE;
-            margin: 2px 0; /* Reduce gap above and below the line */
-          }
+            .divider {
+              border-top: 1px solid #6C86FE;
+              margin: 2px 0; /* Reduce gap above and below the line */
+            }
 
-          .includes-points {
-            list-style-type: none; /* Remove default list style */
-            padding: 0;
-            margin-top:-1rem;
+            .includes-points {
+              list-style-type: none; /* Remove default list style */
+              padding: 0;
+              margin-top:-1rem;
+                align-items: left; /* Align tick mark and text */
+              //styleName: Body 16pt;
+            font-family: "Open Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            height:100px;
+            }
+
+            .includes-points li {
+              display: flex;
               align-items: left; /* Align tick mark and text */
-            //styleName: Body 16pt;
-          font-family: "Open Sans", sans-serif;
-          font-size: 13px;
-          font-weight: 400;
-          line-height: 24px;
-          text-align: left;
-          height:100px;
-          }
+              //styleName: Body 16pt;
+            font-family: "Open Sans", sans-serif;
+              color:#0A1F44;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
 
-          .includes-points li {
-            display: flex;
-            align-items: left; /* Align tick mark and text */
-            //styleName: Body 16pt;
-          font-family: "Open Sans", sans-serif;
-            color:#0A1F44;
-          font-size: 13px;
-          font-weight: 400;
-          line-height: 24px;
-          text-align: left;
+            }
 
-          }
-
-          .tick-mark {
-            color: black;
-            font-size: 16px; /* Adjust the size if needed */
-            font-weight: normal; /* Ensure the tick is thin */
-            margin-right: 5px; /* Add some spacing between tick and text */
-          }
+            .tick-mark {
+              color: black;
+              font-size: 16px; /* Adjust the size if needed */
+              font-weight: normal; /* Ensure the tick is thin */
+              margin-right: 5px; /* Add some spacing between tick and text */
+            }
 </style>
 
 <script>
