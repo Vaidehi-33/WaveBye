@@ -146,6 +146,9 @@
     line-height: 16px;
     text-align: center;
     margin: 10px auto; /* Add space between image and title */
+    white-space: nowrap; /* Prevent word break */
+    overflow: hidden; /* Avoid content overflow */
+    text-overflow: ellipsis; /* Handle overflowed text with ellipsis */
   }
 
   .page-width {
@@ -197,5 +200,17 @@
 
   .dynamic-button:hover {
     opacity: 0.85;
+  }
+
+  /* Responsive Design */
+  @media screen and (max-width: 1480px) {
+    .notification-subtitle {
+      font-size: 16px; /* Adjust the font size to fit better */
+    }
+
+    .notification-wrapper {
+      flex-direction: column; /* Stack the blocks vertically on smaller screens */
+      align-items: center;
+    }
   }
 </style>
