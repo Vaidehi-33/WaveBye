@@ -79,7 +79,8 @@
           <div class="notification-block">
             <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.title }}">
             <h3 class="notification-subtitle">{{ block.settings.title }}</h3>
-            <p class="notification-msg">{{ block.settings.message }}</p>
+            <p class="notification-msg" style="text-align: justify;">{{ block.settings.message }}</p>
+            <!-- Apply justified alignment -->
           </div>
         {% endfor %}
       </div>
@@ -134,8 +135,8 @@
     color: #0A1F44D9; /* Message color */
     font-weight: 400;
     line-height: 18px;
-    text-align: center; /* Center align the message text */
-    max-width: 150px; /* Max width to constrain the message text */
+    text-align: justify; /* Full-width justified alignment */
+    max-width: 100%; /* Allow full width for the message text */
     margin: 0 auto; /* Center the message content */
   }
 
