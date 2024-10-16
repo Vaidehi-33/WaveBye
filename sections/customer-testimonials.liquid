@@ -4,9 +4,21 @@
 
 {% style %}
     .slider-container {
-      /* width: 85%; /* Set width for slider */ */
-      margin: 0 auto; /* Center the slider container */
-    }
+    width: 100%; /* Ensure slider container takes full width */
+    max-width: 1200px; /* Set max-width to ensure proper spacing */
+    margin: 0 auto; /* Center the slider container */
+  }
+
+  .multicolumn-list__item {
+    width: 100%; /* Let Slick JS handle slide width */
+  }
+
+  .multicolumn-card {
+    width: 100%;
+    max-width: 370px; /* Limit the card's width */
+    margin: 0 auto; /* Center the cards */
+  }
+
     .multicolumn-card p {
       font-size: 13px;
       line-height:16px;
@@ -28,6 +40,9 @@
       color: {{ section.settings.star_color }};
     }
     .multicolumn-card {
+        width: 100%;
+    max-width: 370px; /* Limit the card's width */
+    margin: 0 auto; /* Center the cards */
       background: {{ section.settings.testimonial_background }};
       padding: 20px;
       background-color:#FFFEF9;
@@ -37,8 +52,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
-      height: 100%; /* Make the card take the full height */
-      width
     }
     .multicolumn-card__info {
       display: flex;
@@ -99,11 +112,11 @@
     .slick-dots li.slick-active button:before {
       color: #1d1d1d; /* Active dot color */
     }
-    /* @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
       .multicolumn-list__item.slider__slide {
         width: 90%; /* Adjust width for smaller screens */
       }
-    } */
+    }
 {% endstyle %}
 
 <div class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
@@ -174,39 +187,32 @@
 <!-- Initialize Slick Slider -->
 <script>
     $(document).ready(function(){
-      $('#Slider-{{ section.id }}').slick({
-        slidesToShow: 3,  // Show 3 testimonials at once
-        slidesToScroll: 1,
-        arrows: false,     // Remove next/prev buttons
-        dots: true,        // Enable dots
-        infinite: true,    // Infinite scrolling
-        responsive: [
-  {
-         breakpoint: 1462,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        },
-        {
-          breakpoint: 640,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false
-          }
+  $('#Slider-{{ section.id }}').slick({
+    slidesToShow: 3,  // Show 3 testimonials at once
+    slidesToScroll: 1,
+    arrows: false,     // Remove next/prev buttons
+    dots: true,        // Enable dots
+    infinite: true,    // Infinite scrolling
+    centerMode: true,  // Ensure centering of items
+    centerPadding: '0px', // Disable extra padding for centering
+    responsive: [
+      {
+        breakpoint: 1489,
+        settings: {
+          slidesToShow: 2, // Show 2 testimonials at a slightly smaller width
+          slidesToScroll: 1
         }
-        ]
-      });
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1, // Show 1 testimonial on smaller screens
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
     });
 </script>
 
