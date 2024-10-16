@@ -135,7 +135,7 @@
     line-height: 18px;
     text-align: center;
     max-width: 150px;
-    margin: 0 auto; /* Ensure it's centered within its block */
+    margin: 10px auto; /* Add space between title and message */
   }
 
   .notification-subtitle {
@@ -145,7 +145,7 @@
     font-weight: 600;
     line-height: 16px;
     text-align: center;
-    margin: 0 auto; /* Ensure it's centered within its block */
+    margin: 10px auto; /* Add space between image and title */
   }
 
   .page-width {
@@ -164,19 +164,21 @@
 
   .notification-block {
     flex: 1 1 calc(20% - 10px);
-    padding: 5px;
+    padding: 20px; /* Add equal padding to each block */
     border-radius: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center; /* Align children horizontally to the center */
-    justify-content: center; /* Align children vertically to the center */
+    justify-content: flex-start; /* Align children to start vertically */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add slight shadow for visual balance */
   }
 
   .notification-block img {
     max-width: 80%;
     border-radius: 5px;
     height: 53.07px;
+    margin-bottom: 15px; /* Add space between image and title */
   }
 
   .button-wrapper {
