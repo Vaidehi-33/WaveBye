@@ -3,130 +3,144 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 {% style %}
-    .p-testimonials{
-          font-family: Outfit, sans-serif !important;
+  .p-testimonials {
+      font-family: Outfit, sans-serif !important;
       font-weight: 500 !important;
       font-size: 16px !important;
-  color: #0a1f44;
+      color: #0a1f44;
       margin-top: -20px;
-    }
-    .slick-track {
+  }
+
+  .slick-track {
       margin-bottom: 4rem;
-    }
-    .testimonials-title{
-          font-size: 36px;
-          font-family: "Outfit", sans-serif;
-          color: #0a1f44 !important;
-          font-weight: 600;
-    }
+  }
 
-      .slider-container {
-        /* width: 85%; /* Set width for slider */ */
-        margin: 0 auto; /* Center the slider container */
-      }
-      .multicolumn-card p {
-        color: #0A1F44D9;
-        font-size: 13px;
-        line-height:16px;
-        font-family: "Open Sans", sans-serif;
-        margin-bottom:1.5rem;
-      }
-      .multicolumn-card h3 {
-        color: #0a1f44;
-        font-size: 13px;
-        font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-      }
-      .multicolumn {
-        padding: 30px 0px;
-        background: {{ section.settings.testimonial_section_background }};
-        text-align: left; /* Align all text in the section to the left */
-      }
-      .reviews {
-        margin-bottom:1.5rem;
-        color: {{ section.settings.star_color }};
-      }
-      .multicolumn-card {
-        background: {{ section.settings.testimonial_background }};
-        padding: 20px;
-        background-color:#FFFEF9;
-        border: 1px solid #6C86FE;
-        box-shadow: none;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
-        height: 100%; /* Make the card take the full height */
-        width
-      }
-      .multicolumn-card__info {
-        display: flex;
-        flex-direction: row; /* Align image and text horizontally */
-        align-items: center; /* Vertically align items */
-        margin-top: auto; /* Push to the bottom */
-      }
-      .multicolumn-card__image-wrapper {
-        margin-right: 20px; /* Space between image and text */
-      }
-      .multicolumn-card__image {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-      }
-      .multicolumn-card__image img {
-        width: 100%;
-        height: auto;
-      }
-      .multicolumn-card__text {
-        display: flex;
-        flex-direction: column; /* Stack name and verified buyer vertically */
-      }
-    .verified-buyer {
-        color: #5271FF; /* Verified buyer color */
-        font-style: italic; /* Italic style */
-        margin-top: -10px;
-            font-family: "Open Sans", sans-serif;
-      font-weight:500;
-      font-size:12px;
+  .testimonials-title {
+      font-size: 36px;
+      font-family: "Outfit", sans-serif;
+      color: #0a1f44 !important;
+      font-weight: 600;
+  }
 
-    }
+  .slider-container {
+      margin: 0 auto; /* Center the slider container */
+  }
 
-    .verified-buyer::after {
-        content: '\2714';              /* Unicode character for the checkmark */
-        display: inline-block;
-        width: 17px;                   /* Circle size */
-        height: 17px;                  /* Circle size */
-        background-color: #5271FF;     /* Blue background */
-        border-radius: 50%;            /* Make it circular */
-        color: white;                  /* White tick */
-        font-size: 12px;               /* Tick size */
-        font-weight: bold;             /* Bold tick */
-        text-align: center;
-        line-height: 16px;             /* Vertically center the tick */
-        margin-left: 5px;              /* Space between text and badge */
-    }
+  .multicolumn-card p {
+      color: #0A1F44D9;
+      font-size: 13px;
+      line-height: 16px;
+      font-family: "Open Sans", sans-serif;
+      margin-bottom: 1.5rem;
+  }
 
+  .multicolumn-card h3 {
+      color: #0a1f44;
+      font-size: 13px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: bold;
+  }
 
-      .slider__slide {
-        margin: 0 15px; /* Space between slides */
-      }
-      .slick-dots {
-        text-align: center;
-        margin-top: 30px;
-      }
-      .slick-dots li button:before {
-        font-size: 12px;
-        color: #000; /* Dot color */
-      }
-      .slick-dots li.slick-active button:before {
-        color: #1d1d1d; /* Active dot color */
-      }
-      @media only screen and (max-width: 800px) {
-        .multicolumn-list__item.slider__slide {
+  .multicolumn {
+      padding: 30px 0px;
+      background: {{ section.settings.testimonial_section_background }};
+      text-align: left; /* Align all text in the section to the left */
+  }
+
+  .reviews {
+      margin-bottom: 1.5rem;
+      color: {{ section.settings.star_color }};
+  }
+
+  .multicolumn-card {
+      background: {{ section.settings.testimonial_background }};
+      padding: 20px;
+      background-color: #FFFEF9;
+      border: 1px solid #6C86FE;
+      box-shadow: none;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Spread content evenly, pushing name to the bottom */
+      height: 100%; /* Make the card take the full height */
+      width: 100%; /* Set the width to 100% */
+  }
+
+  .multicolumn-card__info {
+      display: flex;
+      flex-direction: row; /* Align image and text horizontally */
+      align-items: center; /* Vertically align items */
+      margin-top: auto; /* Push to the bottom */
+  }
+
+  .multicolumn-card__image-wrapper {
+      margin-right: 20px; /* Space between image and text */
+  }
+
+  .multicolumn-card__image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+  }
+
+  .multicolumn-card__image img {
+      width: 100%;
+      height: auto;
+  }
+
+  .multicolumn-card__text {
+      display: flex;
+      flex-direction: column; /* Stack name and verified buyer vertically */
+  }
+
+  .verified-buyer {
+      color: #5271FF; /* Verified buyer color */
+      font-style: italic; /* Italic style */
+      margin-top: -10px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+  }
+
+  .verified-buyer::after {
+      content: '\2714'; /* Unicode character for the checkmark */
+      display: inline-block;
+      width: 17px; /* Circle size */
+      height: 17px; /* Circle size */
+      background-color: #5271FF; /* Blue background */
+      border-radius: 50%; /* Make it circular */
+      color: white; /* White tick */
+      font-size: 12px; /* Tick size */
+      font-weight: bold; /* Bold tick */
+      text-align: center;
+      line-height: 16px; /* Vertically center the tick */
+      margin-left: 5px; /* Space between text and badge */
+  }
+
+  .slider__slide {
+      margin: 0 15px; /* Space between slides */
+  }
+
+  .slick-dots {
+      text-align: center;
+      margin-top: 30px;
+  }
+
+  .slick-dots li button:before {
+      font-size: 12px;
+      color: #000; /* Dot color */
+  }
+
+  .slick-dots li.slick-active button:before {
+      color: #1d1d1d; /* Active dot color */
+  }
+
+  @media only screen and (max-width: 800px) {
+      .multicolumn-list__item.slider__slide {
           width: 90%; /* Adjust width for smaller screens */
-        }
       }
+  }
 {% endstyle %}
 
 <div class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
@@ -180,7 +194,6 @@
                   {% endif %}
                   {% if block.settings.verified_buyer %}
                     <div class="verified-buyer">Verified Buyer</div>
-                    <!-- Verified Buyer directly below name -->
                   {% endif %}
                 </div>
               </div>
@@ -203,6 +216,7 @@
       arrows: false,     // Remove next/prev buttons
       dots: true,        // Enable dots
       infinite: true,    // Infinite scrolling
+      centerMode: false, // Disable center mode for even distribution
       responsive: [
         {
           breakpoint: 768, // Mobile settings
@@ -226,22 +240,25 @@
     { "type": "select", "id": "heading_alignment", "options": [{"value": "left", "label": "Left"},{"value": "center", "label": "Center"}], "default": "left", "label": "Heading Alignment" },
     { "type": "color", "id": "star_color", "label": "Star Color", "default": "#ffcc33" },
     { "type": "color", "id": "testimonial_background", "label": "Testimonial Background", "default": "#ffffff" },
-    { "type": "color", "id": "testimonial_section_background", "label": "Section Background", "default": "#eaeaea" }
+    { "type": "color", "id": "testimonial_section_background", "label": "Testimonial Section Background", "default": "#ffffff" }
   ],
   "blocks": [
     {
-      "type": "column",
-      "name": "Customer",
+      "type": "testimonial",
+      "name": "Testimonial",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Customer Image" },
-        { "type": "text", "id": "title", "default": "Customer Name", "label": "Customer Name" },
-        { "type": "richtext", "id": "text", "default": "<p>Testimonial text here</p>", "label": "Customer Testimonial" },
-        { "type": "select", "id": "stars_count", "options": [{"value": "5","label": "5"},{"value": "4.5","label": "4.5"},{"value": "4","label": "4"},{"value": "3","label": "3"}], "default": "5", "label": "Stars Count" },
-        { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Show Review Stars" },
-        { "type": "checkbox", "id": "verified_buyer", "default": true, "label": "Is this customer a verified buyer?" } // New setting for verified buyer
+        { "type": "text", "id": "title", "label": "Name" },
+        { "type": "textarea", "id": "text", "label": "Testimonial Text" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "checkbox", "id": "toggle_review_stars", "default": true, "label": "Display Stars" },
+        { "type": "number", "id": "stars_count", "default": 5, "label": "Stars Count" },
+        { "type": "checkbox", "id": "verified_buyer", "label": "Verified Buyer" }
       ]
     }
   ],
-  "presets": [{ "name": "Testimonials", "category": "Testimonials" }]
+  "presets": [{
+    "name": "Testimonials",
+    "category": "Custom"
+  }]
 }
 {% endschema %}
