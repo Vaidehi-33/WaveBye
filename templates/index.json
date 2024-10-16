@@ -89,6 +89,19 @@
             "point_5": ""
           }
         },
+        "product_card_AKGAd8": {
+          "type": "product_card",
+          "settings": {
+            "product": "cadbury-bournville",
+            "small_title": "Bye Cramps",
+            "subtitle": "Hello, relief!",
+            "point_1": "Vit E box & Irregularity box",
+            "point_2": "Safe while trying to get pregnant",
+            "point_3": "Hormone-free",
+            "point_4": "",
+            "point_5": ""
+          }
+        },
         "product_card_JW7Fbn": {
           "type": "product_card",
           "settings": {
@@ -119,6 +132,7 @@
       "block_order": [
         "product_card_nwieGB",
         "product_card_nT7HNd",
+        "product_card_AKGAd8",
         "product_card_JW7Fbn",
         "product_card_wQJpqU"
       ],
