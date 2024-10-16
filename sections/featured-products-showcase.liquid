@@ -5,109 +5,116 @@
   <div class="products-grid">
     <div class="product-item">
       {% if section.settings.image_1 %}
-        <img 
-          src="{{ section.settings.image_1 | img_url: 'medium' }}" 
-          alt="{{ section.settings.image_1_name }}" 
-          width="{{ section.settings.image_1 | image_width: 'medium' }}" 
+        <img
+          src="{{ section.settings.image_1 | img_url: 'medium' }}"
+          alt="{{ section.settings.image_1_name }}"
+          width="{{ section.settings.image_1 | image_width: 'medium' }}"
           height="{{ section.settings.image_1 | image_height: 'medium' }}"
         >
       {% else %}
         <p>No Image Available</p>
       {% endif %}
       <div class="product-content">
-      <h3 class="image-h3">{{ section.settings.image_1_name }}</h3>
-      <p class="image-p">{{ section.settings.image_1_description }}</p> </div>
-      
+        <h3 class="image-h3">{{ section.settings.image_1_name }}</h3>
+        <p class="image-p">{{ section.settings.image_1_description }}</p>
+      </div>
     </div>
 
     <div class="product-item">
       {% if section.settings.image_2 %}
-        <img 
-          src="{{ section.settings.image_2 | img_url: 'medium' }}" 
-          alt="{{ section.settings.image_2_name }}" 
-          width="{{ section.settings.image_2 | image_width: 'medium' }}" 
+        <img
+          src="{{ section.settings.image_2 | img_url: 'medium' }}"
+          alt="{{ section.settings.image_2_name }}"
+          width="{{ section.settings.image_2 | image_width: 'medium' }}"
           height="{{ section.settings.image_2 | image_height: 'medium' }}"
         >
       {% else %}
         <p>No Image Available</p>
       {% endif %}
       <div class="product-content">
-      <h3 class="image-h3">{{ section.settings.image_2_name }}</h3>
-      <p class="image-p">{{ section.settings.image_2_description }}</p></div>
+        <h3 class="image-h3">{{ section.settings.image_2_name }}</h3>
+        <p class="image-p">{{ section.settings.image_2_description }}</p>
+      </div>
     </div>
 
     <div class="product-item">
       {% if section.settings.image_3 %}
-        <img 
-          src="{{ section.settings.image_3 | img_url: 'medium' }}" 
-          alt="{{ section.settings.image_3_name }}" 
-          width="{{ section.settings.image_3 | image_width: 'medium' }}" 
+        <img
+          src="{{ section.settings.image_3 | img_url: 'medium' }}"
+          alt="{{ section.settings.image_3_name }}"
+          width="{{ section.settings.image_3 | image_width: 'medium' }}"
           height="{{ section.settings.image_3 | image_height: 'medium' }}"
         >
       {% else %}
         <p class="image-p">No Image Available</p>
       {% endif %}
       <div class="product-content">
-      <h3 class="image-h3">{{ section.settings.image_3_name }}</h3>
-      <p class="image-p">{{ section.settings.image_3_description }}</p></div>
+        <h3 class="image-h3">{{ section.settings.image_3_name }}</h3>
+        <p class="image-p">{{ section.settings.image_3_description }}</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
+  .product-content{
+    align-items:center;
+    margin-left:100px;
+  }
 
-.product-content{
-  align-items:center;
-  margin-left:100px;
-}
+  .product-showcase {
+    text-align: center;
+    /* padding: 3rem 12rem; */
+  }
 
-.product-showcase {
-  text-align: center;
-  /* padding: 3rem 12rem; */
-}
+  .main-head{
+    font-size: 34px;
+    margin: 40px;
+    color: #0A1F44;
+      font-weight: 1000;
+    text-shadow: 1px 1px 0 #0A1F44;
+  }
 
-.main-head{
-  font-size: 34px;
-  margin: 40px;
-  color: #0A1F44;
-    font-weight: 1000;
-  text-shadow: 1px 1px 0 #0A1F44;
-}
+  .products-grid {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.products-grid {
-  display: flex;
-  justify-content: space-between;
-}
+  .product-item {
+    width: 80%;
+    text-align: center;
+  }
 
-.product-item {
-  width: 80%;
-  text-align: center;
-}
+  .product-item img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 15px;
+  }
 
-.product-item img {
-  width: 70%;
-  height: auto;
-  margin-bottom: 15px;
-}
+  .image-h3 {
+    font-size: 17px;
+    font-weight:600;
+    margin-bottom: 10px;
+    color: #6C86FE;
+    max-width:200px;
+    font-family:Open Sans;
+  }
 
-.image-h3 {
-  font-size: 17px;
-  font-weight:600;
-  margin-bottom: 10px;
-  color: #6C86FE;
-  max-width:200px;
-  font-family:Open Sans;
-}
+  .image-p {
+    font-size: 13px;
+    color: #0A1F44;
+    font-family:Open Sans;
+      letter-spacing: -0.5px;
+      max-width: 200px;
+  }
 
-.image-p {
-  font-size: 13px;
-  color: #0A1F44;
-  font-family:Open Sans;
-    letter-spacing: -0.5px;
-    max-width: 200px;
+  @media (max-width: 575px) {
+    .main-head{
+    font-size: 2rem;
 
+  }
 
-}
+  }
 </style>
 
 {% schema %}
