@@ -101,165 +101,104 @@
 
 <style>
             html {
-    scroll-behavior: smooth;
-  }
+            scroll-behavior: smooth;
+          }
 
-  .background-wrapper {
-    padding: 20px 0;
-    background-color: #FFFEF9; /* Background color behind the section */
-  }
+          .background-wrapper {
+            padding: 20px 0;
+            background-color: #FFFEF9; /* Background color behind the section */
+          }
 
-  .notification-section {
-    padding: 80px 0;
-    border-radius: 5px;
-    background-color: #EEF1FF; /* Section background color */
-    box-shadow: 2px 4px 10px #8E8E8E09; /* Add shadow to the entire section */
-  }
+          .notification-section {
+            padding: 80px 0;
+            border-radius: 5px;
+            background-color: #EEF1FF; /* Section background color */
+            box-shadow: 2px 4px 10px #8E8E8E09; /* Add shadow to the entire section */
+          }
 
-  .section-heading {
-    font-size: 36px;
-    max-width: 450px;
-    font-family: "Outfit", sans-serif;
-    font-weight: 600;
-    line-height: 48px;
-    text-align: center;
-    color: #0A1F44D9;
-    margin: 0 auto 50px auto; /* Center the heading with bottom margin */
-  }
+          .section-heading {
+            //styleName: HL1 48pt;
+      font-size: 48px;
+            max-width: 450px;
+        font-family: "Outfit", sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 48px;
+            text-align: center;
+            color: #0A1F44D9;
+            margin-bottom: 20px;
+            margin: 0 auto 50px auto; /* Center the heading and keep bottom margin */
+          }
 
-  .notification-msg {
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px;
-    color: #0A1F44D9;
-    font-weight: 400;
-    line-height: 18px;
-    text-align: center;
-    max-width: 150px;
-  }
+            .notification-msg{
+              //styleName: Text/Regular/Normal - Paragraph;
+  font-family: "Open sans", sans-serif;
+              font-size: 13px;
+              color: #0A1F44D9;
+          font-weight: 400;
+          line-height: 18px;
+          text-align: center;
+          max-width: 150px
+            }
 
-  .notification-subtitle {
-    color: #0A1F44D9;
-    font-family: "Outfit", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 16px;
-    text-align: center;
-  }
+            .notification-subtitle{
+              color: #0A1F44D9;
+        font-family: "Outfit", sans-serif;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 16px;
+          text-align: center;
 
-  .page-width {
-    max-width: 1500px;
-    padding: 0 20px;
-  }
+            }
+          .page-width {
+            max-width: 1500px;
+            padding: 0 20px;
+            /* margin:30px; */
+          }
 
-  .notification-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 110px;
-    margin-right: 110px;
-    gap: 10px;
-  }
+          .notification-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+                margin-left: 110px;
+              margin-right: 110px;
+              gap: 10px;
+          }
 
-  .notification-block {
-    flex: 1 1 calc(20% - 10px);
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
-  }
+          .notification-block {
+            flex: 1 1 calc(20% - 10px);
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+          }
 
-  .notification-block img {
-    max-width: 80%;
-    border-radius: 5px;
-    height: 53.07px;
-    top: 2.47px;
-    gap: 0px;
-    opacity: 0px;
-  }
+          .notification-block img {
+            max-width: 80%;
+            border-radius: 5px;
+          height: 53.07px;
+          top: 2.47px;
+          gap: 0px;
+          opacity: 0px;
 
-  .button-wrapper {
-    text-align: center;
-    margin-top: 20px;
-  }
+          }
 
-  .dynamic-button {
-    padding: 10px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 1000;
-    font-size: 12px;
-    transition: background-color 0.3s ease;
-    font-family: Open Sans;
-  }
+          /* Button styling */
+          .button-wrapper {
+            text-align: center;
+            margin-top: 20px;
+          }
 
-  .dynamic-button:hover {
-    opacity: 0.85;
-  }
+          .dynamic-button {
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 1000;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+            font-family:Open Sans;
+          }
 
-  /* Media queries for responsiveness */
-
-  /* For smaller tablets and mobile devices */
-  @media (max-width: 1024px) {
-    .notification-wrapper {
-      margin-left: 50px;
-      margin-right: 50px;
-      gap: 15px;
-    }
-
-    .notification-block {
-      flex: 1 1 calc(30% - 15px);
-    }
-
-    .section-heading {
-      font-size: 32px;
-      line-height: 40px;
-    }
-
-    .dynamic-button {
-      font-size: 10px;
-      padding: 8px 20px;
-    }
-  }
-
-  /* For mobile devices with smaller screens */
-  @media (max-width: 768px) {
-    .notification-wrapper {
-      margin-left: 20px;
-      margin-right: 20px;
-      gap: 20px;
-      flex-direction: column; /* Stack the blocks vertically */
-    }
-
-    .notification-block {
-      flex: 1 1 100%;
-      margin-bottom: 20px; /* Add spacing between blocks */
-    }
-
-    .section-heading {
-      font-size: 28px;
-      line-height: 36px;
-    }
-
-    .dynamic-button {
-      font-size: 12px;
-      padding: 10px 25px;
-    }
-  }
-
-  /* For very small mobile devices */
-  @media (max-width: 480px) {
-    .notification-wrapper {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-    .section-heading {
-      font-size: 24px;
-      line-height: 32px;
-    }
-
-    .dynamic-button {
-      font-size: 10px;
-      padding: 8px 20px;
-    }
-  }
+          .dynamic-button:hover {
+            opacity: 0.85;
+          }
 </style>
