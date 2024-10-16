@@ -758,7 +758,6 @@ summary::-webkit-details-marker {
   outline: 0 !important;
   padding: 2rem 18rem;
 }
-
 @media (max-width: 575px) {
     .focus-none {
         box-shadow: none !important;
@@ -781,8 +780,6 @@ summary::-webkit-details-marker {
         padding: 2rem 1rem ;
       }
 }
-
-
 
 .focus-offset:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
