@@ -207,191 +207,193 @@
 </div>
 
 <style>
-              .custom-subheading{
-              text-align:left;
-              margin: 5px 0 20px 0;
-               font-family: "Open Sans", sans-serif;
-                      font-weight: 400;
+                .custom-subheading{
+                text-align:left;
+                margin: 5px 0 20px 0;
+                 font-family: "Open Sans", sans-serif;
+                        font-weight: 400;
 
 
-              }
+                }
 
-                .custom-card-heading{
-                  margin: 5px auto;
-                  font-weight: 600;
-                  font-family: 'Outfit', sans-serif;
+                  .custom-card-heading{
+                    margin: 5px auto;
+                    font-weight: 600;
+                    font-family: 'Outfit', sans-serif;
+                    text-align: center;
+                    max-width: 600px;
+                  }
+
+                .small_title {
+                //styleName: Hl2 24pt;
+                font-family: 'Outfit', sans-serif;
+                font-weight: 550;
+                line-height: 25px;
+                text-align: left;
+                  font-size:18px;
+                  height:50px;
+
+                }
+                  .subtitle{
+                    //styleName: Body Small 14pt;
+                font-family: "Open Sans", sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 21px;
+                text-align: left;
+                margin-top:-2rem;
+                  }
+
+                  .includes{
+                    font-family:"Open Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          text-align: left;
+
+                  }
+
+                .custom-products {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center; /* Center items horizontally */
                   text-align: center;
-                  max-width: 600px;
+                  background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
+                  padding: 60px; /* Optional: add padding */
+                  border-radius: 10px; /* Optional: add rounded corners */
                 }
 
-              .small_title {
-              //styleName: Hl2 24pt;
-              font-family: 'Outfit', sans-serif;
-              font-weight: 550;
-              line-height: 25px;
-              text-align: left;
-                font-size:18px;
-                height:50px;
-
-              }
-                .subtitle{
-                  //styleName: Body Small 14pt;
-              font-family: "Open Sans", sans-serif;
-              font-size: 12px;
-              font-weight: 400;
-              line-height: 21px;
-              text-align: left;
-              margin-top:-2rem;
+                .stars {
+                  font-size: 30px; /* Custom font size for stars */
+                  margin-bottom: 5px; /* Reduced space below stars */
                 }
 
-                .includes{
-                  font-family:"Open Sans", sans-serif;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 24px;
-        text-align: left;
-
-                }
-
-              .custom-products {
-                display: flex;
-                flex-direction: column;
-                align-items: center; /* Center items horizontally */
-                text-align: center;
-                background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); /* Gradient background */
-                padding: 60px; /* Optional: add padding */
-                border-radius: 10px; /* Optional: add rounded corners */
-              }
-
-              .stars {
-                font-size: 30px; /* Custom font size for stars */
-                margin-bottom: 5px; /* Reduced space below stars */
-              }
-
-              .grid {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-              }
+  .grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   .product-card {
-    flex: 0 0 240px; /* Fix the width to 240px */
-    width: 240px; /* Make sure the width is consistent */
+    flex: 0 0 240px; /* Keep the product cards at 240px width */
+    width: 240px;
     background-color: #FFFEF9;
     border: 1px solid #6C86FE;
     border-radius: 5px;
     padding: 20px;
     text-align: center;
-    margin: 0 10px; /* Add space between the cards */
+    margin: 10px; /* Space between product cards */
   }
 
 
-              .product-image {
-                display: block;
-                margin: 0 auto 10px; /* Center the image */
-                max-width: 100%; /* Ensure the image fits within the card */
-                height: auto; /* Maintain the image aspect ratio */
-              }
+                .product-image {
+                  display: block;
+                  margin: 0 auto 10px; /* Center the image */
+                  max-width: 100%; /* Ensure the image fits within the card */
+                  height: auto; /* Maintain the image aspect ratio */
+                }
 
-              .product-name {
-                font-size: 16px; /* Set product name font size */
-                margin: 2px 0; /* Adjust margin */
-                text-align:left;
+                .product-name {
+                  font-size: 16px; /* Set product name font size */
+                  margin: 2px 0; /* Adjust margin */
+                  text-align:left;
+                  font-family: "Open Sans", sans-serif;
+              font-optical-sizing: auto;
+              font-weight: 700;  /* Use 700 for bold */
+              font-style: normal;
+              text-transform: uppercase;
+            line-height: 29.73px;
+            letter-spacing: 0.2em;
+        height:35px;
+
+                }
+
+                .product-price {
+                  font-size: 38px; /* Set product price font size */
+                  margin: 2px 0; /* Reduce gap above and below the line */
+                  text-align:left;
+                font-family: 'Outfit', regular;
+               font-weight: 600;
+               line-height: 48px;
+               text-align: left;
+
+
+                }
+
+                .divider {
+                  border-top: 1px solid #6C86FE;
+                  margin: 2px 0; /* Reduce gap above and below the line */
+                }
+
+                .includes-points {
+                  list-style-type: none; /* Remove default list style */
+                  padding: 0;
+                  margin-top:-1rem;
+                    align-items: left; /* Align tick mark and text */
+                  //styleName: Body 16pt;
                 font-family: "Open Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 700;  /* Use 700 for bold */
-            font-style: normal;
-            text-transform: uppercase;
-          line-height: 29.73px;
-          letter-spacing: 0.2em;
-      height:35px;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+                height:100px;
+                }
 
-              }
-
-              .product-price {
-                font-size: 38px; /* Set product price font size */
-                margin: 2px 0; /* Reduce gap above and below the line */
-                text-align:left;
-              font-family: 'Outfit', regular;
-             font-weight: 600;
-             line-height: 48px;
-             text-align: left;
-
-
-              }
-
-              .divider {
-                border-top: 1px solid #6C86FE;
-                margin: 2px 0; /* Reduce gap above and below the line */
-              }
-
-              .includes-points {
-                list-style-type: none; /* Remove default list style */
-                padding: 0;
-                margin-top:-1rem;
+                .includes-points li {
+                  display: flex;
                   align-items: left; /* Align tick mark and text */
-                //styleName: Body 16pt;
-              font-family: "Open Sans", sans-serif;
-              font-size: 13px;
-              font-weight: 400;
-              line-height: 24px;
-              text-align: left;
-              height:100px;
-              }
+                  //styleName: Body 16pt;
+                font-family: "Open Sans", sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
 
-              .includes-points li {
-                display: flex;
-                align-items: left; /* Align tick mark and text */
-                //styleName: Body 16pt;
-              font-family: "Open Sans", sans-serif;
-              font-size: 13px;
-              font-weight: 400;
-              line-height: 24px;
-              text-align: left;
+                }
 
-              }
+                .tick-mark {
+                  color: black;
+                  font-size: 16px; /* Adjust the size if needed */
+                  font-weight: normal; /* Ensure the tick is thin */
+                  margin-right: 5px; /* Add some spacing between tick and text */
+                }
 
-              .tick-mark {
-                color: black;
-                font-size: 16px; /* Adjust the size if needed */
-                font-weight: normal; /* Ensure the tick is thin */
-                margin-right: 5px; /* Add some spacing between tick and text */
-              }
-     .grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow: hidden; /* Hide overflow when the slider is active */
-  }
 
   @media (max-width: 1155px) {
     .grid {
-      justify-content: flex-start; /* Ensure products align correctly within the slider */
+      display: flex;      /* Ensure the products are displayed in a row */
+      flex-wrap: nowrap;  /* Prevent the items from wrapping */
+      overflow: hidden;   /* Hide any overflow to keep the slider clean */
+    }
+
+    .product-card {
+      flex: 0 0 240px; /* Maintain a consistent width for each card */
+      margin: 0 10px;  /* Keep the spacing between the cards */
     }
   }
 </style>
 
 <script>
-   function initProductSlider() {
+    function initProductSlider() {
     if (window.innerWidth < 1155) {
       if (!$('.grid').hasClass('slick-initialized')) {
         $('.grid').slick({
-          slidesToShow: 3,   // Display 3 cards at a time
-          slidesToScroll: 1, // Scroll one card at a time
-          dots: true,        // Enable dots for navigation
+          slidesToShow: 3,   // Show 3 cards at a time for medium screens
+          slidesToScroll: 1,
+          dots: true,        // Enable navigation dots
           arrows: true,      // Enable navigation arrows
-          infinite: false,   // Disable infinite scroll to avoid distortion
+          infinite: false,   // Disable infinite scroll for better control
           responsive: [
             {
               breakpoint: 768,
               settings: {
-                slidesToShow: 2,  // Show 2 cards for tablet sizes
+                slidesToShow: 2,  // Show 2 cards on tablet
               }
             },
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,  // Show 1 card for mobile sizes
+                slidesToShow: 1,  // Show 1 card on mobile
               }
             }
           ]
@@ -399,11 +401,18 @@
       }
     } else {
       if ($('.grid').hasClass('slick-initialized')) {
-        $('.grid').slick('unslick');  // Destroy the slider on larger screens
+        $('.grid').slick('unslick'); // Destroy the slider when above 1155px
       }
     }
   }
 
+  $(document).ready(function() {
+    initProductSlider();  // Initialize on page load
+
+    $(window).resize(function() {
+      initProductSlider();  // Reinitialize on window resize
+    });
+  });
   $(document).ready(function() {
     initProductSlider();  // Initialize on page load
 
