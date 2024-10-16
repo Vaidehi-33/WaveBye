@@ -129,16 +129,14 @@
   ]
 }
 {% endschema %}
-
 <div
   class="custom-products-wrapper"
-  style="background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); width: 100vw; margin-left: calc(-50vw + 50%);"
 >
   <div
     class="custom-products"
     style="margin-top: {{ section.settings.gap_above }}px; margin-bottom: {{ section.settings.gap_below }}px;"
   >
-    <div class="stars" style="color: {{ section.settings.star_color }};">★★★★★</div>
+    <!-- <div class="stars" style="color: {{ section.settings.star_color }};">★★★★★</div> -->
     <h2
       class="custom-card-heading"
       style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_font_size }}px"
@@ -157,43 +155,48 @@
       {%- for block in section.blocks -%}
         {%- assign product = block.settings.product -%}
         <div class="product-card">
-          <form method="post" action="/cart/add" class="ajax-add-to-cart">
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <!-- Wrap product image and name with a link to the product page -->
+          <a href="{{ product.url }}" class="product-link" style="text-decoration: none; color: inherit;">
             <img
               src="{{ product.featured_image | img_url: '240x240' }}"
               alt="{{ product.title }}"
               class="product-image"
             >
-
             <h3 class="product-name">{{ block.settings.small_title }}</h3>
-            <p class="product-price">
-              <strong>{{ product.price | money }}</strong>
-            </p>
-            <hr class="divider">
-            <h4 class="small_title">{{ product.title }}</h4>
-            <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
-            <p class="includes">Includes:</p>
-            <ul class="includes-points">
-              {%- for i in (1..5) -%}
-                {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
-                {%- assign point = block.settings[point_key] -%}
-                {%- if point != blank -%}
-                  <li>
-                    {%- if i == 1 -%}
-                      {{ point }}
-                      <!-- No tick for the first point -->
-                    {%- else -%}
-                      <span class="tick-mark">✓</span> {{ point }}
-                      <!-- Black thin tick for other points -->
-                    {%- endif -%}
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
+          </a>
+          <p class="product-price">
+            <strong>{{ product.price | money }}</strong>
+          </p>
+          <hr class="divider">
+          <h4 class="small_title">{{ product.title }}</h4>
+          <h5 class="subtitle">{{ block.settings.subtitle }}</h5>
+          <p class="includes">Includes:</p>
+          <ul class="includes-points">
+            {%- for i in (1..5) -%}
+              {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
+              {%- assign point = block.settings[point_key] -%}
+              {%- if point != blank -%}
+                <li>
+                  {%- if i == 1 -%}
+                    {{ point }}
+                    <!-- No tick for the first point -->
+                  {%- else -%}
+                    <span class="tick-mark">✓</span> {{ point }}
+                    <!-- Black thin tick for other points -->
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          <form method="post" action="/cart/add" class="ajax-add-to-cart">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             <button
               class="addtocart"
               type="submit"
-              style="background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none;"
+              style="
+                font-family: Open Sans, sans-serif;
+                font-weight: 700;background-color: #6C86FE; border-radius: 30px; color: #FFFEF9; padding: 6px 30px; border: none; margin:1rem;
+              "
             >
               Add to Cart
             </button>
@@ -205,24 +208,28 @@
 </div>
 
 <style>
+  .custom-products-wrapper{
+    background: linear-gradient(180deg, rgba(255, 254, 249, 0.15) 0%, rgba(108, 134, 254, 0.15) 100%); width: 99.4vw; margin-left: calc(-50vw + 50%);
+  }
           .custom-subheading{
+            color:#0A1F44D9;
           text-align:left;
           margin: 5px 0 20px 0;
-           font-family: "Open Sans", sans-serif;
-                  font-weight: 400;
-
-
+        font-family: 'Outfit', sans-serif;
+  font-weight: 500;
           }
 
             .custom-card-heading{
               margin: 5px auto;
               font-weight: 600;
               font-family: 'Outfit', sans-serif;
+              color:#0A1F44;
               text-align: center;
               max-width: 600px;
             }
 
           .small_title {
+            color:#0A1F44;
           //styleName: Hl2 24pt;
           font-family: 'Outfit', sans-serif;
           font-weight: 550;
@@ -233,9 +240,10 @@
 
           }
             .subtitle{
+              color:#0A1F44;
               //styleName: Body Small 14pt;
           font-family: "Open Sans", sans-serif;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 400;
           line-height: 21px;
           text-align: left;
@@ -243,6 +251,7 @@
             }
 
             .includes{
+              color:#0A1F44;
               font-family:"Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -293,6 +302,7 @@
             margin: 2px 0; /* Adjust margin */
             text-align:left;
             font-family: "Open Sans", sans-serif;
+            color:#0A1F44;
         font-optical-sizing: auto;
         font-weight: 700;  /* Use 700 for bold */
         font-style: normal;
@@ -304,10 +314,11 @@
           }
 
           .product-price {
-            font-size: 38px; /* Set product price font size */
+            font-size: 34px; /* Set product price font size */
             margin: 2px 0; /* Reduce gap above and below the line */
             text-align:left;
-          font-family: 'Outfit', regular;
+          font-family: 'Outfit', sans-serif;
+            color:#0A1F44;
          font-weight: 600;
          line-height: 48px;
          text-align: left;
@@ -339,6 +350,7 @@
             align-items: left; /* Align tick mark and text */
             //styleName: Body 16pt;
           font-family: "Open Sans", sans-serif;
+            color:#0A1F44;
           font-size: 13px;
           font-weight: 400;
           line-height: 24px;
