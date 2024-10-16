@@ -165,8 +165,9 @@
     gap: 10px;
   }
 
+  /* Adjust the number of blocks per row based on screen width */
   .notification-block {
-    flex: 1 1 calc(20% - 10px);
+    flex: 1 1 calc(33.33% - 10px); /* Three blocks in the first row */
     padding: 20px; /* Add equal padding to each block */
     border-radius: 5px;
     text-align: center;
@@ -209,8 +210,18 @@
     }
 
     .notification-wrapper {
-      flex-direction: column; /* Stack the blocks vertically on smaller screens */
-      align-items: center;
+      /* Change layout for smaller screens */
+      justify-content: center; /* Center items */
+    }
+
+    .notification-block {
+      flex: 1 1 calc(50% - 10px); /* Two blocks in the second row */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .notification-block {
+      flex: 1 1 100%; /* Stack blocks in a single column for very small screens */
     }
   }
 </style>
