@@ -1,3 +1,17 @@
+<!-- Slick CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+
+<!-- Slick JS -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+.slick-prev, .slick-next { background-color: #6C86FE; /* Customize the arrows */ color: #FFFEF9; border-radius: 50%;
+width: 30px; height: 30px; }
+
+.slick-prev:before, .slick-next:before { color: #FFFEF9; /* Customize the arrow icon color */ }
+
+.slick-dots li button:before { color: #6C86FE; /* Customize the dots color */ }
+
+.slick-track { display: flex; }
+
 {% schema %}
 {
   "name": "Custom Products Section",
@@ -129,6 +143,7 @@
   ]
 }
 {% endschema %}
+
 <div
   class="custom-products-wrapper"
 >
