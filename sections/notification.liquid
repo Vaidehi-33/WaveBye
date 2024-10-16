@@ -165,9 +165,8 @@
     gap: 10px;
   }
 
-  /* Adjust the number of blocks per row based on screen width */
   .notification-block {
-    flex: 1 1 calc(33.33% - 10px); /* Three blocks in the first row */
+    flex: 1 1 calc(20% - 10px); /* Default: 5 blocks per row */
     padding: 20px; /* Add equal padding to each block */
     border-radius: 5px;
     text-align: center;
@@ -204,24 +203,23 @@
   }
 
   /* Responsive Design */
-  @media screen and (max-width: 1480px) {
-    .notification-subtitle {
-      font-size: 16px; /* Adjust the font size to fit better */
-    }
-
+  @media screen and (max-width: 1430px) {
     .notification-wrapper {
-      /* Change layout for smaller screens */
-      justify-content: center; /* Center items */
+      justify-content: center; /* Center items when stacking */
     }
 
     .notification-block {
-      flex: 1 1 calc(50% - 10px); /* Two blocks in the second row */
+      flex: 1 1 calc(33.33% - 10px); /* 3 blocks per row */
+    }
+
+    .notification-wrapper:nth-of-type(1) .notification-block:nth-of-type(n+4) {
+      display: none; /* Hide 4th and above blocks */
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1080px) {
     .notification-block {
-      flex: 1 1 100%; /* Stack blocks in a single column for very small screens */
+      flex: 1 1 calc(50% - 10px); /* 2 blocks per row */
     }
   }
 </style>
