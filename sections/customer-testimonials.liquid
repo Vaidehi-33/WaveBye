@@ -14,7 +14,7 @@
   }
 
           .multicolumn-card {
-              width: 100% !important;
+              width: 100%;
     max-width: 370px; /* Limit the card's width */
     margin: 0 auto; /* Center the cards */
           background: {{ section.settings.testimonial_background }};
@@ -36,7 +36,7 @@
         margin-top: -20px;
       }
       .slick-track {
-        margin-bottom: 4rem !important;
+        margin-bottom: 4rem;
       }
       .testimonials-title{
             font-size: 36px;
@@ -122,22 +122,22 @@
 
 
         .slider__slide {
-          margin: 0 15px !important; /* Space between slides */
+          margin: 0 15px; /* Space between slides */
         }
         .slick-dots {
-          text-align: center !important;
+          text-align: center;
           margin-top: 30px;
         }
         .slick-dots li button:before {
-          font-size: 12px !important;
+          font-size: 12px;
           color: #000; /* Dot color */
         }
         .slick-dots li.slick-active button:before {
-          color: #1d1d1d !important; /* Active dot color */
+          color: #1d1d1d; /* Active dot color */
         }
         @media only screen and (max-width: 800px) {
           .multicolumn-list__item.slider__slide {
-            width: 90% !important; /* Adjust width for smaller screens */
+            width: 90%; /* Adjust width for smaller screens */
           }
         }
 {% endstyle %}
@@ -209,37 +209,24 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-      $(document).ready(function(){
-      $(window).on('load', function() {
+  $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
-      slidesToShow: 3,
+      slidesToShow: 3,  // Show 3 testimonials at once
       slidesToScroll: 1,
-      arrows: false,
-      dots: true,
-      infinite: true,
-      centerMode: true,
-      centerPadding: '0px',
+      arrows: false,     // Remove next/prev buttons
+      dots: true,        // Enable dots
+      infinite: true,    // Infinite scrolling
       responsive: [
         {
-          breakpoint: 1489,
+          breakpoint: 768, // Mobile settings
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
+            slidesToShow: 1, // Show 1 testimonial on smaller screens
             slidesToScroll: 1
           }
         }
       ]
     });
   });
-
-
-      });
 </script>
 
 {% schema %}
