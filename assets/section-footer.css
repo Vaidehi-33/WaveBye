@@ -23,6 +23,9 @@
     align-items: flex-start !important;
     gap: 3rem;
   }
+  .list-unstyled.list-social{
+    padding: 0;
+  }
 
   
 }
