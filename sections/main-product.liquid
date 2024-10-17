@@ -952,65 +952,75 @@
         }
       ]
     },
+{
+  "type": "buy_buttons",
+  "name": "t:sections.main-product.blocks.buy_buttons.name",
+  "limit": 1,
+  "settings": [
     {
-      "type": "buy_buttons",
-      "name": "t:sections.main-product.blocks.buy_buttons.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_dynamic_checkout",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_gift_card_recipient",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
-        }
-      ]
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "default": true,
+      "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+      "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
     },
     {
-      "type": "description",
-      "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "type": "checkbox",
+      "id": "show_gift_card_recipient",
+      "default": true,
+      "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
+      "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+    }
+  ]
+},
+{
+  "type": "description",
+  "name": "t:sections.main-product.blocks.description.name",
+  "limit": 1
+},
+{
+  "type": "how_to_use",
+  "name": "How to Use",
+  "limit": 1
+},
+{
+  "type": "faq",
+  "name": "FAQs",
+  "limit": 1
+},
+{
+  "type": "share",
+  "name": "t:sections.main-product.blocks.share.name",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "share_label",
+      "label": "t:sections.main-product.blocks.share.settings.text.label",
+      "default": "t:sections.main-product.blocks.share.settings.text.default"
     },
     {
-      "type": "share",
-      "name": "t:sections.main-product.blocks.share.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "share_label",
-          "label": "t:sections.main-product.blocks.share.settings.text.label",
-          "default": "t:sections.main-product.blocks.share.settings.text.default"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-product.blocks.share.settings.title_info.content"
-        }
-      ]
+      "type": "paragraph",
+      "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
     },
     {
-      "type": "custom_liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": [
-        {
-          "type": "liquid",
-          "id": "custom_liquid",
-          "label": "t:sections.custom-liquid.settings.custom_liquid.label",
-          "info": "t:sections.custom-liquid.settings.custom_liquid.info"
-        }
-      ]
-    },
+      "type": "paragraph",
+      "content": "t:sections.main-product.blocks.share.settings.title_info.content"
+    }
+  ]
+},
+{
+  "type": "custom_liquid",
+  "name": "t:sections.custom-liquid.name",
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
+      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+    }
+  ]
+},
     {
       "type": "collapsible_tab",
       "name": "t:sections.main-product.blocks.collapsible_tab.name",
