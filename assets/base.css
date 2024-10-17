@@ -777,10 +777,17 @@ summary::-webkit-details-marker {
    .focus-none {
         box-shadow: none !important;
         outline: 0 !important;
+        padding: 2rem 3rem ;
+      }
+}
+@media (min-width: 768px) and (max-width: 1050px) {
+   .focus-none {
+        box-shadow: none !important;
+        outline: 0 !important;
         padding: 2rem 1rem ;
       }
 }
-
+  
 .focus-offset:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 1rem;
