@@ -532,33 +532,6 @@
                   </div>
                 </div>
 
-                <style>
-                  .accordion-item {
-                    border-bottom: 1px solid #ddd;
-                    padding: 10px 0;
-                  }
-                  .accordion-title {
-                    font-size: 18px;
-                    cursor: pointer;
-                    margin: 0;
-                  }
-                  .accordion-content {
-                    display: none;
-                    padding: 10px 0;
-                    font-size: 14px;
-                  }
-                  .accordion-content.active {
-                    display: block;
-                  }
-                </style>
-
-                <script>
-                  function toggleAccordion(element) {
-                    var content = element.nextElementSibling;
-                    content.classList.toggle('active');
-                  }
-                </script>
-
               {%- when 'complementary' -%}
                 <product-recommendations
                   class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
@@ -773,6 +746,32 @@
     </script>
   </div>
 </product-info>
+<style>
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  .accordion-title {
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0;
+  }
+  .accordion-content {
+    display: none;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  .accordion-content.active {
+    display: block;
+  }
+</style>
+
+<script>
+  function toggleAccordion(element) {
+    var content = element.nextElementSibling;
+    content.classList.toggle('active');
+  }
+</script>
 
 {% schema %}
 {
