@@ -3,183 +3,182 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 {% style %}
-            .slider-container {
-              width: 100%; /* Ensure slider container takes full width */
-              max-width: 1200px; /* Set max-width to ensure proper spacing */
-              margin: 0 auto; /* Center the slider container */
-            }
+              .slider-container {
+                width: 100%; /* Ensure slider container takes full width */
+                max-width: 1200px; /* Set max-width to ensure proper spacing */
+                margin: 0 auto; /* Center the slider container */
+              }
 
-            .multicolumn-list__item {
-              width: 100%; /* Let Slick JS handle slide width */
-            }
+              .multicolumn-list__item {
+                width: 100%; /* Let Slick JS handle slide width */
+              }
 
-            .multicolumn-card {
-              width: 100%;
-              max-width: 370px; /* Limit the card's width */
-              margin: 0 auto; /* Center the cards */
-              background: {{ section.settings.testimonial_background }};
-              padding: 20px;
-              background-color: #FFFEF9;
-              border: 1px solid #6C86FE;
-              box-shadow: none;
-              border-radius: 5px;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between; /* Spread content evenly */
-            }
+              .multicolumn-card {
+                width: 100%;
+                max-width: 370px; /* Limit the card's width */
+                margin: 0 auto; /* Center the cards */
+                background: {{ section.settings.testimonial_background }};
+                padding: 20px;
+                background-color: #FFFEF9;
+                border: 1px solid #6C86FE;
+                box-shadow: none;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /* Spread content evenly */
+              }
 
-            .p-testimonials {
-              font-family: Outfit, sans-serif !important;
-              font-weight: 500 !important;
-              font-size: 16px !important;
-              color: #0a1f44;
-              margin-top: -20px;
-            }
+              .p-testimonials {
+                font-family: Outfit, sans-serif !important;
+                font-weight: 500 !important;
+                font-size: 16px !important;
+                color: #0a1f44;
+                margin-top: -20px;
+              }
 
-            .slick-track {
-              margin-bottom: 4rem;
-            }
+              .slick-track {
+                margin-bottom: 4rem;
+              }
 
-            .testimonials-title {
-              font-size: 36px;
-              font-family: "Outfit", sans-serif;
-              color: #0a1f44 !important;
-              font-weight: 600;
-            }
+              .testimonials-title {
+                font-size: 36px;
+                font-family: "Outfit", sans-serif;
+                color: #0a1f44 !important;
+                font-weight: 600;
+              }
 
-            .multicolumn-card p {
-              color: #0A1F44D9;
-              font-size: 13px;
-              line-height: 16px;
-              font-family: "Open Sans", sans-serif;
-              margin-bottom: 1.5rem;
-            }
+              .multicolumn-card p {
+                color: #0A1F44D9;
+                font-size: 13px;
+                line-height: 16px;
+                font-family: "Open Sans", sans-serif;
+                margin-bottom: 1.5rem;
+              }
 
-            .multicolumn-card h3 {
-              color: #0a1f44;
-              font-size: 13px;
-              font-family: "Open Sans", sans-serif;
-              font-weight: bold;
-            }
+              .multicolumn-card h3 {
+                color: #0a1f44;
+                font-size: 13px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: bold;
+              }
 
-            .multicolumn {
-              padding: 30px 0px;
-              background: {{ section.settings.testimonial_section_background }};
-              text-align: left; /* Align all text in the section to the left */
-            }
-      .multicolumn-list {
-      overflow: hidden;
-    }
+              .multicolumn {
+                padding: 30px 0px;
+                background: {{ section.settings.testimonial_section_background }};
+                text-align: left; /* Align all text in the section to the left */
+              }
+        .multicolumn-list {
+        overflow: hidden;
+      }
 
 
-            .reviews {
-              margin-bottom: 1.5rem;
-              color: {{ section.settings.star_color }};
-            }
+              .reviews {
+                margin-bottom: 1.5rem;
+                color: {{ section.settings.star_color }};
+              }
 
-            .multicolumn-card__info {
-              display: flex;
-              flex-direction: row; /* Align image and text horizontally */
-              align-items: center; /* Vertically align items */
-              margin-top: auto; /* Push content to the bottom */
-            }
+              .multicolumn-card__info {
+                display: flex;
+                flex-direction: row; /* Align image and text horizontally */
+                align-items: center; /* Vertically align items */
+                margin-top: auto; /* Push content to the bottom */
+              }
 
-            .multicolumn-card__image-wrapper {
-              margin-right: 20px; /* Space between image and text */
-            }
+              .multicolumn-card__image-wrapper {
+                margin-right: 20px; /* Space between image and text */
+              }
 
-            .multicolumn-card__image {
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              overflow: hidden;
-            }
+              .multicolumn-card__image {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+              }
 
-            .multicolumn-card__image img {
-              width: 100%;
-              height: auto;
-            }
+              .multicolumn-card__image img {
+                width: 100%;
+                height: auto;
+              }
 
-            .multicolumn-card__text {
-              display: flex;
-              flex-direction: column; /* Stack name and verified buyer vertically */
-            }
+              .multicolumn-card__text {
+                display: flex;
+                flex-direction: column; /* Stack name and verified buyer vertically */
+              }
 
-            .verified-buyer {
-              color: #5271FF; /* Verified buyer color */
-              font-style: italic; /* Italic style */
-              margin-top: -10px;
-              font-family: "Open Sans", sans-serif;
-              font-weight: 500;
-              font-size: 12px;
-            }
+              .verified-buyer {
+                color: #5271FF; /* Verified buyer color */
+                font-style: italic; /* Italic style */
+                margin-top: -10px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 500;
+                font-size: 12px;
+              }
 
-            .verified-buyer::after {
-              content: '\2714'; /* Unicode character for the checkmark */
-              display: inline-block;
-              width: 17px; /* Circle size */
-              height: 17px; /* Circle size */
-              background-color: #5271FF; /* Blue background */
-              border-radius: 50%; /* Make it circular */
-              color: white; /* White tick */
-              font-size: 12px; /* Tick size */
-              font-weight: bold; /* Bold tick */
-              text-align: center;
-              line-height: 16px; /* Vertically center the tick */
-              margin-left: 5px; /* Space between text and badge */
-            }
+              .verified-buyer::after {
+                content: '\2714'; /* Unicode character for the checkmark */
+                display: inline-block;
+                width: 17px; /* Circle size */
+                height: 17px; /* Circle size */
+                background-color: #5271FF; /* Blue background */
+                border-radius: 50%; /* Make it circular */
+                color: white; /* White tick */
+                font-size: 12px; /* Tick size */
+                font-weight: bold; /* Bold tick */
+                text-align: center;
+                line-height: 16px; /* Vertically center the tick */
+                margin-left: 5px; /* Space between text and badge */
+              }
 
-            .slider__slide {
-              margin: 0 15px; /* Space between slides */
-            }
+              .slider__slide {
+                margin: 0 15px; /* Space between slides */
+              }
 
-            .slick-dots {
-              text-align: center;
-              margin-top: 30px;
-            }
+              .slick-dots {
+                text-align: center;
+                margin-top: 30px;
+              }
 
-            .slick-dots li button:before {
-              font-size: 12px;
-              color: #000; /* Dot color */
-            }
+              .slick-dots li button:before {
+                font-size: 12px;
+                color: #000; /* Dot color */
+              }
 
-            .slick-dots li.slick-active button:before {
-              color: #1d1d1d; /* Active dot color */
-            }
+              .slick-dots li.slick-active button:before {
+                color: #1d1d1d; /* Active dot color */
+              }
   @media only screen and (max-width: 1132px) and (min-width: 990px) {
     .multicolumn-list__item {
-      width: 100% !important; /* Let Slick handle the width for each slide */
-      display: block !important;
-      float: none !important;
+      width: 50%; /* Allow two cards side by side */
+      display: inline-block; /* Maintain inline block for side-by-side */
+      margin: 0 1%; /* Adjust margin for spacing */
     }
   }
 
   @media only screen and (min-width: 1200px) and (max-width: 1490px) {
     .multicolumn-list__item {
-      width: 100% !important; /* Let Slick handle the width for each slide */
-      display: block !important;
-      float: none !important;
+      width: 32%; /* Allow three cards side by side */
+      display: inline-block; /* Maintain inline block for side-by-side */
+      margin: 0 1%; /* Adjust margin for spacing */
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .multicolumn-list__item {
+      width: 90%; /* Adjust width for smaller screens */
+      margin: 0 auto; /* Center on mobile */
     }
   }
 
 
+              @media only screen and (max-width: 500px) {
+                .multicolumn-card {
+                  max-width: 320px; /* Adjust the width for smaller screens */
+                }
 
-            @media only screen and (max-width: 800px) {
-              .multicolumn-list__item.slider__slide {
-                width: 90%; /* Adjust width for smaller screens */
-                margin: 0 auto; /* Ensure centered alignment on mobile */
+                .testimonials-title {
+                  font-size: 24px; /* Reduce font size for title on mobile */
+                }
               }
-            }
-
-            @media only screen and (max-width: 500px) {
-              .multicolumn-card {
-                max-width: 320px; /* Adjust the width for smaller screens */
-              }
-
-              .testimonials-title {
-                font-size: 24px; /* Reduce font size for title on mobile */
-              }
-            }
 {% endstyle %}
 
 <div class="multicolumn background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %}">
@@ -249,7 +248,8 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-   $('#Slider-{{ section.id }}').slick({
+     $(document).ready(function(){
+  $('#Slider-{{ section.id }}').slick({
     slidesToShow: 3,  // Default for larger screens
     slidesToScroll: 1,
     arrows: false,
@@ -261,7 +261,6 @@
         settings: {
           slidesToShow: 3, // Show 3 slides for screens between 1200px and 1490px
           slidesToScroll: 1,
-          variableWidth: false
         }
       },
       {
@@ -269,7 +268,6 @@
         settings: {
           slidesToShow: 2, // Show 2 slides between 990px and 1132px
           slidesToScroll: 1,
-          variableWidth: false
         }
       },
       {
@@ -281,6 +279,7 @@
       }
     ]
   });
+   });
 </script>
 
 {% schema %}
