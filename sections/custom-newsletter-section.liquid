@@ -1,68 +1,74 @@
 <!-- Newsletter Section -->
 {%- style -%}
-  .newsletter-section-container {
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-  }
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    .newsletter-section-container {
+      padding: 4rem;
+      display: flex;
+      justify-content: center;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    .newsletter-section {
+      height: 320px;
+      width: 1018px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: {{ section.settings.background_color }};
+      padding: 40px;
+      /* border-radius: 10px; */
+
+    }
+
+    @media (max-width: 359px) {
+    width: 350px;
   }
 
-  .newsletter-section {
-    height: 320px;
-    width: 1018px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: {{ section.settings.background_color }};
-    padding: 40px;
-    /* border-radius: 10px; */
 
-  }
 
-  .newsletter-title {
-    font-size: {{ section.settings.title_font_size }}px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: "Outfit", sans-serif;
-  }
+    .newsletter-title {
+      font-size: {{ section.settings.title_font_size }}px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+      font-family: "Outfit", sans-serif;
+    }
 
-  .newsletter-description {
-    font-size: {{ section.settings.description_font_size }}px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-  }
+    .newsletter-description {
+      font-size: {{ section.settings.description_font_size }}px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
+    }
 
-  .newsletter-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: row !important;
-  }
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-direction: row !important;
+    }
 
-  .newsletter-form input {
-    border: 2px solid #6C86FE;
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-  }
+    .newsletter-form input {
+      border: 2px solid #6C86FE;
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
 
-  .newsletter-form button {
-    padding: 10px 20px;
-    background-color: {{ section.settings.button_color }};
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    width: 10rem;
-  }
+    .newsletter-form button {
+      padding: 10px 20px;
+      background-color: {{ section.settings.button_color }};
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      width: 10rem;
+    }
 {%- endstyle -%}
 <div class="newsletter-section-container" id="newsletter-section">
   <div class="newsletter-section section-{{ section.id }}-padding">
