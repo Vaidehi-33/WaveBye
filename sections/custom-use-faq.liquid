@@ -59,8 +59,8 @@
     display: none; /* Hide content by default */
   }
 
-  .accordion__item[open] .accordion__content {
-    display: block; /* Show content when open */
+  details[open] .accordion__content {
+    display: block; /* Show content when details is open */
   }
 
   .icon.plus {
@@ -72,15 +72,3 @@
     transform: rotate(45deg); /* Rotate the icon when open */
   }
 </style>
-
-<script>
-  // Ensure the script runs after the document is fully loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.accordion__header').forEach(header => {
-      header.addEventListener('click', () => {
-        const details = header.parentNode;
-        details.toggleAttribute('open');
-      });
-    });
-  });
-</script>
