@@ -84,42 +84,45 @@
 </div>
 
 <style>
-  .accordion__item {
-    margin-bottom: 15px;
-  }
+    .accordion__item {
+      margin-bottom: 15px;
+    }
 
-  .accordion__header {
-    font-size: 18px;
-    color: #0A1F44; /* Text color */
-    font-family: "Outfit", sans-serif;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
+    .accordion__header {
+      font-size: 18px;
+      color: #0A1F44; /* Text color */
+      font-family: "Outfit", sans-serif;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
 
-  .accordion__content {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-top: none;
-    display: none; /* Hide content by default */
-  }
+    .accordion__content {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-top: none;
+      display: none; /* Hide content by default */
+    }
 
-  details[open] .accordion__content {
-    display: block; /* Show content when details is open */
-    font-size: 14px;
-    color: #0A1F44; /* Text color */
-    font-family: "Open Sans", sans-serif;
-  }
+    details[open] .accordion__content {
+      display: block; /* Show content when details is open */
+      font-size: 14px;
+      color: #0A1F44; /* Text color */
+      font-family: "Open Sans", sans-serif;
+    }
 
-  .icon.plus {
-    margin-left: 10px;
-    transition: transform 0.3s; /* Add transition for smooth rotation */
-  }
+    .icon.plus {
+      margin-left: 10px;
+      transition: transform 0.3s; /* Add transition for smooth rotation */
+    }
 
-  details[open] .plus {
-    transform: rotate(45deg); /* Rotate the icon when open */
+    details[open] .plus {
+      transform: rotate(45deg); /* Rotate the icon when open */
+    }
+    .product__accordion .accordion__content {
+      padding: 3rem;
   }
 </style>
