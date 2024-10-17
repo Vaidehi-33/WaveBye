@@ -47,7 +47,7 @@
 
         .slider-container {
           /* width: 85%; /* Set width for slider */ */
-          margin: 0 auto !important; /* Center the slider container */
+          margin: 0 auto; /* Center the slider container */
         }
         .multicolumn-card p {
           color: #0A1F44D9;
@@ -122,22 +122,22 @@
 
 
         .slider__slide {
-          margin: 0 15px; /* Space between slides */
+          margin: 0 15px !important; /* Space between slides */
         }
         .slick-dots {
-          text-align: center;
+          text-align: center !important;
           margin-top: 30px;
         }
         .slick-dots li button:before {
-          font-size: 12px;
+          font-size: 12px !important;
           color: #000; /* Dot color */
         }
         .slick-dots li.slick-active button:before {
-          color: #1d1d1d; /* Active dot color */
+          color: #1d1d1d !important; /* Active dot color */
         }
         @media only screen and (max-width: 800px) {
           .multicolumn-list__item.slider__slide {
-            width: 90%; /* Adjust width for smaller screens */
+            width: 90% !important; /* Adjust width for smaller screens */
           }
         }
 {% endstyle %}
