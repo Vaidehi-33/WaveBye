@@ -773,7 +773,7 @@ summary::-webkit-details-marker {
         padding: 2rem 1rem ;
       }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1050px) {
    .focus-none {
         box-shadow: none !important;
         outline: 0 !important;
