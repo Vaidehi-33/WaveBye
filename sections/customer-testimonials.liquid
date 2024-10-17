@@ -19,7 +19,7 @@
     margin: 0 auto; /* Center the cards */
     background: {{ section.settings.testimonial_background }};
     padding: 20px;
-    background-color:#FFFEF9;
+    background-color: #FFFEF9;
     border: 1px solid #6C86FE;
     box-shadow: none;
     border-radius: 5px;
@@ -143,10 +143,19 @@
     color: #1d1d1d; /* Active dot color */
   }
 
+  /* Adjustments for 990px to 1132px */
   @media only screen and (max-width: 1132px) and (min-width: 990px) {
     .multicolumn-list__item {
-      width: 48%; /* Adjust the width so two cards fit side by side */
-      margin: 1%; /* Small margin between cards */
+      width: 48%; /* Ensure two cards side by side */
+      margin: 1%; /* Add spacing between cards */
+    }
+  }
+
+  /* Adjustments for 1200px to 1490px */
+  @media only screen and (min-width: 1200px) and (max-width: 1490px) {
+    .multicolumn-list__item {
+      width: 32%; /* Ensure three cards side by side */
+      margin: 1%; /* Add spacing between cards */
     }
   }
 
