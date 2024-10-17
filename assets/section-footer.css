@@ -9,6 +9,14 @@
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   padding:0;
 }
+
+  .footer-block.grid__item {
+    padding: 0;
+    margin: 4rem 0;
+    width: 25%;
+  }
+
+  
 }
 
 
