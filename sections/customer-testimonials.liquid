@@ -247,7 +247,7 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-     $(document).ready(function(){
+    $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
       slidesToShow: 3,  // Default for larger screens
       slidesToScroll: 1,
@@ -258,21 +258,23 @@
         {
           breakpoint: 1490,
           settings: {
-            slidesToShow: 3, // Force 3 slides for screens between 1200px and 1490px
-            slidesToScroll: 1
+            slidesToShow: 3, // Show 3 slides for larger screens
+            slidesToScroll: 1,
+            variableWidth: false // Avoid overriding width rules
           }
         },
         {
           breakpoint: 1132,
           settings: {
-            slidesToShow: 2, // Force 2 slides for screens between 990px and 1132px
-            slidesToScroll: 1
+            slidesToShow: 2, // Show 2 slides on medium screens
+            slidesToScroll: 1,
+            variableWidth: false // Prevent auto-sizing
           }
         },
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 1,  // Show 1 slide for smaller screens
+            slidesToShow: 1,  // Show 1 slide on smaller screens
             slidesToScroll: 1
           }
         }
