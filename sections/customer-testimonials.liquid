@@ -244,25 +244,32 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-   $(document).ready(function(){
+    $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
-      slidesToShow: 3,  // Show 3 testimonials at once on larger screens
+      slidesToShow: 3,  // Default: 3 testimonials at once
       slidesToScroll: 1,
       arrows: false,     // Remove next/prev buttons
-      dots: true,        // Enable dots
+      dots: true,        // Enable dots for navigation
       infinite: true,    // Infinite scrolling
       responsive: [
         {
-          breakpoint: 1200,
+          breakpoint: 1490,
           settings: {
-            slidesToShow: 2,  // Show 2 testimonials on medium screens
+            slidesToShow: 3,  // Show 3 testimonials between 1200px and 1490px
             slidesToScroll: 1
           }
         },
         {
-          breakpoint: 768, // Mobile settings
+          breakpoint: 1132,
           settings: {
-            slidesToShow: 1, // Show 1 testimonial on smaller screens
+            slidesToShow: 2,  // Show 2 testimonials between 990px and 1132px
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768, // For mobile devices
+          settings: {
+            slidesToShow: 1,  // Show 1 testimonial on smaller screens
             slidesToScroll: 1
           }
         }
