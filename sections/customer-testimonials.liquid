@@ -209,14 +209,21 @@
 
 <!-- Initialize Slick Slider -->
 <script>
-  $(document).ready(function(){
+   $(document).ready(function(){
     $('#Slider-{{ section.id }}').slick({
-      slidesToShow: 3,  // Show 3 testimonials at once
+      slidesToShow: 3,  // Show 3 testimonials at once on larger screens
       slidesToScroll: 1,
       arrows: false,     // Remove next/prev buttons
       dots: true,        // Enable dots
       infinite: true,    // Infinite scrolling
       responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,  // Show 2 testimonials on medium screens
+            slidesToScroll: 1
+          }
+        },
         {
           breakpoint: 768, // Mobile settings
           settings: {
