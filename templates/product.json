@@ -161,6 +161,7 @@
         "collapsible_row_4JEeFa",
         "collapsible_row_WAFd7n"
       ],
+      "disabled": true,
       "settings": {
         "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
         "heading": "FAQs",
