@@ -20,7 +20,16 @@
         <span class="icon plus">+</span>
       </summary>
       <div class="accordion__content rte">
-        {{ product.metafields.custom.how_to_use.value }}
+        <ul>
+          {% assign how_to_use_content = product.metafields.custom.how_to_use.value | split: '.' %}
+          {% for point in how_to_use_content %}
+            {% assign trimmed_point = point | strip %}
+            {% if trimmed_point != '' %}
+              <li>{{ trimmed_point }}.</li>
+              <!-- Add a period at the end of each point -->
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
     </details>
   {%- endif -%}
@@ -32,7 +41,32 @@
         <span class="icon plus">+</span>
       </summary>
       <div class="accordion__content rte">
-        {{ product.metafields.custom.faq.value }}
+        {% assign faq_content = product.metafields.custom.faq.value | parse_json %}
+        {% for item in faq_content.children %}
+          {% if item.type == 'paragraph' %}
+            <p>
+              {% for text in item.children %}
+                <span
+                  {% if text.bold %}
+                    style="font-weight: bold;"
+                  {% endif %}
+                >
+                  {{- text.value -}}
+                </span>
+              {% endfor %}
+            </p>
+          {% elsif item.type == 'list' %}
+            <ul>
+              {% for list_item in item.children %}
+                <li>
+                  {% for text in list_item.children %}
+                    <span>{{ text.value }}</span>
+                  {% endfor %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
       </div>
     </details>
   {%- endif -%}
