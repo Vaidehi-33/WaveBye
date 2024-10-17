@@ -509,6 +509,56 @@
                     </p>
                   </div>
                 {%- endif -%}
+                <div class="product-accordion">
+                  <div class="accordion-item">
+                    <h3 class="accordion-title" onclick="toggleAccordion(this)">Product Description</h3>
+                    <div class="accordion-content">
+                      {{ product.description }}
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h3 class="accordion-title" onclick="toggleAccordion(this)">How to Use</h3>
+                    <div class="accordion-content">
+                      <p>{{ product.metafields.custom.how_to_use | escape }}</p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h3 class="accordion-title" onclick="toggleAccordion(this)">FAQ</h3>
+                    <div class="accordion-content">
+                      <p>{{ product.metafields.custom.faq | escape }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <style>
+                  .accordion-item {
+                    border-bottom: 1px solid #ddd;
+                    padding: 10px 0;
+                  }
+                  .accordion-title {
+                    font-size: 18px;
+                    cursor: pointer;
+                    margin: 0;
+                  }
+                  .accordion-content {
+                    display: none;
+                    padding: 10px 0;
+                    font-size: 14px;
+                  }
+                  .accordion-content.active {
+                    display: block;
+                  }
+                </style>
+
+                <script>
+                  function toggleAccordion(element) {
+                    var content = element.nextElementSibling;
+                    content.classList.toggle('active');
+                  }
+                </script>
+
               {%- when 'complementary' -%}
                 <product-recommendations
                   class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
