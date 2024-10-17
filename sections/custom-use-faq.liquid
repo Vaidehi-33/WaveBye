@@ -1,6 +1,77 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "How to Use and FAQ",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "How to Use and FAQ",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="product__accordion">
+  {%- if product.metafields.custom.how_to_use != blank -%}
+    <details class="accordion__item">
+      <summary class="accordion__header">
+        <span>How to Use</span>
+        <span class="icon plus">+</span>
+      </summary>
+      <div class="accordion__content rte">
+        {{ product.metafields.custom.how_to_use.value }}
+      </div>
+    </details>
+  {%- endif -%}
+
+  {%- if product.metafields.custom.faq != blank -%}
+    <details class="accordion__item">
+      <summary class="accordion__header">
+        <span>FAQ</span>
+        <span class="icon plus">+</span>
+      </summary>
+      <div class="accordion__content rte">
+        {{ product.metafields.custom.faq.value }}
+      </div>
+    </details>
+  {%- endif -%}
+</div>
+
+<style>
+  .accordion__item {
+    margin-bottom: 15px;
+  }
+
+  .accordion__header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .accordion__content {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .icon.plus {
+    margin-left: 10px;
+  }
+
+  details[open] .plus {
+    transform: rotate(45deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.accordion__header').forEach(header => {
+    header.addEventListener('click', () => {
+      const details = header.parentNode;
+      details.toggleAttribute('open');
+    });
+  });
+</script>
