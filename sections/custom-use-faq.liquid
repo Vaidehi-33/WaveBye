@@ -56,22 +56,31 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-top: none;
+    display: none; /* Hide content by default */
+  }
+
+  .accordion__item[open] .accordion__content {
+    display: block; /* Show content when open */
   }
 
   .icon.plus {
     margin-left: 10px;
+    transition: transform 0.3s; /* Add transition for smooth rotation */
   }
 
   details[open] .plus {
-    transform: rotate(45deg);
+    transform: rotate(45deg); /* Rotate the icon when open */
   }
 </style>
 
 <script>
-  document.querySelectorAll('.accordion__header').forEach(header => {
-    header.addEventListener('click', () => {
-      const details = header.parentNode;
-      details.toggleAttribute('open');
+  // Ensure the script runs after the document is fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.accordion__header').forEach(header => {
+      header.addEventListener('click', () => {
+        const details = header.parentNode;
+        details.toggleAttribute('open');
+      });
     });
   });
 </script>
