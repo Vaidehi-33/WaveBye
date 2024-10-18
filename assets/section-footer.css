@@ -279,8 +279,8 @@
 
     /* Second and third div take half the width each (row 2) */
     .footer-block--newsletter > div:nth-child(2),
-    .footer-block--newsletter > div:nth-child(3) {
-        flex: 1 1 30%; /* Each takes up 48% width to fit in the second row */
+    .footer-block--newsletter > ul:nth-child(3) {
+        flex: 1 1 30% !important; /* Each takes up 48% width to fit in the second row */
     }
 }
 
