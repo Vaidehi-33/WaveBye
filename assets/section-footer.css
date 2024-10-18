@@ -28,11 +28,10 @@
 }
 
 @media (min-width: 576px) and (max-width: 749px) {
-  .footer {
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  padding:0px;
-}
-
+    .footer {
+      border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      padding:0px;
+    }
 }
 
 
