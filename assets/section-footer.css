@@ -259,6 +259,12 @@
 
 
 @media (min-width: 576px) and (max-width: 749px) {
+  .footer {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  padding:0px;
+}
+
+  
     .footer-block--newsletter {
         display: flex;
         flex-wrap: wrap; /* Allow items to wrap to the next line */
