@@ -4,6 +4,7 @@
 }
 
 
+
 @media (max-width: 575px) {
   .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
@@ -24,8 +25,14 @@
     gap: 3rem;
   }
   
+}
 
-  
+@media (min-width: 576px) and (max-width: 749px) {
+  .footer {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  padding:0px;
+}
+
 }
 
 
@@ -256,35 +263,6 @@
     text-align: right;
   }
 }
-
-
-@media (min-width: 576px) and (max-width: 749px) {
-  .footer {
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  padding:0px;
-}
-
-  
-    .footer-block--newsletter {
-        display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to the next line */
-        justify-content: center; /* Center content */
-        gap: 3rem; /* Space between the divs */
-    }
-
-    /* First div takes full width (row 1) */
-    .footer-block--newsletter > div:nth-child(1) {
-        flex: 1 1 100%; /* First div in its own row */
-    }
-
-    /* Second and third div take half the width each (row 2) */
-    .footer-block--newsletter > div:nth-child(2),
-    .footer-block--newsletter > ul:nth-child(3) {
-        flex: 1 1 30% !important; /* Each takes up 48% width to fit in the second row */
-    }
-}
-
-
 
 
 @media screen and (max-width: 749px) {
