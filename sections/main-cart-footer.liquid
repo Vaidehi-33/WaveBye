@@ -83,8 +83,6 @@
       }
 {%- endstyle -%}
 
-<!-- Remove the commented-out SMS Reminder Popup -->
-
 <!-- Second Popup: Bundle Suggestion -->
 <div id="bundleSuggestionPopup" class="popup-background">
   <div class="popup-content">
@@ -240,11 +238,13 @@
 </div>
 
 <script>
-  // Show the contact form pop-up
-  document.getElementById('open-popup').onclick = function() {
+  document.getElementById('checkout').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default checkout action
+
+    // Show the contact form pop-up
     document.getElementById('popup-form').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
-  };
+  });
 
   // Close button for the contact form
   document.getElementById('close-popup').onclick = function() {
@@ -252,36 +252,27 @@
     document.getElementById('overlay').style.display = 'none';
   };
 
-  // Continue checkout button
-  document.getElementById('checkout').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent checkout action
-
-    // Show the contact form pop-up
-    document.getElementById('popup-form').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-  });
-
-  // Continue checkout button
+  // Continue checkout button in the bundle suggestion popup
   document.getElementById('continueCheckout').addEventListener('click', function() {
-    // Hide the second popup
+    // Hide the bundle suggestion popup
     document.getElementById('bundleSuggestionPopup').style.display = 'none';
 
     // Redirect to checkout page
     window.location.href = '/checkout'; // Adjust this URL based on your store's checkout URL
   });
 
-  // Add event listener for the new button to view products
+  // View products button in the bundle suggestion popup
   document.getElementById('viewProducts').addEventListener('click', function() {
-    // Hide the second popup
+    // Hide the bundle suggestion popup
     document.getElementById('bundleSuggestionPopup').style.display = 'none';
 
     // Redirect to products page
     window.location.href = '/products'; // Adjust this URL based on your store's products page URL
   });
 
-  // Close buttons functionality
+  // Close button functionality for the bundle suggestion popup
   document.getElementById('closeBundlePopup').addEventListener('click', function() {
-    document.getElementById('bundleSuggestionPopup').style.display = 'none'; // Hide second popup
+    document.getElementById('bundleSuggestionPopup').style.display = 'none'; // Hide bundle suggestion popup
   });
 </script>
 
