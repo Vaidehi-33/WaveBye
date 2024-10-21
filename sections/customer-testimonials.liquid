@@ -11,6 +11,9 @@
 
 
                   .multicolumn-card {
+                    min-height: 24rem; /* Set minimum height to 24rem */
+    /* Optionally add a transition for smooth resizing */
+    transition: min-height 0.3s ease;
                       width: 100%;
             max-width: 370px; /* Limit the card's width */
             margin: 0 auto; /* Center the cards */
@@ -152,7 +155,11 @@
                 width: 50%; /* Allow two cards side by side */
                 display: inline-block; /* Maintain inline block for side-by-side */
               }
+            .multicolumn-card {
+                    min-height: 26rem;
             }
+            }
+
           @media only screen and (min-width: 1132px) and (max-width: 1200px) {
               .multicolumn-list__item {
                 width: 32%; /* Allow three cards side by side */
