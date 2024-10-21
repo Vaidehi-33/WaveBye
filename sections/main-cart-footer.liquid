@@ -83,18 +83,7 @@
       }
 {%- endstyle -%}
 
-<!-- First Popup: Phone Number for SMS Reminders -->
-<!--
-  <div id="smsReminderPopup" class="popup-background">
-    <div class="popup-content">
-      <span class="close-button" id="closeSmsPopup">&times;</span>
-      <h2>Sign Up for SMS Reminders</h2>
-      <p>Please enter your phone number:</p>
-      <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
-      <button id="submitPhoneNumber">Submit</button>
-    </div>
-  </div>
--->
+<!-- Remove the commented-out SMS Reminder Popup -->
 
 <!-- Second Popup: Bundle Suggestion -->
 <div id="bundleSuggestionPopup" class="popup-background">
@@ -110,6 +99,30 @@
     </div>
   </div>
 </div>
+
+<!-- Popup Form for Contact Us -->
+<div
+  id="popup-form"
+  style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:20px; box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:1000;"
+>
+  <h3>Contact Us</h3>
+  <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="button" id="close-popup">Close</button>
+  </form>
+</div>
+
+<!-- Overlay for the popup form -->
+<div
+  id="overlay"
+  style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"
+></div>
 
 <div
   class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
@@ -227,33 +240,28 @@
 </div>
 
 <script>
+  // Show the contact form pop-up
+  document.getElementById('open-popup').onclick = function() {
+    document.getElementById('popup-form').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  };
+
+  // Close button for the contact form
+  document.getElementById('close-popup').onclick = function() {
+    document.getElementById('popup-form').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  };
+
+  // Continue checkout button
   document.getElementById('checkout').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent checkout action
 
-    // Commenting out the first popup (Phone number entry)
-    // document.getElementById('smsReminderPopup').style.display = 'block'; // Commented out to disable the first popup
-
-    // Directly show the second popup (Bundle suggestion)
-    document.getElementById('bundleSuggestionPopup').style.display = 'block';
+    // Show the contact form pop-up
+    document.getElementById('popup-form').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
   });
 
-  // Commenting out the phone number submission process
-  /*
-  document.getElementById('submitPhoneNumber').addEventListener('click', function() {
-    const phoneNumber = document.getElementById('phoneNumber').value;
-
-    if (phoneNumber) {
-      // Hide the first popup
-      document.getElementById('smsReminderPopup').style.display = 'none';
-
-      // Show the second popup
-      document.getElementById('bundleSuggestionPopup').style.display = 'block';
-    } else {
-      alert('Please enter a valid phone number.');
-    }
-  });
-  */
-
+  // Continue checkout button
   document.getElementById('continueCheckout').addEventListener('click', function() {
     // Hide the second popup
     document.getElementById('bundleSuggestionPopup').style.display = 'none';
