@@ -177,6 +177,66 @@
             "company_name": "SPARThoughts"
           }
         },
+        "video_3xc9yG": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
+        "video_KxPREX": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
+        "video_DBedPz": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
+        "video_nrVix7": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
+        "video_CN7nYy": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
+        "video_N6PWHN": {
+          "type": "Video",
+          "settings": {
+            "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "name": "Vaidehi",
+            "surname": "Gurav",
+            "position": "Developer",
+            "company_name": "SPARThoughts"
+          }
+        },
         "video_ypTtb3": {
           "type": "Video",
           "settings": {
@@ -220,6 +280,12 @@
       },
       "block_order": [
         "video_mfki98",
+        "video_3xc9yG",
+        "video_KxPREX",
+        "video_DBedPz",
+        "video_nrVix7",
+        "video_CN7nYy",
+        "video_N6PWHN",
         "video_ypTtb3",
         "video_3cyyJB",
         "video_4AAAT9",
