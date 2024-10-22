@@ -70,6 +70,8 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+
+          <!-- Add to Cart Button -->
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -93,8 +95,30 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
+
+          <!-- Dynamic Checkout Button (Buy Now) -->
           {%- if show_dynamic_checkout -%}
-            {{ form | payment_button }}
+            <button
+              id="DynamicCheckoutButton-{{ section_id }}"
+              class="product-form__submit button button--full-width button--dynamic-checkout"
+              {% if product.selected_or_first_available_variant.available == false
+                or quantity_rule_soldout
+                or product.selected_or_first_available_variant == null
+              %}
+                disabled
+              {% endif %}
+            >
+              <span>
+                {%- if product.selected_or_first_available_variant == null -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.buy_now' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
           {%- endif -%}
         </div>
       {%- endform -%}
