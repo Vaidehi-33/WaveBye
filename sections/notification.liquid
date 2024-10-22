@@ -21,7 +21,7 @@
       "type": "text",
       "id": "button_text",
       "label": "Button Text",
-      "default": "Subscribe"
+      "default": "Learn More"
     },
     {
       "type": "color",
@@ -83,37 +83,25 @@
           </div>
         {% endfor %}
       </div>
-      
-
-          {% form 'customer', class: 'newsletter-form' %}
-            <div class="newsletter-form__field-wrapper">
-              <input
-                id="NewsletterForm--{{ section.id }}"
-                type="email"
-                name="contact[email]"
-                class="field__input"
-                aria-required="true"
-                autocorrect="off"
-                autocapitalize="off"
-                autocomplete="email"
-                placeholder="Your email address"
-                required
-                style="border: 2px solid #6C86FE; padding: 10px; font-size: 16px; width: 300px;"
-              >
-            </div>
-            <button
-              type="submit"
-              class="newsletter-form__button field__button"
-              name="commit"
-              id="Subscribe"
-              aria-label="Subscribe"
-              style="padding: 10px 20px; background-color: {{ section.settings.button_color }}; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 50px;"
-            >
-              {{ section.settings.button_text }}
-            </button>
-          {% endform %}
-        
+      <div class="newsletter-form-wrapper">
+        {% form 'customer', class: 'newsletter-form' %}
+          <input
+            type="email"
+            name="contact[email]"
+            placeholder="Enter your email"
+            required
+            style="border: 2px solid #6C86FE; padding: 10px; font-size: 16px; width: 300px;"
+          >
+          <button
+            type="submit"
+            style="padding: 10px 20px; background-color: {{ section.settings.button_color }}; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px;"
+          >
+            {{ section.settings.button_text }}
+          </button>
+        {% endform %}
       </div>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -123,14 +111,14 @@
 
   .background-wrapper {
     padding: 20px 0;
-    background-color: #FFFEF9;
+    background-color: #FFFEF9; /* Background color behind the section */
   }
 
   .notification-section {
     padding: 80px 0;
     border-radius: 5px;
-    background-color: #EEF1FF;
-    box-shadow: 2px 4px 10px #8E8E8E09;
+    background-color: #EEF1FF; /* Section background color */
+    box-shadow: 2px 4px 10px #8E8E8E09; /* Add shadow to the entire section */
   }
 
   .section-heading {
@@ -141,7 +129,7 @@
     line-height: 48px;
     text-align: center;
     color: #0A1F44D9;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 50px auto; /* Center the heading with bottom margin */
   }
 
   .notification-msg {
@@ -152,7 +140,7 @@
     line-height: 18px;
     text-align: center;
     max-width: 150px;
-    margin: 10px auto;
+    margin: 10px auto; /* Add space between title and message */
   }
 
   .notification-subtitle {
@@ -162,10 +150,10 @@
     font-weight: 600;
     line-height: 16px;
     text-align: center;
-    margin: 10px auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 10px auto; /* Add space between image and title */
+    white-space: nowrap; /* Prevent word break */
+    overflow: hidden; /* Avoid content overflow */
+    text-overflow: ellipsis; /* Handle overflowed text with ellipsis */
   }
 
   .page-width {
@@ -179,81 +167,50 @@
     justify-content: space-between;
     margin-left: 80px;
     margin-right: 80px;
+    /* gap: 10px; */
   }
 
   .notification-block {
-    flex: 1 1 calc(20% - 10px);
-    padding: 20px;
+    flex: 1 1 calc(20% - 10px); /* Default: 5 blocks per row */
+    padding: 20px; /* Add equal padding to each block */
     border-radius: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: center; /* Align children horizontally to the center */
+    justify-content: flex-start; /* Align children to start vertically */
   }
 
   .notification-block img {
     max-width: 80%;
     border-radius: 5px;
     height: 53.07px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Add space between image and title */
   }
 
-  .newsletter-section-container {
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .newsletter-section {
-    height: 320px;
-    width: 1018px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f7f7f7;
-    padding: 40px;
-  }
-
-  .newsletter-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  .newsletter-form-wrapper {
     text-align: center;
-    font-family: "Outfit", sans-serif;
+    margin-top: 20px;
   }
 
-  .newsletter-description {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
+  .newsletter-form input {
+    margin-right: 10px;
   }
 
-  .newsletter-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: row;
+  /* Responsive Design */
+  @media screen and (max-width: 1430px) {
+    .notification-wrapper {
+      justify-content: center; /* Center items when stacking */
+    }
+
+    .notification-block {
+      flex: 1 1 calc(33.33% - 10px); /* 3 blocks per row */
+    }
   }
 
-  .newsletter-form__field-wrapper input {
-    border: 2px solid #6C86FE;
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-  }
-
-  .newsletter-form__button {
-    padding: 10px 20px;
-    background-color: #333333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 50px;
-    width: 10rem;
+  @media screen and (max-width: 1080px) {
+    .notification-block {
+      flex: 1 1 calc(50% - 10px); /* 2 blocks per row */
+    }
   }
 </style>
