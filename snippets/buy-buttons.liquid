@@ -71,6 +71,7 @@
             endif
           -%}
 
+          <!-- Add to Cart Button -->
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -95,21 +96,19 @@
             {%- render 'loading-spinner' -%}
           </button>
 
+          <!-- Dynamic Checkout Button -->
           {%- if show_dynamic_checkout -%}
-            <div class="dynamic-checkout-button">
-              {{ form | payment_button }}
+            <button
+              class="product-form__submit button button--full-width"
               {% if product.selected_or_first_available_variant.available == false
                 or quantity_rule_soldout
                 or product.selected_or_first_available_variant == null
               %}
-                <style>
-                  .dynamic-checkout-button button {
-                    pointer-events: none; /* Disable pointer events */
-                    opacity: 0.5; /* Optional: Change appearance */
-                  }
-                </style>
+                disabled
               {% endif %}
-            </div>
+            >
+              {{ form | payment_button }}
+            </button>
           {%- endif -%}
         </div>
       {%- endform -%}
