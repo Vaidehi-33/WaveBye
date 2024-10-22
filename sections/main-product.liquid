@@ -277,30 +277,19 @@
                       </button>
                     </quantity-input>
                     <script>
-                      document.addEventListener('DOMContentLoaded', function() {
-                        const quantityInput = document.getElementById('Quantity-{{ section.id }}');
+                      document.querySelectorAll('.quantity__button').forEach(button => {
+                        button.addEventListener('click', function () {
+                          const input = this.parentElement.querySelector('.quantity__input');
+                          let value = parseInt(input.value, 10);
 
-                        // Adjust the value based on button clicks
-                        document.querySelectorAll('button.quantity__button').forEach(button => {
-                          button.addEventListener('click', function() {
-                            let currentValue = parseInt(quantityInput.value);
-                            if (this.name === 'plus') {
-                              if (currentValue < 3) {
-                                quantityInput.value = currentValue + 1;
-                              }
-                            } else {
-                              if (currentValue > 1) {
-                                quantityInput.value = currentValue - 1;
-                              }
-                            }
-                          });
-                        });
-
-                        // Prevent input from exceeding maximum
-                        quantityInput.addEventListener('input', function() {
-                          if (this.value > 3) {
-                            this.value = 3;
+                          if (this.name === 'plus' && value < 3) {
+                            value++;
+                          } else if (this.name === 'minus' && value > input.min) {
+                            value--;
                           }
+
+                          input.value = value;
+                          input.dispatchEvent(new Event('input')); // Trigger input event for validation
                         });
                       });
                     </script>
