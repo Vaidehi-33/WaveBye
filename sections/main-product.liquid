@@ -273,8 +273,8 @@
                           data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                           max="3"
                         {% endif %}
-                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                        value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                        step="1"
+                        value="1"
                         form="{{ product_form_id }}"
                       >
                       <button class="quantity__button" name="plus" type="button">
