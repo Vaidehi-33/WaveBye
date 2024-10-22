@@ -98,7 +98,18 @@
             </small>
           {%- endif -%}
         </div>
+
+        <!-- New Reason for Contact Dropdown -->
+        <div class="field">
+          <label class="field__label" for="ContactForm-reason">{{ 'Reason for contacting us' | t }}</label>
+          <select id="ContactForm-reason" name="contact[reason]" class="field__input">
+            {% for reason in section.settings.contact_reasons %}
+              <option value="{{ reason }}">{{ reason }}</option>
+            {% endfor %}
+          </select>
+        </div>
       </div>
+
       <div class="field">
         <input
           type="tel"
@@ -140,9 +151,6 @@
   "name": "t:sections.contact-form.name",
   "tag": "section",
   "class": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
   "settings": [
     {
       "type": "inline_richtext",
@@ -207,6 +215,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "textarea",
+      "id": "contact_reasons",
+      "label": "Reasons for contacting us",
+      "default": "General Inquiry, Support, Feedback, Other"
     }
   ],
   "presets": [
