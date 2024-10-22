@@ -83,12 +83,7 @@
           </div>
         {% endfor %}
       </div>
-      <div class="newsletter-section-container" id="newsletter-section">
-        <div class="newsletter-section section-{{ section.id }}-padding">
-          <h2 class="newsletter-title">{{ section.settings.heading_text }}</h2>
-          <p class="newsletter-description">
-            Sign up for our newsletter to receive the latest news and exclusive offers.
-          </p>
+      
 
           {% form 'customer', class: 'newsletter-form' %}
             <div class="newsletter-form__field-wrapper">
@@ -117,10 +112,8 @@
               {{ section.settings.button_text }}
             </button>
           {% endform %}
-        </div>
+        
       </div>
-    </div>
-  </div>
 </div>
 
 <style>
