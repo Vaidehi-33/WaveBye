@@ -171,6 +171,7 @@
           "type": "Video",
           "settings": {
             "bg_video": "https://cdn.shopify.com/videos/c/o/v/44b83a11b91a4d71a29ae7ce87ffea35.mp4",
+            "video_poster": "shopify://shop_images/Group_65.png",
             "name": "Vaidehi",
             "surname": "Gurav",
             "position": "Developer",
