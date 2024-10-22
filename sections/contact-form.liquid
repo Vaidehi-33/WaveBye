@@ -23,12 +23,14 @@
     {%- else -%}
       <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
+
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
         assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
       endif
     -%}
+
     {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
       {%- if form.posted_successfully? -%}
         <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
@@ -51,7 +53,10 @@
           </li>
         </ul>
       {%- endif -%}
+
+      <!-- Contact Form Fields -->
       <div class="contact__fields">
+        <!-- Name Field -->
         <div class="field">
           <input
             class="field__input"
@@ -64,6 +69,8 @@
           >
           <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
+
+        <!-- Email Field -->
         <div class="field field--with-error">
           <input
             autocomplete="email"
@@ -85,62 +92,53 @@
             {{- 'templates.contact.form.email' | t }}
             <span aria-hidden="true">*</span></label
           >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                <span class="svg-wrapper">
-                  {{- 'icon-error.svg' | inline_asset_content -}}
-                </span>
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
-          {%- endif -%}
         </div>
 
-        <!-- New Reason for Contact Dropdown -->
+        <!-- Phone Field -->
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[{{ 'templates.contact.form.phone' | t }}]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.phone' | t }}"
+          >
+          <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+        </div>
         <div class="field">
           <label class="field__label" for="ContactForm-reason">{{ 'Reason for contacting us' | t }}</label>
-          <select id="ContactForm-reason" name="contact[reason]" class="field__input">
-            {% for reason in section.settings.contact_reasons %}
-              <option value="{{ reason }}">{{ reason }}</option>
-            {% endfor %}
+          <select class="field__input" id="ContactForm-reason" name="contact[reason]">
+            <option value="">{{ 'Please select' | t }}</option>
+            <option value="{{ section.settings.reason_option_1 }}">{{ section.settings.reason_option_1 }}</option>
+            <option value="{{ section.settings.reason_option_2 }}">{{ section.settings.reason_option_2 }}</option>
+            <option value="{{ section.settings.reason_option_3 }}">{{ section.settings.reason_option_3 }}</option>
+            <option value="{{ section.settings.reason_option_4 }}">{{ section.settings.reason_option_4 }}</option>
           </select>
+        </div>
+
+        <!-- Message Field -->
+        <div class="field">
+          <textarea
+            rows="10"
+            id="ContactForm-body"
+            class="text-area field__input"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            placeholder="{{ 'templates.contact.form.comment' | t }}"
+          >
+            {{- form.body -}}
+          </textarea>
+          <label class="form__label field__label" for="ContactForm-body">
+            {{- 'templates.contact.form.comment' | t -}}
+          </label>
         </div>
       </div>
 
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
+      <!-- Submit Button -->
       <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
+        <button type="submit" class="button">Submit</button>
       </div>
     {%- endform -%}
   </div>
@@ -150,7 +148,6 @@
 {
   "name": "t:sections.contact-form.name",
   "tag": "section",
-  "class": "section",
   "settings": [
     {
       "type": "inline_richtext",
@@ -193,10 +190,6 @@
       "default": "scheme-1"
     },
     {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -217,10 +210,28 @@
       "default": 36
     },
     {
-      "type": "textarea",
-      "id": "contact_reasons",
-      "label": "Reasons for contacting us",
-      "default": "General Inquiry, Support, Feedback, Other"
+      "type": "text",
+      "id": "reason_option_1",
+      "label": "Contact Reason Option 1",
+      "default": "Product Inquiry"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_2",
+      "label": "Contact Reason Option 2",
+      "default": "Order Status"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_3",
+      "label": "Contact Reason Option 3",
+      "default": "Return"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_4",
+      "label": "Contact Reason Option 4",
+      "default": "Other"
     }
   ],
   "presets": [
