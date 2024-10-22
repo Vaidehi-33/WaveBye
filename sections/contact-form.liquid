@@ -108,13 +108,14 @@
           >
           <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
         </div>
+
+        <!-- Reason for Contact Dropdown Field -->
         <div class="field">
-          <label class="field__label" for="ContactForm-reason" style="display: block;">Reason for contacting us</label>
+          <label class="field__label" for="ContactForm-reason">{{ 'Reason for contacting us' | t }}</label>
           <select class="field__input" id="ContactForm-reason" name="contact[reason]">
-            <option value="{{ section.settings.reason_option_1 }}">{{ section.settings.reason_option_1 }}</option>
-            <option value="{{ section.settings.reason_option_2 }}">{{ section.settings.reason_option_2 }}</option>
-            <option value="{{ section.settings.reason_option_3 }}">{{ section.settings.reason_option_3 }}</option>
-            <option value="{{ section.settings.reason_option_4 }}">{{ section.settings.reason_option_4 }}</option>
+            {%- for option in section.settings.contact_reasons -%}
+              <option value="{{ option }}">{{ option }}</option>
+            {%- endfor -%}
           </select>
         </div>
 
@@ -147,6 +148,7 @@
 {
   "name": "t:sections.contact-form.name",
   "tag": "section",
+  "class": "section",
   "settings": [
     {
       "type": "inline_richtext",
@@ -189,6 +191,10 @@
       "default": "scheme-1"
     },
     {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -209,28 +215,10 @@
       "default": 36
     },
     {
-      "type": "text",
-      "id": "reason_option_1",
-      "label": "Contact Reason Option 1",
-      "default": "Product Inquiry"
-    },
-    {
-      "type": "text",
-      "id": "reason_option_2",
-      "label": "Contact Reason Option 2",
-      "default": "Order Status"
-    },
-    {
-      "type": "text",
-      "id": "reason_option_3",
-      "label": "Contact Reason Option 3",
-      "default": "Return"
-    },
-    {
-      "type": "text",
-      "id": "reason_option_4",
-      "label": "Contact Reason Option 4",
-      "default": "Other"
+      "type": "textarea",
+      "id": "contact_reasons",
+      "label": "Reasons for contacting us",
+      "default": "General Inquiry, Support, Feedback, Other"
     }
   ],
   "presets": [
