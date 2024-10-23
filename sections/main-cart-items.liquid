@@ -257,19 +257,19 @@
                                 data-cart-quantity="{{ cart_qty }}"
                                 data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                 min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                                {% comment %}
+                                  {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                                    data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                                    max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                                  {% endif %}
+                                {% endcomment %}
                                 data-max="3"
                                 max="3"
                                 step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
                                 value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                 form="{{ product_form_id }}"
-                                onchange="updateCartPrice(this)"
-                                <!--
-                                Add
-                                this
-                                line
-                                --
                               >
-                              >
+
                               <button class="quantity__button" name="plus" type="button">
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
