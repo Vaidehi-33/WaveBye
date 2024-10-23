@@ -251,10 +251,11 @@
                               </button>
                               <input
                                 class="quantity__input"
+                                data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
                                 name="quantity"
                                 id="Quantity-{{ section.id }}"
-                                data-cart-quantity="{{ cart_qty }}"
+                                data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                                 data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                 min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                                 {% comment %}
