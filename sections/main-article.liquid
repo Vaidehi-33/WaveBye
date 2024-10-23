@@ -78,6 +78,8 @@
       font-size: 13px; /* Adjust the font size for the author name and date */
     }
 </style>
+{% render 'share-button', block: block, share_link: page.url %}
+
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="back-to-all-posts-container">
     <a href="{{ blog.url }}" class="back-to-all-posts-link">
