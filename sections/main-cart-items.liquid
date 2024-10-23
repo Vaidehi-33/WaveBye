@@ -251,23 +251,23 @@
                               </button>
                               <input
                                 class="quantity__input"
+                                data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
-                                name="quantity"
-                                id="Quantity-{{ section.id }}"
-                                data-cart-quantity="{{ cart_qty }}"
-                                data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                                min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                                {% comment %}
-                                  {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                                    data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                    max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                                  {% endif %}
-                                {% endcomment %}
-                                data-max="3"
+                                name="updates[]"
+                                value="{{ item.quantity }}"
+                                {% # theme-check-disable %}
+                                data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                min="0"
+                                data-min="{{ item.variant.quantity_rule.min }}"
                                 max="3"
-                                step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                                value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                                form="{{ product_form_id }}"
+
+                                step="{{ item.variant.quantity_rule.increment }}"
+                                {% # theme-check-enable %}
+                                aria-label="
+                                                                {{- 'products.product.quantity.input_label' | t: product: item.product.title | escape -}}
+                                "
+                                id="Quantity-{{ item.index | plus: 1 }}"
+                                data-index="{{ item.index | plus: 1 }}"
                               >
 
                               <button class="quantity__button" name="plus" type="button">
