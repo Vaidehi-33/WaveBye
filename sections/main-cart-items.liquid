@@ -267,20 +267,8 @@
                                 {% endif %}
                                 step="{{ item.variant.quantity_rule.increment }}"
                                 value="{{ item.quantity }}"
-                                <!--
-                                Set
-                                initial
-                                value
-                                to
-                                current
-                                quantity
-                                in
-                                cart
-                                --
+                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                               >
-                              aria-label="
-                              {{- 'products.product.quantity.input_label' | t: product: item.product.title | escape -}}
-                              " >
 
                               <button class="quantity__button" name="plus" type="button">
                                 <span class="visually-hidden">
