@@ -1,104 +1,112 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 <style>
-  /* Flex container to align "Written by" and "Published on" side by side */
-  .icon-wrapper{
-    cursor: pointer;
+    .h3{
+    color: #0a1f44 !important;
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 16px !important;
   }
-  
-  .header-container{
-     display: flex;
-  }
+      /* Flex container to align "Written by" and "Published on" side by side */
+      .icon-wrapper{
+        cursor: pointer;
+      }
 
-  
-  .icon-container{
-    display: flex;
-    gap: 9px;
-    
-  }
-  .back-to-all-posts-container{
-    color: #0A1F44;
-    font-family: "Open Sans", sans-serif;
-        margin-bottom: 3rem;
-    
-  }
-  .back-to-all-posts-link{
-    text-decoration: none;
-    color: #0A1F44;
-    
-  }
-  .card-category-container{
-    display: flex !important;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-     font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-  }
-  .card-category{
-    background-color: #6C86FE;
-    color: white;
-    padding: 2px 10px;
-    border-radius:5px;
-  }
-.article-meta {
-  display: flex;
-  gap: 20px; /* Adds some space between the two sections */
-  margin-bottom: 10px;
-}
+      .header-container{
+         display: flex;
+      }
 
-.article-author,
-.article-date {
-  text-align: left; /* Aligns content to the left for each section */
-}
 
-.article-author span,
-.article-date span {
-  display: block; /* Forces the label and content to be on separate lines */
-}
+      .icon-container{
+        display: flex;
+        gap: 9px;
 
-.article-author .caption-with-letter-spacing,
-.article-date .caption-with-letter-spacing {
-  font-weight: bold; /* Makes the labels bold */
-  font-size: 14px; /* Adjust font size as needed */
-  font-family: "Open Sans", system-ui;
-}
+      }
+      .back-to-all-posts-container{
+        color: #0A1F44;
+        font-family: "Open Sans", sans-serif;
+            margin-bottom: 3rem;
 
-.article-author span[itemprop="name"],
-.article-date span {
-  font-size: 13px; /* Adjust the font size for the author name and date */
-  color: #333; /* Change color if needed */
-}
+      }
+      .back-to-all-posts-link{
+        text-decoration: none;
+        color: #0A1F44;
 
+      }
+      .card-category-container{
+        display: flex !important;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+         font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color:#0A1F44;
+      }
+      .card-category{
+        background-color: #6C86FE;
+        color: #FFFEF9;
+        padding: 2px 10px;
+        border-radius:5px;
+      }
+    .article-meta {
+      display: flex;
+      gap: 20px; /* Adds some space between the two sections */
+      margin-bottom: 10px;
+    }
+
+    .article-author,
+    .article-date {
+      text-align: left; /* Aligns content to the left for each section */
+    }
+
+    .article-author span,
+    .article-date span {
+      display: block; /* Forces the label and content to be on separate lines */
+    }
+
+    .article-author .caption-with-letter-spacing,
+    .article-date .caption-with-letter-spacing {
+      color:#0A1F44;
+      font-weight: 600; /* Makes the labels bold */
+      font-size: 14px; /* Adjust font size as needed */
+      font-family: "Open Sans", sans-serif;
+          margin-bottom: 5px;
+
+    }
+
+    .article-author span[itemprop="name"],
+    .article-date span {
+      font-family: "Open Sans", sans-serif;
+      color:#0A1F44;
+      font-size: 13px; /* Adjust the font size for the author name and date */
+    }
 </style>
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="back-to-all-posts-container">
     <a href="{{ blog.url }}" class="back-to-all-posts-link">
-      <span class="back-to-all-posts-icon"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.29294 0.292969L0.585938 5.99997L6.29294 11.707L7.70694 10.293L3.41394 5.99997L7.70694 1.70697L6.29294 0.292969Z" fill="#0A1F44"/>
-</svg>
-</span>
-    All Posts
+      <span class="back-to-all-posts-icon">
+        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.29294 0.292969L0.585938 5.99997L6.29294 11.707L7.70694 10.293L3.41394 5.99997L7.70694 1.70697L6.29294 0.292969Z" fill="#0A1F44"/>
+        </svg>
+      </span>
+      All Posts
     </a>
   </div>
 
-
-  
   <div class="card-category-container">
-  <div class="card-category">Category</div>
-  <div class="card-category-tag">
-    {% if article.tags.size > 0 %}
-      {{ article.tags.first }}
-    {% else %}
-      No category
-    {% endif %}
+    <div class="card-category">Category</div>
+    <div class="card-category-tag">
+      {% if article.tags.size > 0 %}
+        {{ article.tags.first }}
+      {% else %}
+        No category
+      {% endif %}
+    </div>
   </div>
-</div>
 
   <h1
-            class="article-template__title"
-            itemprop="headline"
-          >
-            {{ article.title | escape }}
-          </h1>
+    class="article-template__title"
+    itemprop="headline"
+  >
+    {{ article.title | escape }}
+  </h1>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -145,58 +153,98 @@
           class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
+          <div class="header-container">
+            <div class="article-meta">
+              {%- if block.settings.blog_show_author -%}
+                <div class="article-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <!--
+                    <span class="caption-with-letter-spacing">Written by</span>
+                    <span itemprop="name">{{ article.author }}</span>
+                  -->
 
-      <div class="header-container">
-          <div class="article-meta">
-  {%- if block.settings.blog_show_author -%}
-    <div class="article-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <span class="caption-with-letter-spacing">Written by</span> 
-      <span itemprop="name">{{ article.author }}</span>
-    </div>
-  {%- endif -%}
+                  {%- if article.metafields.custom.author != blank -%}
+                    <span class="caption-with-letter-spacing">Written by</span>
+                    <span itemprop="name">{{ article.metafields.custom.author }}</span>
+                  {%- else -%}
+                    <span class="caption-with-letter-spacing">Written by</span>
+                    <span itemprop="name">{{ article.metafields.custom.author }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
 
-  {%- if block.settings.blog_show_date -%}
-    <div class="article-date" itemprop="dateCreated pubdate datePublished">
-      <span class="caption-with-letter-spacing">Published on</span>
-      <span>{{ article.published_at | time_tag: format: 'date' }}</span>
-    </div>
-  {%- endif -%}
-</div>
-<div class="icon-container">
-  <div class="icon-wrapper">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="32" height="32" rx="16" fill="#EEEEEE"/>
-<path d="M8.22196 23.7777C8.68584 24.2423 9.23693 24.6106 9.84358 24.8615C10.4502 25.1123 11.1005 25.2409 11.757 25.2397C12.4136 25.2409 13.064 25.1123 13.6708 24.8614C14.2776 24.6105 14.8289 24.2422 15.293 23.7777L18.121 20.9487L16.707 19.5347L13.879 22.3637C13.3154 22.9247 12.5526 23.2397 11.7575 23.2397C10.9623 23.2397 10.1995 22.9247 9.63596 22.3637C9.07447 21.8004 8.75917 21.0375 8.75917 20.2422C8.75917 19.4469 9.07447 18.684 9.63596 18.1207L12.465 15.2927L11.051 13.8787L8.22196 16.7067C7.28577 17.6452 6.76001 18.9166 6.76001 20.2422C6.76001 21.5678 7.28577 22.8393 8.22196 23.7777ZM23.778 15.2927C24.7137 14.354 25.2391 13.0826 25.2391 11.7572C25.2391 10.4318 24.7137 9.16043 23.778 8.22172C22.8395 7.28552 21.568 6.75977 20.2425 6.75977C18.9169 6.75977 17.6454 7.28552 16.707 8.22172L13.879 11.0507L15.293 12.4647L18.121 9.63572C18.6845 9.07471 19.4473 8.75975 20.2425 8.75975C21.0376 8.75975 21.8004 9.07471 22.364 9.63572C22.9255 10.199 23.2408 10.9619 23.2408 11.7572C23.2408 12.5526 22.9255 13.3154 22.364 13.8787L19.535 16.7067L20.949 18.1207L23.778 15.2927Z" fill="#0A1F44"/>
-<path d="M12.464 20.9498L11.049 19.5358L19.536 11.0498L20.95 12.4648L12.464 20.9498Z" fill="#0A1F44"/>
-</svg>
-      
-  </div>
-  <div class="icon-wrapper">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="32" height="32" rx="16" fill="#EEEEEE"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 7.24219C7.67157 7.24219 7 7.91376 7 8.74219V23.7422C7 24.5706 7.67157 25.2422 8.5 25.2422H23.5C24.3284 25.2422 25 24.5706 25 23.7422V8.74219C25 7.91376 24.3284 7.24219 23.5 7.24219H8.5ZM12.5208 11.2449C12.5264 12.2012 11.8106 12.7904 10.9612 12.7862C10.1611 12.7819 9.46357 12.1449 9.46779 11.2463C9.47201 10.4012 10.14 9.72194 11.0076 9.74163C11.8879 9.76132 12.5264 10.4068 12.5208 11.2449ZM16.2797 14.0039H13.7597H13.7583V22.5638H16.4217V22.3641C16.4217 21.9842 16.4214 21.6042 16.4211 21.2241C16.4203 20.2103 16.4194 19.1954 16.4246 18.1819C16.426 17.9358 16.4372 17.6799 16.5005 17.445C16.7381 16.5675 17.5271 16.0008 18.4074 16.1401C18.9727 16.2286 19.3467 16.5563 19.5042 17.0893C19.6013 17.4225 19.6449 17.7811 19.6491 18.1285C19.6605 19.1761 19.6589 20.2237 19.6573 21.2714C19.6567 21.6412 19.6561 22.0112 19.6561 22.381V22.5624H22.328V22.3571C22.328 21.9051 22.3278 21.4532 22.3275 21.0013C22.327 19.8718 22.3264 18.7423 22.3294 17.6124C22.3308 17.1019 22.276 16.5985 22.1508 16.1049C21.9638 15.3708 21.5771 14.7633 20.9485 14.3246C20.5027 14.0124 20.0133 13.8113 19.4663 13.7888C19.404 13.7862 19.3412 13.7828 19.2781 13.7794C18.9984 13.7643 18.7141 13.7489 18.4467 13.8028C17.6817 13.9561 17.0096 14.3063 16.5019 14.9236C16.4429 14.9944 16.3852 15.0663 16.2991 15.1736L16.2797 15.1979V14.0039ZM9.68164 22.5666H12.3324V14.0095H9.68164V22.5666Z" fill="#0A1F44"/>
-</svg>
+              {%- if block.settings.blog_show_date -%}
+                <div class="article-date" itemprop="dateCreated pubdate datePublished">
+                  <span class="caption-with-letter-spacing">Published on</span>
+                  <span>{{ article.published_at | time_tag: format: 'date' }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+            <div class="icon-container">
+              <div class="icon-wrapper">
+                <!-- Copy Blog Post Link -->
+                <a href="#" onclick="copyLinkToClipboard()">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#EEEEEE"/>
+                    <path d="M8.22196 23.7777C8.68584 24.2423 9.23693 24.6106 9.84358 24.8615C10.4502 25.1123 11.1005 25.2409 11.757 25.2397C12.4136 25.2409 13.064 25.1123 13.6708 24.8614C14.2776 24.6105 14.8289 24.2422 15.293 23.7777L18.121 20.9487L16.707 19.5347L13.879 22.3637C13.3154 22.9247 12.5526 23.2397 11.7575 23.2397C10.9623 23.2397 10.1995 22.9247 9.63596 22.3637C9.07447 21.8004 8.75917 21.0375 8.75917 20.2422C8.75917 19.4469 9.07447 18.684 9.63596 18.1207L12.465 15.2927L11.051 13.8787L8.22196 16.7067C7.28577 17.6452 6.76001 18.9166 6.76001 20.2422C6.76001 21.5678 7.28577 22.8393 8.22196 23.7777ZM23.778 15.2927C24.7137 14.354 25.2391 13.0826 25.2391 11.7572C25.2391 10.4318 24.7137 9.16043 23.778 8.22172C22.8395 7.28552 21.568 6.75977 20.2425 6.75977C18.9169 6.75977 17.6454 7.28552 16.707 8.22172L13.879 11.0507L15.293 12.4647L18.121 9.63572C18.6845 9.07471 19.4473 8.75975 20.2425 8.75975C21.0376 8.75975 21.8004 9.07471 22.364 9.63572C22.9255 10.199 23.2408 10.9619 23.2408 11.7572C23.2408 12.5526 22.9255 13.3154 22.364 13.8787L19.535 16.7067L20.949 18.1207L23.778 15.2927Z" fill="#0A1F44"/>
+                    <path d="M12.464 20.9498L11.049 19.5358L19.536 11.0498L20.95 12.4648L12.464 20.9498Z" fill="#0A1F44"/>
+                  </svg>
+                </a>
+              </div>
 
-  </div>
-  <div class="icon-wrapper">
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="32" height="32" rx="16" fill="#EEEEEE"/>
-<path d="M21.1761 8.24219H23.9362L17.9061 15.0196L25 24.2422H19.4456L15.0951 18.6488L10.1172 24.2422H7.35544L13.8052 16.993L7 8.24219H12.6954L16.6279 13.3548L21.1761 8.24219ZM20.2073 22.6176H21.7368L11.8644 9.78147H10.2232L20.2073 22.6176Z" fill="#0A1F44"/>
-</svg>
+              <div class="icon-wrapper">
+                <!-- LinkedIn Share -->
+                <a
+                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | url_encode }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#EEEEEE"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 7.24219C7.67157 7.24219 7 7.91376 7 8.74219V23.7422C7 24.5706 7.67157 25.2422 8.5 25.2422H23.5C24.3284 25.2422 25 24.5706 25 23.7422V8.74219C25 7.91376 24.3284 7.24219 23.5 7.24219H8.5ZM12.5208 11.2449C12.5264 12.2012 11.8106 12.7904 10.9612 12.7862C10.1611 12.7819 9.46357 12.1449 9.46779 11.2463C9.47201 10.4012 10.14 9.72194 11.0076 9.74163C11.8879 9.76132 12.5264 10.4068 12.5208 11.2449ZM16.2797 14.0039H13.7597H13.7583V22.5638H16.4217V22.3641C16.4217 21.9842 16.4214 21.6042 16.4211 21.2241C16.4203 20.2103 16.4194 19.1954 16.4246 18.1819C16.426 17.9358 16.4372 17.6799 16.5005 17.445C16.7381 16.5675 17.5271 16.0008 18.4074 16.1401C18.9727 16.2286 19.3467 16.5563 19.5042 17.0893C19.6013 17.4225 19.6449 17.7811 19.6491 18.1285C19.6605 19.1761 19.6589 20.2237 19.6573 21.2714C19.6567 21.6412 19.6561 22.0112 19.6561 22.381V22.5624H22.328V22.3571C22.328 21.9051 22.3278 21.4532 22.3275 21.0013C22.327 19.8718 22.3264 18.7423 22.3294 17.6124C22.3308 17.1019 22.276 16.5985 22.1508 16.1049C21.9638 15.3708 21.5771 14.7633 20.9485 14.3246C20.5027 14.0124 20.0133 13.8113 19.4663 13.7888C19.404 13.7862 19.3412 13.7828 19.2781 13.7794C18.9984 13.7643 18.7141 13.7489 18.4467 13.8028C17.6817 13.9561 17.0096 14.3063 16.5019 14.9236C16.4429 14.9944 16.3852 15.0663 16.2991 15.1736L16.2797 15.1979V14.0039ZM9.68164 22.5666H12.3324V14.0095H9.68164V22.5666Z" fill="#0A1F44"/>
+                  </svg>
+                </a>
+              </div>
 
-  </div>
-  <div class="icon-wrapper">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="32" height="32" rx="16" fill="#EEEEEE"/>
-<path d="M26 16.3033C26 10.7467 21.5229 6.24219 16 6.24219C10.4771 6.24219 6 10.7467 6 16.3033C6 21.325 9.65684 25.4874 14.4375 26.2422V19.2116H11.8984V16.3033H14.4375V14.0867C14.4375 11.5651 15.9305 10.1723 18.2146 10.1723C19.3088 10.1723 20.4531 10.3688 20.4531 10.3688V12.8448H19.1922C17.95 12.8448 17.5625 13.6204 17.5625 14.4161V16.3033H20.3359L19.8926 19.2116H17.5625V26.2422C22.3432 25.4874 26 21.3252 26 16.3033Z" fill="#0A1F44"/>
-</svg>
+              <div class="icon-wrapper">
+                <!-- X (Twitter) Share -->
+                <a
+                  href="https://twitter.com/intent/tweet?url={{ page.url | url_encode }}&text=Check%20out%20this%20blog%20post!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#EEEEEE"/>
+                    <path d="M21.1761 8.24219H23.9362L17.9061 15.0196L25 24.2422H19.4456L15.4827 18.0481L12.6954 24.2422H10.1172L18.6488 12.5318L10.1172 24.2422H7.35544L13.8052 16.993L7 8.24219H12.6954L16.6279 13.3548L21.1761 8.24219ZM20.2073 22.6176H21.7368L11.8644 9.78147H10.2232L20.2073 22.6176Z" fill="#0A1F44"/>
+                  </svg>
+                </a>
+              </div>
 
+              <div class="icon-wrapper">
+                <!-- Facebook Share -->
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | url_encode }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#EEEEEE"/>
+                    <path d="M26 16.3033C26 10.7467 21.5229 6.24219 16 6.24219C10.4771 6.24219 6 10.7467 6 16.3033C6 21.325 9.65684 25.4874 14.4375 26.2422V19.2116H11.8984V16.3033H14.4375V14.0867C14.4375 11.5651 15.9305 10.1723 18.2146 10.1723C19.3088 10.1723 20.4531 10.3688 20.4531 10.3688V12.8448H19.1922C17.95 12.8448 17.5625 13.6204 17.5625 14.4161V16.3033H20.3359L19.8926 19.2116H17.5625V26.2422C22.3432 25.4874 26 21.3252 26 16.3033Z" fill="#0A1F44"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
 
-  </div>
-</div>
-      </div>
-
-
+            <script>
+              function copyLinkToClipboard() {
+                const blogPostUrl = window.location.href; // Get current blog post URL
+                navigator.clipboard.writeText(blogPostUrl).then(() => {
+                  alert("Link copied to clipboard!");
+                }).catch(err => {
+                  console.error("Could not copy link: ", err);
+                });
+              }
+            </script>
+          </div>
         </header>
 
       {%- when 'content' -%}
@@ -219,7 +267,6 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
