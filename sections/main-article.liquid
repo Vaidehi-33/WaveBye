@@ -194,7 +194,7 @@
               <div class="icon-wrapper">
                 <!-- LinkedIn Share -->
                 <a
-                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ article.url | url_param_escape }}"
+                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ article.url | prepend: shop.url }}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
