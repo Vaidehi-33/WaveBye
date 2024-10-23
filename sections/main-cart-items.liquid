@@ -251,23 +251,22 @@
                               </button>
                               <input
                                 class="quantity__input"
+                                data-quantity-variant-id="{{ item.variant.id }}"
                                 type="number"
                                 name="updates[]"
-                                id="Quantity-{{ item.index | plus: 1 }}"
-                                data-quantity-variant-id="{{ item.variant.id }}"
+                                value="{{ item.quantity }}"
+                                {% # theme-check-disable %}
                                 data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                min="0"
                                 data-min="{{ item.variant.quantity_rule.min }}"
-                                min="{{ item.variant.quantity_rule.min }}"
                                 {% if item.variant.quantity_rule.max != null %}
                                   max="{{ item.variant.quantity_rule.max }}"
-                                  data-max="{{ item.variant.quantity_rule.max }}"
-                                {% else %}
-                                  data-max="3"
-                                  max="3"
                                 {% endif %}
                                 step="{{ item.variant.quantity_rule.increment }}"
-                                value="{{ item.quantity }}"
+                                {% # theme-check-enable %}
                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                id="Quantity-{{ item.index | plus: 1 }}"
+                                data-index="{{ item.index | plus: 1 }}"
                               >
 
                               <button class="quantity__button" name="plus" type="button">
