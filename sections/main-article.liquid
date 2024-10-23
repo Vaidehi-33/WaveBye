@@ -78,8 +78,6 @@
       font-size: 13px; /* Adjust the font size for the author name and date */
     }
 </style>
-{% render 'share-button', block: block, share_link: page.url %}
-
 <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="back-to-all-posts-container">
     <a href="{{ blog.url }}" class="back-to-all-posts-link">
@@ -196,7 +194,7 @@
               <div class="icon-wrapper">
                 <!-- LinkedIn Share -->
                 <a
-                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_link | url_encode }}"
+                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | append: article.url | url_param_escape }}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
