@@ -194,6 +194,7 @@
     margin-top: 20px;
   }
 
+
   .newsletter-form input {
     margin-right: 10px;
   }
@@ -226,5 +227,11 @@
     .notification-block {
       flex: 1 1 calc(50% - 10px); /* 2 blocks per row */
     }
+  }
+  @media screen and (max-width: 750px) {
+    .newsletter-form {
+    display: flex;
+    flex-direction: column;
+  }
   }
 </style>
