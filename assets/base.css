@@ -3352,6 +3352,7 @@ details-disclosure > details {
     animation: var(--animation-fade-in);
   }
 
+  /*change */
   .scroll-trigger:not(.scroll-trigger--offscreen).animate--slide-in {
     animation: var(--animation-slide-in);
     animation-delay: calc(var(--animation-order) * 75ms);
