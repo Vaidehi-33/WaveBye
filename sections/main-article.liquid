@@ -191,8 +191,11 @@
                 </a>
               </div>
               <script>
-                var currentUrl = window.location.href;
-                document.querySelector('a.linkedin-share').href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(currentUrl);
+                document.addEventListener('DOMContentLoaded', function() {
+                  var currentUrl = window.location.href;
+                  var linkedinShareUrl = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(currentUrl);
+                  document.getElementById('linkedin-share').setAttribute('href', linkedinShareUrl);
+                });
               </script>
 
               <div class="icon-wrapper">
