@@ -56,22 +56,20 @@
 
       <!-- Contact Form Fields -->
       <div class="contact__fields">
-        <!-- Name Field -->
         <div class="field">
           <input
             class="field__input"
             autocomplete="name"
             type="text"
             id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            name="contact[name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.first_name }} {% if customer.last_name %} {{ customer.last_name }} {% endif %}{% endif %}"
             placeholder="{{ 'templates.contact.form.name' | t }}"
           >
           <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
 
-        <!-- Email Field -->
-        <div class="field field--with-error">
+        <div class="field{% if form.errors contains 'email' %} field--with-error{% endif %}">
           <input
             autocomplete="email"
             type="email"
@@ -89,9 +87,9 @@
             placeholder="{{ 'templates.contact.form.email' | t }}"
           >
           <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
+            {{ 'templates.contact.form.email' | t -}}
+            <span aria-hidden="true">*</span>
+          </label>
         </div>
 
         <!-- Phone Field -->
@@ -108,14 +106,20 @@
           >
           <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
         </div>
-
-        <!-- Reason for Contact Dropdown Field -->
         <div class="field">
-          <label class="field__label" for="ContactForm-reason">{{ 'Reason for contacting us' | t }}</label>
-          <select class="field__input" id="ContactForm-reason" name="contact[reason]">
-            {%- for option in section.settings.contact_reasons -%}
-              <option value="{{ option }}">{{ option }}</option>
-            {%- endfor -%}
+          <!-- Dropdown Field with Placeholder -->
+          <select
+            style="padding: 0.2rem 1.5rem 0.8rem 2rem;"
+            class="field__input"
+            id="ContactForm-reason"
+            name="contact[reason]"
+          >
+            <option value="" disabled selected>Reason for contacting us</option>
+            <!-- Placeholder Option -->
+            <option value="{{ section.settings.reason_option_1 }}">{{ section.settings.reason_option_1 }}</option>
+            <option value="{{ section.settings.reason_option_2 }}">{{ section.settings.reason_option_2 }}</option>
+            <option value="{{ section.settings.reason_option_3 }}">{{ section.settings.reason_option_3 }}</option>
+            <option value="{{ section.settings.reason_option_4 }}">{{ section.settings.reason_option_4 }}</option>
           </select>
         </div>
 
@@ -144,11 +148,16 @@
   </div>
 </div>
 
+<style>
+    .field__label {
+      display: block;
+      margin-bottom: 5px; /* Add spacing below the label */
+  }
+</style>
 {% schema %}
 {
   "name": "t:sections.contact-form.name",
   "tag": "section",
-  "class": "section",
   "settings": [
     {
       "type": "inline_richtext",
@@ -191,10 +200,6 @@
       "default": "scheme-1"
     },
     {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -215,10 +220,28 @@
       "default": 36
     },
     {
-      "type": "textarea",
-      "id": "contact_reasons",
-      "label": "Reasons for contacting us",
-      "default": "General Inquiry, Support, Feedback, Other"
+      "type": "text",
+      "id": "reason_option_1",
+      "label": "Contact Reason Option 1",
+      "default": "Product Inquiry"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_2",
+      "label": "Contact Reason Option 2",
+      "default": "Order Status"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_3",
+      "label": "Contact Reason Option 3",
+      "default": "Return"
+    },
+    {
+      "type": "text",
+      "id": "reason_option_4",
+      "label": "Contact Reason Option 4",
+      "default": "Other"
     }
   ],
   "presets": [
