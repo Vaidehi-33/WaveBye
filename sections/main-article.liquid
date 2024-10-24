@@ -190,6 +190,10 @@
                   </svg>
                 </a>
               </div>
+              <script>
+                var currentUrl = window.location.href;
+                document.querySelector('a.linkedin-share').href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(currentUrl);
+              </script>
 
               <div class="icon-wrapper">
                 <!-- LinkedIn Share -->
