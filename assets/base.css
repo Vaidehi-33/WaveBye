@@ -3028,7 +3028,7 @@ details-disclosure > details {
 
 .content-container {
   border-radius: var(--text-boxes-radius);
-  border: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
+  /* border: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity)); */
   position: relative;
 }
 
