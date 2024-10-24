@@ -196,6 +196,7 @@
               </script>
 
               <div class="icon-wrapper">
+                {% render 'share-button', block: block, share_link: share_url %}
                 <!-- LinkedIn Share -->
                 <a
                   href="https://www.linkedin.com/sharing/share-offsite/?url={{ canonical_url | url_encode }}"
