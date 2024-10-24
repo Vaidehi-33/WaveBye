@@ -48,7 +48,7 @@
         "image": "shopify://shop_images/wavee.png",
         "height": "medium",
         "desktop_image_width": "medium",
-        "layout": "image_first",
+        "layout": "text_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
@@ -57,7 +57,8 @@
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "padding_top": 0,
-        "padding_bottom": 20
+        "padding_bottom": 20,
+        "take_quiz_button_label": "Take a Quiz & Find The Right Product"
       }
     },
     "custom_products_hKmYiR": {
