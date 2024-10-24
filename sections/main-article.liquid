@@ -192,11 +192,9 @@
               </div>
 
               <div class="icon-wrapper">
-                {% assign share_link = article.url %}
-
                 <!-- LinkedIn Share -->
                 <a
-                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_link | url_encode }}"
+                  href="https://www.linkedin.com/sharing/share-offsite/?url={{ shop.url | append: article.url | url_param_escape }}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
