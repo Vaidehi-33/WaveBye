@@ -36,4 +36,8 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
   }
+  .contact__fields div:nth-child(5) {
+        grid-column: span 2; /* Makes the 5th div span across both columns */
+        justify-self: center; /* Centers the div horizontally */
+    }
 }
