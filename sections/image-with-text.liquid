@@ -15,12 +15,12 @@
 
   }
 
-    @media screen and (min-width: 750px) {
+    /* @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
-    }
+    } */
 {%- endstyle -%}
 
 {%- liquid
@@ -70,6 +70,7 @@
         </div>
         <div class="image-with-text__text-item grid__item">
           <div
+            style="padding-right:6rem;"
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
@@ -111,8 +112,10 @@
                       class="button"
                       id="takeQuizBtn"
                     >
-                      Take a Quiz
+                      {{ section.settings.take_quiz_button_label | escape }}
                     </button>
+
+                    </div>
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
@@ -170,7 +173,16 @@
 
       <!-- Step 5: Thank You -->
       <div id="quizResults" class="quiz-step" style="display:none;">
-        <h1>Thank You!</h1>
+        <h1
+          style="
+            font-size: 30px;
+            font-family: 'Outfit', sans-serif;
+            color: #0a1f44 !important;
+            font-weight: 600;
+          "
+        >
+          Thank You!
+        </h1>
         <div id="productRecommendations">
           <p class="question">Click here for product recommendations:</p>
           <button id="shopNowBtn">Shop Now</button>
@@ -274,167 +286,200 @@ document.getElementById('nextToResults').addEventListener('click', function() {
 function showRecommendations() {
   let recommendedProductUrl = '';
 
-  // Determine recommendations based on user answers
-  if (answers.pregnant === 'yes' && answers.pain === '1') {
-    recommendedProductUrl = 'https://varietywheels.com/products/product-for-mild-pain-and-pregnancy';
-  } else if (answers.pregnant === 'no' && answers.pain === '2') {
-    recommendedProductUrl = 'https://varietywheels.com/products/product-for-moderate-pain';
-  } else if (answers.pregnant === 'no' && answers.pain === '3') {
-    recommendedProductUrl = 'https://varietywheels.com/products/product-for-severe-pain';
+  // Condition 1: First question YES, second question answer is 1, move to third question
+  if (answers.pregnant === 'yes' && answers.pain === '1'&& answers.track === 'no') {
+    recommendedProductUrl = 'https://www.wavebye.co/products/wave-bye-cramps';
+
+  // Condition 2: First question NO, second question answer is 1, third question NO
+  } else if (answers.pregnant === 'no' && answers.pain === '1' && answers.track === 'no') {
+    recommendedProductUrl = 'https://www.wavebye.co/products/wave-bye-cramps'; // 3 months pre-paid product
+
+  // Condition 3: First question NO, second question answer is 2, third question NO
+  } else if (answers.pregnant === 'no' && answers.pain === '2' && answers.track === 'no') {
+    recommendedProductUrl = 'https://www.wavebye.co/products/wave-bye-bad-cramps'; // 3 months pre-paid product
+
+  // Condition 4: First question NO, second question answer is 3, third question NO
+  } else if (answers.pregnant === 'no' && answers.pain === '3' && answers.track === 'no') {
+    recommendedProductUrl = 'https://www.wavebye.co/products/wave-bye-severe-cramps'; // 3 months pre-paid product
+
+  // Condition 5: First question NO, second question answer is 0, third question NO
+  } else if (answers.pregnant === 'no' && answers.pain === '0' && answers.track === 'no') {
+    recommendedProductUrl = 'https://www.wavebye.co/products/hello-consistency'; // 3 months pre-paid product
+
   } else {
-    recommendedProductUrl = 'https://varietywheels.com/products/general-product'; // Default recommendation
+    // Default recommendation if none of the conditions match
+    recommendedProductUrl = 'https://www.wavebye.co/products/hello-consistency'; // Default product
   }
 
   document.getElementById('quizStep4').style.display = 'none';
   document.getElementById('quizResults').style.display = 'block';
   document.getElementById('productRecommendations').innerHTML = `
-    <p class="question">Based on your answers, we recommend:</p>
-    <a href="${recommendedProductUrl}" target="_blank">Click here to view the recommended product</a>
+    <p class="question">Based on your answers, we recommend you a 3 months pre-paid subscription of the following product:</p>
+    <a href="${recommendedProductUrl}" class="viewProductBtn">View Product</a>
   `;
 }
 </script>
 
 <style>
-    .viewProductBtn {
-    /* margin-top: 20px; */
-    padding: 10px 20px;
-    background-color: #6C86FE;
-    color: white;
-    border: none;
-    border-radius: 60px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none; /* Remove underline from the link */
-    display: inline-block;
-  }
-
-      .doctorfor{
-        font-size: 30px;
-            font-family: "Outfit", sans-serif;
-            color: #0a1f44 !important;
-            font-weight: 600;
-      }
-      .subheadevidence{
-              font-family: "Outfit", sans-serif;
-          font-size: 16px;
-          font-weight:400px;
-      }
-    .question{
-          font-family: "Open Sans", sans-serif;
-          font-size: 13px;
-          font-weight:400px;
-
-    }
-    .label{
-              font-family: "Open Sans", sans-serif;
-          font-size: 13px;
-          font-weight:400px;
-          line-height: 0;
-    }
-      /* Popup Background */
-      .popup-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-
-      /* Popup Content */
-      .popup-content {
-        display: flex; /* Use flexbox for side-by-side layout */
-        background-color: white;
-        /* padding: 20px; */
-        border-radius: 8px;
-        width: 80%;
-        max-width: 800px; /* Increased max-width for better layout */
-        min-height: 510px; /* Set minimum height for consistency */
-        position: relative;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      }
-    .popup-logo {
-      width: 10rem; /* Adjust as necessary */
-      height: auto; /* Maintain aspect ratio */
-      margin-bottom: 20px; /* Space between logo and quiz content */
-    }
-
-      /* Left Section */
-      .popup-left {
-        padding: 3rem;
-        flex: 0 0 60%; /* Takes up the left 70% */
-      }
-
-      /* Right Section */
-      .popupright {
-        border-radius: 0 8px 8px 0;
-        display: block !important;
-        flex: 0 0 40%; /* Solid color section on the right */
-        background-color: #D9D9D9;
-        /* Set a consistent height */
-        min-height: 100%; /* Make sure it spans the full height */
-      }
-
-      /* Close Button */
-      .close-button {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 24px;
-        color: #333;
-        cursor: pointer;
-      }
-
-      /* Quiz Step Buttons and Radio Inputs */
-      label {
-        display: block;
-        margin: 10px 0;
-        font-size: 16px;
-      }
-
-      label input {
-        margin-right: 10px;
-      }
-
-      /* Next Button */
-      .next-button {
+        .viewProductBtn {
+          color:#FFFEF9;
         margin-top: 20px;
         padding: 10px 20px;
         background-color: #6C86FE;
-        color: white;
         border: none;
         border-radius: 60px;
         cursor: pointer;
         font-size: 16px;
+        text-decoration: none; /* Remove underline from the link */
+        display: inline-block;
       }
 
-      .next-button:hover {
-        background-color: #5b74de;
-      }
+          .doctorfor{
+            font-size: 30px;
+                font-family: "Outfit", sans-serif;
+                color: #0a1f44 !important;
+                font-weight: 600;
+          }
+          .subheadevidence{
+            color:#0A1F44D9;
+                  font-family: "Outfit", sans-serif;
+              font-size: 16px;
+              font-weight:400px;
+          }
+        .question{
+              font-family: "Open Sans", sans-serif;
+          color:#0A1F44;
+              font-size: 14px;
+              font-weight:400px;
 
-      /* General Button */
-      button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
+        }
 
-      /* Shop Now Button */
-      #shopNowBtn {
-        background-color: #28a745;
-        color: white;
-      }
+          /* Popup Background */
+          .popup-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+          }
 
-      #shopNowBtn:hover {
-        background-color: #218838;
-      }
+          /* Popup Content */
+          .popup-content {
+            display: flex; /* Use flexbox for side-by-side layout */
+            background-color: white;
+            /* padding: 20px; */
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px; /* Increased max-width for better layout */
+            min-height: 510px; /* Set minimum height for consistency */
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          }
+        .popup-logo {
+          width: 10rem; /* Adjust as necessary */
+          height: auto; /* Maintain aspect ratio */
+          margin-bottom: 20px; /* Space between logo and quiz content */
+        }
+
+          /* Left Section */
+          .popup-left {
+            padding: 3rem;
+            flex: 0 0 60%; /* Takes up the left 70% */
+          }
+
+          /* Right Section */
+          .popupright {
+            border-radius: 0 8px 8px 0;
+            display: block !important;
+            flex: 0 0 40%; /* Solid color section on the right */
+            background-color: #D9D9D9;
+            /* Set a consistent height */
+            min-height: 100%; /* Make sure it spans the full height */
+          }
+
+          /* Close Button */
+          .close-button {
+            position: absolute;
+                top: 5px;
+        right: 20px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+          }
+
+          /* Quiz Step Buttons and Radio Inputs */
+          label {
+                          font-family: "Open Sans", sans-serif !important;
+          color:#0A1F44 !important;
+              font-size: 14px !important;
+              font-weight:400px !important;
+              line-height: 0;
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+          }
+
+          label input {
+            margin-right: 10px;
+          }
+
+          /* Next Button */
+          .next-button {
+            color:#FFFEF9;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6C86FE;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            font-size: 16px;
+          }
+
+          .next-button:hover {
+            background-color: #5b74de;
+          }
+
+          /* General Button */
+          button {
+            color:#FFFEF9;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+          /* Shop Now Button */
+          #shopNowBtn {
+            background-color: #6C86FE;
+            color: #FFFEF9;
+          }
+
+          #shopNowBtn:hover {
+            background-color: #6C86FE;
+          }
+    @media only screen and (max-width: 770px) {
+    .image-with-text__grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centering items */
+    }
+    .image-with-text__media-item,
+    .image-with-text__text-item {
+      width: 100%; /* Ensuring full width */
+      margin: 0 ; /* Centering content */
+    }
+    .image-with-text__content {
+      text-align: center; /* Center text */
+      padding-right: 0; /* Remove side padding for smaller screens */
+    }
+  }
 </style>
 
 {% schema %}
@@ -651,6 +696,12 @@ function showRecommendations() {
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+     {
+      "type": "text",
+      "id": "take_quiz_button_label",
+      "label": "Take Quiz Button Label",
+      "default": "Take a Quiz & Find The Right Product"
     }
   ],
   "blocks": [
