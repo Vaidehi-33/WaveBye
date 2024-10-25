@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -52,43 +52,98 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "take_quiz_button_label": "Take a Quiz & Find The Right Product"
       }
     },
     "our_team_YCDqGy": {
       "type": "our-team",
+      "blocks": {
+        "team_member_mNMB3c": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        },
+        "team_member_a73Amm": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/8.png",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        },
+        "team_member_xAM98r": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/wavee.png",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        },
+        "team_member_WHJaKN": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/71rzKMArJZL._SX569.jpg",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        },
+        "team_member_JDrTbc": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/81h32NQvVuL._SX569.jpg",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        },
+        "team_member_teEiaz": {
+          "type": "team_member",
+          "settings": {
+            "member_image": "shopify://shop_images/71ZOaLOUQtL._SX569__1.jpg",
+            "member_name": "Full Name",
+            "member_job_title": "Job Title",
+            "member_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "member_linkedin": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_facebook": "https://www.linkedin.com/in/shivam-chougale-0181ba218/",
+            "member_instagram": "https://www.linkedin.com/in/shivam-chougale-0181ba218/"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_mNMB3c",
+        "team_member_a73Amm",
+        "team_member_xAM98r",
+        "team_member_WHJaKN",
+        "team_member_JDrTbc",
+        "team_member_teEiaz"
+      ],
       "settings": {
         "tagline": "TAGLINE",
         "team_title": "Our Team",
-        "team_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "team_member_1_image": "shopify://shop_images/61bOqUZRSPL._AC_UF1000_1000_QL80.jpg",
-        "team_member_1_name": "Full Name",
-        "team_member_1_job_title": "Job Title",
-        "team_member_1_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-        "team_member_1_linkedin": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_1_facebook": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_1_instagram": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_2_image": "shopify://shop_images/71ZOaLOUQtL._SX569__1.jpg",
-        "team_member_2_name": "Full Name",
-        "team_member_2_job_title": "Job Title",
-        "team_member_2_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-        "team_member_2_linkedin": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_2_facebook": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_2_instagram": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_3_image": "shopify://shop_images/wavee.png",
-        "team_member_3_name": "Full Name",
-        "team_member_3_job_title": "Job Title",
-        "team_member_3_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-        "team_member_3_linkedin": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_3_facebook": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_3_instagram": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_4_image": "shopify://shop_images/Placeholder_Image_f2413f53-f8e0-4a6e-85f2-ad8689b37350.png",
-        "team_member_4_name": "Full Name",
-        "team_member_4_job_title": "Job Title",
-        "team_member_4_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-        "team_member_4_linkedin": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_4_facebook": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all",
-        "team_member_4_instagram": "https://www.linkedin.com/company/sparthoughts/posts/?feedView=all"
+        "team_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       }
     },
     "featured_blog_p84hkH": {
