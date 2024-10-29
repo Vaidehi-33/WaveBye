@@ -19,9 +19,8 @@
   position: relative;
 }
 
-  .image-with-text__grid--reverse {
-    flex-direction: row-reverse;
-  }
+.image-with-text__grid--reverse {
+  flex-direction: row-reverse;
 }
 
 .image-with-text__media {
@@ -491,11 +490,10 @@
   .multirow__inner {
     row-gap: var(--grid-desktop-vertical-spacing);
   }
-  
 }
 
 @media screen and (max-width: 400px) {
-.image-with-text__text--caption {
+  .image-with-text__text--caption {
     margin-bottom: 5rem;
+  }
 }
-} 
