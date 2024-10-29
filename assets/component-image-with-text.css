@@ -14,9 +14,10 @@
 
 .main-heading {
   /* Styles for the main heading */
+  font-family: Outfit, sans-serif;
   font-size: 36px;
-  color: #333;
   font-weight: 600;
+  line-height: 10px;
 }
 
 .duplicated-heading {
