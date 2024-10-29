@@ -11,48 +11,36 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
 }
- <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <div
-        style="padding: 0px 20px !important;"
-        class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}"
-      >
-        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
-          <div
-            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
-            {% if section.settings.height == 'adapt' and section.settings.image != blank %}
-              style=" padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
-            {% endif %}
-          >
-            {%- if section.settings.image != blank -%}
-              {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
-                {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
-                {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
-            {%- endcapture -%}
-              {%- else -%}
-                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-                {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
-            {%- endcapture -%}
-              {%- endif -%}
-              {{
-                section.settings.image
-                | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
-              }}
-            {%- else -%}
-              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-        </div>
-        <div class="image-with-text__text-item grid__item">
-          <div
-            style="padding-right:6rem;"
-            id="ImageWithText--{{ section.id }}"
-            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
-          >
+.image-with-text__media {
+  position: relative; /* Establishes positioning context for the pseudo-element */
+  padding: 0; /* Removes any default padding */
+  background-color: transparent; /* Ensures background is clear */
+}
+
+.image-with-text__media::before {
+  content: ""; /* Creates the border effect */
+  position: absolute; /* Positions the border relative to the container */
+  top: 0; /* Aligns the border with the top of the image */
+  left: 0; /* Aligns the border with the left of the image */
+  right: -6px; /* Extends the border right */
+  bottom: -6px; /* Extends the border down */
+  border-right: 6px solid #6c86fe; /* Right border */
+  border-bottom: 6px solid #6c86fe; /* Bottom border */
+  pointer-events: none; /* Ensures clicks go through to the image */
+}
+
+.image-with-text__media img {
+  display: block; /* Prevents bottom space under the image */
+  position: relative; /* Normal positioning within its container */
+  z-index: 1; /* Ensures the image appears above the border */
+  margin-top: -6px; /* Pulls the image up to overlap the top border */
+  margin-left: -6px; /* Pulls the image left to overlap the left border */
+  width: calc(
+    100% + 6px
+  ); /* Ensures the image fully covers the width, extending past the padding */
+  height: auto; /* Keeps aspect ratio intact */
+}
+
 .main-heading {
   /* Styles for the main heading */
   font-family: Outfit, sans-serif;
