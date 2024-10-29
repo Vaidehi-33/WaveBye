@@ -93,7 +93,11 @@
                   </h2>
                 {%- when 'caption' -%}
                   <p
-                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
+                    class="
+                      image-with-text__text image-with-text__caption
+                      {{ block.settings.text_style }}
+                      {{ block.settings.text_style }}--{{ block.settings.text_size }}
+                    "
                     {{ block.shopify_attributes }}
                   >
                     {{ block.settings.caption | escape }}
@@ -104,9 +108,7 @@
                   </div>
                 {%- when 'button' -%}
                   {% if block.settings.button_label != blank %}
-                    <!-- Container for both buttons -->
                     <div class="button-container">
-                      <!-- New "Take a Quiz" Button -->
                       <button class="button" id="takeQuizBtn">
                         {{ section.settings.take_quiz_button_label | escape }}
                       </button>
@@ -122,8 +124,8 @@
                         {{ block.settings.button_label | escape }}
                       </a>
                     </div>
-                  {%- endif -%}
-              {%- endcase -%}
+                  {% endif %}
+              {% endcase %}
             {%- endfor -%}
           </div>
         </div>
