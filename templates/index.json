@@ -30,7 +30,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "SHOP PRESALES NOW",
+            "button_label": "Explore Products",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
