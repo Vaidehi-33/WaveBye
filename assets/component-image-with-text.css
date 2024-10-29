@@ -12,17 +12,18 @@
   font-weight: 700;
 }
 .image-with-text__media {
-  position: relative; /* Allow positioning of the image inside the border */
+  position: relative; /* Allow positioning of the border relative to the image */
 }
 
-.image-with-text__media::before {
+.image-with-text__media::after {
   content: ""; /* Required for pseudo-element */
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 3px solid #6c86fe; /* Border color and size */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  right: -3px; /* Extend to the right, adjust for border width */
+  bottom: -3px; /* Extend down to the bottom, adjust for border width */
+  border-right: 3px solid #6c86fe; /* Right border */
+  border-bottom: 3px solid #6c86fe; /* Bottom border */
   z-index: -1; /* Place the border behind the image */
 }
 
