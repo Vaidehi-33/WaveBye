@@ -87,9 +87,9 @@
                 {%- when 'heading' -%}
                   <div class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}">
                     <h2>{{ block.settings.heading | escape }}</h2>
-                    <!-- Existing main heading -->
-                    <h2>{{ block.settings.heading | escape }}</h2>
-                    <!-- Duplicated main heading -->
+                    <!-- Main Heading -->
+                    <h2>{{ block.settings.duplicated_heading | escape }}</h2>
+                    <!-- Duplicated Main Heading -->
                   </div>
 
                 {%- when 'caption' -%}
