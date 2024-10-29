@@ -89,8 +89,15 @@
                     class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
                     {{ block.shopify_attributes }}
                   >
-                    {{ block.settings.heading }}
+                    {{ block.settings.heading | escape }}
                   </h2>
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.duplicated_heading | escape }}
+                  </h2>
+
                 {%- when 'caption' -%}
                   <div
                     class="image-with-text__text image-with-text__caption {{ block.settings.text_style }}"
