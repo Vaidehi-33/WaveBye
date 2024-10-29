@@ -12,31 +12,7 @@
   font-weight: 700;
 }
 .image-with-text__media {
-  position: relative; /* Establishes positioning context for the pseudo-element */
-  padding: 0; /* Removes any default padding */
-  background-color: transparent; /* Ensures background is clear */
-}
-
-.image-with-text__media::before {
-  content: ""; /* Creates the border effect */
-  position: absolute; /* Positions the border relative to the container */
-  top: 0; /* Aligns the border with the top of the image */
-  left: 0; /* Aligns the border with the left of the image */
-  border-right: 6px solid #6c86fe !important; /* Right border */
-  border-bottom: 6px solid #6c86fe; /* Bottom border */
-  pointer-events: none; /* Ensures clicks go through to the image */
-}
-
-.image-with-text__media img {
-  display: block; /* Prevents bottom space under the image */
-  position: relative; /* Normal positioning within its container */
-  z-index: 1; /* Ensures the image appears above the border */
-  margin-top: -6px; /* Pulls the image up to overlap the top border */
-  margin-left: -6px; /* Pulls the image left to overlap the left border */
-  width: calc(
-    100% + 6px
-  ); /* Ensures the image fully covers the width, extending past the padding */
-  height: auto; /* Keeps aspect ratio intact */
+  border: 6px solid #6c86fe;
 }
 
 .main-heading {
