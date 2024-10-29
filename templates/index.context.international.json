@@ -13,5 +13,17 @@
     "market": "international"
   },
   "sections": {
+    "image-with-text": {
+      "settings": {
+      },
+      "blocks": {
+        "heading": {
+          "settings": {
+            "heading": "Stop Period Pain",
+            "duplicated_heading": "Before It Starts"
+          }
+        }
+      }
+    }
   }
 }
