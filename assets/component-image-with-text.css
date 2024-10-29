@@ -12,31 +12,33 @@
   font-weight: 700;
 }
 .image-with-text__media {
-  position: relative; /* Establishes a positioning context */
-  padding: 6px; /* Creates space for the border */
-  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
-  border: 6px solid transparent; /* Initially transparent border */
+  position: relative; /* Establishes a positioning context for absolute positioning */
+  padding: 6px; /* Space for the border without affecting the image size */
+  box-sizing: border-box; /* Ensures padding and border are included in total width and height */
+  background-color: transparent; /* Ensures background is clear */
 }
 
 .image-with-text__media::before {
   content: ""; /* Creates a pseudo-element for the border effect */
-  position: absolute; /* Position it absolutely */
+  position: absolute; /* Positions it relative to the parent */
   top: 0; /* Aligns with the top of the container */
   left: 0; /* Aligns with the left of the container */
-  right: -6px; /* Extends to the right beyond the container */
-  bottom: -6px; /* Extends to the bottom beyond the container */
-  border-right: 6px solid #6c86fe; /* Right border */
-  border-bottom: 6px solid #6c86fe; /* Bottom border */
-  pointer-events: none; /* Allows clicks to pass through */
+  right: -6px; /* Extends to the right outside the container */
+  bottom: -6px; /* Extends to the bottom outside the container */
+  border-right: 6px solid #6c86fe; /* Visible right border */
+  border-bottom: 6px solid #6c86fe; /* Visible bottom border */
+  pointer-events: none; /* Allows interactions with the image or content underneath */
 }
 
 .image-with-text__media img {
-  display: block; /* Prevents bottom space under the image */
-  position: relative; /* Allows for normal positioning */
-  top: -6px; /* Pulls the image up to overlap the border */
-  left: -6px; /* Pulls the image left to overlap the border */
-  width: calc(100% + 6px); /* Ensures the image covers the container */
-  height: auto; /* Maintains aspect ratio */
+  display: block; /* Prevents bottom space below the image */
+  position: relative; /* Positions the image normally within its container */
+  top: -6px; /* Pulls the image up to overlap the top border */
+  left: -6px; /* Pulls the image left to overlap the left border */
+  width: calc(
+    100% + 6px
+  ); /* Ensures the image covers the entire width, extending past the padding */
+  height: auto; /* Maintains the aspect ratio of the image */
 }
 
 .main-heading {
