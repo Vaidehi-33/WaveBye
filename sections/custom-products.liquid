@@ -176,18 +176,13 @@
               {%- capture point_key -%}point_{{ i }}{%- endcapture -%}
               {%- assign point = block.settings[point_key] -%}
               {%- if point != blank -%}
-                <li>
-                  {%- if i == 1 -%}
-                    {{ point }}
-                    <!-- No tick for the first point -->
-                  {%- else -%}
-                    <span class="tick-mark">✓</span> {{ point }}
-                    <!-- Black thin tick for other points -->
-                  {%- endif -%}
+                <li class="{% if i != 1 %}caption-point{% endif %}">
+                  {{ point }}
                 </li>
               {%- endif -%}
             {%- endfor -%}
           </ul>
+
           <form method="post" action="/cart/add" class="ajax-add-to-cart">
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             <button
