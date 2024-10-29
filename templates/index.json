@@ -22,7 +22,9 @@
         "caption_3FXyUx": {
           "type": "caption",
           "settings": {
-            "caption": "Backed by Highest Levels of Scientific Evidence",
+            "caption_line1": "FDA Approved",
+            "caption_line2": "Doctor Endorsed",
+            "caption_line3": "Women-certified",
             "text_style": "subtitle",
             "text_size": "small"
           }
