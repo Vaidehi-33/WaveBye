@@ -12,9 +12,24 @@
   font-weight: 700;
 }
 .image-with-text__media {
-  border: 6px solid #6c86fe;
-  border-right: 6px solid #6c86fe; /* Change the width as needed */
-  border-bottom: 6px solid #6c86fe; /* Change the width as needed */
+  position: relative; /* Allows for absolute positioning of the image */
+  border: 6px solid transparent; /* Make the border transparent initially */
+  padding: 6px; /* Create space for the border */
+  box-sizing: border-box; /* Include border in element's total width and height */
+}
+
+.image-with-text__media img {
+  position: absolute; /* Position the image absolutely */
+  top: -6px; /* Offset the image up by the border's width */
+  left: -6px; /* Offset the image left by the border's width */
+  width: calc(100% + 6px); /* Ensure the image covers the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Add the border color */
+.image-with-text__media {
+  border-right: 6px solid #6c86fe; /* Right border */
+  border-bottom: 6px solid #6c86fe; /* Bottom border */
 }
 
 .main-heading {
