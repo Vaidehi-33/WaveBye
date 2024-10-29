@@ -433,7 +433,7 @@
 } */
 
 .image-with-text__content > * + * {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .image-with-text__content > .image-with-text__text:empty ~ a {
