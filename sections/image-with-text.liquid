@@ -690,40 +690,52 @@ function showRecommendations() {
         }
       ]
     },
+{
+  "type": "caption",
+  "name": "t:sections.image-with-text.blocks.caption.name",
+  "limit": 1,
+  "settings": [
     {
-      "type": "caption",
-      "name": "t:sections.image-with-text.blocks.caption.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "caption",
-          "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
-          "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {"value": "subtitle", "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__1.label"},
-            {"value": "caption-with-letter-spacing", "label": "t:sections.image-with-text.blocks.caption.settings.text_style.options__2.label"}
-          ],
-          "default": "caption-with-letter-spacing",
-          "label": "t:sections.image-with-text.blocks.caption.settings.text_style.label"
-        },
-        {
-          "type": "select",
-          "id": "text_size",
-          "options": [
-            {"value": "small", "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__1.label"},
-            {"value": "medium", "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__2.label"},
-            {"value": "large", "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.options__3.label"}
-          ],
-          "default": "medium",
-          "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
-        }
-      ]
+      "type": "text",
+      "id": "caption_line1",
+      "label": "Caption Line 1",
+      "default": "Default caption line 1"
     },
+    {
+      "type": "text",
+      "id": "caption_line2",
+      "label": "Caption Line 2",
+      "default": "Default caption line 2"
+    },
+    {
+      "type": "text",
+      "id": "caption_line3",
+      "label": "Caption Line 3",
+      "default": "Default caption line 3"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {"value": "subtitle", "label": "Subtitle"},
+        {"value": "caption-with-letter-spacing", "label": "Caption with Letter Spacing"}
+      ],
+      "default": "caption-with-letter-spacing",
+      "label": "Text Style"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {"value": "small", "label": "Small"},
+        {"value": "medium", "label": "Medium"},
+        {"value": "large", "label": "Large"}
+      ],
+      "default": "medium",
+      "label": "Caption Size"
+    }
+  ]
+},
     {
       "type": "text",
       "name": "t:sections.image-with-text.blocks.text.name",
