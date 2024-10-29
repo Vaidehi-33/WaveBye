@@ -16,14 +16,14 @@
   /* Styles for the main heading */
   font-size: 36px;
   color: #333;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .duplicated-heading {
   /* Styles for the duplicated heading */
   font-size: 36px;
   color: #0a1f44;
-  font-style: italic;
+  font-style: 600;
 }
 
 .caption-point {
