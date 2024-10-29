@@ -1,26 +1,37 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      }
+
+    .button {
+    padding: 1px 30px;
+    gap: 8px;
+    border-radius: 30px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+
     }
-
-  .button {
-  padding: 1px 30px;
-  gap: 8px;
-  border-radius: 30px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
-
+    .button-container {
+    display: flex;
+    gap: 10px; /* Adjust the spacing between the buttons as needed */
   }
 
-    /* @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
-    } */
+  .button-container .button,
+  .button-container a.button {
+    flex: 1; /* To make each button occupy equal width */
+    display: inline-block;
+  }
+
+
+      /* @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      } */
 {%- endstyle -%}
 
 {%- liquid
@@ -41,35 +52,7 @@
         class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}"
       >
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
-          <div
-            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
-            {% if section.settings.height == 'adapt' and section.settings.image != blank %}
-              style=" padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
-            {% endif %}
-          >
-            {%- if section.settings.image != blank -%}
-              {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
-                {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
-                {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
-            {%- endcapture -%}
-              {%- else -%}
-                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-                {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
-            {%- endcapture -%}
-              {%- endif -%}
-              {{
-                section.settings.image
-                | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
-              }}
-            {%- else -%}
-              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
+          <!-- Media Content -->
         </div>
         <div class="image-with-text__text-item grid__item">
           <div
@@ -98,28 +81,27 @@
                     {{ block.settings.text }}
                   </div>
                 {%- when 'button' -%}
-                  {%- if block.settings.button_label != blank -%}
-                    <a
-                      {% if block.settings.button_link == blank %}
-                        role="link" aria-disabled="true"
-                      {% else %}
-                        href="{{ block.settings.button_link }}"
-                      {% endif %}
-                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
-                      {{ block.shopify_attributes }}
-                    >
-                      {{ block.settings.button_label | escape }}
-                    </a>
-                    <!-- New "Take a Quiz" Button -->
-                    <button
-                      class="button"
-                      id="takeQuizBtn"
-                    >
-                      {{ section.settings.take_quiz_button_label | escape }}
-                    </button>
+                  {% if block.settings.button_label != blank %}
+                    <!-- Container for both buttons -->
+                    <div class="button-container">
+                      <a
+                        {% if block.settings.button_link == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ block.settings.button_link }}"
+                        {% endif %}
+                        class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                        {{ block.shopify_attributes }}
+                      >
+                        {{ block.settings.button_label | escape }}
+                      </a>
 
+                      <!-- New "Take a Quiz" Button -->
+                      <button class="button" id="takeQuizBtn">
+                        {{ section.settings.take_quiz_button_label | escape }}
+                      </button>
                     </div>
-                  {%- endif -%}
+                  {% endif %}
               {%- endcase -%}
             {%- endfor -%}
           </div>
@@ -128,6 +110,7 @@
     </div>
   </div>
 </div>
+
 <!-- Quiz Popup -->
 <div id="quizPopup" class="popup-background" style="display:none;">
   <div class="popup-content">
