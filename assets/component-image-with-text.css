@@ -12,7 +12,21 @@
   font-weight: 700;
 }
 .image-with-text__media {
-  border: px solid #6c86fe;
+  position: relative; /* Make this position relative for the pseudo-element */
+  z-index: 1; /* Ensure the image appears above the border */
+}
+
+.image-with-text__media::after {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  right: 0; /* Position on the right */
+  border-right: 3px solid #6c86fe; /* Right border */
+  border-bottom: 3px solid #6c86fe; /* Bottom border */
+  width: 100%; /* Cover the full width of the parent */
+  height: 100%; /* Cover the full height of the parent */
+  box-sizing: border-box; /* Ensure border thickness is included in size */
+  z-index: -1; /* Send the border behind the image */
 }
 
 .main-heading {
