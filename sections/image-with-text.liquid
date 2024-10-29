@@ -93,13 +93,14 @@
                   </h2>
                 {%- when 'caption' -%}
                   <div
-                    class="image-with-text__text image-with-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}"
+                    class="image-with-text__text image-with-text__caption {{ block.settings.text_style }}"
                     {{ block.shopify_attributes }}
                   >
-                    <p>{{ block.settings.caption_line1 | escape }}</p>
-                    <p>{{ block.settings.caption_line2 | escape }}</p>
-                    <p>{{ block.settings.caption_line3 | escape }}</p>
+                    <p class="caption-point">{{ block.settings.caption_line1 | escape }}</p>
+                    <p class="caption-point">{{ block.settings.caption_line2 | escape }}</p>
+                    <p class="caption-point">{{ block.settings.caption_line3 | escape }}</p>
                   </div>
+
                 {%- when 'text' -%}
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
