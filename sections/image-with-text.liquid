@@ -85,13 +85,12 @@
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
-                  <div class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}">
-                    <h2>{{ block.settings.heading | escape }}</h2>
-                    <!-- Main Heading -->
-                    <h2>{{ block.settings.duplicated_heading | escape }}</h2>
-                    <!-- Duplicated Main Heading -->
-                  </div>
-
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.heading }}
+                  </h2>
                 {%- when 'caption' -%}
                   <div
                     class="image-with-text__text image-with-text__caption {{ block.settings.text_style }}"
@@ -669,16 +668,28 @@ function showRecommendations() {
   "limit": 1,
   "settings": [
     {
+      "type": "text",
+      "id": "heading_above",
+      "default": "Default Heading Above",
+      "label": "Heading Above"
+    },
+    {
       "type": "inline_richtext",
       "id": "heading",
       "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
       "label": "Main Heading"
     },
     {
-      "type": "inline_richtext",
-      "id": "duplicated_heading",
-      "default": "t:sections.image-with-text.blocks.heading.settings.duplicated_heading.default",
-      "label": "Duplicated Main Heading"
+      "type": "text",
+      "id": "heading_below_1",
+      "default": "Default Heading Below 1",
+      "label": "Heading Below 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_below_2",
+      "default": "Default Heading Below 2",
+      "label": "Heading Below 2"
     },
     {
       "type": "select",
