@@ -11,6 +11,21 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
 }
+
+.main-heading {
+  /* Styles for the main heading */
+  font-size: 36px;
+  color: #333;
+  font-weight: bold;
+}
+
+.duplicated-heading {
+  /* Styles for the duplicated heading */
+  font-size: 36px;
+  color: #0a1f44;
+  font-style: italic;
+}
+
 .caption-point {
   position: relative;
   padding-left: 30px; /* Space for the circle */
