@@ -1,41 +1,26 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-      }
-  .button-container {
-    display: flex;
-    gap: 10px; /* Adjust the spacing between the buttons as needed */
-  }
-
-  .button-container .button {
-    display: inline-block;
-  }
-
-  /* Image Flex Properties */
-  .image-with-text__media {
-    display: flex; /* Ensures image container does not collapse */
-    align-items: center;
-    justify-content: center;
-  }
-
-    .button {
-    padding: 1px 30px;
-    gap: 8px;
-    border-radius: 30px;
-    border: 1px 0px 0px 0px;
-    opacity: 0px;
-
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
 
-      /* @media screen and (min-width: 750px) {
-        .section-{{ section.id }}-padding {
-          padding-top: {{ section.settings.padding_top }}px;
-          padding-bottom: {{ section.settings.padding_bottom }}px;
-        }
-      } */
+  .button {
+  padding: 1px 30px;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+
+  }
+
+    /* @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    } */
 {%- endstyle -%}
 
 {%- liquid
