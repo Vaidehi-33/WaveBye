@@ -86,9 +86,10 @@
               {% case block.type %}
                 {%- when 'heading' -%}
                   <div class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}">
-                    <h3>{{ block.settings.heading_above | escape }}</h3>
                     <h2>{{ block.settings.heading | escape }}</h2>
-                    <h3>{{ block.settings.heading_below | escape }}</h3>
+                    <!-- Existing main heading -->
+                    <h2>{{ block.settings.heading | escape }}</h2>
+                    <!-- Duplicated main heading -->
                   </div>
 
                 {%- when 'caption' -%}
