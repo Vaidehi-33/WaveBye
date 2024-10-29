@@ -92,17 +92,14 @@
                     {{ block.settings.heading }}
                   </h2>
                 {%- when 'caption' -%}
-                  <p
-                    class="
-                      image-with-text__text image-with-text__caption
-                      {{ block.settings.text_style }}
-                      {{ block.settings.text_style }}--{{ block.settings.text_size }}
-                    "
+                  <div
+                    class="image-with-text__text image-with-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}"
                     {{ block.shopify_attributes }}
                   >
-                    {{ block.settings.caption | escape }}
-                  </p>
-
+                    <p>{{ block.settings.caption_line1 | escape }}</p>
+                    <p>{{ block.settings.caption_line2 | escape }}</p>
+                    <p>{{ block.settings.caption_line3 | escape }}</p>
+                  </div>
                 {%- when 'text' -%}
                   <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                     {{ block.settings.text }}
