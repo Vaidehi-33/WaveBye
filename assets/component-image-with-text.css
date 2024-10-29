@@ -19,7 +19,6 @@
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
   .image-with-text__grid--reverse {
     flex-direction: row-reverse;
   }
@@ -492,4 +491,11 @@
   .multirow__inner {
     row-gap: var(--grid-desktop-vertical-spacing);
   }
+  
 }
+
+@media screen and (max-width: 400px) {
+.image-with-text__text--caption {
+    margin-bottom: 5rem;
+}
+} 
