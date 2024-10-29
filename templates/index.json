@@ -15,7 +15,8 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Stop Period Pain Before It Starts",
+            "heading": "Stop Period Pain",
+            "duplicated_heading": "Before It Starts.",
             "heading_size": "h1"
           }
         },
@@ -25,8 +26,7 @@
             "caption_line1": "FDA Approved",
             "caption_line2": "Doctor Endorsed",
             "caption_line3": "Women-certified",
-            "text_style": "subtitle",
-            "text_size": "small"
+            "text_style": "subtitle"
           }
         },
         "button": {
