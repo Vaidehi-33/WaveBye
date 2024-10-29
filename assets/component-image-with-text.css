@@ -22,8 +22,8 @@
   color: #fffef9; /* Font color */
   background-color: #6c86fe; /* Background color */
   border-radius: 50%; /* Make it circular */
-  width: 20px; /* Circle diameter */
-  height: 20px; /* Circle diameter */
+  width: 18px; /* Circle diameter */
+  height: 18px; /* Circle diameter */
   display: flex; /* Center the tick inside the circle */
   justify-content: center; /* Center the tick horizontally */
   align-items: center; /* Center the tick vertically */
