@@ -669,22 +669,16 @@ function showRecommendations() {
   "limit": 1,
   "settings": [
     {
-      "type": "text",
-      "id": "heading_above",
-      "default": "Default Heading Above",
-      "label": "Heading Above"
-    },
-    {
       "type": "inline_richtext",
       "id": "heading",
       "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
-      "label": "Main Heading"
+      "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
     },
     {
-      "type": "text",
-      "id": "heading_below",
-      "default": "Default Heading Below",
-      "label": "Heading Below"
+      "type": "inline_richtext",
+      "id": "duplicated_heading",  // New setting for duplicated heading
+      "default": "Default duplicated heading", // Default text
+      "label": "Duplicated Heading" // Label for the customizer
     },
     {
       "type": "select",
