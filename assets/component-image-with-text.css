@@ -11,6 +11,28 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
 }
+.caption-point {
+  position: relative;
+  padding-left: 30px; /* Space for the circle */
+  margin: 10px 0; /* Optional: Adjust margin for spacing between points */
+}
+
+.caption-point::before {
+  content: "✓"; /* Unicode for the tick */
+  color: #fffef9; /* Font color */
+  background-color: #6c86fe; /* Background color */
+  border-radius: 50%; /* Make it circular */
+  width: 24px; /* Circle diameter */
+  height: 24px; /* Circle diameter */
+  display: flex; /* Center the tick inside the circle */
+  justify-content: center; /* Center the tick horizontally */
+  align-items: center; /* Center the tick vertically */
+  position: absolute;
+  left: 0; /* Align with text */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for exact vertical centering */
+}
+
 .image-with-text {
   padding: 0px;
   border-radius: 5px;
