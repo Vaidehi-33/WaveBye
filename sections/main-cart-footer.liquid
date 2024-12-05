@@ -4,136 +4,129 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-                .section-{{ section.id }}-padding {
-                  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-                  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-                }
-
-                @media screen and (min-width: 750px) {
-                  .section-{{ section.id }}-padding {
-                    padding-top: {{ section.settings.padding_top }}px;
-                    padding-bottom: {{ section.settings.padding_bottom }}px;
-                  }
-                }
-
-                /* Styles for the popup windows */
-                .popup-background {
-                  display: none;
-                  position: fixed;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background-color: rgba(0, 0, 0, 0.5);
-                  z-index: 999;
-                }
-              .close-button {
-                cursor: pointer;
-                font-size: 24px;
-                position: absolute;
-            right: 18px;
-                top: 0px;
-                color: #0a1f44; /* Change this color as needed */
+              .section-{{ section.id }}-padding {
+                padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+                padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
               }
-    .confirmation {
-    margin: 15px 0;
-    font-family: "Open Sans", sans-serif;
-    display: flex;
-    align-items: center;
-  }
 
-                .popup-content {
-                  font-size:14px;
-                  font-family: "Open Sans", sans-serif;
-                  font-weight:400;
-                  color: #0a1f44 !important;
-                  background-color: #fff;
-                  padding: 20px;
-                  border-radius: 10px;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                  position: fixed;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  z-index: 1000;
-                  max-width: 450px;
-                  text-align: center;
+              @media screen and (min-width: 750px) {
+                .section-{{ section.id }}-padding {
+                  padding-top: {{ section.settings.padding_top }}px;
+                  padding-bottom: {{ section.settings.padding_bottom }}px;
                 }
-          .title-wrapper-with-link .title {
-              margin: 0;
-              font-family: "Outfit", sans-serif;
-              color: #0a1f44 !important;
-              font-weight: 600;
-              font-size: 36px;
-          }
-          .cart-items thead th {
-            text-transform: uppercase;
-            font-size: 12px;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 400;
-            color: #0a1f44 !important;
-        }
-                .popup-content h2 {
-                          font-size: 26px;
-                  font-family: "Outfit", sans-serif;
-                  color: #0a1f44 !important;
-                  font-weight: 600;
-                  margin-bottom: 20px;
-                }
-                .pop-up-buttons{
-                  padding: 2rem;
+              }
 
-                  font-family: "Outfit", sans-serif;
-                  /* display:flex;
-              flex-direction: row; */
-                  gap: 2rem;
-                }
-
-                .popup-content button {
-                  margin:0.5rem;
-                  border-radius:60px;
-                  background-color: #6C86FE;
-                  color: white;
-                  border: none;
-                  padding: 10px 20px;
-                  cursor: pointer;
-                }
-
-                .popup-content input {
-                  width: 100%;
-                  padding: 10px;
-                  margin-bottom: 10px;
-                  border: 1px solid #ccc;
-                  border-radius: 5px;
-                }
-         @media only screen and (max-width: 615px) {
-            .pop-up-buttons{
-                  padding: 0;
+              /* Styles for the popup windows */
+              .popup-background {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+              }
+            .close-button {
+              cursor: pointer;
+              font-size: 24px;
+              position: absolute;
+          right: 18px;
+              top: 0px;
+              color: #0a1f44; /* Change this color as needed */
             }
-      .popup-content h2 {
-          font-size: 20px;
-      }
-           .popup-content {
-          font-size: 12px;
-           }
-           .popup-content button {
-          font-size: 12px;
-           }
-         }
-      @media only screen and (max-width: 500px) {
-      .cart-item__details>* {
-        font-size: 16px !important;
-      }
-        .price--end {
-        font-size: 16px !important;
+              .popup-content {
+                font-size:14px;
+                font-family: "Open Sans", sans-serif;
+                font-weight:400;
+                color: #0a1f44 !important;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                max-width: 450px;
+                text-align: center;
+              }
+        .title-wrapper-with-link .title {
+            margin: 0;
+            font-family: "Outfit", sans-serif;
+            color: #0a1f44 !important;
+            font-weight: 600;
+            font-size: 36px;
         }
-        .totals>h2 {
-        font-size: 16px !important;
-        }
-        .totals__total-value {
-        font-size: 16px;
+        .cart-items thead th {
+          text-transform: uppercase;
+          font-size: 12px;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 400;
+          color: #0a1f44 !important;
+      }
+              .popup-content h2 {
+                        font-size: 26px;
+                font-family: "Outfit", sans-serif;
+                color: #0a1f44 !important;
+                font-weight: 600;
+                margin-bottom: 20px;
+              }
+              .pop-up-buttons{
+                padding: 2rem;
+
+                font-family: "Outfit", sans-serif;
+                /* display:flex;
+            flex-direction: row; */
+                gap: 2rem;
+              }
+
+              .popup-content button {
+                margin:0.5rem;
+                border-radius:60px;
+                background-color: #6C86FE;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+              }
+
+              .popup-content input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+              }
+       @media only screen and (max-width: 615px) {
+          .pop-up-buttons{
+                padding: 0;
+          }
+    .popup-content h2 {
+        font-size: 20px;
     }
+         .popup-content {
+        font-size: 12px;
+         }
+         .popup-content button {
+        font-size: 12px;
+         }
+       }
+    @media only screen and (max-width: 500px) {
+    .cart-item__details>* {
+      font-size: 16px !important;
+    }
+      .price--end {
+      font-size: 16px !important;
       }
+      .totals>h2 {
+      font-size: 16px !important;
+      }
+      .totals__total-value {
+      font-size: 16px;
+  }
+    }
 {%- endstyle -%}
 
 <!-- First Popup: Phone Number for SMS Reminders -->
@@ -150,7 +143,6 @@
 -->
 
 <!-- Second Popup: Bundle Suggestion -->
-
 <div id="bundleSuggestionPopup" class="popup-background">
   <div class="popup-content">
     <span class="close-button" id="closeBundlePopup">&times;</span>
@@ -159,12 +151,8 @@
       If you have never tracked your period before, please consider purchasing the 3-month pre-paid bundle so you have
       additional treatment available if your timing is off.
     </p>
-    <div class="confirmation">
-      <input type="checkbox" id="ageConfirmation" style="margin-right: 10px;">
-      <label for="ageConfirmation" style="font-size: 14px;">I confirm that I am over 13 years of age.</label>
-    </div>
     <div class="pop-up-buttons">
-      <button id="continueCheckout" disabled>Continue to Checkout</button>
+      <button id="continueCheckout">Continue to Checkout</button>
       <button id="viewProducts">View Products</button>
     </div>
   </div>
@@ -286,33 +274,53 @@
 </div>
 
 <script>
-  // Enable/disable checkout button based on age confirmation
-  const ageCheckbox = document.getElementById('ageConfirmation');
-  const checkoutButton = document.getElementById('continueCheckout');
+  document.getElementById('checkout').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent checkout action
 
-  ageCheckbox.addEventListener('change', function () {
-    checkoutButton.disabled = !this.checked; // Enable button if checked, disable if unchecked
+    // Commenting out the first popup (Phone number entry)
+    // document.getElementById('smsReminderPopup').style.display = 'block'; // Commented out to disable the first popup
+
+    // Directly show the second popup (Bundle suggestion)
+    document.getElementById('bundleSuggestionPopup').style.display = 'block';
   });
 
-  checkoutButton.addEventListener('click', function () {
-    if (ageCheckbox.checked) {
-      // Hide the popup
-      document.getElementById('bundleSuggestionPopup').style.display = 'none';
+  // Commenting out the phone number submission process
+  /*
+  document.getElementById('submitPhoneNumber').addEventListener('click', function() {
+    const phoneNumber = document.getElementById('phoneNumber').value;
 
-      // Redirect to checkout page
-      window.location.href = '/checkout'; // Adjust this URL based on your store's checkout URL
+    if (phoneNumber) {
+      // Hide the first popup
+      document.getElementById('smsReminderPopup').style.display = 'none';
+
+      // Show the second popup
+      document.getElementById('bundleSuggestionPopup').style.display = 'block';
+    } else {
+      alert('Please enter a valid phone number.');
     }
   });
+  */
 
-  // View products button functionality
-  document.getElementById('viewProducts').addEventListener('click', function () {
+  document.getElementById('continueCheckout').addEventListener('click', function() {
+    // Hide the second popup
     document.getElementById('bundleSuggestionPopup').style.display = 'none';
+
+    // Redirect to checkout page
+    window.location.href = '/checkout'; // Adjust this URL based on your store's checkout URL
+  });
+
+  // Add event listener for the new button to view products
+  document.getElementById('viewProducts').addEventListener('click', function() {
+    // Hide the second popup
+    document.getElementById('bundleSuggestionPopup').style.display = 'none';
+
+    // Redirect to products page
     window.location.href = 'https://www.wavebye.co/collections/all';
   });
 
-  // Close button functionality
-  document.getElementById('closeBundlePopup').addEventListener('click', function () {
-    document.getElementById('bundleSuggestionPopup').style.display = 'none';
+  // Close buttons functionality
+  document.getElementById('closeBundlePopup').addEventListener('click', function() {
+    document.getElementById('bundleSuggestionPopup').style.display = 'none'; // Hide second popup
   });
 </script>
 
